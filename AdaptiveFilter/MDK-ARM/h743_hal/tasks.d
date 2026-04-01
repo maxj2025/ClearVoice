@@ -1,25 +1,22 @@
-./h743_hal/tasks.o: ../Tasks/Tasks.c ../Tasks/tasks.h \
-  ../SignalProcess\fftana.h ../SignalProcess/long_fft\extra_ffts.h \
-  ../Drivers/CMSIS/DSP/Include\arm_math.h \
-  ../Drivers/CMSIS/Include\cmsis_compiler.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  ../Drivers/CMSIS/Include/cmsis_armclang_ltm.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h ../MyDrive\bsp_system.h \
-  ../Core/Inc\main.h ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal.h \
+./h743_hal/tasks.o: ../Tasks/Tasks.c ../Tasks/Tasks.h \
+  ../MyDrive\bsp_system.h ../Core/Inc\main.h \
+  ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal.h \
   ../Core/Inc\stm32h7xx_hal_conf.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal_rcc.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
   ../Drivers/CMSIS/Device/ST/STM32H7xx/Include\stm32h7xx.h \
   ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h \
   ../Drivers/CMSIS/Include\core_cm7.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ../Drivers/CMSIS/Include/cmsis_version.h \
+  ../Drivers/CMSIS/Include/cmsis_compiler.h \
+  ../Drivers/CMSIS/Include/cmsis_armclang_ltm.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
   ../Drivers/CMSIS/Include/mpu_armv7.h \
   ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal_gpio.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h \
@@ -42,6 +39,9 @@
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal_uart.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+  ../Drivers/CMSIS/DSP/Include\arm_math.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h \
   ../Drivers/CMSIS/DSP/Include\arm_const_structs.h \
   ../Drivers/CMSIS/DSP/Include/arm_common_tables.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
@@ -51,4 +51,5 @@
   ../Core/Inc\dma.h ../MyDrive/delay.h ../MyDrive/bsp_system.h \
   ../MyDrive/AD9910.h ../MyDrive/AD9959.h ../MyDrive/HMI.h \
   ../MyDrive/sys.h ../MyDrive/Get_Freq.h ../Tasks\Tasks.h \
-  ../MyDrive/ad9220.h ../SignalProcess\FlatTop_Window_8192.h
+  ../MyDrive/ad9220.h ../SignalProcess\fftana.h \
+  ../SignalProcess\SignalSeperation.h

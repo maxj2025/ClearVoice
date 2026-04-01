@@ -109,28 +109,6 @@ void Error_Handler(void);
 #define AD9910_RST_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
-#define RXBUFFERSIZE 500  //串口接收最大缓冲大小
-
-
-typedef enum {
-    WAVE_SINE = 0,     // 正弦波
-    WAVE_SQUARE,       // 方波
-    WAVE_TRIANGLE,     // 三角波
-    WAVE_UNKNOWN       // 未知/初始状态
-} WaveType_t;
-
-/* 改进后的波形数据结构体 */
-typedef struct {
-    float32_t Freq;      // 频率
-    float32_t Vpp;       // 峰峰值
-    WaveType_t Wave_type; 
-} Wave_Struct;
-
-  typedef struct {
-    uint8_t Freq_flage;
-    uint16_t Freq_time;
-    uint8_t mode_flage;
-  }Freq_Struct;
 
 /* USER CODE END Private defines */
 

@@ -1,88 +1,74 @@
 
 #include "SignalSeperation.h"
+#include "Tasks.h"
 #include "main.h"
 
+void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, Analysis_Result_t *result) {
 
-void Freq_Analysis(fftdata *freqin, max_3_index *max_3, fftanadata *output) {
-   
     uint16_t idx1 = max_3->index[0];
     uint16_t idx2 = max_3->index[1];
     
-    float32_t mag_1 = freqin->mag[idx1];
-    float32_t mag_2 = freqin->mag[idx2];
-    
-    float32_t freq_1 = (float32_t)idx1 * ((float32_t)freq_s / (float32_t)FFT_N);
-    float32_t freq_2 = (float32_t)idx2 * ((float32_t)freq_s / (float32_t)FFT_N);
+    // 1. 基础波形识别 (依然通过 FFT 判断类型)
+    WaveType_t type1 = Rec_wavetype(freqin, idx1);
+    WaveType_t type2 = Rec_wavetype(freqin, idx2);
 
+    uint16_t idx_A, idx_B;
 
-    float32_t sum_sq = 0.0f;
-    for (uint16_t i = 1; i < FFT_N_2; i++) { 
-        sum_sq += (freqin->mag[i] * freqin->mag[i]);
-    }
-    output->total_rms = sqrtf(sum_sq / 2.0f);
-
-    //提取原始信号频率与干扰信号波形
-    float32_t mag1_3rd = 0.0f;
-    float32_t mag2_3rd = 0.0f;
-    
-    // 在频域中搜索 idx1 的三次谐波 
-    uint16_t target1 = idx1 * 3;
-    if (target1 < FFT_N_2) {
-        for (int offset = -2; offset <= 2; offset++) {
-            uint16_t search_idx = target1 + offset;
-            if (search_idx < FFT_N_2 && freqin->mag[search_idx] > mag1_3rd) {
-                mag1_3rd = freqin->mag[search_idx];
-            }
+    if (type1 != WAVE_SINE) {
+        idx_B = idx1;
+        idx_A = idx2;
+        result->Interfere.Wave_type = type1;
+        result->Original.Wave_type = WAVE_SINE;
+    } else if (type2 != WAVE_SINE) {
+        idx_B = idx2; idx_A = idx1;
+        result->Interfere.Wave_type = type2;
+        result->Original.Wave_type = WAVE_SINE;
+    } else {
+        if (freqin->mag[idx1] > freqin->mag[idx2]) {
+            idx_B = idx1; idx_A = idx2;
+        } else {
+            idx_B = idx2; idx_A = idx1;
         }
+        result->Interfere.Wave_type = WAVE_SINE;
+        result->Original.Wave_type = WAVE_SINE;
     }
+
+    // 3. 频率提取
+    result->Original.Freq = findnearfreq((float32_t)idx_A * FREQ_RES);
+    result->Interfere.Freq = findnearfreq((float32_t)idx_B * FREQ_RES);
+
+    // 直接采用硬件采集的干扰信号 RMS
+    float32_t rms_B = rms_b; 
+
+    // 利用总 RMS (算法计算) 和 干扰信号 RMS (硬件采集) 能量剥离
+    // 注意：Total_RMS 必须是去直流后的 AC_RMS
+    float32_t total_rms_sq = result->Total_RMS * result->Total_RMS;
+    float32_t rms_b_sq = rms_B * rms_B;
     
-    // 在频域中搜索 idx2 的三次谐波
-    uint16_t target2 = idx2 * 3;
-    if (target2 < FFT_N_2) {
-        for (int offset = -2; offset <= 2; offset++) {
-            uint16_t search_idx = target2 + offset;
-            if (search_idx < FFT_N_2 && freqin->mag[search_idx] > mag2_3rd) {
-                mag2_3rd = freqin->mag[search_idx];
-            }
-        }
-    }
+    float32_t rms_A_sq = total_rms_sq - rms_b_sq;
+    float32_t rms_A = (rms_A_sq > 0) ? sqrtf(rms_A_sq) : 0.0f;
+
+    // 5. 填充结果 (转换为 Vpp)
+    result->Original.Vpp = rms_A * 2.828427f; // 正弦波 Vpp = RMS * 2 * sqrt(2)
     
-    // 计算三次谐波与基波的幅度比值
-    float32_t ratio1 = (mag_1 > 0) ? (mag1_3rd / mag_1) : 0.0f;
-    float32_t ratio2 = (mag_2 > 0) ? (mag2_3rd / mag_2) : 0.0f;
-    
-    // 逻辑判定：有用信号A严格为正弦波(无谐波)，干扰信号B可能有谐波
-    // 方波的三次谐波比值约为 33% (0.33)，三角波约为 11% (0.11)
-    
-    if (ratio1 > 0.08f) { 
-        // 峰值 1 有明显谐波，说明 1 是干扰信号 B
-        output->freq_A = findnearfreq(freq_2);         // 峰值 2 则是原始信号 A
-        output->waveform_B = (ratio1 > 0.25f) ? 1 : 2; // >25% 判定为方波，否则为三角波
-    } 
-    else if (ratio2 > 0.08f) { 
-        // 峰值 2 有明显谐波，说明 2 是干扰信号 B
-        output->freq_A = findnearfreq(freq_1);         // 峰值 1 则是原始信号 A
-        output->waveform_B = (ratio2 > 0.25f) ? 1 : 2; 
-    } 
-    else {
-        // 两者都没有明显谐波，说明 A 和 B 都是正弦波
-        output->freq_A = findnearfreq(freq_2);  // 默认幅值第二大的(idx2)为原始信号 A
-        output->waveform_B = 0;                 // 干扰信号 B 也是正弦波
+    // 干扰信号 B 的 Vpp 转换 根据波形类型
+    if (result->Interfere.Wave_type == WAVE_SQUARE) {
+        result->Interfere.Vpp = rms_B * 2.0f; 
+    } else if (result->Interfere.Wave_type == WAVE_TRIANGLE) {
+        result->Interfere.Vpp = rms_B * 3.464101f; 
+    } else {
+        result->Interfere.Vpp = rms_B * 2.828427f;
     }
 }
 
-float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B) {
-    // 1. 计算信号 A 的能量 (RMS的平方)
-    float32_t rms_A_sq = (rms_mix * rms_mix) - (rms_B * rms_B);
-    
-    if (rms_A_sq <= 1e-12f) {
-        return 0.0f; 
+float32_t Get_Total_RMS(uint16_t *pData, uint16_t len) {
+    if (len == 0) return 0.0f;
+
+    float32_t sum_sq = 0.0f;
+    float32_t voltage_scale = 3.3f / 4095.0f;
+    float32_t voltage_scale_sq = voltage_scale * voltage_scale; 
+    for (uint16_t i = 0; i < len; i++) {
+        sum_sq += (float32_t)pData[i] * (float32_t)pData[i];
     }
-    
-    // 2. 开方得到信号 A 的交流有效值
-    float32_t rms_A = sqrtf(rms_A_sq);
-    
-    float32_t amp_A = 1.41421356f * rms_A; 
-    
-    return amp_A;
+    return sqrtf((sum_sq * voltage_scale_sq) / (float32_t)len);
 }

@@ -26,10 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "bsp_system.h"//各种头文件
-#include "signalseperation.h"
-#include "fftana.h"
-
+#include "bsp_system.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,7 +50,7 @@
 char aRxBuffer[RXBUFFERSIZE];
 uint16_t RX_len;
 
-uint8_t adc_dma_finish;//dma完成中断标志
+uint8_t dma_finish;
 
 __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
 
@@ -65,8 +62,8 @@ __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;//
 
 max_3_index Top3_Mix;//
 
-Wave_Struct Wave_origin;
-Wave_Struct Wave_noise;
+Analysis_Result_t output;//频率分析结果
+
 
 /* USER CODE END PV */
 
@@ -83,23 +80,18 @@ static void MPU_Config(void);
 void App_process(void)
 {   
     
-    if (adc_dma_finish == 0) {
+    if (dma_finish == 0) {
         return;
     }
-    adc_dma_finish = 0;
-
-    FFT_Task(&Wave_origin,&Wave_noise); //FFT任务
-		
-		Calc_Noice_Energy(&Wave_noise);//计算干扰信号的能量（峰峰值）
-		
-    Send_Wave(&Wave_origin);//AD9910重建原始信号5
-		
-    USART_Task(&Wave_origin,&Wave_noise);//串口发送所有需要显示的内容
-
-
-        Start_ADC();//连续滤波 重新开启ADC dma
-		
+    dma_finish = 0;
+    AD9220_Stop_DMA(); 
+    FFT_Task(&output); //FFT任务
+	
+//    Send_Wave(&output); //发送信号到AD9910  
+    AD9220_Start_DMA(adc1_buffer, FFT_N+4);
 }
+
+
 
 /* USER CODE END 0 */
 
@@ -152,11 +144,11 @@ int main(void)
   MX_TIM2_Init();
   MX_USART3_UART_Init();
   MX_ADC2_Init();
-  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   //  HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
+   AD9220_Init(adc1_buffer, FFT_N+4);
+   AD9220_Start_DMA(adc1_buffer, FFT_N+4);
 	 Init_AD9910();
-   Start_ADC();
 	 AD9910_FreWrite(300);//原始信号300hz
 	 AD9910_AmpWrite(10000);
 	 HMI_Init();
@@ -259,13 +251,7 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)//adc_dma中断回调
-{
-	if (hadc->Instance == ADC1) {
-		HAL_TIM_Base_Stop(&htim3);
-   adc_dma_finish = 1; 
-	}
-}
+
 
 // void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 // {

@@ -50,5 +50,5 @@
   ../Core/Inc\usart.h ../Core/Inc\adc.h ../Core/Inc\tim.h \
   ../Core/Inc\dma.h ../MyDrive/delay.h ../MyDrive/AD9910.h \
   ../MyDrive/AD9959.h ../MyDrive/HMI.h ../MyDrive/sys.h ../Tasks\Tasks.h \
-  ../SignalProcess\fftana.h ../SignalProcess/long_fft\extra_ffts.h \
-  ../MyDrive\bsp_system.h ../MyDrive/ad9220.h
+  ../MyDrive\bsp_system.h ../MyDrive/ad9220.h ../SignalProcess\fftana.h \
+  ../SignalProcess\SignalSeperation.h

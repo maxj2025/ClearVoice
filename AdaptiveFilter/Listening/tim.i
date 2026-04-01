@@ -237,11 +237,11 @@ typedef unsigned int uintptr_t;
 
 typedef signed long long intmax_t;
 typedef unsigned long long uintmax_t;
-# 34 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
+# 35 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 63 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 # 1 "../Drivers/CMSIS/Include/cmsis_version.h" 1 3
 # 29 "../Drivers/CMSIS/Include/cmsis_version.h" 3
-# 63 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
+# 64 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 162 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 # 1 "../Drivers/CMSIS/Include/cmsis_compiler.h" 1 3
 # 41 "../Drivers/CMSIS/Include/cmsis_compiler.h" 3
@@ -337,7 +337,7 @@ __vfp_status(unsigned int mask, unsigned int flags) {
   __asm__ __volatile__("vmsr fpscr, %[fpscr]" : : [fpscr] "r"(fpscr));
   return fpscr;
 }
-# 33 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 2 3
+# 34 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 2 3
 # 68 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
@@ -1082,8 +1082,8 @@ __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int
   __asm volatile ("smmla %0, %1, %2, %3" : "=r" (result): "r" (op1), "r" (op2), "r" (op3) );
   return(result);
 }
-# 41 "../Drivers/CMSIS/Include/cmsis_compiler.h" 2 3
-# 162 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
+# 42 "../Drivers/CMSIS/Include/cmsis_compiler.h" 2 3
+# 163 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 274 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef union
 {
@@ -1627,7 +1627,7 @@ static __inline void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt)
   }
   ARM_MPU_OrderedMemcpy(&(((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR), &(table->RBAR), cnt*rowWordSize);
 }
-# 2178 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
+# 2179 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 2199 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t SCB_GetFPUType(void)
 {
@@ -2021,8 +2021,7 @@ static __inline int32_t ITM_CheckChar (void)
     return (1);
   }
 }
-# 223 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
-
+# 224 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
 
 
 
@@ -2039,7 +2038,7 @@ extern const uint8_t D1CorePrescTable[16] ;
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
 extern void ExitRun0Mode(void);
-# 231 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
+# 232 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
 # 242 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef struct
 {
@@ -3829,7 +3828,7 @@ typedef struct
   volatile uint32_t AXI_INI6_FN_MOD;
 
 } GPV_TypeDef;
-# 126 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
+# 127 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
 # 180 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
 typedef enum
 {
@@ -3851,12 +3850,10 @@ typedef enum
 } ErrorStatus;
 # 283 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 1
-# 283 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
-# 29 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
-
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" 1
+# 284 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
 # 30 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
-
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" 1
+# 31 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 1 3
 # 38 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 3
   typedef signed int ptrdiff_t;
@@ -3864,8 +3861,7 @@ typedef enum
     typedef unsigned int size_t;
 # 71 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 3
       typedef unsigned short wchar_t;
-# 31 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
-
+# 32 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 1 3
 # 139 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
 extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_dcmp4(double , double );
@@ -4391,8 +4387,7 @@ __attribute__((nothrow)) long double tgammal(long double );
 extern __attribute__((nothrow)) __attribute__((const)) double trunc(double );
 extern __attribute__((nothrow)) __attribute__((const)) float truncf(float );
 __attribute__((nothrow)) long double truncl(long double );
-# 32 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
-
+# 33 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
 
 
 
@@ -4415,7 +4410,7 @@ typedef enum
   HAL_UNLOCKED = 0x00,
   HAL_LOCKED = 0x01
 } HAL_LockTypeDef;
-# 27 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h" 2
+# 28 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h" 2
 # 46 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h"
 typedef struct
 {
@@ -4808,7 +4803,7 @@ void HAL_RCCEx_CRS_SyncOkCallback(void);
 void HAL_RCCEx_CRS_SyncWarnCallback(void);
 void HAL_RCCEx_CRS_ExpectedSyncCallback(void);
 void HAL_RCCEx_CRS_ErrorCallback(uint32_t Error);
-# 7958 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h" 2
+# 7959 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h" 2
 # 7969 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h"
 HAL_StatusTypeDef HAL_RCC_DeInit(void);
 HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef *RCC_OscInitStruct);
@@ -4862,7 +4857,7 @@ typedef enum
 } GPIO_PinState;
 # 244 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h" 1
-# 244 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h" 2
+# 245 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h" 2
 # 255 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h"
 void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, const GPIO_InitTypeDef *GPIO_Init);
 void HAL_GPIO_DeInit(GPIO_TypeDef *GPIOx, uint32_t GPIO_Pin);
@@ -5071,7 +5066,7 @@ HAL_StatusTypeDef HAL_DMAEx_EnableMuxRequestGenerator (DMA_HandleTypeDef *hdma);
 HAL_StatusTypeDef HAL_DMAEx_DisableMuxRequestGenerator (DMA_HandleTypeDef *hdma);
 
 void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma);
-# 1174 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma.h" 2
+# 1175 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma.h" 2
 # 1187 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma.h"
 HAL_StatusTypeDef HAL_DMA_Init(DMA_HandleTypeDef *hdma);
 HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma);
@@ -7036,7 +7031,7 @@ static __inline uint32_t LL_ADC_IsEnabledIT_AWD3(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 31 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h" 2
+# 32 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h" 2
 # 49 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h"
 typedef struct
 {
@@ -7365,7 +7360,7 @@ HAL_StatusTypeDef HAL_ADCEx_EnableInjectedQueue(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_DisableInjectedQueue(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_DisableVoltageRegulator(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_EnterADCDeepPowerDownMode(ADC_HandleTypeDef *hadc);
-# 1917 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h" 2
+# 1918 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h" 2
 # 1929 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h"
 HAL_StatusTypeDef HAL_ADC_Init(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADC_DeInit(ADC_HandleTypeDef *hadc);
@@ -7569,7 +7564,7 @@ HAL_StatusTypeDef HAL_FLASHEx_Lock_Bank2(void);
 HAL_StatusTypeDef HAL_FLASHEx_ComputeCRC(FLASH_CRCInitTypeDef *pCRCInit, uint32_t *CRC_Result);
 # 1053 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h"
 void FLASH_Erase_Sector(uint32_t Sector, uint32_t Banks, uint32_t VoltageRange);
-# 707 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h" 2
+# 708 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h" 2
 # 717 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h"
 HAL_StatusTypeDef HAL_FLASH_Program(uint32_t TypeProgram, uint32_t FlashAddress, uint32_t DataAddress);
 HAL_StatusTypeDef HAL_FLASH_Program_IT(uint32_t TypeProgram, uint32_t FlashAddress, uint32_t DataAddress);
@@ -7740,7 +7735,7 @@ HAL_StatusTypeDef HAL_I2CEx_DisableWakeUp(I2C_HandleTypeDef *hi2c);
 
 void HAL_I2CEx_EnableFastModePlus(uint32_t ConfigFastModePlus);
 void HAL_I2CEx_DisableFastModePlus(uint32_t ConfigFastModePlus);
-# 590 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h" 2
+# 591 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h" 2
 # 601 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h"
 HAL_StatusTypeDef HAL_I2C_Init(I2C_HandleTypeDef *hi2c);
 HAL_StatusTypeDef HAL_I2C_DeInit(I2C_HandleTypeDef *hi2c);
@@ -7939,7 +7934,7 @@ void HAL_PWREx_DisableAVD (void);
 
 void HAL_PWREx_PVD_AVD_IRQHandler (void);
 void HAL_PWREx_AVDCallback (void);
-# 672 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h" 2
+# 673 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h" 2
 # 683 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h"
 void HAL_PWR_DeInit (void);
 void HAL_PWR_EnableBkUpAccess (void);
@@ -8395,7 +8390,7 @@ HAL_TIM_ChannelStateTypeDef HAL_TIMEx_GetChannelNState(const TIM_HandleTypeDef *
 # 513 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 void TIMEx_DMACommutationCplt(DMA_HandleTypeDef *hdma);
 void TIMEx_DMACommutationHalfCplt(DMA_HandleTypeDef *hdma);
-# 2189 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 2
+# 2190 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 2
 # 2201 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_Base_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_Base_DeInit(TIM_HandleTypeDef *htim);
@@ -8751,7 +8746,7 @@ HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_IT(UART_HandleTypeDef *huart, uint8_t
 HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 
 HAL_UART_RxEventTypeTypeDef HAL_UARTEx_GetRxEventType(const UART_HandleTypeDef *huart);
-# 1597 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h" 2
+# 1598 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h" 2
 # 1609 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_Init(UART_HandleTypeDef *huart);
@@ -8814,7 +8809,7 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 # 1730 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 extern const uint16_t UARTPrescTable[12];
 # 462 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-# 29 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 2
+# 30 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 2
 # 43 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h"
 typedef enum
 {
@@ -12793,34 +12788,12 @@ arm_status arm_sqrt_q15(
 # 34 "../Core/Inc/main.h" 2
 # 53 "../Core/Inc/main.h"
 void Error_Handler(void);
-# 115 "../Core/Inc/main.h"
-typedef enum {
-    WAVE_SINE = 0,
-    WAVE_SQUARE,
-    WAVE_TRIANGLE,
-    WAVE_UNKNOWN
-} WaveType_t;
-
-
-typedef struct {
-    float32_t Freq;
-    float32_t Vpp;
-    WaveType_t Wave_type;
-} Wave_Struct;
-
-  typedef struct {
-    uint8_t Freq_flage;
-    uint16_t Freq_time;
-    uint8_t mode_flage;
-  }Freq_Struct;
 # 29 "../Core/Inc\\tim.h" 2
 
 
 
 
 
-
-extern TIM_HandleTypeDef htim1;
 
 extern TIM_HandleTypeDef htim2;
 
@@ -12830,7 +12803,6 @@ extern TIM_HandleTypeDef htim3;
 
 
 
-void MX_TIM1_Init(void);
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
 
@@ -12842,53 +12814,10 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 
 
-TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 DMA_HandleTypeDef hdma_tim2_up;
 
-
-void MX_TIM1_Init(void)
-{
-
-
-
-
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-
-
-
-  htim1.Instance = ((TIM_TypeDef *) (((0x40000000UL) + 0x00010000UL) + 0x0000UL));
-  htim1.Init.Prescaler = 240-1;
-  htim1.Init.CounterMode = 0x00000000U;
-  htim1.Init.Period = 100-1;
-  htim1.Init.ClockDivision = 0x00000000U;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = (0x1UL << (7U));
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = (0x1UL << (12U));
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = (0x2UL << (4U));
-  sMasterConfig.MasterOutputTrigger2 = 0x00000000U;
-  sMasterConfig.MasterSlaveMode = 0x00000000U;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-
-
-
-}
 
 void MX_TIM2_Init(void)
 {
@@ -12905,9 +12834,9 @@ void MX_TIM2_Init(void)
 
 
   htim2.Instance = ((TIM_TypeDef *) ((0x40000000UL) + 0x0000UL));
-  htim2.Init.Prescaler = 20-1;
+  htim2.Init.Prescaler = 2-1;
   htim2.Init.CounterMode = 0x00000000U;
-  htim2.Init.Period = 10-1;
+  htim2.Init.Period = 2929-1;
   htim2.Init.ClockDivision = 0x00000000U;
   htim2.Init.AutoReloadPreload = (0x1UL << (7U));
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -12987,18 +12916,7 @@ void MX_TIM3_Init(void)
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
 {
 
-  if(tim_baseHandle->Instance==((TIM_TypeDef *) (((0x40000000UL) + 0x00010000UL) + 0x0000UL)))
-  {
-
-
-
-
-    do { volatile uint32_t tmpreg; ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB2ENR) |= ((0x1UL << (0U)))); tmpreg = ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB2ENR) & ((0x1UL << (0U)))); ((void)(tmpreg)); } while(0);
-
-
-
-  }
-  else if(tim_baseHandle->Instance==((TIM_TypeDef *) ((0x40000000UL) + 0x0000UL)))
+  if(tim_baseHandle->Instance==((TIM_TypeDef *) ((0x40000000UL) + 0x0000UL)))
   {
 
 
@@ -13072,18 +12990,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
 void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 {
 
-  if(tim_baseHandle->Instance==((TIM_TypeDef *) (((0x40000000UL) + 0x00010000UL) + 0x0000UL)))
-  {
-
-
-
-
-    (((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB2ENR) &= ~ ((0x1UL << (0U)));
-
-
-
-  }
-  else if(tim_baseHandle->Instance==((TIM_TypeDef *) ((0x40000000UL) + 0x0000UL)))
+  if(tim_baseHandle->Instance==((TIM_TypeDef *) ((0x40000000UL) + 0x0000UL)))
   {
 
 

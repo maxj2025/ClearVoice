@@ -1,5 +1,6 @@
 ./h743_hal/ad9220.o: ../MyDrive/ad9220.c ../MyDrive/ad9220.h \
-  ../Core/Inc\main.h ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal.h \
+  ../MyDrive/bsp_system.h ../Core/Inc\main.h \
+  ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal.h \
   ../Core/Inc\stm32h7xx_hal_conf.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal_rcc.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -40,6 +41,14 @@
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
   ../Drivers/CMSIS/DSP/Include\arm_math.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h ../Core/Inc\gpio.h \
-  ../Core/Inc\tim.h ../SignalProcess\fftana.h \
-  ../SignalProcess/long_fft\extra_ffts.h
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h \
+  ../Drivers/CMSIS/DSP/Include\arm_const_structs.h \
+  ../Drivers/CMSIS/DSP/Include/arm_common_tables.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h ../Core/Inc\gpio.h \
+  ../Core/Inc\usart.h ../Core/Inc\adc.h ../Core/Inc\tim.h \
+  ../Core/Inc\dma.h ../MyDrive/delay.h ../MyDrive/AD9910.h \
+  ../MyDrive/AD9959.h ../MyDrive/HMI.h ../MyDrive/sys.h \
+  ../MyDrive/Get_Freq.h ../Tasks\Tasks.h ../MyDrive\bsp_system.h \
+  ../SignalProcess\fftana.h ../SignalProcess\SignalSeperation.h

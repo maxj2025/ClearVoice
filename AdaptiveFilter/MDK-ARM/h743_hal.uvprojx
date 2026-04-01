@@ -586,9 +586,14 @@
               <FilePath>..\SignalProcess\fftana.h</FilePath>
             </File>
             <File>
-              <FileName>FlatTop_Window_8192.h</FileName>
+              <FileName>SignalSeperation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SignalProcess\SignalSeperation.c</FilePath>
+            </File>
+            <File>
+              <FileName>SignalSeperation.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\SignalProcess\FlatTop_Window_8192.h</FilePath>
+              <FilePath>..\SignalProcess\SignalSeperation.h</FilePath>
             </File>
           </Files>
         </Group>

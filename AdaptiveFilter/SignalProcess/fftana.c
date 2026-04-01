@@ -172,7 +172,6 @@ float32_t findnearfreq(float32_t freq1) {
     return freq1_out;
 }
 
-/* --- 新增的函数 --- */
 
 // 在基波3倍频附近寻找最大值点，应对频谱泄露
 float32_t Max_Three_Find(float32_t* Input, uint16_t Max_Index) {
@@ -187,25 +186,37 @@ float32_t Max_Three_Find(float32_t* Input, uint16_t Max_Index) {
     return max_temp;
 }
 
-uint8_t Rec_wavetype(float32_t* Input, uint16_t Len) {
-    uint16_t Max_pose = 0;
-    float32_t MAX_Val = 0;
-    
-    // 寻找主频点
-    for(int i = 3; i < (Len/2); i++) {
-        if(Input[i] > MAX_Val) { MAX_Val = Input[i]; Max_pose = i; }
+WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx) {
+
+    if (idx >= FFT_N_2 || idx == 0) {
+        return WAVE_UNKNOWN;
     }
-    
-    float32_t Three_Temp = Max_Three_Find(Input, Max_pose);
-    float32_t base = Input[Max_pose];
-    
-    // 根据比值系数识别
-    if (base >= 7.0f * Three_Temp && base <= 18.0f * Three_Temp) 
-        return 1; // TRIANGLE
-    else if (base >= 0.5f * Three_Temp && base <= 4.8f * Three_Temp) 
-        return 2; // SQUARE
-    else 
-        return 0; // SINE
+
+    float32_t MAX_Val = freqin->mag[idx];
+
+    if (MAX_Val < 0.02f) {
+        return WAVE_SINE; 
+    }
+
+    // 2. 获取三次谐波（使用之前实现的邻域搜索函数）
+    float32_t Three_Temp = Max_Three_Find(freqin->mag, idx);
+
+    // 3. 计算比值 (Ratio = 三次谐波 / 基波)
+    float32_t ratio = Three_Temp / MAX_Val;
+
+    // 4. 阈值判定逻辑
+    // 三角波理论值 1/9 ≈ 0.111
+    if (ratio >= 0.06f && ratio <= 0.18f) {
+        return WAVE_TRIANGLE;
+    }
+    // 方波理论值 1/3 ≈ 0.333
+    else if (ratio >= 0.22f && ratio <= 0.45f) {
+        return WAVE_SQUARE;
+    }
+    // 比值极小或不在上述区间，判定为正弦波
+    else {
+        return WAVE_SINE;
+    }
 }
 
 void Phase_atan(float32_t* FFT_In_Complex, uint32_t Index, float32_t* Phase) {
@@ -300,17 +311,4 @@ float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) {
         sum_sq += ac_voltage * ac_voltage;
     }
     return sqrtf(sum_sq / (float32_t)len);
-}
-
-float32_t Cal_THD(fftdata *fft_result, max_3_index top3) {
-
-    float32_t fundamental = fft_result->mag[top3.index[0]];
-    float32_t harmonic_sum = 0.0f;
-
-    for (int i = 1; i < 5; i++) {
-        harmonic_sum += fft_result->mag[top3.index[i]] * fft_result->mag[top3.index[i]];
-    }
-    if (fundamental == 0) return 0.0f; 
-    float32_t thd = sqrt(harmonic_sum) / fundamental;
-    return thd * 100.0f; // 返回百分比形式的 THD
 }

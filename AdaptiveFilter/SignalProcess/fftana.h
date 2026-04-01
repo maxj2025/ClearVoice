@@ -4,8 +4,8 @@
 
 #ifndef PROJECT_FREQANA_H
 #define PROJECT_FREQANA_H
-#include "extra_ffts.h"
-#include "arm_math.h"
+
+#Include "bsp_system.h"
 
 #define FFT_N 8192//采样点数
 #define FFT_2N 16384
@@ -58,12 +58,9 @@ void Phase_atan(float32_t* FFT_In_Complex, uint32_t Index, float32_t* Phase); //
 
 float32_t Find_Vpp(fftin *input);//时域vpp提取（滑动窗口法）
 
-uint8_t Rec_wavetype(float32_t* Input_Mag, uint16_t Len);//波形识别逻辑（基于基波与三倍频比值）
+WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);//波形识别
 
-float32_t Cal_THD(fftdata *fft_result, max_3_index top3); // 总谐波失真 (THD) 计算
-
-float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;//交流有效值
-
+float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;//计算交流有效值（去直流分量）
 
 
 #endif //PROJECT_FREQANA_H

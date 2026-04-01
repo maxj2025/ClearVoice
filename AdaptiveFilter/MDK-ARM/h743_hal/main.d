@@ -50,5 +50,5 @@
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h ../MyDrive/delay.h \
   ../MyDrive/bsp_system.h ../MyDrive/AD9910.h ../MyDrive/AD9959.h \
   ../MyDrive/HMI.h ../MyDrive/sys.h ../MyDrive/Get_Freq.h \
-  ../Tasks\Tasks.h ../SignalProcess\fftana.h \
-  ../SignalProcess/long_fft\extra_ffts.h ../MyDrive/ad9220.h
+  ../Tasks\Tasks.h ../MyDrive/ad9220.h ../SignalProcess\fftana.h \
+  ../SignalProcess\SignalSeperation.h

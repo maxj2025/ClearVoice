@@ -1,8 +1,7 @@
 #ifndef __AD9910_H__
 #define __AD9910_H__
 
-#include "main.h"
-#include <stdint.h>
+#include "bsp_system.h"
 
 /* 类型定义简化 */
 typedef uint8_t  u8;

@@ -1,6 +1,6 @@
-./h743_hal/hmi.o: ../MyDrive/HMI.c ../MyDrive/HMI.h \
-  ../MyDrive/bsp_system.h ../Core/Inc\main.h \
-  ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal.h \
+./h743_hal/signalseperation.o: ../SignalProcess/SignalSeperation.c \
+  ../SignalProcess/SignalSeperation.h ../MyDrive\bsp_system.h \
+  ../Core/Inc\main.h ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal.h \
   ../Core/Inc\stm32h7xx_hal_conf.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc\stm32h7xx_hal_rcc.h \
   ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -48,7 +48,8 @@
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h ../Core/Inc\gpio.h \
   ../Core/Inc\usart.h ../Core/Inc\adc.h ../Core/Inc\tim.h \
-  ../Core/Inc\dma.h ../MyDrive/delay.h ../MyDrive/AD9910.h \
-  ../MyDrive/AD9959.h ../MyDrive/sys.h ../MyDrive/Get_Freq.h \
-  ../Tasks\Tasks.h ../MyDrive\bsp_system.h ../MyDrive/ad9220.h \
-  ../SignalProcess\fftana.h ../SignalProcess\SignalSeperation.h
+  ../Core/Inc\dma.h ../MyDrive/delay.h ../MyDrive/bsp_system.h \
+  ../MyDrive/AD9910.h ../MyDrive/AD9959.h ../MyDrive/HMI.h \
+  ../MyDrive/sys.h ../MyDrive/Get_Freq.h ../Tasks\Tasks.h \
+  ../MyDrive/ad9220.h ../SignalProcess\fftana.h \
+  ../SignalProcess\SignalSeperation.h

@@ -72,7 +72,7 @@ typedef unsigned int uintptr_t;
 
 typedef signed long long intmax_t;
 typedef unsigned long long uintmax_t;
-# 28 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2
+# 29 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2
 # 41 "../Drivers/CMSIS/Include\\cmsis_compiler.h"
 # 1 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 1
 # 31 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
@@ -166,7 +166,7 @@ __vfp_status(unsigned int mask, unsigned int flags) {
   __asm__ __volatile__("vmsr fpscr, %[fpscr]" : : [fpscr] "r"(fpscr));
   return fpscr;
 }
-# 33 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 2 3
+# 34 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 2 3
 # 68 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
@@ -911,7 +911,7 @@ __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int
   __asm volatile ("smmla %0, %1, %2, %3" : "=r" (result): "r" (op1), "r" (op2), "r" (op3) );
   return(result);
 }
-# 41 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2
+# 42 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2
 # 310 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
 # 321 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 1 3
