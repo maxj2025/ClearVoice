@@ -89,13 +89,10 @@ float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len) {
     float32_t voltage_scale_sq = voltage_scale * voltage_scale; 
 
     for (uint16_t i = 0; i < len; i++) {
-        // 1. & 0x0FFF 屏蔽高4位可能存在的总线噪声
-        // 2. 减去 2048，将 0~4095 的直接码映射到相对 0V 的正负对称区间
+
         float32_t centered_code = (float32_t)(pData[i + 4] & 0x0FFF) - 2048.0f;
         
         sum_sq += centered_code * centered_code;
     }
-
-    // 乘以比例平方，除以长度，最后开根号
     return sqrtf((sum_sq * voltage_scale_sq) / (float32_t)len);
 }

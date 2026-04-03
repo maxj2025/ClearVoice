@@ -14319,12 +14319,9 @@ float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len) {
 
     for (uint16_t i = 0; i < len; i++) {
 
-
         float32_t centered_code = (float32_t)(pData[i + 4] & 0x0FFF) - 2048.0f;
 
         sum_sq += centered_code * centered_code;
     }
-
-
     return sqrtf((sum_sq * voltage_scale_sq) / (float32_t)len);
 }

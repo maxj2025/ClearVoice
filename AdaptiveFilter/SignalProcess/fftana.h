@@ -14,8 +14,8 @@
 
 #define FREQ_RES ((float)freq_s / (float)FFT_N)//频率分辨率
 #define DC_SCOPE 80 //0-100hz的频段将被视作直流分量
-#define FREQ_SCOPE 50 //某一频率附近正负2570Hz的点将会被是做同一频率
-#define FREQ_STEP 100 //频率步长，对应题目中的波形频率为5Khz的整数倍
+#define FREQ_SCOPE 0 //某一频率附近正负2570Hz的点将会被是做同一频率
+#define FREQ_STEP 10 //频率步长，对应题目中的波形频率为5Khz的整数倍
 #define RAM_ADDR ".SRAM1" //指定变量存放在SRAM_D1区域（使用链接脚本中的 .sram_d1 NOLOAD 段）
 #define HAMMING_WIN_CORR 1.85185185185f // 汉明窗幅度恢复系数（补偿加窗带来的幅值衰减）
 #define MIN_VALID_DENOM 1e-12f           // 除法安全阈值（防止分母过小导致浮点运算异常）

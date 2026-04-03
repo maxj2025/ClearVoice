@@ -14338,8 +14338,8 @@ void get_max_3(const fftdata *comparein, max_3_index *top3) {
 
     tmp = 0;
     float32_t maxamp = comparein->mag[top3->index[0]];
-    float32_t freq1up = freqaxis->axis[top3->index[0]] + 50;
-    float32_t freq1down = freqaxis->axis[top3->index[0]] - 50;
+    float32_t freq1up = freqaxis->axis[top3->index[0]] + 0;
+    float32_t freq1down = freqaxis->axis[top3->index[0]] - 0;
 
 
     for (uint16_t i = 0; i < 8192 / 2; i++) {
@@ -14352,8 +14352,8 @@ void get_max_3(const fftdata *comparein, max_3_index *top3) {
     }
 
     float32_t maxamp2 = comparein->mag[top3->index[1]];
-    float32_t freq2up = freqaxis->axis[top3->index[1]] + 50;
-    float32_t freq2down = freqaxis->axis[top3->index[1]] - 50;
+    float32_t freq2up = freqaxis->axis[top3->index[1]] + 0;
+    float32_t freq2down = freqaxis->axis[top3->index[1]] - 0;
 
     tmp = 0;
 
@@ -14372,8 +14372,8 @@ void get_max_3(const fftdata *comparein, max_3_index *top3) {
 float32_t findnearfreq(float32_t freq1) {
 
     uint32_t freq1_int = (uint32_t)freq1;
-    uint32_t freq1up = 100 - (freq1_int % (uint32_t)100);
-    uint32_t freq1down = freq1_int % (uint32_t)100;
+    uint32_t freq1up = 10 - (freq1_int % (uint32_t)10);
+    uint32_t freq1down = freq1_int % (uint32_t)10;
 
     float32_t freq1_out;
 
@@ -14519,7 +14519,7 @@ float32_t Find_Vpp(fftin *input)
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) {
     if (len == 0) return 0.0f;
 
-    float32_t voltage_scale = 3.3f / 4095.0f;
+    float32_t voltage_scale = 3.3f / 65535.0f;
     float32_t sum_voltage = 0.0f;
     float32_t sum_sq = 0.0f;
     for (uint16_t i = 0; i < len; i++) {

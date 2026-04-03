@@ -290,7 +290,7 @@ float32_t Find_Vpp(fftin *input)
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) {
     if (len == 0) return 0.0f;
 
-    float32_t voltage_scale = 3.3f / 4095.0f;
+    float32_t voltage_scale = 3.3f / 65535.0f;
     float32_t sum_voltage = 0.0f;
     float32_t sum_sq = 0.0f;
     for (uint16_t i = 0; i < len; i++) {

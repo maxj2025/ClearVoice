@@ -14240,7 +14240,7 @@ void FFT_Task(Analysis_Result_t *output)
 
     regurlize_mag(&FFTOUT_Mix, 1);
 
-    get_max_3(&FFTOUT_Mix, &Top3_Mix);
+   get_max_3(&FFTOUT_Mix, &Top3_Mix);
 
 
     float32_t rms_b_hardware = Get_AC_RMS(adc2_buffer, 128);

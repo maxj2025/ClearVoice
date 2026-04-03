@@ -14235,8 +14235,8 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, A
     uint16_t idx2 = max_3->index[1];
 
 
-    WaveType_t type1 = Rec_wavetype(freqin, idx1);
-    WaveType_t type2 = Rec_wavetype(freqin, idx2);
+   volatile WaveType_t type1 = Rec_wavetype(freqin, idx1);
+    volatile WaveType_t type2 = Rec_wavetype(freqin, idx2);
 
     uint16_t idx_A, idx_B;
 
@@ -14263,8 +14263,8 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, A
         result->Original.Wave_type = WAVE_SINE;
     }
 
-    result->Original.Freq = findnearfreq((float32_t)idx_A * ((float)40960 / (float)8192));
-    result->Interfere.Freq = findnearfreq((float32_t)idx_B * ((float)40960 / (float)8192));
+    result->Original.Freq = idx_A * 5;
+    result->Interfere.Freq =idx_B * 5;
 
 
     float32_t rms_B = rms_b;
