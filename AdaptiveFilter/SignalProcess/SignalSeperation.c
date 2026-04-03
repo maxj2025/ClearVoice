@@ -63,14 +63,3 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, A
 
 
 
-float32_t Get_Total_RMS(uint16_t *pData, uint16_t len) {
-    if (len == 0) return 0.0f;
-
-    float32_t sum_sq = 0.0f;
-    float32_t voltage_scale = 3.3f / 4095.0f;
-    float32_t voltage_scale_sq = voltage_scale * voltage_scale; 
-    for (uint16_t i = 0; i < len; i++) {
-        sum_sq += (float32_t)pData[i+4] * (float32_t)pData[i+4];
-    }
-    return sqrtf((sum_sq * voltage_scale_sq) / (float32_t)len);
-}

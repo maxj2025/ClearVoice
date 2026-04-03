@@ -12859,7 +12859,7 @@ void MX_TIM2_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = ((0x0004UL << (4U)) | (0x0002UL << (4U)));
-  sConfigOC.Pulse = 0;
+  sConfigOC.Pulse = 1464;
   sConfigOC.OCPolarity = 0x00000000U;
   sConfigOC.OCFastMode = 0x00000000U;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, 0x00000000U) != HAL_OK)

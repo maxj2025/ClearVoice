@@ -33,6 +33,7 @@
 ".\h743_hal\system_stm32h7xx.o"
 ".\h743_hal\tasks.o"
 ".\h743_hal\fftana.o"
+".\h743_hal\signalseperation.o"
 ".\h743_hal\ad9910.o"
 ".\h743_hal\get_freq.o"
 ".\h743_hal\hmi.o"

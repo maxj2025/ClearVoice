@@ -51,7 +51,7 @@
 char aRxBuffer[RXBUFFERSIZE];
 uint16_t RX_len;
 
-uint8_t dma_finish;
+volatile uint8_t dma_finish = 0; 
 
 __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
 
@@ -80,20 +80,19 @@ static void MPU_Config(void);
 /* USER CODE BEGIN 0 */
 void App_process(void)
 {   
-    
-    if (dma_finish == 0) 
-    {
-        return;
-    }
+    if (dma_finish == 0)return;
     dma_finish = 0;
     AD9220_Stop_DMA(); 
+	   HAL_ADC_Stop_DMA(&hadc2);
+	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
+
     FFT_Task(&output); //FFT任务
-	
-//    Send_Wave(&output); //发送信号到AD9910  
+    Send_Wave(&output); //发送信号到AD9910  
+    USART_Task(&output);
     AD9220_Start_DMA(adc1_buffer, FFT_N+4);
+		 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
+	
 }
-
-
 
 /* USER CODE END 0 */
 
@@ -254,37 +253,11 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
 void AD9220_ConvCpltCallback() {
     dma_finish = 1; // 设置 DMA 完成标志
 }
 
-// void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-// {
-//     if(huart->Instance == USART3)
-//     {
-//         if(Size >= 4) 
-//         {
-//             for(uint16_t i = 0; i <= (Size - 4); i++) 
-//             {
-//                 if(aRxBuffer[i] == 0x11 && aRxBuffer[i+1] == 0x11)          
-//                 {
-//                     g_SystemState = SYS_STATE_SINGLE_SHOT;
-//                     adc_dma_finish = 0;
-//                     Start_ADC_DMA();    
-//                     break; 
-//                 }
-//                 else if(aRxBuffer[i] == 0x22 && aRxBuffer[i+1] == 0x22)
-//                 {
-//                     g_SystemState = SYS_STATE_CONTINUOUS;
-//                     adc_dma_finish = 0;
-//                     Start_ADC_DMA();
-//                     break;
-//                 }
-//             }
-//         }
-//         HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
-//     }
-// }
 /* USER CODE END 4 */
 
  /* MPU Configuration */

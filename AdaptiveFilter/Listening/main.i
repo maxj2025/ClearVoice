@@ -12849,46 +12849,15 @@ void MX_GPIO_Init(void);
 
 
 # 1 "../MyDrive/global_types.h" 1
-# 14 "../MyDrive/global_types.h"
-typedef enum {
-    WAVE_SINE = 0,
-    WAVE_SQUARE,
-    WAVE_TRIANGLE,
-    WAVE_UNKNOWN
-} WaveType_t;
-
-
-
-typedef struct {
-    float32_t Freq;
-    float32_t Vpp;
-    WaveType_t Wave_type;
-} Wave_Struct;
-
-typedef struct {
-    uint8_t Freq_flage;
-    uint16_t Freq_time;
-    uint8_t mode_flage;
-} Freq_Struct;
-
-typedef struct {
-    Wave_Struct Original;
-    Wave_Struct Interfere;
-    float32_t Total_RMS;
-} Analysis_Result_t;
-
-typedef struct {
-    uint8_t current_mode;
-    uint64_t count;
-    uint32_t gate_start;
-    uint8_t is_measuring;
-} FreqControl_t;
-# 6 "../MyDrive\\bsp_system.h" 2
 
 
 
 
 
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdarg.h" 1 3
+# 40 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdarg.h" 3
+  typedef __builtin_va_list va_list;
+# 6 "../MyDrive/global_types.h" 2
 
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 1 3
 # 68 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
@@ -13209,7 +13178,427 @@ extern __attribute__((nothrow)) int _fisatty(FILE * ) __attribute__((__nonnull__
 
 extern __attribute__((nothrow)) void __use_no_semihosting_swi(void);
 extern __attribute__((nothrow)) void __use_no_semihosting(void);
-# 12 "../MyDrive\\bsp_system.h" 2
+# 7 "../MyDrive/global_types.h" 2
+# 16 "../MyDrive/global_types.h"
+typedef enum {
+    WAVE_SINE = 0,
+    WAVE_SQUARE,
+    WAVE_TRIANGLE,
+    WAVE_UNKNOWN
+} WaveType_t;
+
+
+
+typedef struct {
+    float32_t Freq;
+    float32_t Vpp;
+    WaveType_t Wave_type;
+} Wave_Struct;
+
+typedef struct {
+    uint8_t Freq_flage;
+    uint16_t Freq_time;
+    uint8_t mode_flage;
+} Freq_Struct;
+
+typedef struct {
+    Wave_Struct Original;
+    Wave_Struct Interfere;
+    float32_t Total_RMS;
+} Analysis_Result_t;
+
+typedef struct {
+    uint8_t current_mode;
+    uint64_t count;
+    uint32_t gate_start;
+    uint8_t is_measuring;
+} FreqControl_t;
+# 6 "../MyDrive\\bsp_system.h" 2
+
+
+
+
+
+
+
+
+# 1 "../Drivers/CMSIS/DSP/Include\\arm_const_structs.h" 1
+# 34 "../Drivers/CMSIS/DSP/Include\\arm_const_structs.h"
+# 1 "../Drivers/CMSIS/DSP/Include/arm_common_tables.h" 1
+# 37 "../Drivers/CMSIS/DSP/Include/arm_common_tables.h"
+    extern const uint16_t armBitRevTable[1024];
+
+
+
+    extern const float32_t twiddleCoef_16[32];
+
+
+
+    extern const float32_t twiddleCoef_32[64];
+
+
+
+    extern const float32_t twiddleCoef_64[128];
+
+
+
+    extern const float32_t twiddleCoef_128[256];
+
+
+
+    extern const float32_t twiddleCoef_256[512];
+
+
+
+    extern const float32_t twiddleCoef_512[1024];
+
+
+
+    extern const float32_t twiddleCoef_1024[2048];
+
+
+
+    extern const float32_t twiddleCoef_2048[4096];
+
+
+
+    extern const float32_t twiddleCoef_4096[8192];
+
+
+
+
+    extern const q31_t twiddleCoef_16_q31[24];
+
+
+
+    extern const q31_t twiddleCoef_32_q31[48];
+
+
+
+    extern const q31_t twiddleCoef_64_q31[96];
+
+
+
+    extern const q31_t twiddleCoef_128_q31[192];
+
+
+
+    extern const q31_t twiddleCoef_256_q31[384];
+
+
+
+    extern const q31_t twiddleCoef_512_q31[768];
+
+
+
+    extern const q31_t twiddleCoef_1024_q31[1536];
+
+
+
+    extern const q31_t twiddleCoef_2048_q31[3072];
+
+
+
+    extern const q31_t twiddleCoef_4096_q31[6144];
+
+
+
+    extern const q15_t twiddleCoef_16_q15[24];
+
+
+
+    extern const q15_t twiddleCoef_32_q15[48];
+
+
+
+    extern const q15_t twiddleCoef_64_q15[96];
+
+
+
+    extern const q15_t twiddleCoef_128_q15[192];
+
+
+
+    extern const q15_t twiddleCoef_256_q15[384];
+
+
+
+    extern const q15_t twiddleCoef_512_q15[768];
+
+
+
+    extern const q15_t twiddleCoef_1024_q15[1536];
+
+
+
+    extern const q15_t twiddleCoef_2048_q15[3072];
+
+
+
+    extern const q15_t twiddleCoef_4096_q15[6144];
+
+
+
+    extern const float32_t twiddleCoef_rfft_32[32];
+
+
+
+    extern const float32_t twiddleCoef_rfft_64[64];
+
+
+
+    extern const float32_t twiddleCoef_rfft_128[128];
+
+
+
+    extern const float32_t twiddleCoef_rfft_256[256];
+
+
+
+    extern const float32_t twiddleCoef_rfft_512[512];
+
+
+
+    extern const float32_t twiddleCoef_rfft_1024[1024];
+
+
+
+    extern const float32_t twiddleCoef_rfft_2048[2048];
+
+
+
+    extern const float32_t twiddleCoef_rfft_4096[4096];
+
+
+
+
+
+
+    extern const uint16_t armBitRevIndexTable16[((uint16_t)20)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable32[((uint16_t)48)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable64[((uint16_t)56)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable128[((uint16_t)208)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable256[((uint16_t)440)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable512[((uint16_t)448)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable1024[((uint16_t)1800)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable2048[((uint16_t)3808)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable4096[((uint16_t)4032)];
+
+
+
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_16[((uint16_t)12)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_32[((uint16_t)24)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_64[((uint16_t)56)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_128[((uint16_t)112)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_256[((uint16_t)240)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_512[((uint16_t)480)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_1024[((uint16_t)992)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_2048[((uint16_t)1984)];
+
+
+
+
+    extern const uint16_t armBitRevIndexTable_fixed_4096[((uint16_t)4032)];
+
+
+
+    extern const float32_t realCoefA[8192];
+    extern const float32_t realCoefB[8192];
+
+
+
+    extern const q31_t realCoefAQ31[8192];
+    extern const q31_t realCoefBQ31[8192];
+
+
+
+    extern const q15_t realCoefAQ15[8192];
+    extern const q15_t realCoefBQ15[8192];
+
+
+
+    extern const float32_t Weights_128[256];
+    extern const float32_t cos_factors_128[128];
+
+
+
+    extern const float32_t Weights_512[1024];
+    extern const float32_t cos_factors_512[512];
+
+
+
+    extern const float32_t Weights_2048[4096];
+    extern const float32_t cos_factors_2048[2048];
+
+
+
+    extern const float32_t Weights_8192[16384];
+    extern const float32_t cos_factors_8192[8192];
+
+
+
+    extern const q15_t WeightsQ15_128[256];
+    extern const q15_t cos_factorsQ15_128[128];
+
+
+
+    extern const q15_t WeightsQ15_512[1024];
+    extern const q15_t cos_factorsQ15_512[512];
+
+
+
+    extern const q15_t WeightsQ15_2048[4096];
+    extern const q15_t cos_factorsQ15_2048[2048];
+
+
+
+    extern const q15_t WeightsQ15_8192[16384];
+    extern const q15_t cos_factorsQ15_8192[8192];
+
+
+
+    extern const q31_t WeightsQ31_128[256];
+    extern const q31_t cos_factorsQ31_128[128];
+
+
+
+    extern const q31_t WeightsQ31_512[1024];
+    extern const q31_t cos_factorsQ31_512[512];
+
+
+
+    extern const q31_t WeightsQ31_2048[4096];
+    extern const q31_t cos_factorsQ31_2048[2048];
+
+
+
+    extern const q31_t WeightsQ31_8192[16384];
+    extern const q31_t cos_factorsQ31_8192[8192];
+
+
+
+
+
+
+
+    extern const q15_t armRecipTableQ15[64];
+
+
+
+    extern const q31_t armRecipTableQ31[64];
+
+
+
+
+    extern const float32_t sinTable_f32[512 + 1];
+
+
+
+    extern const q31_t sinTable_q31[512 + 1];
+
+
+
+    extern const q15_t sinTable_q15[512 + 1];
+# 34 "../Drivers/CMSIS/DSP/Include\\arm_const_structs.h" 2
+
+
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len16;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len32;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len64;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len128;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len256;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len512;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len1024;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len2048;
+   extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len4096;
+
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len16;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len32;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len64;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len128;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len256;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len512;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len1024;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len2048;
+   extern const arm_cfft_instance_q31 arm_cfft_sR_q31_len4096;
+
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len16;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len32;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len64;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len128;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len256;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len512;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len1024;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len2048;
+   extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len4096;
+# 14 "../MyDrive\\bsp_system.h" 2
+
+
+
 
 
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 1 3
@@ -13414,24 +13803,233 @@ extern __attribute__((nothrow)) void __use_no_heap_region(void);
 
 extern __attribute__((nothrow)) char const *__C_library_version_string(void);
 extern __attribute__((nothrow)) int __C_library_version_number(void);
-# 14 "../MyDrive\\bsp_system.h" 2
-# 24 "../MyDrive\\bsp_system.h"
+# 19 "../MyDrive\\bsp_system.h" 2
+
+# 1 "../SignalProcess/long_fft\\extra_ffts.h" 1
+# 15 "../SignalProcess/long_fft\\extra_ffts.h"
+typedef struct
+{
+    uint16_t fftLen;
+    const float32_t *pTwiddle;
+    const uint32_t *pBitRevTable;
+    uint16_t bitRevLength;
+# 29 "../SignalProcess/long_fft\\extra_ffts.h"
+} arm_cfft_instance_f32_extra;
+
+
+
+
+typedef struct
+{
+    arm_cfft_instance_f32_extra Sint;
+    uint16_t fftLenRFFT;
+    const float32_t * pTwiddleRFFT;
+} arm_rfft_fast_instance_f32_extra ;
+
+
+arm_status arm_rfft_fast_init_f32_extra (
+        arm_rfft_fast_instance_f32_extra * S,
+        uint16_t fftLen);
+
+void arm_rfft_fast_f32_extra(
+        const arm_rfft_fast_instance_f32_extra * S,
+        float32_t * p, float32_t * pOut,
+        uint8_t ifftFlag);
+
+
+arm_status arm_cfft_init_f32_extra(
+        arm_cfft_instance_f32_extra * S,
+        uint16_t fftLen);
+
+
+void arm_cfft_f32_extra(
+        const arm_cfft_instance_f32_extra * S,
+        float32_t * p1,
+        uint8_t ifftFlag,
+        uint8_t bitReverseFlag);
+# 20 "../MyDrive\\bsp_system.h" 2
+
+# 1 "../SignalProcess/long_fft\\arm_const_structs_extra.h" 1
+
+
+
+
+
+# 1 "../SignalProcess/long_fft/arm_common_tables_extra.h" 1
+# 14 "../SignalProcess/long_fft/arm_common_tables_extra.h"
+    extern const uint16_t armBitRevTableExtra[4096];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra16[((uint16_t)20)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra32[((uint16_t)48)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra64[((uint16_t)56)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra128[((uint16_t)208)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra256[((uint16_t)440)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra512[((uint16_t)448)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra1024[((uint16_t)1800)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra2048[((uint16_t)3808)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra4096[((uint16_t)4032)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra8192[((uint16_t)14576)];
+
+
+
+
+    extern const uint32_t armBitRevIndexTableExtra16384[((uint16_t)31080)];
+
+
+
+    extern const float32_t twiddleCoefExtra_16[32];
+
+
+
+    extern const float32_t twiddleCoefExtra_32[64];
+
+
+
+    extern const float32_t twiddleCoefExtra_64[128];
+
+
+
+    extern const float32_t twiddleCoefExtra_128[256];
+
+
+
+    extern const float32_t twiddleCoefExtra_256[512];
+
+
+
+    extern const float32_t twiddleCoefExtra_512[1024];
+
+
+
+    extern const float32_t twiddleCoefExtra_1024[2048];
+
+
+
+    extern const float32_t twiddleCoefExtra_2048[4096];
+
+
+
+    extern const float32_t twiddleCoefExtra_4096[8192];
+
+
+
+    extern const float32_t twiddleCoefExtra_8192[16384];
+
+
+
+    extern const float32_t twiddleCoefExtra_16384[32768];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_32[32];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_64[64];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_128[128];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_256[256];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_512[512];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_1024[1024];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_2048[2048];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_4096[4096];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_8192[8192];
+
+
+
+    extern const float32_t twiddleCoefExtra_rfft_16384[16384];
+# 6 "../SignalProcess/long_fft\\arm_const_structs_extra.h" 2
+
+
+
+
+
+
+
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len16_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len32_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len64_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len128_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len256_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len512_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len1024_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len2048_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len4096_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len8192_extra;
+   extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len16384_extra;
+# 21 "../MyDrive\\bsp_system.h" 2
+# 32 "../MyDrive\\bsp_system.h"
 # 1 "../MyDrive/delay.h" 1
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 3 "../MyDrive/delay.h" 2
 
 void delay_us(uint32_t udelay);
 void delay_ms(uint32_t t);
-# 24 "../MyDrive/bsp_system.h" 2
+# 32 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../MyDrive/AD9910.h" 1
 
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 4 "../MyDrive/AD9910.h" 2
 
 
 
@@ -13462,14 +14060,12 @@ void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
 void AD9910_DRG_AMP_Init(void);
 void AD9910_DRG_FreInit_AutoSet(FunctionalState autoSweepEn);
 void AD9910_DRG_FrePara_Set(u32 lowFre, u32 upFre, u32 posStep, u32 negStep, u16 posRate, u16 negRate);
-# 25 "../MyDrive/bsp_system.h" 2
+# 33 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../MyDrive/HMI.h" 1
 
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 4 "../MyDrive/HMI.h" 2
 
 
 void HMI_send_string(char* name, char* showdata);
@@ -13480,7 +14076,7 @@ void HMI_Wave_fast(char* name, int ch, int count, int* show_data);
 void HMI_Wave_clear(char* name, int ch);
 void UART3_Printf(const char *format,...);
 void HMI_Init(void);
-# 26 "../MyDrive/bsp_system.h" 2
+# 34 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../MyDrive/sys.h" 1
 # 104 "../MyDrive/sys.h"
@@ -13513,14 +14109,12 @@ uint8_t HEX_to_BCD(uint8_t HEX_Data);
 uint16_t DX_to_HX(uint16_t DX_Data);
 
 uint16_t HX_to_DX(uint16_t HX_Data);
-# 27 "../MyDrive/bsp_system.h" 2
+# 35 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../MyDrive/Get_Freq.h" 1
 
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 4 "../MyDrive/Get_Freq.h" 2
 
 
 
@@ -13531,18 +14125,9 @@ void FreqMeasure_Init(void);
 void FreqMeasure_Process(float *pFreq);
 
 void FreqMeasure_Count_Handler(uint16_t GPIO_Pin);
-# 28 "../MyDrive/bsp_system.h" 2
+# 36 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../SignalProcess\\fftana.h" 1
-
-
-
-
-
-
-
-# 1 "../MyDrive/bsp_system.h" 1
-# 8 "../SignalProcess\\fftana.h" 2
 # 25 "../SignalProcess\\fftana.h"
 typedef struct __attribute__((packed)) {
     float32_t cmp[8192];
@@ -13583,7 +14168,7 @@ float32_t Find_Vpp(fftin *input);
 WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
-# 29 "../MyDrive/bsp_system.h" 2
+# 37 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../SignalProcess\\SignalSeperation.h" 1
 
@@ -13593,38 +14178,33 @@ float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
 
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 8 "../SignalProcess\\SignalSeperation.h" 2
-
 
 void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, Analysis_Result_t *result) ;
 
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 
 float32_t Get_Total_RMS(uint16_t *pData, uint16_t len);
-# 30 "../MyDrive/bsp_system.h" 2
+# 38 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../MyDrive/ad9220.h" 1
 
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 4 "../MyDrive/ad9220.h" 2
+
 
 
 void AD9220_Start_DMA(uint16_t *adc_buffer, uint32_t buffer_length);
 void AD9220_Stop_DMA(void);
 void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed);
-
+float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len);
 void AD9220_ConvCpltCallback(void);
-# 31 "../MyDrive/bsp_system.h" 2
+# 39 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../Tasks\\Tasks.h" 1
 
 
 
-# 1 "../MyDrive/bsp_system.h" 1
-# 4 "../Tasks\\Tasks.h" 2
+
 
 
 
@@ -13645,13 +14225,13 @@ extern Analysis_Result_t output;
 void FFT_Task(Analysis_Result_t *output);
 void Send_Wave(Analysis_Result_t *output);
 void USART_Task(Analysis_Result_t *output);
-# 32 "../MyDrive/bsp_system.h" 2
+# 40 "../MyDrive\\bsp_system.h" 2
 # 29 "../Core/Src/main.c" 2
-# 50 "../Core/Src/main.c"
+# 51 "../Core/Src/main.c"
 char aRxBuffer[500];
 uint16_t RX_len;
 
-uint8_t dma_finish;
+volatile uint8_t dma_finish = 0;
 
 __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
 
@@ -13680,19 +14260,26 @@ static void MPU_Config(void);
 
 void App_process(void)
 {
-
-    if (dma_finish == 0)
-    {
-        return;
-    }
+    if (dma_finish == 0)return;
     dma_finish = 0;
     AD9220_Stop_DMA();
+    HAL_ADC_Stop_DMA(&hadc2);
+   SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
+
     FFT_Task(&output);
-
-
+    Send_Wave(&output);
+    USART_Task(&output);
     AD9220_Start_DMA(adc1_buffer, 8192 +4);
+   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
+
 }
-# 103 "../Core/Src/main.c"
+
+
+
+
+
+
+
 int main(void)
 {
 
@@ -13742,7 +14329,6 @@ int main(void)
 
   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
   HAL_TIM_Base_Start(&htim3);
-   AD9220_Init(adc1_buffer, 8192 +4);
    AD9220_Start_DMA(adc1_buffer, 8192 +4);
   Init_AD9910();
   AD9910_FreWrite(300);
@@ -13847,10 +14433,15 @@ void PeriphCommonClock_Config(void)
 }
 
 
-AD9220_ConvCpltCallback() {
+
+void AD9220_ConvCpltCallback() {
     dma_finish = 1;
 }
-# 292 "../Core/Src/main.c"
+
+
+
+
+
 void MPU_Config(void)
 {
   MPU_Region_InitTypeDef MPU_InitStruct = {0};

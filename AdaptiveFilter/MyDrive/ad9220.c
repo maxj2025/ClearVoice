@@ -29,20 +29,23 @@ __weak void AD9220_ConvCpltCallback(void)
 /* 启动 DMA 采集 */
 void AD9220_Start_DMA(uint16_t *adc_buffer, uint32_t buffer_length) 
 {
-    // 1. 确保 DMA 停止并清除标志位
+    // 1. 停止之前的传输，防止状态错误
+    HAL_TIM_Base_Stop(&htim2);
     HAL_DMA_Abort(&hdma_tim2_up); 
     
-    // 2. 配置 DMA 完成回调函数
+    // 2. 配置回调
     hdma_tim2_up.XferCpltCallback = AD9220_DMA_CpltCallback;
 
-    // 3. 启动 DMA（注意：这里必须改成 _IT，否则不会进中断！）
+    // 3. 启动 DMA (从 GPIO 读取数据)
+    // 确保使用 _IT 版本以触发回调
     HAL_DMA_Start_IT(&hdma_tim2_up, (uint32_t)&GPIOC->IDR, (uint32_t)adc_buffer, buffer_length);
     
     // 4. 开启定时器 DMA 请求
     __HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_UPDATE);
     
-    // 5. 开启定时器（产生脉冲驱动 AD9220 转换）
-    __HAL_TIM_ENABLE(&htim2);
+    // 5. 启动时钟信号输出 (PWM 模式)
+    // 这步是确保外部 AD9220 拿到转换时钟的关键
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); 
 }
 
 /* 停止 DMA 采集 */
@@ -56,18 +59,43 @@ void AD9220_Stop_DMA(void)
 /* 数据处理函数 */
 void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed) 
 {
-    const float32_t voltage_scale = 10.0f / 4095.0f;
+
+    const float32_t voltage_scale = 10.0f / 4096.0f; 
     float32_t sum = 0.0f;
     float32_t dc_offset_raw = 0.0f;
     
     for (uint32_t i = 0; i < FFT_N; i++) {
+
         sum += (float32_t)(data_ori[i + 4] & 0x0FFF); 
     }
     dc_offset_raw = sum / (float32_t)FFT_N;
 
     for (uint32_t i = 0; i < FFT_N; i++) {
+
         float32_t raw_centered = (float32_t)(data_ori[i + 4] & 0x0FFF) - dc_offset_raw;
-        data_processed->cmp[2 * i] = raw_centered;    
-        data_processed->cmp[2 * i + 1] = 0.0f; 
+
+        data_processed->cmp[2 * i] = raw_centered * voltage_scale;   
+        data_processed->cmp[2 * i + 1] = 0.0f; // 虚部置零
     }
+}
+
+
+
+float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len) {
+    if (len == 0) return 0.0f;
+
+    float32_t sum_sq = 0.0f;
+    float32_t voltage_scale = 10.0f / 4096.0f; 
+    float32_t voltage_scale_sq = voltage_scale * voltage_scale; 
+
+    for (uint16_t i = 0; i < len; i++) {
+        // 1. & 0x0FFF 屏蔽高4位可能存在的总线噪声
+        // 2. 减去 2048，将 0~4095 的直接码映射到相对 0V 的正负对称区间
+        float32_t centered_code = (float32_t)(pData[i + 4] & 0x0FFF) - 2048.0f;
+        
+        sum_sq += centered_code * centered_code;
+    }
+
+    // 乘以比例平方，除以长度，最后开根号
+    return sqrtf((sum_sq * voltage_scale_sq) / (float32_t)len);
 }
