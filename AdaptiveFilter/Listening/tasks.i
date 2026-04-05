@@ -14169,6 +14169,7 @@ float32_t Find_Vpp(fftin *input);
 WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
+float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) ;
 # 37 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../SignalProcess\\SignalSeperation.h" 1
@@ -14180,7 +14181,7 @@ float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
 
 
 
-void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, Analysis_Result_t *result) ;
+void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inter, max_3_index *max_3_inter, Analysis_Result_t *result) ;
 
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 
@@ -14210,16 +14211,20 @@ void AD9220_ConvCpltCallback(void);
 
 
 extern uint8_t adc_dma_finish;
+extern uint8_t adc2_dma_finish;
 
 extern __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
 
-extern __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[128] ;
+extern __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[8192] ;
 
 extern __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
+extern __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
 
 extern __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
+extern __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
 
 extern max_3_index Top3_Mix;
+extern max_3_index Top3_Inter;
 
 extern Analysis_Result_t output;
 
@@ -14230,54 +14235,88 @@ void USART_Task(Analysis_Result_t *output);
 # 2 "../Tasks/Tasks.c" 2
 
 
+
 void FFT_Task(Analysis_Result_t *output)
 {
-    process_data_ad9220(adc1_buffer, &FFTIN_Mix);
 
-    output->Total_RMS = Get_Total_RMS_AD9220(adc1_buffer, 8192 +4);
+    process_data_ad9220(adc1_buffer, &FFTIN_Mix);
+    process_data(adc2_buffer, &FFTIN_Inter);
+    output->Interfere.Vpp = Find_Vpp(&FFTIN_Inter);
 
     fft_process(&FFTIN_Mix, &FFTOUT_Mix);
+    fft_process(&FFTIN_Inter, &FFTOUT_Inter);
 
-    regurlize_mag(&FFTOUT_Mix, 1);
+    regurlize_mag(&FFTOUT_Inter,1);
 
-   get_max_3(&FFTOUT_Mix, &Top3_Mix);
+    get_max_3(&FFTOUT_Mix, &Top3_Mix);
+    get_max_3(&FFTOUT_Inter, &Top3_Inter);
 
 
-    float32_t rms_b_hardware = Get_AC_RMS(adc2_buffer, 128);
-
-    Freq_Analysis_Split(&FFTOUT_Mix, &Top3_Mix, rms_b_hardware, output);
+    Freq_Analysis_Split(&FFTOUT_Mix, &Top3_Mix, &FFTOUT_Inter, &Top3_Inter, output);
 
 
     memset(adc1_buffer, 0, sizeof(adc1_buffer));
+    memset(adc2_buffer, 0, sizeof(adc2_buffer));
 }
-
-
 
 void Send_Wave(Analysis_Result_t *output)
 {
    AD9910_FreWrite(output->Original.Freq);
-   AD9910_AmpWrite(output->Original.Vpp*1000);
+   AD9910_AmpWrite(output->Original.Vpp*10000);
 }
 
 
 void USART_Task(Analysis_Result_t *output)
 {
-    char buf[64];
 
-    sprintf(buf, "%.2fV", output->Original.Vpp);
-    HMI_send_string("t7.txt", buf);
+    char* Char_temp = malloc(sizeof(char) * 64);
+    if (Char_temp == 0) {
+        return;
+    }
 
-    sprintf(buf, "%.2fV", output->Interfere.Vpp);
-    HMI_send_string("t8.txt", buf);
+    float64_t Freq_temp = 0.0f;
 
-    sprintf(buf, "%.2fHz", output->Original.Freq);
-    HMI_send_string("t11.txt", buf);
+
+    sprintf(Char_temp, "%.2fV", output->Original.Vpp);
+    HMI_send_string("t7.txt", Char_temp);
+    memset(Char_temp, 0, 64);
+
+
+    sprintf(Char_temp, "%.2fV", output->Interfere.Vpp);
+    HMI_send_string("t8.txt", Char_temp);
+    memset(Char_temp, 0, 64);
+
+    if (output->Original.Freq < 1000) {
+        sprintf(Char_temp, "%.3f Hz", (float64_t)output->Original.Freq);
+    } else if (output->Original.Freq < 1000000) {
+        sprintf(Char_temp, "%.4f KHz", (float64_t)output->Original.Freq / 1000.0f);
+    } else {
+        sprintf(Char_temp, "%.2f MHz", (float64_t)output->Original.Freq / 1000000.0f);
+    }
+    HMI_send_string("t11.txt", Char_temp);
+    memset(Char_temp, 0, 64);
+
+    if (output->Interfere.Freq < 1000) {
+        sprintf(Char_temp, "%.3f Hz", (float64_t)output->Interfere.Freq);
+    } else if (output->Interfere.Freq < 1000000) {
+        sprintf(Char_temp, "%.4f KHz", (float64_t)output->Interfere.Freq / 1000.0f);
+    } else {
+        sprintf(Char_temp, "%.2f MHz", (float64_t)output->Interfere.Freq / 1000000.0f);
+    }
+    HMI_send_string("t12.txt", Char_temp);
+    memset(Char_temp, 0, 64);
 
     char* wave_str = (output->Interfere.Wave_type == WAVE_SINE) ? "Sine" :
                      (output->Interfere.Wave_type == WAVE_SQUARE) ? "Square" :
                      (output->Interfere.Wave_type == WAVE_TRIANGLE) ? "Triangle" : "Unknown";
     HMI_send_string("t10.txt", wave_str);
 
-    sprintf(buf, "%d", (int)(output->Original.Freq - output->Interfere.Freq));
-    HMI_send_string("t13.txt", buf);
+
+    sprintf(Char_temp, "%d Hz", (int)(output->Original.Freq - output->Interfere.Freq));
+    HMI_send_string("t13.txt", Char_temp);
+    memset(Char_temp, 0, 64);
+
+
+    free(Char_temp);
+    Char_temp = 0;
 }

@@ -51,18 +51,18 @@
 char aRxBuffer[RXBUFFERSIZE];
 uint16_t RX_len;
 
-volatile uint8_t dma_finish = 0; 
-
+volatile uint8_t dma_finish_ad9220 = 0; 
+volatile uint8_t dma_finish_adc2   = 0;
 __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
 
-__attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[128] ;//干扰信号（前级已过AD637处理）
+__attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;//干扰信号（前级已过AD637处理）
 
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;//
-
+__attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;//
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;//
-
+__attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;//
 max_3_index Top3_Mix;//
-
+max_3_index Top3_Inter;//
 Analysis_Result_t output;//频率分析结果
 
 
@@ -80,17 +80,18 @@ static void MPU_Config(void);
 /* USER CODE BEGIN 0 */
 void App_process(void)
 {   
-    if (dma_finish == 0)return;
-    dma_finish = 0;
+    if (dma_finish_ad9220 == 0||dma_finish_adc2==0)return;
+    dma_finish_ad9220 = 0;
+   	dma_finish_adc2=0;
     AD9220_Stop_DMA(); 
 	   HAL_ADC_Stop_DMA(&hadc2);
 	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
-
+	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
     FFT_Task(&output); //FFT任务
     Send_Wave(&output); //发送信号到AD9910  
     USART_Task(&output);
     AD9220_Start_DMA(adc1_buffer, FFT_N+4);
-		 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
+		 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 	
 }
 
@@ -147,12 +148,12 @@ int main(void)
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
   //  HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
-	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
+	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 	 HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, FFT_N+4);
 	 Init_AD9910();
 	 AD9910_FreWrite(300);//原始信号300hz
-	 AD9910_AmpWrite(10000);
+	 AD9910_AmpWrite(15000);
 	 HMI_Init();
   /* USER CODE END 2 */
 
@@ -255,9 +256,16 @@ void PeriphCommonClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 void AD9220_ConvCpltCallback() {
-    dma_finish = 1; // 设置 DMA 完成标志
+    dma_finish_ad9220 = 1; // 设置 DMA 完成标志
 }
 
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+     if (hadc->Instance == ADC2) 
+    {
+        dma_finish_adc2 = 1; 
+    }
+}
 /* USER CODE END 4 */
 
  /* MPU Configuration */

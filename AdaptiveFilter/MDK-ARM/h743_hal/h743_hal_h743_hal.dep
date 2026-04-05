@@ -1,6 +1,6 @@
 Dependencies for Project 'h743_hal', Target 'h743_hal': (DO NOT MODIFY !)
-F (startup_stm32h743xx.s)(0x69CF9258)(--cpu Cortex-M7.fp.dp -g --pd "__MICROLIB SETA 1"-I.\RTE\_h743_hal-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include--pd "__UVISION_VERSION SETA 524"--pd "_RTE_ SETA 1"--pd "STM32H743xx SETA 1"--list ..\listening\startup_stm32h743xx.lst--xref -o .\h743_hal\startup_stm32h743xx.o--depend .\h743_hal\startup_stm32h743xx.d)
-F (../Core/Src/main.c)(0x69CFD116)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/main.o -MD)
+F (startup_stm32h743xx.s)(0x69D21E8D)(--cpu Cortex-M7.fp.dp -g --pd "__MICROLIB SETA 1"-I.\RTE\_h743_hal-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include--pd "__UVISION_VERSION SETA 524"--pd "_RTE_ SETA 1"--pd "STM32H743xx SETA 1"--list ..\listening\startup_stm32h743xx.lst--xref -o .\h743_hal\startup_stm32h743xx.o--depend .\h743_hal\startup_stm32h743xx.d)
+F (../Core/Src/main.c)(0x69D2207B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/main.o -MD)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x69144D6E)
 I (..\Core\Inc\stm32h7xx_hal_conf.h)(0x69CB71D0)
@@ -44,13 +44,13 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x588CAFD2)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
 I (..\Drivers\CMSIS\DSP\Include\arm_const_structs.h)(0x69CB71D0)
@@ -64,10 +64,10 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
+I (..\Tasks\Tasks.h)(0x69D20697)
 F (../Core/Src/gpio.c)(0x69CB71D0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/gpio.o -MD)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
@@ -113,8 +113,8 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x588CAFD2)
-F (../Core/Src/adc.c)(0x69CCAEB9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/adc.o -MD)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+F (../Core/Src/adc.c)(0x69D21E8A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/adc.o -MD)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x69144D6E)
 I (..\Core\Inc\stm32h7xx_hal_conf.h)(0x69CB71D0)
@@ -158,7 +158,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x588CAFD2)
-F (../Core/Src/dma.c)(0x69CB71D0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/dma.o -MD)
+F (../Core/Src/dma.c)(0x69D1F386)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/dma.o -MD)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x69144D6E)
@@ -203,7 +203,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x588CAFD2)
-F (../Core/Src/tim.c)(0x69CF9272)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/tim.o -MD)
+F (../Core/Src/tim.c)(0x69D1F35F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/tim.o -MD)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x69144D6E)
@@ -293,7 +293,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x588CAFD2)
-F (../Core/Src/stm32h7xx_it.c)(0x69CB71D0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/stm32h7xx_it.o -MD)
+F (../Core/Src/stm32h7xx_it.c)(0x69D1F386)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/stm32h7xx_it.o -MD)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x69144D6E)
 I (..\Core\Inc\stm32h7xx_hal_conf.h)(0x69CB71D0)
@@ -337,7 +337,7 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x588CAFD2)
-I (..\Core\Inc\stm32h7xx_it.h)(0x69CB71D0)
+I (..\Core\Inc\stm32h7xx_it.h)(0x69D1F386)
 F (../Core/Src/stm32h7xx_hal_msp.c)(0x69CB71D0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/stm32h7xx_hal_msp.o -MD)
 I (..\Core\Inc\main.h)(0x69CCC5CE)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h)(0x69144D6E)
@@ -1302,9 +1302,9 @@ I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim.h)(0x69144D6E)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h)(0x69144D6E)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h)(0x69144D6E)
 I (..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h)(0x69144D6E)
-F (..\Tasks\Tasks.c)(0x69CFC215)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/tasks.o -MD)
+F (..\Tasks\Tasks.c)(0x69D22532)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/tasks.o -MD)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1359,21 +1359,21 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
 I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
-F (..\Tasks\Tasks.h)(0x69CD1032)()
-F (..\SignalProcess\fftana.c)(0x69CFCB51)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/fftana.o -MD)
+I (..\Tasks\Tasks.h)(0x69D20697)
+F (..\Tasks\Tasks.h)(0x69D20697)()
+F (..\SignalProcess\fftana.c)(0x69D205B4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/fftana.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1427,7 +1427,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1435,14 +1435,14 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
-F (..\SignalProcess\fftana.h)(0x69CFD195)()
-F (..\SignalProcess\SignalSeperation.c)(0x69CFD257)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/signalseperation.o -MD)
+I (..\Tasks\Tasks.h)(0x69D20697)
+F (..\SignalProcess\fftana.h)(0x69D205B4)()
+F (..\SignalProcess\SignalSeperation.c)(0x69D223A9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/signalseperation.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1496,7 +1496,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1504,14 +1504,14 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
-F (..\SignalProcess\SignalSeperation.h)(0x69CD1163)()
+I (..\Tasks\Tasks.h)(0x69D20697)
+F (..\SignalProcess\SignalSeperation.h)(0x69D21E29)()
 F (..\MyDrive\AD9910.c)(0x69CD1032)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/ad9910.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1565,7 +1565,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1573,16 +1573,16 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
+I (..\Tasks\Tasks.h)(0x69D20697)
 F (..\MyDrive\AD9910.h)(0x69CD110D)()
 F (..\MyDrive\bsp_system.h)(0x69CD1265)()
 F (..\MyDrive\delay.h)(0x69CD0F86)()
 F (..\MyDrive\Get_Freq.c)(0x69CD1032)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/get_freq.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1636,7 +1636,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1644,14 +1644,14 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
+I (..\Tasks\Tasks.h)(0x69D20697)
 F (..\MyDrive\Get_Freq.h)(0x69CD0F86)()
 F (..\MyDrive\HMI.c)(0x69CD1032)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/hmi.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1705,7 +1705,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1713,15 +1713,15 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
+I (..\Tasks\Tasks.h)(0x69D20697)
 F (..\MyDrive\HMI.h)(0x69CD0F86)()
 F (..\MyDrive\sys.h)(0x69CB71D1)()
 F (..\MyDrive\delay.c)(0x69CD1032)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/delay.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1775,7 +1775,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1783,13 +1783,13 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
-F (..\MyDrive\ad9220.c)(0x69CFCE13)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/ad9220.o -MD)
+I (..\Tasks\Tasks.h)(0x69D20697)
+F (..\MyDrive\ad9220.c)(0x69D1F386)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/ad9220.o -MD)
 I (..\MyDrive\bsp_system.h)(0x69CD1265)
-I (..\MyDrive\global_types.h)(0x69CD0F29)
+I (..\MyDrive\global_types.h)(0x69D1F386)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588CAFD2)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x588CAFD0)
 I (D:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x588CAFD2)
@@ -1843,7 +1843,7 @@ I (..\SignalProcess\long_fft\arm_const_structs_extra.h)(0x69CB71D1)
 I (..\SignalProcess\long_fft\arm_common_tables_extra.h)(0x69CB71D1)
 I (..\Core\Inc\gpio.h)(0x69CB71D0)
 I (..\Core\Inc\usart.h)(0x69CB71D0)
-I (..\Core\Inc\adc.h)(0x69CB71D0)
+I (..\Core\Inc\adc.h)(0x69D1F386)
 I (..\Core\Inc\tim.h)(0x69CCADEA)
 I (..\Core\Inc\dma.h)(0x69CB71D0)
 I (..\MyDrive\delay.h)(0x69CD0F86)
@@ -1851,12 +1851,12 @@ I (..\MyDrive\AD9910.h)(0x69CD110D)
 I (..\MyDrive\HMI.h)(0x69CD0F86)
 I (..\MyDrive\sys.h)(0x69CB71D1)
 I (..\MyDrive\Get_Freq.h)(0x69CD0F86)
-I (..\SignalProcess\fftana.h)(0x69CFD195)
-I (..\SignalProcess\SignalSeperation.h)(0x69CD1163)
+I (..\SignalProcess\fftana.h)(0x69D205B4)
+I (..\SignalProcess\SignalSeperation.h)(0x69D21E29)
 I (..\MyDrive\ad9220.h)(0x69CFBB93)
-I (..\Tasks\Tasks.h)(0x69CD1032)
+I (..\Tasks\Tasks.h)(0x69D20697)
 F (..\MyDrive\ad9220.h)(0x69CFBB93)()
-F (..\MyDrive\global_types.h)(0x69CD0F29)()
+F (..\MyDrive\global_types.h)(0x69D1F386)()
 F (..\SignalProcess\long_fft\arm_bitreversal2_extra.c)(0x69CB71D1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc -I ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I ../Drivers/CMSIS/Include -I ../Hardware -I ../Drivers/CMSIS/DSP/Include -I ../SignalProcess -I ../SignalProcess/long_fft -I ../MyDrive -I ../Tasks-I./RTE/_h743_hal-ID:/Keil_v5/ARM/PACK/ARM/CMSIS/5.0.1/CMSIS/Include-ID:/Keil_v5/ARM/PACK/Keil/STM32H7xx_DFP/3.0.0/Drivers/CMSIS/Device/ST/STM32H7xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32H743xx -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -DARM_MATH_CM7-o ./h743_hal/arm_bitreversal2_extra.o -MD)
 I (..\Drivers\CMSIS\DSP\Include\arm_math.h)(0x69CB71D0)
 I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x69144CEA)

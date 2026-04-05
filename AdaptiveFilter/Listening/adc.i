@@ -12899,7 +12899,7 @@ void MX_ADC2_Init(void)
 
   hadc2.Instance = ((ADC_TypeDef *) (((0x40000000UL) + 0x00020000UL) + 0x2100UL));
   hadc2.Init.ClockPrescaler = ((0x00000000UL));
-  hadc2.Init.Resolution = ((0x00000000UL));
+  hadc2.Init.Resolution = (( (0x2UL << (2U)) ));
   hadc2.Init.ScanConvMode = (0x00000000UL);
   hadc2.Init.EOCSelection = ((0x1UL << (2U)));
   hadc2.Init.LowPowerAutoWait = DISABLE;
@@ -13015,7 +13015,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     hdma_adc2.Init.MemInc = ((uint32_t)(0x1UL << (10U)));
     hdma_adc2.Init.PeriphDataAlignment = ((uint32_t)(0x1UL << (11U)));
     hdma_adc2.Init.MemDataAlignment = ((uint32_t)(0x1UL << (13U)));
-    hdma_adc2.Init.Mode = ((uint32_t)(0x1UL << (8U)));
+    hdma_adc2.Init.Mode = ((uint32_t)0x00000000U);
     hdma_adc2.Init.Priority = ((uint32_t)0x00000000U);
     hdma_adc2.Init.FIFOMode = ((uint32_t)0x00000000U);
     if (HAL_DMA_Init(&hdma_adc2) != HAL_OK)

@@ -14169,6 +14169,7 @@ float32_t Find_Vpp(fftin *input);
 WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
+float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) ;
 # 37 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../SignalProcess\\SignalSeperation.h" 1
@@ -14180,7 +14181,7 @@ float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
 
 
 
-void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, Analysis_Result_t *result) ;
+void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inter, max_3_index *max_3_inter, Analysis_Result_t *result) ;
 
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 
@@ -14210,16 +14211,20 @@ void AD9220_ConvCpltCallback(void);
 
 
 extern uint8_t adc_dma_finish;
+extern uint8_t adc2_dma_finish;
 
 extern __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
 
-extern __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[128] ;
+extern __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[8192] ;
 
 extern __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
+extern __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
 
 extern __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
+extern __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
 
 extern max_3_index Top3_Mix;
+extern max_3_index Top3_Inter;
 
 extern Analysis_Result_t output;
 
@@ -14527,4 +14532,32 @@ float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) {
         sum_sq += ac_voltage * ac_voltage;
     }
     return sqrtf(sum_sq / (float32_t)len);
+}
+
+float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) {
+
+ uint32_t target = (uint32_t)Base_Index * Harmonic_N;
+
+    if (target >= 4096) {
+        return 0.0f;
+    }
+
+    float32_t max_val = 0.0f;
+
+
+
+    int8_t search_range = 2;
+
+    for (int8_t offset = -search_range; offset <= search_range; offset++) {
+        int32_t current_idx = (int32_t)target + offset;
+
+
+        if (current_idx > 0 && current_idx < 4096) {
+            if (Input[current_idx] > max_val) {
+                max_val = Input[current_idx];
+            }
+        }
+    }
+
+    return max_val;
 }

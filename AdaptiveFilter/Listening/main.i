@@ -14168,6 +14168,7 @@ float32_t Find_Vpp(fftin *input);
 WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
+float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) ;
 # 37 "../MyDrive\\bsp_system.h" 2
 
 # 1 "../SignalProcess\\SignalSeperation.h" 1
@@ -14179,7 +14180,7 @@ float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
 
 
 
-void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, Analysis_Result_t *result) ;
+void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inter, max_3_index *max_3_inter, Analysis_Result_t *result) ;
 
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 
@@ -14209,16 +14210,20 @@ void AD9220_ConvCpltCallback(void);
 
 
 extern uint8_t adc_dma_finish;
+extern uint8_t adc2_dma_finish;
 
 extern __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
 
-extern __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[128] ;
+extern __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[8192] ;
 
 extern __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
+extern __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
 
 extern __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
+extern __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
 
 extern max_3_index Top3_Mix;
+extern max_3_index Top3_Inter;
 
 extern Analysis_Result_t output;
 
@@ -14231,18 +14236,18 @@ void USART_Task(Analysis_Result_t *output);
 char aRxBuffer[500];
 uint16_t RX_len;
 
-volatile uint8_t dma_finish = 0;
-
+volatile uint8_t dma_finish_ad9220 = 0;
+volatile uint8_t dma_finish_adc2 = 0;
 __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
 
-__attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[128] ;
+__attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[8192] ;
 
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
-
+__attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
-
+__attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
 max_3_index Top3_Mix;
-
+max_3_index Top3_Inter;
 Analysis_Result_t output;
 
 
@@ -14260,17 +14265,18 @@ static void MPU_Config(void);
 
 void App_process(void)
 {
-    if (dma_finish == 0)return;
-    dma_finish = 0;
+    if (dma_finish_ad9220 == 0||dma_finish_adc2==0)return;
+    dma_finish_ad9220 = 0;
+    dma_finish_adc2=0;
     AD9220_Stop_DMA();
     HAL_ADC_Stop_DMA(&hadc2);
    SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
-
+   SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
     FFT_Task(&output);
     Send_Wave(&output);
     USART_Task(&output);
     AD9220_Start_DMA(adc1_buffer, 8192 +4);
-   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
+   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,8192);
 
 }
 
@@ -14327,12 +14333,12 @@ int main(void)
   MX_ADC2_Init();
 
 
-  HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,128);
+  HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,8192);
   HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, 8192 +4);
   Init_AD9910();
   AD9910_FreWrite(300);
-  AD9910_AmpWrite(10000);
+  AD9910_AmpWrite(15000);
   HMI_Init();
 
 
@@ -14435,9 +14441,16 @@ void PeriphCommonClock_Config(void)
 
 
 void AD9220_ConvCpltCallback() {
-    dma_finish = 1;
+    dma_finish_ad9220 = 1;
 }
 
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+     if (hadc->Instance == ((ADC_TypeDef *) (((0x40000000UL) + 0x00020000UL) + 0x2100UL)))
+    {
+        dma_finish_adc2 = 1;
+    }
+}
 
 
 
