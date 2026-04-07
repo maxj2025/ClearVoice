@@ -7,6 +7,9 @@ void FFT_Task(Analysis_Result_t *output)
     // 1. 数据预处理：将 ADC 原始数据转为输入 FFT 的复数数组
     process_data_decay(adc1_buffer, &FFTIN_Mix); //混合信号过了衰减器，需要放大
     process_data(adc2_buffer, &FFTIN_Inter);
+//	for (int i =0;i<8192;i++)
+//	{UART3_Printf("%.3f\n",FFTIN_Inter.cmp[2*i]);
+//	}
     output->Interfere.Vpp = Find_Vpp(&FFTIN_Inter);
     // 2. 执行 FFT 运算
     fft_process(&FFTIN_Mix, &FFTOUT_Mix);   

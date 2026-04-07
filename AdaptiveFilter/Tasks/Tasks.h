@@ -8,7 +8,7 @@
 extern uint8_t adc_dma_finish;//dma完成中断标志
 extern uint8_t adc2_dma_finish;//dma完成中断标志
 
-extern __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
+extern __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N] ;//混合信号，由AD9220采集，前四个数据舍弃
 
 extern __attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;
 

@@ -53,7 +53,7 @@ uint16_t RX_len;
 
 volatile uint8_t dma_finish_adc1 = 0; 
 volatile uint8_t dma_finish_adc2   = 0;
-__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
+__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N] ;//混合信号，由AD9220采集，前四个数据舍弃
 
 __attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;//干扰信号（前级已过AD637处理）
 
@@ -80,7 +80,7 @@ static void MPU_Config(void);
 /* USER CODE BEGIN 0 */
 void App_process(void)
 {   
-    if (dma_finish_adc1==0)return;
+    if (dma_finish_adc1==0||dma_finish_adc2==0)return;
     dma_finish_adc1 = 0;
    	dma_finish_adc2=0;
 	
@@ -96,7 +96,7 @@ void App_process(void)
     Send_Wave(&output); //发送信号到AD9910  
     USART_Task(&output);
 	
-//		HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
+		HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 		HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adc1_buffer,FFT_N);
 		HAL_TIM_Base_Start(&htim3);
 	
@@ -155,7 +155,7 @@ int main(void)
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
   //  HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
-//	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
+	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 	 HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adc1_buffer,FFT_N);
 	 HAL_TIM_Base_Start(&htim3);
 

@@ -13,7 +13,7 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
 
     // 3. 【核心剥离逻辑】对比频率下标，精准锁定信号
 
-    if (abs((int32_t)idx1 - (int32_t)pure_idx_B) <= 2) {
+    if (abs((int32_t)idx1 - (int32_t)pure_idx_B) <= 1) {
         idx_B = idx1;  // idx1 匹配上了干扰源，它是干扰信号 B
         idx_A = idx2;  // 剩下的 idx2 就是有用信号 A
     } 
