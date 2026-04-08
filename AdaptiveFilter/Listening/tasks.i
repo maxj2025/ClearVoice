@@ -15288,7 +15288,7 @@ void FFT_Task(Analysis_Result_t *output)
 void Send_Wave(Analysis_Result_t *output)
 {
    AD9910_FreWrite(output->Original.Freq);
-   AD9910_AmpWrite(output->Original.Vpp*10000);
+   AD9910_AmpWrite(output->Original.Vpp*4650);
 }
 
 

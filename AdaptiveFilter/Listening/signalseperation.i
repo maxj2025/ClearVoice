@@ -14229,15 +14229,23 @@ void Send_Wave(Analysis_Result_t *output);
 void USART_Task(Analysis_Result_t *output);
 # 40 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess/SignalSeperation.c" 2
-# 10 "../SignalProcess/SignalSeperation.c"
-float32_t Get_Integrated_Mag(float32_t *mag, uint16_t center_idx) {
 
+
+
+
+
+
+float32_t Round_To_005(float32_t value) {
+    return roundf(value / 0.05f) * 0.05f;
+}
+
+
+
+
+float32_t Get_Integrated_Mag(float32_t *mag, uint16_t center_idx) {
     float32_t m0 = mag[center_idx];
     float32_t m_left = mag[center_idx - 1];
     float32_t m_right = mag[center_idx + 1];
-
-
-
     return sqrtf(m_left * m_left + m0 * m0 + m_right * m_right);
 }
 
@@ -14256,21 +14264,8 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
     }
 
 
-    result->Original.Freq = idx_A * 5;
-    result->Interfere.Freq = idx_B * 5;
-    result->Interfere.Wave_type = Rec_wavetype(wave_inter, pure_idx_B);
-
-
-
-
-
-
     float32_t Mag_Mix_A_Sum = Get_Integrated_Mag(freqin->mag, idx_A);
-
-
     float32_t Mag_Inter_at_A_Sum = Get_Integrated_Mag(wave_inter->mag, idx_A);
-
-
 
     float32_t Mag_A_Final = 0;
     if (Mag_Mix_A_Sum > Mag_Inter_at_A_Sum) {
@@ -14280,35 +14275,53 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
     }
 
 
+    float32_t vpp_a_raw = (Mag_A_Final / 2048.0f) * 2.12f;
+    result->Original.Vpp = Round_To_005(vpp_a_raw);
 
 
-    result->Original.Vpp = Mag_A_Final / 2048.0f;
-
-
+    if (result->Original.Vpp < 0.8f) {
+        result->Original.Vpp = 0.0f;
+        result->Original.Freq = 0;
+        result->Original.Wave_type = WAVE_SINE;
+    } else {
+        result->Original.Freq = idx_A * 5;
+        result->Original.Wave_type = WAVE_SINE;
+    }
 
 
     float32_t Mag_B_Sum = Get_Integrated_Mag(wave_inter->mag, pure_idx_B);
     float32_t Vpp_basis_B = Mag_B_Sum / 2048.0f;
+    float32_t vpp_b_calc = 0;
 
 
-    switch (result->Interfere.Wave_type) {
+    WaveType_t identified_type = Rec_wavetype(wave_inter, pure_idx_B);
+
+    switch (identified_type) {
         case WAVE_SINE:
-            result->Interfere.Vpp = Vpp_basis_B;
+            vpp_b_calc = Vpp_basis_B;
             break;
         case WAVE_SQUARE:
-            result->Interfere.Vpp = Vpp_basis_B * 1.5708f/2.0f;
+            vpp_b_calc = Vpp_basis_B * 1.5708f / 2.0f;
             break;
         case WAVE_TRIANGLE:
-            result->Interfere.Vpp = Vpp_basis_B * 2.4674f/2.0f;
+            vpp_b_calc = Vpp_basis_B * 2.4674f / 2.0f;
             break;
         default:
-            result->Interfere.Vpp = Vpp_basis_B;
+            vpp_b_calc = Vpp_basis_B;
             break;
     }
 
 
+    vpp_b_calc *= 1.32f;
+    result->Interfere.Vpp = Round_To_005(vpp_b_calc);
 
 
-    result->Original.Vpp *= 2.12f;
-    result->Interfere.Vpp *= 1.31f;
+    if (result->Interfere.Vpp < 0.8f) {
+        result->Interfere.Vpp = 0.0f;
+        result->Interfere.Freq = 0;
+        result->Interfere.Wave_type = WAVE_UNKNOWN;
+    } else {
+        result->Interfere.Freq = idx_B * 5;
+        result->Interfere.Wave_type = identified_type;
+    }
 }
