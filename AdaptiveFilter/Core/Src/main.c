@@ -51,9 +51,9 @@
 char aRxBuffer[RXBUFFERSIZE];
 uint16_t RX_len;
 
-volatile uint8_t dma_finish_adc1 = 0; 
+volatile uint8_t dma_finish_ad9220 = 0; 
 volatile uint8_t dma_finish_adc2   = 0;
-__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N] ;//混合信号，由AD9220采集，前四个数据舍弃
+__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
 
 __attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;//干扰信号（前级已过AD637处理）
 
@@ -70,7 +70,6 @@ Analysis_Result_t output;//频率分析结果
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void PeriphCommonClock_Config(void);
 static void MPU_Config(void);
 /* USER CODE BEGIN PFP */
 
@@ -80,25 +79,22 @@ static void MPU_Config(void);
 /* USER CODE BEGIN 0 */
 void App_process(void)
 {   
-    if (dma_finish_adc1==0||dma_finish_adc2==0)return;
-    dma_finish_adc1 = 0;
+    if (dma_finish_ad9220 == 0||dma_finish_adc2==0)return;
+    dma_finish_ad9220 = 0;
    	dma_finish_adc2=0;
-	
-	  HAL_TIM_Base_Stop(&htim3);
-		HAL_ADC_Stop_DMA(&hadc1);
-	  HAL_ADC_Stop_DMA(&hadc2);
-	
+    AD9220_Stop_DMA(); 
+	   HAL_ADC_Stop_DMA(&hadc2);
 	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
 	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
-	
+//	for(int i =0;i<8192;i++)
+//	{
+//		UART3_Printf("%d\n",adc1_buffer[i]);
+//	}
     FFT_Task(&output); //FFT任务
-	
     Send_Wave(&output); //发送信号到AD9910  
     USART_Task(&output);
-	
-		HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
-		HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adc1_buffer,FFT_N);
-		HAL_TIM_Base_Start(&htim3);
+    AD9220_Start_DMA(adc1_buffer, FFT_N+4);
+		 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 	
 }
 
@@ -138,9 +134,6 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-  /* Configure the peripherals common clocks */
-  PeriphCommonClock_Config();
-
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -148,7 +141,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_ADC1_Init();
   MX_TIM3_Init();
   MX_TIM2_Init();
   MX_USART3_UART_Init();
@@ -156,9 +148,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   //  HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
 	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
-	 HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adc1_buffer,FFT_N);
 	 HAL_TIM_Base_Start(&htim3);
-
+   AD9220_Start_DMA(adc1_buffer, FFT_N+4);
 	 Init_AD9910();
 	 AD9910_FreWrite(300);//原始信号300hz
 	 AD9910_AmpWrite(15000);
@@ -235,42 +226,15 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief Peripherals Common Clock Configuration
-  * @retval None
-  */
-void PeriphCommonClock_Config(void)
-{
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-
-  /** Initializes the peripherals clock
-  */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-  PeriphClkInitStruct.PLL2.PLL2M = 2;
-  PeriphClkInitStruct.PLL2.PLL2N = 12;
-  PeriphClkInitStruct.PLL2.PLL2P = 2;
-  PeriphClkInitStruct.PLL2.PLL2Q = 2;
-  PeriphClkInitStruct.PLL2.PLL2R = 2;
-  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
-  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOMEDIUM;
-  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
-  PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-
 /* USER CODE BEGIN 4 */
+
+void AD9220_ConvCpltCallback() {
+    dma_finish_ad9220 = 1; // 设置 DMA 完成标志
+}
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-	     if (hadc->Instance == ADC1) 
-    {
-        dma_finish_adc1 = 1; 
-    }
-		
-      if (hadc->Instance == ADC2) 
+     if (hadc->Instance == ADC2) 
     {
         dma_finish_adc2 = 1; 
     }

@@ -1,27 +1,27 @@
 # 1 "../Core/Src/dma.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 413 "<built-in>" 3
+# 344 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../Core/Src/dma.c" 2
 # 22 "../Core/Src/dma.c"
 # 1 "../Core/Inc\\dma.h" 1
 # 29 "../Core/Inc\\dma.h"
-# 1 "../Core/Inc\\main.h" 1
-# 30 "../Core/Inc\\main.h"
+# 1 "../Core/Inc/main.h" 1
+# 30 "../Core/Inc/main.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 1
 # 29 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h"
 # 1 "../Core/Inc\\stm32h7xx_hal_conf.h" 1
 # 246 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h" 1
 # 27 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_def.h" 1
-# 29 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_def.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 1
+# 29 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h"
 # 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 1
 # 126 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
-# 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h" 1
-# 48 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h"
+# 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 1
+# 48 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef enum
 {
 
@@ -175,7 +175,7 @@ typedef enum
   SAI4_IRQn = 146,
   WAKEUP_PIN_IRQn = 149,
 } IRQn_Type;
-# 223 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h"
+# 223 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 # 1 "../Drivers/CMSIS/Include\\core_cm7.h" 1
 # 29 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 
@@ -183,8 +183,8 @@ typedef enum
 
 
 
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\stdint.h" 1 3
-# 56 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\stdint.h" 3
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdint.h" 1 3
+# 56 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdint.h" 3
 typedef signed char int8_t;
 typedef signed short int int16_t;
 typedef signed int int32_t;
@@ -239,524 +239,18 @@ typedef signed long long intmax_t;
 typedef unsigned long long uintmax_t;
 # 35 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 63 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-# 1 "../Drivers/CMSIS/Include\\cmsis_version.h" 1 3
-# 29 "../Drivers/CMSIS/Include\\cmsis_version.h" 3
+# 1 "../Drivers/CMSIS/Include/cmsis_version.h" 1 3
+# 29 "../Drivers/CMSIS/Include/cmsis_version.h" 3
 # 64 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 162 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-# 1 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 1 3
-# 47 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 3
-# 1 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 1 3
-# 31 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1 "../Drivers/CMSIS/Include/cmsis_compiler.h" 1 3
+# 41 "../Drivers/CMSIS/Include/cmsis_compiler.h" 3
+# 1 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 1 3
+# 31 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 
 
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 1 3
-
-
-
-
-
-
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_acle.h" 1 3
-# 45 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_acle.h" 3
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfi(void) {
-  __builtin_arm_wfi();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfe(void) {
-  __builtin_arm_wfe();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sev(void) {
-  __builtin_arm_sev();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sevl(void) {
-  __builtin_arm_sevl();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __yield(void) {
-  __builtin_arm_yield();
-}
-# 87 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_acle.h" 3
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__swp(uint32_t __x, volatile uint32_t *__p) {
-  uint32_t v;
-  do
-    v = __builtin_arm_ldrex(__p);
-  while (__builtin_arm_strex(__x, __p));
-  return v;
-}
-# 121 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_acle.h" 3
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __nop(void) {
-  __builtin_arm_nop();
-}
-
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__ror(uint32_t __x, uint32_t __y) {
-  __y %= 32;
-  if (__y == 0)
-    return __x;
-  return (__x >> __y) | (__x << (32 - __y));
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rorll(uint64_t __x, uint32_t __y) {
-  __y %= 64;
-  if (__y == 0)
-    return __x;
-  return (__x >> __y) | (__x << (64 - __y));
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rorl(unsigned long __x, uint32_t __y) {
-
-  return __ror(__x, __y);
-
-
-
-}
-
-
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__clz(uint32_t __t) {
-  return __builtin_arm_clz(__t);
-}
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__clzl(unsigned long __t) {
-
-  return __builtin_arm_clz(__t);
-
-
-
-}
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__clzll(uint64_t __t) {
-  return __builtin_arm_clz64(__t);
-}
-
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__cls(uint32_t __t) {
-  return __builtin_arm_cls(__t);
-}
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__clsl(unsigned long __t) {
-
-  return __builtin_arm_cls(__t);
-
-
-
-}
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__clsll(uint64_t __t) {
-  return __builtin_arm_cls64(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rev(uint32_t __t) {
-  return __builtin_bswap32(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__revl(unsigned long __t) {
-
-  return __builtin_bswap32(__t);
-
-
-
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__revll(uint64_t __t) {
-  return __builtin_bswap64(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rev16(uint32_t __t) {
-  return __ror(__rev(__t), 16);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rev16ll(uint64_t __t) {
-  return (((uint64_t)__rev16(__t >> 32)) << 32) | (uint64_t)__rev16((uint32_t)__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rev16l(unsigned long __t) {
-
-    return __rev16(__t);
-
-
-
-}
-
-
-static __inline__ int16_t __attribute__((__always_inline__, __nodebug__))
-__revsh(int16_t __t) {
-  return (int16_t)__builtin_bswap16((uint16_t)__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rbit(uint32_t __t) {
-  return __builtin_arm_rbit(__t);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rbitll(uint64_t __t) {
-
-  return (((uint64_t)__builtin_arm_rbit(__t)) << 32) |
-         __builtin_arm_rbit(__t >> 32);
-
-
-
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rbitl(unsigned long __t) {
-
-  return __rbit(__t);
-
-
-
-}
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulbb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulbb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulbt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulbt(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smultb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smultb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smultt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smultt(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulwb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulwb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulwt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulwt(__a, __b);
-}
-# 308 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_acle.h" 3
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qadd(int32_t __t, int32_t __v) {
-  return __builtin_arm_qadd(__t, __v);
-}
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qsub(int32_t __t, int32_t __v) {
-  return __builtin_arm_qsub(__t, __v);
-}
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qdbl(int32_t __t) {
-  return __builtin_arm_qadd(__t, __t);
-}
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlabb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlabb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlabt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlabt(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlatb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlatb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlatt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlatt(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlawb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlawb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlawt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlawt(__a, __b, __c);
-}
-# 361 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_acle.h" 3
-typedef int32_t int8x4_t;
-typedef int32_t int16x2_t;
-typedef uint32_t uint8x4_t;
-typedef uint32_t uint16x2_t;
-
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sxtab16(int16x2_t __a, int8x4_t __b) {
-  return __builtin_arm_sxtab16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sxtb16(int8x4_t __a) {
-  return __builtin_arm_sxtb16(__a);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__uxtab16(int16x2_t __a, int8x4_t __b) {
-  return __builtin_arm_uxtab16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__uxtb16(int8x4_t __a) {
-  return __builtin_arm_uxtb16(__a);
-}
-
-
-
-
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__sel(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_sel(__a, __b);
-}
-
-
-
-
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__qadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_qadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__qsub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_qsub8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__sadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_sadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__shadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_shadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__shsub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_shsub8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__ssub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_ssub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uhadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uhadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uhsub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uhsub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uqadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uqadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uqsub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uqsub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__usub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_usub8(__a, __b);
-}
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__usad8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_usad8(__a, __b);
-}
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__usada8(uint8x4_t __a, uint8x4_t __b, uint32_t __c) {
-  return __builtin_arm_usada8(__a, __b, __c);
-}
-
-
-
-
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qsax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qsax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qsub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qsub16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_sadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_sasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shsax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shsax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shsub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shsub16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__ssax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_ssax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__ssub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_ssub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhsax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhsax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhsub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhsub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqsax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqsax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqsub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqsub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__usax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_usax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__usub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_usub16(__a, __b);
-}
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlad(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlad(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smladx(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smladx(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlald(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlald(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlaldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlaldx(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlsd(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlsd(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlsdx(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlsdx(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlsld(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlsld(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlsldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlsldx(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smuad(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smuad(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smuadx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smuadx(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smusd(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smusd(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smusdx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smusdx(__a, __b);
-}
-# 8 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 2 3
-# 40 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 3
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 1 3
+# 42 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
 __disable_fiq(void) {
   unsigned int cpsr;
@@ -765,7 +259,7 @@ __disable_fiq(void) {
                        "cpsid f\n"
                        : [cpsr] "=r"(cpsr));
   return cpsr & 0x1;
-# 62 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 3
+# 64 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 
@@ -778,7 +272,7 @@ __disable_irq(void) {
                        "cpsid i\n"
                        : [cpsr] "=r"(cpsr));
   return cpsr & 0x1;
-# 89 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 3
+# 91 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 
@@ -791,7 +285,7 @@ static __inline__ void __attribute__((__always_inline__, __nodebug__))
 __enable_fiq(void) {
 
   __asm__ __volatile__("cpsie f");
-# 109 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 3
+# 111 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 
@@ -799,7 +293,7 @@ static __inline__ void __attribute__((__always_inline__, __nodebug__))
 __enable_irq(void) {
 
   __asm__ __volatile__("cpsie i");
-# 124 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 3
+# 126 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 static __inline__ void __attribute__((__always_inline__, __nodebug__)) __force_stores(void) {
@@ -822,7 +316,7 @@ __semihost(int val, const void *ptr) {
 
 
       "bkpt 0xab"
-# 160 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\arm_compat.h" 3
+# 162 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
       : "+r"(v), "+r"(p)
       :
       : "memory", "cc");
@@ -843,12 +337,12 @@ __vfp_status(unsigned int mask, unsigned int flags) {
   __asm__ __volatile__("vmsr fpscr, %[fpscr]" : : [fpscr] "r"(fpscr));
   return fpscr;
 }
-# 34 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 2 3
-# 68 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 34 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 2 3
+# 68 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
-  struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+ struct __attribute__((packed)) T_UINT32 { uint32_t v; };
 #pragma clang diagnostic pop
 
 
@@ -856,7 +350,7 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
-  struct __attribute__((packed, aligned(1))) T_UINT16_WRITE { uint16_t v; };
+ struct __attribute__((packed, aligned(1))) T_UINT16_WRITE { uint16_t v; };
 #pragma clang diagnostic pop
 
 
@@ -864,7 +358,7 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
-  struct __attribute__((packed, aligned(1))) T_UINT16_READ { uint16_t v; };
+ struct __attribute__((packed, aligned(1))) T_UINT16_READ { uint16_t v; };
 #pragma clang diagnostic pop
 
 
@@ -872,7 +366,7 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
-  struct __attribute__((packed, aligned(1))) T_UINT32_WRITE { uint32_t v; };
+ struct __attribute__((packed, aligned(1))) T_UINT32_WRITE { uint32_t v; };
 #pragma clang diagnostic pop
 
 
@@ -880,9 +374,9 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
-  struct __attribute__((packed, aligned(1))) T_UINT32_READ { uint32_t v; };
+ struct __attribute__((packed, aligned(1))) T_UINT32_READ { uint32_t v; };
 #pragma clang diagnostic pop
-# 166 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 167 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
 {
   uint32_t result;
@@ -890,12 +384,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
   __asm volatile ("MRS %0, control" : "=r" (result) );
   return(result);
 }
-# 196 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 197 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_CONTROL(uint32_t control)
 {
   __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
 }
-# 220 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 221 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_IPSR(void)
 {
   uint32_t result;
@@ -945,12 +439,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_PSP(void)
   __asm volatile ("MRS %0, psp" : "=r" (result) );
   return(result);
 }
-# 292 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 293 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_PSP(uint32_t topOfProcStack)
 {
   __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
-# 316 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 317 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
 {
   uint32_t result;
@@ -958,12 +452,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
   __asm volatile ("MRS %0, msp" : "=r" (result) );
   return(result);
 }
-# 346 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 347 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_MSP(uint32_t topOfMainStack)
 {
   __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
-# 397 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 398 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
 {
   uint32_t result;
@@ -971,12 +465,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
   __asm volatile ("MRS %0, primask" : "=r" (result) );
   return(result);
 }
-# 427 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 428 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_PRIMASK(uint32_t priMask)
 {
   __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
-# 470 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 471 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
 {
   uint32_t result;
@@ -984,12 +478,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
   __asm volatile ("MRS %0, basepri" : "=r" (result) );
   return(result);
 }
-# 500 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 501 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI(uint32_t basePri)
 {
   __asm volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
-# 525 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 526 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI_MAX(uint32_t basePri)
 {
   __asm volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
@@ -1008,12 +502,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_FAULTMASK(void)
   __asm volatile ("MRS %0, faultmask" : "=r" (result) );
   return(result);
 }
-# 566 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 567 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __set_FAULTMASK(uint32_t faultMask)
 {
   __asm volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
-# 902 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 901 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint32_t op2)
 {
   op2 %= 32U;
@@ -1023,17 +517,17 @@ __attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint
   }
   return (op1 >> op2) | (op1 << (32U - op2));
 }
-# 937 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 936 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint8_t __CLZ(uint32_t value)
 {
-# 948 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 947 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
   if (value == 0U)
   {
     return 32U;
   }
   return __builtin_clz(value);
 }
-# 1063 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1062 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
 {
   uint32_t result;
@@ -1041,7 +535,7 @@ __attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
   __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
   return(result);
 }
-# 1078 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1077 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t *ptr)
 {
   uint32_t result;
@@ -1049,7 +543,7 @@ __attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t 
   __asm volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
   return ((uint8_t) result);
 }
-# 1093 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1092 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_t *ptr)
 {
   uint32_t result;
@@ -1057,7 +551,7 @@ __attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_
   __asm volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
   return ((uint16_t) result);
 }
-# 1108 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1107 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t *ptr)
 {
   uint32_t result;
@@ -1065,22 +559,522 @@ __attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t
   __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
   return(result);
 }
-# 1123 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1122 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
 {
   __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1135 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1134 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
 {
   __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1147 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1146 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
 __attribute__((always_inline)) static __inline void __STRT(uint32_t value, volatile uint32_t *ptr)
 {
   __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
 }
-# 1432 "../Drivers/CMSIS/Include\\cmsis_armclang.h" 3
+# 1365 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+__attribute__((always_inline)) static __inline uint32_t __SADD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("sadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __QADD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("qadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SHADD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("shadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UADD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UQADD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uqadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UHADD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uhadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+
+__attribute__((always_inline)) static __inline uint32_t __SSUB8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("ssub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __QSUB8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("qsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SHSUB8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("shsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __USUB8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("usub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UQSUB8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uqsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UHSUB8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uhsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+
+__attribute__((always_inline)) static __inline uint32_t __SADD16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("sadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __QADD16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("qadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SHADD16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("shadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UADD16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UQADD16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uqadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UHADD16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uhadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SSUB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("ssub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __QSUB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("qsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SHSUB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("shsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __USUB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("usub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UQSUB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uqsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UHSUB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uhsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SASX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("sasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __QASX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("qasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SHASX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("shasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UASX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UQASX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uqasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UHASX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uhasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SSAX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("ssax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __QSAX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("qsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SHSAX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("shsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __USAX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("usax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UQSAX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uqsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UHSAX(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uhsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __USAD8(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("usad8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __USADA8(uint32_t op1, uint32_t op2, uint32_t op3)
+{
+  uint32_t result;
+
+  __asm volatile ("usada8 %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
+  return(result);
+}
+# 1685 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+__attribute__((always_inline)) static __inline uint32_t __UXTB16(uint32_t op1)
+{
+  uint32_t result;
+
+  __asm volatile ("uxtb16 %0, %1" : "=r" (result) : "r" (op1));
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __UXTAB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("uxtab16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SXTB16(uint32_t op1)
+{
+  uint32_t result;
+
+  __asm volatile ("sxtb16 %0, %1" : "=r" (result) : "r" (op1));
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SXTAB16(uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("sxtab16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMUAD (uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("smuad %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMUADX (uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("smuadx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMLAD (uint32_t op1, uint32_t op2, uint32_t op3)
+{
+  uint32_t result;
+
+  __asm volatile ("smlad %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMLADX (uint32_t op1, uint32_t op2, uint32_t op3)
+{
+  uint32_t result;
+
+  __asm volatile ("smladx %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint64_t __SMLALD (uint32_t op1, uint32_t op2, uint64_t acc)
+{
+  union llreg_u{
+    uint32_t w32[2];
+    uint64_t w64;
+  } llr;
+  llr.w64 = acc;
+
+
+  __asm volatile ("smlald %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
+
+
+
+
+  return(llr.w64);
+}
+
+__attribute__((always_inline)) static __inline uint64_t __SMLALDX (uint32_t op1, uint32_t op2, uint64_t acc)
+{
+  union llreg_u{
+    uint32_t w32[2];
+    uint64_t w64;
+  } llr;
+  llr.w64 = acc;
+
+
+  __asm volatile ("smlaldx %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
+
+
+
+
+  return(llr.w64);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMUSD (uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("smusd %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMUSDX (uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("smusdx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMLSD (uint32_t op1, uint32_t op2, uint32_t op3)
+{
+  uint32_t result;
+
+  __asm volatile ("smlsd %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SMLSDX (uint32_t op1, uint32_t op2, uint32_t op3)
+{
+  uint32_t result;
+
+  __asm volatile ("smlsdx %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline uint64_t __SMLSLD (uint32_t op1, uint32_t op2, uint64_t acc)
+{
+  union llreg_u{
+    uint32_t w32[2];
+    uint64_t w64;
+  } llr;
+  llr.w64 = acc;
+
+
+  __asm volatile ("smlsld %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
+
+
+
+
+  return(llr.w64);
+}
+
+__attribute__((always_inline)) static __inline uint64_t __SMLSLDX (uint32_t op1, uint32_t op2, uint64_t acc)
+{
+  union llreg_u{
+    uint32_t w32[2];
+    uint64_t w64;
+  } llr;
+  llr.w64 = acc;
+
+
+  __asm volatile ("smlsldx %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
+
+
+
+
+  return(llr.w64);
+}
+
+__attribute__((always_inline)) static __inline uint32_t __SEL (uint32_t op1, uint32_t op2)
+{
+  uint32_t result;
+
+  __asm volatile ("sel %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline int32_t __QADD( int32_t op1, int32_t op2)
+{
+  int32_t result;
+
+  __asm volatile ("qadd %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+__attribute__((always_inline)) static __inline int32_t __QSUB( int32_t op1, int32_t op2)
+{
+  int32_t result;
+
+  __asm volatile ("qsub %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
+  return(result);
+}
+
+
+
+
+
+
+
 __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int32_t op2, int32_t op3)
 {
   int32_t result;
@@ -1088,7 +1082,7 @@ __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int
   __asm volatile ("smmla %0, %1, %2, %3" : "=r" (result): "r" (op1), "r" (op2), "r" (op3) );
   return(result);
 }
-# 48 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2 3
+# 42 "../Drivers/CMSIS/Include/cmsis_compiler.h" 2 3
 # 163 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
 # 274 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef union
@@ -1542,9 +1536,9 @@ __attribute__((__noreturn__)) static __inline void __NVIC_SystemReset(void)
   }
 }
 # 2178 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-# 1 "../Drivers/CMSIS/Include\\mpu_armv7.h" 1 3
-# 29 "../Drivers/CMSIS/Include\\mpu_armv7.h" 3
-# 183 "../Drivers/CMSIS/Include\\mpu_armv7.h" 3
+# 1 "../Drivers/CMSIS/Include/mpu_armv7.h" 1 3
+# 29 "../Drivers/CMSIS/Include/mpu_armv7.h" 3
+# 183 "../Drivers/CMSIS/Include/mpu_armv7.h" 3
 typedef struct {
   uint32_t RBAR;
   uint32_t RASR;
@@ -2027,7 +2021,7 @@ static __inline int32_t ITM_CheckChar (void)
     return (1);
   }
 }
-# 224 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h" 2
+# 224 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
 
 
 
@@ -2035,17 +2029,17 @@ static __inline int32_t ITM_CheckChar (void)
 
 
 
-# 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\system_stm32h7xx.h" 1
-# 57 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\system_stm32h7xx.h"
+# 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h" 1
+# 57 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h"
 extern uint32_t SystemCoreClock;
 extern uint32_t SystemD2Clock;
 extern const uint8_t D1CorePrescTable[16] ;
-# 85 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\system_stm32h7xx.h"
+# 85 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h"
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
 extern void ExitRun0Mode(void);
-# 232 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h" 2
-# 242 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h"
+# 232 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
+# 242 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef struct
 {
   volatile uint32_t ISR;
@@ -2688,7 +2682,7 @@ volatile uint32_t IMR3;
 volatile uint32_t EMR3;
 volatile uint32_t PR3;
 }EXTI_TypeDef;
-# 894 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h"
+# 894 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef struct
 {
 volatile uint32_t IMR1;
@@ -3449,7 +3443,7 @@ typedef struct
 {
   volatile uint32_t IER;
 } RAMECC_TypeDef;
-# 1664 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h"
+# 1664 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef struct
 {
   volatile uint32_t MCR;
@@ -3754,7 +3748,7 @@ typedef struct
   volatile uint32_t HCDMA;
   uint32_t Reserved[2];
 } USB_OTG_HostChannelTypeDef;
-# 1977 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h743xx.h"
+# 1977 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef struct
 {
   uint32_t RESERVED0[2036];
@@ -3857,19 +3851,19 @@ typedef enum
 # 283 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 1
 # 284 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
-# 30 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_def.h" 2
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\Legacy/stm32_hal_legacy.h" 1
-# 31 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_def.h" 2
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\stddef.h" 1 3
-# 38 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\stddef.h" 3
+# 30 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" 1
+# 31 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 1 3
+# 38 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 3
   typedef signed int ptrdiff_t;
-# 53 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\stddef.h" 3
+# 53 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 3
     typedef unsigned int size_t;
-# 71 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\stddef.h" 3
+# 71 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stddef.h" 3
       typedef unsigned short wchar_t;
-# 32 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_def.h" 2
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 1 3
-# 157 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
+# 32 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 1 3
+# 139 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
 extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_dcmp4(double , double );
 extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_fcmp4(float , float );
 
@@ -3879,39 +3873,39 @@ extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_fcmp4(float , float );
 
 
 
-extern __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassifyf(float );
-extern __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassify(double );
+extern __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassifyf(float );
+extern __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassify(double );
 
 
 
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinitef(float __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinitef(float __x)
 {
     return (((*(unsigned *)&(__x)) >> 23) & 0xff) != 0xff;
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinite(double __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinite(double __x)
 {
     return (((*(1 + (unsigned *)&(__x))) >> 20) & 0x7ff) != 0x7ff;
 }
 
 
 
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isinff(float __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isinff(float __x)
 {
     return ((*(unsigned *)&(__x)) << 1) == 0xff000000;
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isinf(double __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isinf(double __x)
 {
     return (((*(1 + (unsigned *)&(__x))) << 1) == 0xffe00000) && ((*(unsigned *)&(__x)) == 0);
 }
 
 
 
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreaterf(float __x, float __y)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreaterf(float __x, float __y)
 {
     unsigned __f = __ARM_fcmp4(__x, __y) >> 28;
     return (__f == 8) || (__f == 2);
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreater(double __x, double __y)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreater(double __x, double __y)
 {
     unsigned __f = __ARM_dcmp4(__x, __y) >> 28;
     return (__f == 8) || (__f == 2);
@@ -3921,11 +3915,11 @@ static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) i
 
 
 
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnanf(float __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnanf(float __x)
 {
     return (0x7f800000 - ((*(unsigned *)&(__x)) & 0x7fffffff)) >> 31;
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnan(double __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnan(double __x)
 {
     unsigned __xf = (*(1 + (unsigned *)&(__x))) | (((*(unsigned *)&(__x)) == 0) ? 0 : 1);
     return (0x7ff00000 - (__xf & 0x7fffffff)) >> 31;
@@ -3933,12 +3927,12 @@ static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) i
 
 
 
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormalf(float __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormalf(float __x)
 {
     unsigned __xe = ((*(unsigned *)&(__x)) >> 23) & 0xff;
     return (__xe != 0xff) && (__xe != 0);
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormal(double __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormal(double __x)
 {
     unsigned __xe = ((*(1 + (unsigned *)&(__x))) >> 20) & 0x7ff;
     return (__xe != 0x7ff) && (__xe != 0);
@@ -3946,18 +3940,18 @@ static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) i
 
 
 
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_signbitf(float __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_signbitf(float __x)
 {
     return (*(unsigned *)&(__x)) >> 31;
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_signbit(double __x)
+static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_signbit(double __x)
 {
     return (*(1 + (unsigned *)&(__x))) >> 31;
 }
-# 266 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
+# 248 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
   typedef float float_t;
   typedef double double_t;
-# 282 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
+# 264 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
 extern const int math_errhandling;
 
 
@@ -3966,32 +3960,32 @@ extern const int math_errhandling;
 
 
 
-extern __attribute__((__nothrow__)) double acos(double );
+extern __attribute__((nothrow)) double acos(double );
 
 
 
-extern __attribute__((__nothrow__)) double asin(double );
-
-
-
-
-
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double atan(double );
-
-
-
-extern __attribute__((__nothrow__)) double atan2(double , double );
+extern __attribute__((nothrow)) double asin(double );
 
 
 
 
 
-extern __attribute__((__nothrow__)) double cos(double );
+extern __attribute__((nothrow)) __attribute__((const)) double atan(double );
+
+
+
+extern __attribute__((nothrow)) double atan2(double , double );
 
 
 
 
-extern __attribute__((__nothrow__)) double sin(double );
+
+extern __attribute__((nothrow)) double cos(double );
+
+
+
+
+extern __attribute__((nothrow)) double sin(double );
 
 
 
@@ -4001,36 +3995,36 @@ extern void __use_accurate_range_reduction(void);
 
 
 
-extern __attribute__((__nothrow__)) double tan(double );
+extern __attribute__((nothrow)) double tan(double );
 
 
 
 
 
-extern __attribute__((__nothrow__)) double cosh(double );
+extern __attribute__((nothrow)) double cosh(double );
 
 
 
 
-extern __attribute__((__nothrow__)) double sinh(double );
+extern __attribute__((nothrow)) double sinh(double );
 
 
 
 
 
 
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double tanh(double );
+extern __attribute__((nothrow)) __attribute__((const)) double tanh(double );
 
 
 
-extern __attribute__((__nothrow__)) double exp(double );
+extern __attribute__((nothrow)) double exp(double );
 
 
 
 
 
 
-extern __attribute__((__nothrow__)) double frexp(double , int * ) __attribute__((__nonnull__(2)));
+extern __attribute__((nothrow)) double frexp(double , int * ) __attribute__((__nonnull__(2)));
 
 
 
@@ -4038,101 +4032,85 @@ extern __attribute__((__nothrow__)) double frexp(double , int * ) __attribute__(
 
 
 
-extern __attribute__((__nothrow__)) double ldexp(double , int );
+extern __attribute__((nothrow)) double ldexp(double , int );
 
 
 
 
-extern __attribute__((__nothrow__)) double log(double );
+extern __attribute__((nothrow)) double log(double );
 
 
 
 
 
-extern __attribute__((__nothrow__)) double log10(double );
+extern __attribute__((nothrow)) double log10(double );
 
 
 
-extern __attribute__((__nothrow__)) double modf(double , double * ) __attribute__((__nonnull__(2)));
+extern __attribute__((nothrow)) double modf(double , double * ) __attribute__((__nonnull__(2)));
 
 
 
 
 
-extern __attribute__((__nothrow__)) double pow(double , double );
+extern __attribute__((nothrow)) double pow(double , double );
 
 
 
 
 
 
-extern __attribute__((__nothrow__)) double sqrt(double );
+extern __attribute__((nothrow)) double sqrt(double );
 
 
 
 
 
 
-    __attribute__((__always_inline__)) static double __sqrt(double d) {
-      __asm__ __volatile__(
 
+    static __inline double _sqrt(double __x) { return sqrt(__x); }
 
 
-      "vsqrt.f64 %0, %0"
 
-      : "+w"(d));
-      return d;
-    }
 
-    static __inline double _sqrt(double __x) { return __sqrt(__x); }
+    static __inline float _sqrtf(float __x) { return (float)sqrt(__x); }
 
 
 
 
 
-    __attribute__((__always_inline__)) static float __sqrtf(float f) {
-      __asm__ __volatile__(
 
 
+extern __attribute__((nothrow)) __attribute__((const)) double ceil(double );
 
-      "vsqrt.f32 %0, %0"
 
-      : "+w"(f));
-      return f;
-    }
+extern __attribute__((nothrow)) __attribute__((const)) double fabs(double );
 
-    static __inline float _sqrtf(float __x) { return __sqrtf(__x); }
-# 435 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double ceil(double );
 
 
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double fabs(double );
+extern __attribute__((nothrow)) __attribute__((const)) double floor(double );
 
 
 
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double floor(double );
+extern __attribute__((nothrow)) double fmod(double , double );
+# 425 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((nothrow)) double acosh(double );
 
 
 
-extern __attribute__((__nothrow__)) double fmod(double , double );
-# 467 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) double acosh(double );
+extern __attribute__((nothrow)) double asinh(double );
 
 
 
-extern __attribute__((__nothrow__)) double asinh(double );
+extern __attribute__((nothrow)) double atanh(double );
 
 
 
-extern __attribute__((__nothrow__)) double atanh(double );
+extern __attribute__((nothrow)) double cbrt(double );
 
 
 
-extern __attribute__((__nothrow__)) double cbrt(double );
-
-
-
-static __inline __attribute__((__nothrow__)) __attribute__((__const__)) double copysign(double __x, double __y)
+static __inline __attribute__((nothrow)) __attribute__((const)) double copysign(double __x, double __y)
 
 
 
@@ -4140,7 +4118,7 @@ static __inline __attribute__((__nothrow__)) __attribute__((__const__)) double c
     (*(1 + (unsigned *)&(__x))) = ((*(1 + (unsigned *)&(__x))) & 0x7fffffff) | ((*(1 + (unsigned *)&(__y))) & 0x80000000);
     return __x;
 }
-static __inline __attribute__((__nothrow__)) __attribute__((__const__)) float copysignf(float __x, float __y)
+static __inline __attribute__((nothrow)) __attribute__((const)) float copysignf(float __x, float __y)
 
 
 
@@ -4148,268 +4126,268 @@ static __inline __attribute__((__nothrow__)) __attribute__((__const__)) float co
     (*(unsigned *)&(__x)) = ((*(unsigned *)&(__x)) & 0x7fffffff) | ((*(unsigned *)&(__y)) & 0x80000000);
     return __x;
 }
-extern __attribute__((__nothrow__)) double erf(double );
+extern __attribute__((nothrow)) double erf(double );
 
 
 
-extern __attribute__((__nothrow__)) double erfc(double );
+extern __attribute__((nothrow)) double erfc(double );
 
 
 
-extern __attribute__((__nothrow__)) double expm1(double );
-# 533 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) double hypot(double , double );
+extern __attribute__((nothrow)) double expm1(double );
+# 491 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((nothrow)) double hypot(double , double );
 
 
 
 
 
 
-extern __attribute__((__nothrow__)) int ilogb(double );
+extern __attribute__((nothrow)) int ilogb(double );
 
 
 
-extern __attribute__((__nothrow__)) int ilogbf(float );
+extern __attribute__((nothrow)) int ilogbf(float );
 
 
 
-extern __attribute__((__nothrow__)) int ilogbl(long double );
-# 646 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) double lgamma (double );
+extern __attribute__((nothrow)) int ilogbl(long double );
+# 604 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((nothrow)) double lgamma (double );
 
 
 
 
-extern __attribute__((__nothrow__)) double log1p(double );
+extern __attribute__((nothrow)) double log1p(double );
 
 
 
-extern __attribute__((__nothrow__)) double logb(double );
+extern __attribute__((nothrow)) double logb(double );
 
 
 
-extern __attribute__((__nothrow__)) float logbf(float );
+extern __attribute__((nothrow)) float logbf(float );
 
 
 
-extern __attribute__((__nothrow__)) long double logbl(long double );
+extern __attribute__((nothrow)) long double logbl(long double );
 
 
 
-extern __attribute__((__nothrow__)) double nextafter(double , double );
+extern __attribute__((nothrow)) double nextafter(double , double );
 
 
 
 
-extern __attribute__((__nothrow__)) float nextafterf(float , float );
+extern __attribute__((nothrow)) float nextafterf(float , float );
 
 
 
 
-extern __attribute__((__nothrow__)) long double nextafterl(long double , long double );
+extern __attribute__((nothrow)) long double nextafterl(long double , long double );
 
 
 
 
-extern __attribute__((__nothrow__)) double nexttoward(double , long double );
+extern __attribute__((nothrow)) double nexttoward(double , long double );
 
 
 
 
-extern __attribute__((__nothrow__)) float nexttowardf(float , long double );
+extern __attribute__((nothrow)) float nexttowardf(float , long double );
 
 
 
 
-extern __attribute__((__nothrow__)) long double nexttowardl(long double , long double );
+extern __attribute__((nothrow)) long double nexttowardl(long double , long double );
 
 
 
 
-extern __attribute__((__nothrow__)) double remainder(double , double );
+extern __attribute__((nothrow)) double remainder(double , double );
 
 
 
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double rint(double );
+extern __attribute__((nothrow)) __attribute__((const)) double rint(double );
 
 
 
-extern __attribute__((__nothrow__)) double scalbln(double , long int );
+extern __attribute__((nothrow)) double scalbln(double , long int );
 
 
 
-extern __attribute__((__nothrow__)) float scalblnf(float , long int );
+extern __attribute__((nothrow)) float scalblnf(float , long int );
 
 
 
-extern __attribute__((__nothrow__)) long double scalblnl(long double , long int );
+extern __attribute__((nothrow)) long double scalblnl(long double , long int );
 
 
 
-extern __attribute__((__nothrow__)) double scalbn(double , int );
+extern __attribute__((nothrow)) double scalbn(double , int );
 
 
 
-extern __attribute__((__nothrow__)) float scalbnf(float , int );
-
-
-
-extern __attribute__((__nothrow__)) long double scalbnl(long double , int );
-# 740 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float fabsf(float);
-static __inline __attribute__((__nothrow__)) __attribute__((__const__)) float _fabsf(float __f) { return fabsf(__f); }
-extern __attribute__((__nothrow__)) float sinf(float );
-extern __attribute__((__nothrow__)) float cosf(float );
-extern __attribute__((__nothrow__)) float tanf(float );
-extern __attribute__((__nothrow__)) float acosf(float );
-extern __attribute__((__nothrow__)) float asinf(float );
-extern __attribute__((__nothrow__)) float atanf(float );
-extern __attribute__((__nothrow__)) float atan2f(float , float );
-extern __attribute__((__nothrow__)) float sinhf(float );
-extern __attribute__((__nothrow__)) float coshf(float );
-extern __attribute__((__nothrow__)) float tanhf(float );
-extern __attribute__((__nothrow__)) float expf(float );
-extern __attribute__((__nothrow__)) float logf(float );
-extern __attribute__((__nothrow__)) float log10f(float );
-extern __attribute__((__nothrow__)) float powf(float , float );
-extern __attribute__((__nothrow__)) float sqrtf(float );
-extern __attribute__((__nothrow__)) float ldexpf(float , int );
-extern __attribute__((__nothrow__)) float frexpf(float , int * ) __attribute__((__nonnull__(2)));
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float ceilf(float );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float floorf(float );
-extern __attribute__((__nothrow__)) float fmodf(float , float );
-extern __attribute__((__nothrow__)) float modff(float , float * ) __attribute__((__nonnull__(2)));
-# 780 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-__attribute__((__nothrow__)) long double acosl(long double );
-__attribute__((__nothrow__)) long double asinl(long double );
-__attribute__((__nothrow__)) long double atanl(long double );
-__attribute__((__nothrow__)) long double atan2l(long double , long double );
-__attribute__((__nothrow__)) long double ceill(long double );
-__attribute__((__nothrow__)) long double cosl(long double );
-__attribute__((__nothrow__)) long double coshl(long double );
-__attribute__((__nothrow__)) long double expl(long double );
-__attribute__((__nothrow__)) long double fabsl(long double );
-__attribute__((__nothrow__)) long double floorl(long double );
-__attribute__((__nothrow__)) long double fmodl(long double , long double );
-__attribute__((__nothrow__)) long double frexpl(long double , int* ) __attribute__((__nonnull__(2)));
-__attribute__((__nothrow__)) long double ldexpl(long double , int );
-__attribute__((__nothrow__)) long double logl(long double );
-__attribute__((__nothrow__)) long double log10l(long double );
-__attribute__((__nothrow__)) long double modfl(long double , long double * ) __attribute__((__nonnull__(2)));
-__attribute__((__nothrow__)) long double powl(long double , long double );
-__attribute__((__nothrow__)) long double sinl(long double );
-__attribute__((__nothrow__)) long double sinhl(long double );
-__attribute__((__nothrow__)) long double sqrtl(long double );
-__attribute__((__nothrow__)) long double tanl(long double );
-__attribute__((__nothrow__)) long double tanhl(long double );
-
-
-
-
-
-
-extern __attribute__((__nothrow__)) float acoshf(float );
-__attribute__((__nothrow__)) long double acoshl(long double );
-extern __attribute__((__nothrow__)) float asinhf(float );
-__attribute__((__nothrow__)) long double asinhl(long double );
-extern __attribute__((__nothrow__)) float atanhf(float );
-__attribute__((__nothrow__)) long double atanhl(long double );
-__attribute__((__nothrow__)) long double copysignl(long double , long double );
-extern __attribute__((__nothrow__)) float cbrtf(float );
-__attribute__((__nothrow__)) long double cbrtl(long double );
-extern __attribute__((__nothrow__)) float erff(float );
-__attribute__((__nothrow__)) long double erfl(long double );
-extern __attribute__((__nothrow__)) float erfcf(float );
-__attribute__((__nothrow__)) long double erfcl(long double );
-extern __attribute__((__nothrow__)) float expm1f(float );
-__attribute__((__nothrow__)) long double expm1l(long double );
-extern __attribute__((__nothrow__)) float log1pf(float );
-__attribute__((__nothrow__)) long double log1pl(long double );
-extern __attribute__((__nothrow__)) float hypotf(float , float );
-__attribute__((__nothrow__)) long double hypotl(long double , long double );
-extern __attribute__((__nothrow__)) float lgammaf(float );
-__attribute__((__nothrow__)) long double lgammal(long double );
-extern __attribute__((__nothrow__)) float remainderf(float , float );
-__attribute__((__nothrow__)) long double remainderl(long double , long double );
-extern __attribute__((__nothrow__)) float rintf(float );
-__attribute__((__nothrow__)) long double rintl(long double );
-
-
-
-
-
-
-
-extern __attribute__((__nothrow__)) double exp2(double );
-extern __attribute__((__nothrow__)) float exp2f(float );
-__attribute__((__nothrow__)) long double exp2l(long double );
-extern __attribute__((__nothrow__)) double fdim(double , double );
-extern __attribute__((__nothrow__)) float fdimf(float , float );
-__attribute__((__nothrow__)) long double fdiml(long double , long double );
-# 855 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) double fma(double , double , double );
-extern __attribute__((__nothrow__)) float fmaf(float , float , float );
-
-static __inline __attribute__((__nothrow__)) long double fmal(long double __x, long double __y, long double __z) { return (long double)fma((double)__x, (double)__y, (double)__z); }
-
-
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double fmax(double , double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float fmaxf(float , float );
-__attribute__((__nothrow__)) long double fmaxl(long double , long double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double fmin(double , double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float fminf(float , float );
-__attribute__((__nothrow__)) long double fminl(long double , long double );
-extern __attribute__((__nothrow__)) double log2(double );
-extern __attribute__((__nothrow__)) float log2f(float );
-__attribute__((__nothrow__)) long double log2l(long double );
-extern __attribute__((__nothrow__)) long lrint(double );
-extern __attribute__((__nothrow__)) long lrintf(float );
-
-static __inline __attribute__((__nothrow__)) long lrintl(long double __x) { return lrint((double)__x); }
-
-
-extern __attribute__((__nothrow__)) long long llrint(double );
-extern __attribute__((__nothrow__)) long long llrintf(float );
-
-static __inline __attribute__((__nothrow__)) long long llrintl(long double __x) { return llrint((double)__x); }
-
-
-extern __attribute__((__nothrow__)) long lround(double );
-extern __attribute__((__nothrow__)) long lroundf(float );
-
-static __inline __attribute__((__nothrow__)) long lroundl(long double __x) { return lround((double)__x); }
-
-
-extern __attribute__((__nothrow__)) long long llround(double );
-extern __attribute__((__nothrow__)) long long llroundf(float );
-
-static __inline __attribute__((__nothrow__)) long long llroundl(long double __x) { return llround((double)__x); }
-
-
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double nan(const char * );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float nanf(const char * );
-
-static __inline __attribute__((__nothrow__)) __attribute__((__const__)) long double nanl(const char *__t) { return (long double)nan(__t); }
-# 908 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\math.h" 3
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double nearbyint(double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float nearbyintf(float );
-__attribute__((__nothrow__)) long double nearbyintl(long double );
-extern __attribute__((__nothrow__)) double remquo(double , double , int * );
-extern __attribute__((__nothrow__)) float remquof(float , float , int * );
+extern __attribute__((nothrow)) float scalbnf(float , int );
+
+
+
+extern __attribute__((nothrow)) long double scalbnl(long double , int );
+# 698 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((nothrow)) __attribute__((const)) float _fabsf(float);
+static __inline __attribute__((nothrow)) __attribute__((const)) float fabsf(float __f) { return _fabsf(__f); }
+extern __attribute__((nothrow)) float sinf(float );
+extern __attribute__((nothrow)) float cosf(float );
+extern __attribute__((nothrow)) float tanf(float );
+extern __attribute__((nothrow)) float acosf(float );
+extern __attribute__((nothrow)) float asinf(float );
+extern __attribute__((nothrow)) float atanf(float );
+extern __attribute__((nothrow)) float atan2f(float , float );
+extern __attribute__((nothrow)) float sinhf(float );
+extern __attribute__((nothrow)) float coshf(float );
+extern __attribute__((nothrow)) float tanhf(float );
+extern __attribute__((nothrow)) float expf(float );
+extern __attribute__((nothrow)) float logf(float );
+extern __attribute__((nothrow)) float log10f(float );
+extern __attribute__((nothrow)) float powf(float , float );
+extern __attribute__((nothrow)) float sqrtf(float );
+extern __attribute__((nothrow)) float ldexpf(float , int );
+extern __attribute__((nothrow)) float frexpf(float , int * ) __attribute__((__nonnull__(2)));
+extern __attribute__((nothrow)) __attribute__((const)) float ceilf(float );
+extern __attribute__((nothrow)) __attribute__((const)) float floorf(float );
+extern __attribute__((nothrow)) float fmodf(float , float );
+extern __attribute__((nothrow)) float modff(float , float * ) __attribute__((__nonnull__(2)));
+# 738 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+__attribute__((nothrow)) long double acosl(long double );
+__attribute__((nothrow)) long double asinl(long double );
+__attribute__((nothrow)) long double atanl(long double );
+__attribute__((nothrow)) long double atan2l(long double , long double );
+__attribute__((nothrow)) long double ceill(long double );
+__attribute__((nothrow)) long double cosl(long double );
+__attribute__((nothrow)) long double coshl(long double );
+__attribute__((nothrow)) long double expl(long double );
+__attribute__((nothrow)) long double fabsl(long double );
+__attribute__((nothrow)) long double floorl(long double );
+__attribute__((nothrow)) long double fmodl(long double , long double );
+__attribute__((nothrow)) long double frexpl(long double , int* ) __attribute__((__nonnull__(2)));
+__attribute__((nothrow)) long double ldexpl(long double , int );
+__attribute__((nothrow)) long double logl(long double );
+__attribute__((nothrow)) long double log10l(long double );
+__attribute__((nothrow)) long double modfl(long double , long double * ) __attribute__((__nonnull__(2)));
+__attribute__((nothrow)) long double powl(long double , long double );
+__attribute__((nothrow)) long double sinl(long double );
+__attribute__((nothrow)) long double sinhl(long double );
+__attribute__((nothrow)) long double sqrtl(long double );
+__attribute__((nothrow)) long double tanl(long double );
+__attribute__((nothrow)) long double tanhl(long double );
+
+
+
+
+
+
+extern __attribute__((nothrow)) float acoshf(float );
+__attribute__((nothrow)) long double acoshl(long double );
+extern __attribute__((nothrow)) float asinhf(float );
+__attribute__((nothrow)) long double asinhl(long double );
+extern __attribute__((nothrow)) float atanhf(float );
+__attribute__((nothrow)) long double atanhl(long double );
+__attribute__((nothrow)) long double copysignl(long double , long double );
+extern __attribute__((nothrow)) float cbrtf(float );
+__attribute__((nothrow)) long double cbrtl(long double );
+extern __attribute__((nothrow)) float erff(float );
+__attribute__((nothrow)) long double erfl(long double );
+extern __attribute__((nothrow)) float erfcf(float );
+__attribute__((nothrow)) long double erfcl(long double );
+extern __attribute__((nothrow)) float expm1f(float );
+__attribute__((nothrow)) long double expm1l(long double );
+extern __attribute__((nothrow)) float log1pf(float );
+__attribute__((nothrow)) long double log1pl(long double );
+extern __attribute__((nothrow)) float hypotf(float , float );
+__attribute__((nothrow)) long double hypotl(long double , long double );
+extern __attribute__((nothrow)) float lgammaf(float );
+__attribute__((nothrow)) long double lgammal(long double );
+extern __attribute__((nothrow)) float remainderf(float , float );
+__attribute__((nothrow)) long double remainderl(long double , long double );
+extern __attribute__((nothrow)) float rintf(float );
+__attribute__((nothrow)) long double rintl(long double );
+
+
+
+
+
+
+
+extern __attribute__((nothrow)) double exp2(double );
+extern __attribute__((nothrow)) float exp2f(float );
+__attribute__((nothrow)) long double exp2l(long double );
+extern __attribute__((nothrow)) double fdim(double , double );
+extern __attribute__((nothrow)) float fdimf(float , float );
+__attribute__((nothrow)) long double fdiml(long double , long double );
+# 813 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((nothrow)) double fma(double , double , double );
+extern __attribute__((nothrow)) float fmaf(float , float , float );
+
+static __inline __attribute__((nothrow)) long double fmal(long double __x, long double __y, long double __z) { return (long double)fma((double)__x, (double)__y, (double)__z); }
+
+
+extern __attribute__((nothrow)) __attribute__((const)) double fmax(double , double );
+extern __attribute__((nothrow)) __attribute__((const)) float fmaxf(float , float );
+__attribute__((nothrow)) long double fmaxl(long double , long double );
+extern __attribute__((nothrow)) __attribute__((const)) double fmin(double , double );
+extern __attribute__((nothrow)) __attribute__((const)) float fminf(float , float );
+__attribute__((nothrow)) long double fminl(long double , long double );
+extern __attribute__((nothrow)) double log2(double );
+extern __attribute__((nothrow)) float log2f(float );
+__attribute__((nothrow)) long double log2l(long double );
+extern __attribute__((nothrow)) long lrint(double );
+extern __attribute__((nothrow)) long lrintf(float );
+
+static __inline __attribute__((nothrow)) long lrintl(long double __x) { return lrint((double)__x); }
+
+
+extern __attribute__((nothrow)) long long llrint(double );
+extern __attribute__((nothrow)) long long llrintf(float );
+
+static __inline __attribute__((nothrow)) long long llrintl(long double __x) { return llrint((double)__x); }
+
+
+extern __attribute__((nothrow)) long lround(double );
+extern __attribute__((nothrow)) long lroundf(float );
+
+static __inline __attribute__((nothrow)) long lroundl(long double __x) { return lround((double)__x); }
+
+
+extern __attribute__((nothrow)) long long llround(double );
+extern __attribute__((nothrow)) long long llroundf(float );
+
+static __inline __attribute__((nothrow)) long long llroundl(long double __x) { return llround((double)__x); }
+
+
+extern __attribute__((nothrow)) __attribute__((const)) double nan(const char * );
+extern __attribute__((nothrow)) __attribute__((const)) float nanf(const char * );
+
+static __inline __attribute__((nothrow)) __attribute__((const)) long double nanl(const char *__t) { return (long double)nan(__t); }
+# 866 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((nothrow)) __attribute__((const)) double nearbyint(double );
+extern __attribute__((nothrow)) __attribute__((const)) float nearbyintf(float );
+__attribute__((nothrow)) long double nearbyintl(long double );
+extern __attribute__((nothrow)) double remquo(double , double , int * );
+extern __attribute__((nothrow)) float remquof(float , float , int * );
 
 static __inline long double remquol(long double __x, long double __y, int *__q) { return (long double)remquo((double)__x, (double)__y, __q); }
 
 
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double round(double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float roundf(float );
-__attribute__((__nothrow__)) long double roundl(long double );
-extern __attribute__((__nothrow__)) double tgamma(double );
-extern __attribute__((__nothrow__)) float tgammaf(float );
-__attribute__((__nothrow__)) long double tgammal(long double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) double trunc(double );
-extern __attribute__((__nothrow__)) __attribute__((__const__)) float truncf(float );
-__attribute__((__nothrow__)) long double truncl(long double );
-# 33 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_def.h" 2
+extern __attribute__((nothrow)) __attribute__((const)) double round(double );
+extern __attribute__((nothrow)) __attribute__((const)) float roundf(float );
+__attribute__((nothrow)) long double roundl(long double );
+extern __attribute__((nothrow)) double tgamma(double );
+extern __attribute__((nothrow)) float tgammaf(float );
+__attribute__((nothrow)) long double tgammal(long double );
+extern __attribute__((nothrow)) __attribute__((const)) double trunc(double );
+extern __attribute__((nothrow)) __attribute__((const)) float truncf(float );
+__attribute__((nothrow)) long double truncl(long double );
+# 33 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 2
 
 
 
@@ -4535,8 +4513,8 @@ typedef struct
 
 } RCC_ClkInitTypeDef;
 # 7958 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h" 1
-# 45 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h" 1
+# 45 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
 typedef struct
 {
 
@@ -4648,7 +4626,7 @@ typedef struct
 
 
   uint32_t QspiClockSelection;
-# 170 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 170 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
   uint32_t SdmmcClockSelection;
 
 
@@ -4660,7 +4638,7 @@ typedef struct
 
 
   uint32_t Sai23ClockSelection;
-# 194 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 194 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
   uint32_t Spi123ClockSelection;
 
 
@@ -4671,7 +4649,7 @@ typedef struct
 
 
   uint32_t Dfsdm1ClockSelection;
-# 212 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 212 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
   uint32_t FdcanClockSelection;
 
 
@@ -4741,7 +4719,7 @@ typedef struct
   uint32_t TIMPresSelection;
 
 } RCC_PeriphCLKInitTypeDef;
-# 293 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 293 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
 typedef struct
 {
   uint32_t Prescaler;
@@ -4786,7 +4764,7 @@ typedef struct
 
 
 } RCC_CRSSynchroInfoTypeDef;
-# 3901 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 3901 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
 HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef *PeriphClkInit);
 void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef *PeriphClkInit);
 uint32_t HAL_RCCEx_GetPeriphCLKFreq(uint64_t PeriphClk);
@@ -4815,7 +4793,7 @@ void HAL_RCCEx_LSECSS_Callback(void);
 
 
 void HAL_RCCEx_WWDGxSysResetConfig(uint32_t RCC_WWDGx);
-# 3939 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc_ex.h"
+# 3939 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
 void HAL_RCCEx_CRSConfig(const RCC_CRSInitTypeDef *pInit);
 void HAL_RCCEx_CRSSoftwareSynchronizationGenerate(void);
 void HAL_RCCEx_CRSGetSynchronizationInfo(RCC_CRSSynchroInfoTypeDef *pSynchroInfo);
@@ -4844,7 +4822,8 @@ void HAL_RCC_GetClockConfig(RCC_ClkInitTypeDef *RCC_ClkInitStruct, uint32_t *pFL
 void HAL_RCC_NMI_IRQHandler(void);
 
 void HAL_RCC_CSSCallback(void);
-# 247 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 246 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+
 
 
 
@@ -4877,7 +4856,7 @@ typedef enum
   GPIO_PIN_SET
 } GPIO_PinState;
 # 244 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio_ex.h" 1
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h" 1
 # 245 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h" 2
 # 255 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_gpio.h"
 void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, const GPIO_InitTypeDef *GPIO_Init);
@@ -4889,7 +4868,8 @@ void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
-# 251 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 250 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+
 
 
 
@@ -5028,8 +5008,8 @@ typedef struct __DMA_HandleTypeDef
 
 }DMA_HandleTypeDef;
 # 1174 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma_ex.h" 1
-# 47 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h" 1
+# 47 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h"
 typedef enum
 {
   MEMORY0 = 0x00U,
@@ -5076,7 +5056,7 @@ typedef struct
 
 
 }HAL_DMA_MuxRequestGeneratorConfigTypeDef;
-# 237 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma_ex.h"
+# 237 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h"
 HAL_StatusTypeDef HAL_DMAEx_MultiBufferStart(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t SecondMemAddress, uint32_t DataLength);
 HAL_StatusTypeDef HAL_DMAEx_MultiBufferStart_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t SecondMemAddress, uint32_t DataLength);
 HAL_StatusTypeDef HAL_DMAEx_ChangeMemory(DMA_HandleTypeDef *hdma, uint32_t Address, HAL_DMA_MemoryTypeDef memory);
@@ -5102,7 +5082,8 @@ HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_Ca
 # 1214 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma.h"
 HAL_DMA_StateTypeDef HAL_DMA_GetState(const DMA_HandleTypeDef *hdma);
 uint32_t HAL_DMA_GetError(const DMA_HandleTypeDef *hdma);
-# 255 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 254 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+
 
 
 
@@ -5319,7 +5300,7 @@ void HAL_MDMA_IRQHandler(MDMA_HandleTypeDef *hmdma);
 # 690 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_mdma.h"
 HAL_MDMA_StateTypeDef HAL_MDMA_GetState(const MDMA_HandleTypeDef *hmdma);
 uint32_t HAL_MDMA_GetError(const MDMA_HandleTypeDef *hmdma);
-# 259 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 258 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 294 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_exti.h" 1
 # 44 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_exti.h"
@@ -5369,7 +5350,8 @@ void HAL_EXTI_IRQHandler(const EXTI_HandleTypeDef *hexti);
 uint32_t HAL_EXTI_GetPending(const EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_ClearPending(const EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_GenerateSWI(const EXTI_HandleTypeDef *hexti);
-# 295 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 294 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+
 
 
 
@@ -5423,14 +5405,15 @@ void HAL_SYSTICK_CLKSourceConfig(uint32_t CLKSource);
 void HAL_SYSTICK_IRQHandler(void);
 void HAL_SYSTICK_Callback(void);
 uint32_t HAL_GetCurrentCPUID(void);
-# 299 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 298 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+
 
 
 
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h" 1
 # 31 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h" 1
-# 2603 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h" 1
+# 2603 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_DMA_GetRegAddr(const ADC_TypeDef *ADCx, uint32_t Register)
 {
   uint32_t data_reg_addr;
@@ -5448,37 +5431,37 @@ static __inline uint32_t LL_ADC_DMA_GetRegAddr(const ADC_TypeDef *ADCx, uint32_t
 
   return data_reg_addr;
 }
-# 2663 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2663 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t CommonClock)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0x3UL << (16U)) | (0xFUL << (18U))))) | (CommonClock))));
 }
-# 2691 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2691 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetCommonClock(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0x3UL << (16U)) | (0xFUL << (18U)))));
 }
-# 2731 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2731 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetCommonPathInternalCh(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0x1UL << (22U)) | (0x1UL << (23U)) | (0x1UL << (24U))))) | (PathInternal))));
 }
-# 2753 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2753 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetCommonPathInternalCh(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0x1UL << (22U)) | (0x1UL << (23U)) | (0x1UL << (24U)))));
 }
-# 2788 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2788 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetCommonPathInternalChAdd(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)
 {
   ((ADCxy_COMMON->CCR) |= (PathInternal));
 }
-# 2812 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2812 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetCommonPathInternalChRem(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)
 {
   ((ADCxy_COMMON->CCR) &= ~(PathInternal));
 }
-# 2859 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2859 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetCalibrationOffsetFactor(ADC_TypeDef *ADCx, uint32_t SingleDiff, uint32_t CalibrationFactor)
 {
 
@@ -5491,7 +5474,7 @@ static __inline void LL_ADC_SetCalibrationOffsetFactor(ADC_TypeDef *ADCx, uint32
 
 
 }
-# 2890 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2890 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetCalibrationOffsetFactor(const ADC_TypeDef *ADCx, uint32_t SingleDiff)
 {
 
@@ -5504,10 +5487,10 @@ static __inline uint32_t LL_ADC_GetCalibrationOffsetFactor(const ADC_TypeDef *AD
   return (uint32_t)(((ADCx->CALFACT) & ((SingleDiff & ((0x7FFUL << (16U)) | (0x7FFUL << (0U)))))) >> ((SingleDiff & (0x00010000UL)) >> ((16UL) - 4UL)));
 
 }
-# 2925 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2925 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetCalibrationLinearFactor(ADC_TypeDef *ADCx, uint32_t LinearityWord, uint32_t CalibrationFactor)
 {
-# 2939 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2939 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   uint32_t timeout_cpu_cycles = (524400UL);
   (((ADCx->CALFACT2)) = ((((((ADCx->CALFACT2))) & (~((0x3FFFFFFFUL << (0U))))) | (CalibrationFactor))));
   (((ADCx->CR)) = ((((((ADCx->CR))) & (~((0x1UL << (16U))))) | (LinearityWord))));
@@ -5517,7 +5500,7 @@ static __inline void LL_ADC_SetCalibrationLinearFactor(ADC_TypeDef *ADCx, uint32
   }
 
 }
-# 2965 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2965 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetCalibrationLinearFactor(ADC_TypeDef *ADCx, uint32_t LinearityWord)
 {
   uint32_t timeout_cpu_cycles = (524400UL);
@@ -5532,10 +5515,10 @@ static __inline uint32_t LL_ADC_GetCalibrationLinearFactor(ADC_TypeDef *ADCx, ui
   return (uint32_t)(((ADCx->CALFACT2) & ((0x3FFFFFFFUL << (0U)))));
 
 }
-# 2997 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 2997 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetResolution(ADC_TypeDef *ADCx, uint32_t Resolution)
 {
-# 3027 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3027 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   if ((((DBGMCU_TypeDef *) (0x5C001000UL))->IDCODE & 0x30000000UL) == 0x10000000UL)
   {
     (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x7UL << (2U))))) | (Resolution))));
@@ -5554,10 +5537,10 @@ static __inline void LL_ADC_SetResolution(ADC_TypeDef *ADCx, uint32_t Resolution
 
 
 }
-# 3062 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3062 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetResolution(const ADC_TypeDef *ADCx)
 {
-# 3086 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3086 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   if ((((DBGMCU_TypeDef *) (0x5C001000UL))->IDCODE & 0x30000000UL) == 0x10000000UL)
   {
     return (uint32_t)(((ADCx->CFGR) & ((0x7UL << (2U)))));
@@ -5576,66 +5559,66 @@ static __inline uint32_t LL_ADC_GetResolution(const ADC_TypeDef *ADCx)
 
 
 }
-# 3156 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3156 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetLowPowerMode(ADC_TypeDef *ADCx, uint32_t LowPowerMode)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (14U))))) | (LowPowerMode))));
 }
-# 3207 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3207 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetLowPowerMode(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (14U)))));
 }
-# 3243 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3243 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetChannelPreselection(ADC_TypeDef *ADCx, uint32_t Channel)
 {
-# 3253 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3253 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
     ADCx->PCSEL |= (1UL << (((((Channel) & ((0xFFFFFUL << (0U)))) == 0UL) ? ( ((Channel) & ((0x1FUL << (26U)))) >> (26UL) ) : ( (uint32_t)(__CLZ(__builtin_arm_rbit((Channel)))) ) ) & 0x1FUL));
 
 }
-# 3288 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3288 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetChannelPreselection(const ADC_TypeDef *ADCx, uint32_t Channel)
 {
-# 3302 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3302 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
     return (uint32_t)(((ADCx->PCSEL) & (1UL << (((((Channel) & ((0xFFFFFUL << (0U)))) == 0UL) ? ( ((Channel) & ((0x1FUL << (26U)))) >> (26UL) ) : ( (uint32_t)(__CLZ(__builtin_arm_rbit((Channel)))) ) ) & 0x1FUL))));
 
 }
-# 3379 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3379 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetOffset(ADC_TypeDef *ADCx, uint32_t Offsety, uint32_t Channel, uint32_t OffsetLevel)
 {
   volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->OFR1)) + ((Offsety) << 2UL))));
-# 3391 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3391 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   {
     (((*preg)) = ((((((*preg))) & (~((0x1FUL << (26U)) | (0x3FFFFFFUL << (0U))))) | ((Channel & ((0x1FUL << (26U)))) | OffsetLevel))));
 
 
   }
 }
-# 3461 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3461 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOffsetChannel(const ADC_TypeDef *ADCx, uint32_t Offsety)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->OFR1)) + ((Offsety) << 2UL))));
 
   return (uint32_t) ((*preg) & ((0x1FUL << (26U))));
 }
-# 3487 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3487 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOffsetLevel(const ADC_TypeDef *ADCx, uint32_t Offsety)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->OFR1)) + ((Offsety) << 2UL))));
 
   return (uint32_t) ((*preg) & ((0x3FFFFFFUL << (0U))));
 }
-# 3510 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3510 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetDataRightShift(ADC_TypeDef *ADCx, uint32_t Offsety, uint32_t RigthShift)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~(((0x1UL << (11U)) | (0x1UL << (12U)) | (0x1UL << (13U)) | (0x1UL << (14U)))))) | (RigthShift << (Offsety & 0x1FUL)))));
 }
-# 3529 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3529 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetDataRightShift(const ADC_TypeDef *ADCx, uint32_t Offsety)
 {
   return (uint32_t)((((ADCx->CFGR2) & (((0x1UL << (11U)) << (Offsety & 0x1FUL))))) >> (Offsety & 0x1FUL));
 }
-# 3552 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3552 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetOffsetSignedSaturation(ADC_TypeDef *ADCx, uint32_t Offsety, uint32_t OffsetSignedSaturation)
 {
 
@@ -5650,21 +5633,21 @@ static __inline void LL_ADC_SetOffsetSignedSaturation(ADC_TypeDef *ADCx, uint32_
     (((*preg)) = ((((((*preg))) & (~((0x1UL << (31U))))) | (OffsetSignedSaturation))));
   }
 }
-# 3584 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3584 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOffsetSignedSaturation(const ADC_TypeDef *ADCx, uint32_t Offsety)
 {
-# 3594 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3594 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   {
     const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->OFR1)) + ((Offsety) << 2UL))));
     return (uint32_t) ((*preg) & ((0x1UL << (31U))));
   }
 }
-# 3857 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3857 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetTriggerSource(ADC_TypeDef *ADCx, uint32_t TriggerSource)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x3UL << (10U)) | (0x1FUL << (5U))))) | (TriggerSource))));
 }
-# 3901 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3901 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetTriggerSource(const ADC_TypeDef *ADCx)
 {
   volatile uint32_t TriggerSource = ((ADCx->CFGR) & ((0x1FUL << (5U)) | (0x3UL << (10U))));
@@ -5680,42 +5663,42 @@ static __inline uint32_t LL_ADC_REG_GetTriggerSource(const ADC_TypeDef *ADCx)
           | ((((((0x00000000UL) & (0x3UL << (10U))) << (4U * 0UL)) | ((((0x1UL << (10U)))) << (4U * 1UL)) | ((((0x1UL << (10U)))) << (4U * 2UL)) | ((((0x1UL << (10U)))) << (4U * 3UL)) ) >> ShiftExten) & (0x3UL << (10U)))
          );
 }
-# 3928 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3928 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_IsTriggerSourceSWStart(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CFGR) & ((0x3UL << (10U)))) == ((0x00000000UL) & (0x3UL << (10U)))) ? 1UL : 0UL);
 }
-# 3948 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3948 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetTriggerEdge(ADC_TypeDef *ADCx, uint32_t ExternalTriggerEdge)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x3UL << (10U))))) | (ExternalTriggerEdge))));
 }
-# 3963 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 3963 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetTriggerEdge(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x3UL << (10U)))));
 }
-# 4054 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4054 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetSequencerLength(ADC_TypeDef *ADCx, uint32_t SequencerNbRanks)
 {
   (((ADCx->SQR1)) = ((((((ADCx->SQR1))) & (~((0xFUL << (0U))))) | (SequencerNbRanks))));
 }
-# 4108 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4108 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetSequencerLength(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->SQR1) & ((0xFUL << (0U)))));
 }
-# 4140 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4140 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetSequencerDiscont(ADC_TypeDef *ADCx, uint32_t SeqDiscont)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (16U)) | (0x7UL << (17U))))) | (SeqDiscont))));
 }
-# 4163 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4163 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetSequencerDiscont(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (16U)) | (0x7UL << (17U)))));
 }
-# 4255 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4255 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank, uint32_t Channel)
 {
 
@@ -5728,7 +5711,7 @@ static __inline void LL_ADC_REG_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Ra
 
 
 }
-# 4357 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4357 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetSequencerRanks(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->SQR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -5738,42 +5721,42 @@ static __inline uint32_t LL_ADC_REG_GetSequencerRanks(const ADC_TypeDef *ADCx, u
                      >> (Rank & (((0x1FUL << (0U)))))) << (26UL)
                    );
 }
-# 4386 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4386 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetContinuousMode(ADC_TypeDef *ADCx, uint32_t Continuous)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (13U))))) | (Continuous))));
 }
-# 4403 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4403 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetContinuousMode(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (13U)))));
 }
-# 4419 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4419 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetDataTransferMode(ADC_TypeDef *ADCx, uint32_t DataTransferMode)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x3UL << (0U))))) | (DataTransferMode))));
 }
-# 4547 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4547 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetDataTransferMode(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x3UL << (0U)))));
 }
-# 4573 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4573 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_SetOverrun(ADC_TypeDef *ADCx, uint32_t Overrun)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (12U))))) | (Overrun))));
 }
-# 4587 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4587 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_GetOverrun(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (12U)))));
 }
-# 4644 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4644 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetTriggerSource(ADC_TypeDef *ADCx, uint32_t TriggerSource)
 {
   (((ADCx->JSQR)) = ((((((ADCx->JSQR))) & (~((0x1FUL << (2U)) | (0x3UL << (7U))))) | (TriggerSource))));
 }
-# 4688 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4688 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetTriggerSource(const ADC_TypeDef *ADCx)
 {
   volatile uint32_t TriggerSource = ((ADCx->JSQR) & ((0x1FUL << (2U)) | (0x3UL << (7U))));
@@ -5789,42 +5772,42 @@ static __inline uint32_t LL_ADC_INJ_GetTriggerSource(const ADC_TypeDef *ADCx)
           | ((((((0x00000000UL) & (0x3UL << (7U))) << (4U * 0UL)) | ((((0x1UL << (7U)))) << (4U * 1UL)) | ((((0x1UL << (7U)))) << (4U * 2UL)) | ((((0x1UL << (7U)))) << (4U * 3UL)) ) >> ShiftJexten) & (0x3UL << (7U)))
          );
 }
-# 4715 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4715 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_IsTriggerSourceSWStart(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->JSQR) & ((0x3UL << (7U)))) == ((0x00000000UL) & (0x3UL << (7U)))) ? 1UL : 0UL);
 }
-# 4735 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4735 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetTriggerEdge(ADC_TypeDef *ADCx, uint32_t ExternalTriggerEdge)
 {
   (((ADCx->JSQR)) = ((((((ADCx->JSQR))) & (~((0x3UL << (7U))))) | (ExternalTriggerEdge))));
 }
-# 4750 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4750 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetTriggerEdge(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->JSQR) & ((0x3UL << (7U)))));
 }
-# 4776 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4776 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetSequencerLength(ADC_TypeDef *ADCx, uint32_t SequencerNbRanks)
 {
   (((ADCx->JSQR)) = ((((((ADCx->JSQR))) & (~((0x3UL << (0U))))) | (SequencerNbRanks))));
 }
-# 4797 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4797 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetSequencerLength(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->JSQR) & ((0x3UL << (0U)))));
 }
-# 4815 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4815 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetSequencerDiscont(ADC_TypeDef *ADCx, uint32_t SeqDiscont)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (20U))))) | (SeqDiscont))));
 }
-# 4830 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4830 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetSequencerDiscont(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (20U)))));
 }
-# 4893 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4893 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank, uint32_t Channel)
 {
 
@@ -5835,7 +5818,7 @@ static __inline void LL_ADC_INJ_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Ra
 
 
 }
-# 4965 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 4965 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetSequencerRanks(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   return (uint32_t)((((ADCx->JSQR) & ((((0x1FUL << (26U))) >> (26UL)) << (Rank & (((0x1FUL << (0U)))))))
@@ -5843,27 +5826,27 @@ static __inline uint32_t LL_ADC_INJ_GetSequencerRanks(const ADC_TypeDef *ADCx, u
                     >> (Rank & (((0x1FUL << (0U)))))) << (26UL)
                    );
 }
-# 5003 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5003 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetTrigAuto(ADC_TypeDef *ADCx, uint32_t TrigAuto)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (25U))))) | (TrigAuto))));
 }
-# 5017 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5017 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetTrigAuto(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (25U)))));
 }
-# 5063 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5063 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_SetQueueMode(ADC_TypeDef *ADCx, uint32_t QueueMode)
 {
   (((ADCx->CFGR)) = ((((((ADCx->CFGR))) & (~((0x1UL << (21U)) | (0x1UL << (31U))))) | (QueueMode))));
 }
-# 5078 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5078 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_GetQueueMode(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR) & ((0x1UL << (21U)) | (0x1UL << (31U)))));
 }
-# 5279 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5279 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_ConfigQueueContext(ADC_TypeDef *ADCx,
                                                    uint32_t TriggerSource,
                                                    uint32_t ExternalTriggerEdge,
@@ -5881,9 +5864,9 @@ static __inline void LL_ADC_INJ_ConfigQueueContext(ADC_TypeDef *ADCx,
 
   uint32_t is_trigger_not_sw = (uint32_t)((TriggerSource != (0x00000000UL)) ? 1UL : 0UL);
   (((ADCx->JSQR)) = ((((((ADCx->JSQR))) & (~((0x1FUL << (2U)) | (0x3UL << (7U)) | (0x1FUL << (27U)) | (0x1FUL << (21U)) | (0x1FUL << (15U)) | (0x1FUL << (9U)) | (0x3UL << (0U))))) | ((TriggerSource & (0x1FUL << (2U))) | (ExternalTriggerEdge * (is_trigger_not_sw)) | (((Rank4_Channel & ((0x1FUL << (26U)))) >> (26UL)) << (((0x00000300UL) | ((27U))) & (((0x1FUL << (0U)))))) | (((Rank3_Channel & ((0x1FUL << (26U)))) >> (26UL)) << (((0x00000200UL) | ((21U))) & (((0x1FUL << (0U)))))) | (((Rank2_Channel & ((0x1FUL << (26U)))) >> (26UL)) << (((0x00000100UL) | ((15U))) & (((0x1FUL << (0U)))))) | (((Rank1_Channel & ((0x1FUL << (26U)))) >> (26UL)) << (((0x00000000UL) | ((9U))) & (((0x1FUL << (0U)))))) | SequencerNbRanks))));
-# 5311 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5311 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 }
-# 5409 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5409 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t Channel, uint32_t SamplingTime)
 {
 
@@ -5896,7 +5879,7 @@ static __inline void LL_ADC_SetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t C
 
 
 }
-# 5494 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5494 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetChannelSamplingTime(const ADC_TypeDef *ADCx, uint32_t Channel)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->SMPR1)) + ((((Channel & ((0x00000000UL) | (0x02000000UL))) >> (25UL))) << 2UL))));
@@ -5906,16 +5889,16 @@ static __inline uint32_t LL_ADC_GetChannelSamplingTime(const ADC_TypeDef *ADCx, 
                     >> ((Channel & (0x01F00000UL)) >> (20UL))
                    );
 }
-# 5555 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5555 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetChannelSingleDiff(ADC_TypeDef *ADCx, uint32_t Channel, uint32_t SingleDiff)
 {
-# 5577 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5577 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   (((ADCx->DIFSEL)) = ((((((ADCx->DIFSEL))) & (~(Channel & (((0xFFFFFUL << (0U))))))) | ((Channel & (((0xFFFFFUL << (0U))))) & ((0xFFFFFUL << (0U)) >> (SingleDiff & ((0x010UL << (0U)) | (0x008UL << (0U)))))))));
 
 
 
 }
-# 5626 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5626 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetChannelSingleDiff(const ADC_TypeDef *ADCx, uint32_t Channel)
 {
 
@@ -5924,7 +5907,7 @@ static __inline uint32_t LL_ADC_GetChannelSingleDiff(const ADC_TypeDef *ADCx, ui
   return (uint32_t)(((ADCx->DIFSEL) & ((Channel & (((0xFFFFFUL << (0U))))))));
 
 }
-# 5774 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5774 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDChannelGroup)
 {
 
@@ -5938,7 +5921,7 @@ static __inline void LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef *ADCx, uint32_t
 
 
 }
-# 5913 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 5913 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetAnalogWDMonitChannels(const ADC_TypeDef *ADCx, uint32_t AWDy)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->CFGR)) + ((((AWDy & ((0x00000000UL) | (0x00100000UL) | (0x00200000UL))) >> (20UL)) + ((AWDy & ((0x00001UL << (0U)))) * (0x00000024UL))) << 2UL))));
@@ -5994,10 +5977,10 @@ static __inline uint32_t LL_ADC_GetAnalogWDMonitChannels(const ADC_TypeDef *ADCx
 
   return AnalogWDMonitChannels;
 }
-# 6022 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6022 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDThresholdsHighLow, uint32_t AWDThresholdValue)
 {
-# 6057 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6057 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->LTR1)) + (((((AWDy & (((0x00000000UL)) | ((0x00100000UL)) | ((0x00200000UL)))) >> ((20UL))) * 2UL) + ((AWDy & ((0x00001UL << (0U)))) * (0x00000022UL)) + (AWDThresholdsHighLow)) << 2UL))));
 
 
@@ -6005,10 +5988,10 @@ static __inline void LL_ADC_SetAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t AW
   (((*preg)) = ((((((*preg))) & (~((0x3FFFFFFUL << (0U))))) | (AWDThresholdValue))));
 
 }
-# 6088 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6088 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetAnalogWDThresholds(const ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDThresholdsHighLow)
 {
-# 6110 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6110 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
    const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->LTR1)) + (((((AWDy & (((0x00000000UL)) | ((0x00100000UL)) | ((0x00200000UL)))) >> ((20UL))) * 2UL) + ((AWDy & ((0x00001UL << (0U)))) * (0x00000022UL)) + (AWDThresholdsHighLow)) << 2UL))));
 
 
@@ -6016,48 +5999,48 @@ static __inline uint32_t LL_ADC_GetAnalogWDThresholds(const ADC_TypeDef *ADCx, u
   return (uint32_t)(((*preg) & ((0x3FFFFFFUL << (0U)))));
 
 }
-# 6296 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6296 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetOverSamplingScope(ADC_TypeDef *ADCx, uint32_t OvsScope)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~((0x1UL << (0U)) | (0x1UL << (1U)) | (0x1UL << (10U))))) | (OvsScope))));
 }
-# 6321 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6321 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOverSamplingScope(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x1UL << (0U)) | (0x1UL << (1U)) | (0x1UL << (10U)))));
 }
-# 6348 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6348 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetOverSamplingDiscont(ADC_TypeDef *ADCx, uint32_t OverSamplingDiscont)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~((0x1UL << (9U))))) | (OverSamplingDiscont))));
 }
-# 6367 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6367 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOverSamplingDiscont(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x1UL << (9U)))));
 }
-# 6410 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6410 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_ConfigOverSamplingRatioShift(ADC_TypeDef *ADCx, uint32_t Ratio, uint32_t Shift)
 {
-# 6423 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6423 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~(((0xFUL << (5U)) | (0x3FFUL << (16U)))))) | ((Shift | (((Ratio - 1UL) << (16U))))))));
 
 
 }
-# 6444 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6444 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOverSamplingRatio(const ADC_TypeDef *ADCx)
 {
-# 6457 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6457 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
   return (((uint32_t)(((ADCx->CFGR2) & ((0x3FFUL << (16U))))) + (1UL << (16U))) >> (16U));
 
 
 }
-# 6481 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6481 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetOverSamplingShift(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0xFUL << (5U)))));
 }
-# 6509 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6509 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetBoostMode(ADC_TypeDef *ADCx, uint32_t BoostMode)
 {
 
@@ -6076,7 +6059,7 @@ static __inline void LL_ADC_SetBoostMode(ADC_TypeDef *ADCx, uint32_t BoostMode)
   }
 
 }
-# 6539 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6539 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetBoostMode(const ADC_TypeDef *ADCx)
 {
   if ((((DBGMCU_TypeDef *) (0x5C001000UL))->IDCODE & 0x30000000UL) == 0x10000000UL)
@@ -6088,37 +6071,37 @@ static __inline uint32_t LL_ADC_GetBoostMode(const ADC_TypeDef *ADCx)
     return ((((ADCx->CR) & ((0x3UL << (8U)))) == ((0x3UL << (8U)))) ? 1UL : 0UL);
   }
 }
-# 6577 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6577 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetMultimode(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t Multimode)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0x1FUL << (0U))))) | (Multimode))));
 }
-# 6601 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6601 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetMultimode(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0x1FUL << (0U)))));
 }
-# 6649 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6649 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetMultiDMATransfer(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t MultiDMATransfer)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0x3UL << (14U))))) | (MultiDMATransfer))));
 }
-# 6692 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6692 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetMultiDMATransfer(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0x3UL << (14U)))));
 }
-# 6737 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6737 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_SetMultiTwoSamplingDelay(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t MultiTwoSamplingDelay)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0xFUL << (8U))))) | (MultiTwoSamplingDelay))));
 }
-# 6770 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6770 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_GetMultiTwoSamplingDelay(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0xFUL << (8U)))));
 }
-# 6795 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6795 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_EnableDeepPowerDown(ADC_TypeDef *ADCx)
 {
 
@@ -6128,7 +6111,7 @@ static __inline void LL_ADC_EnableDeepPowerDown(ADC_TypeDef *ADCx)
 
 
 }
-# 6818 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6818 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_DisableDeepPowerDown(ADC_TypeDef *ADCx)
 {
 
@@ -6147,7 +6130,7 @@ static __inline uint32_t LL_ADC_IsDeepPowerDownEnabled(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (29U)))) == ((0x1UL << (29U)))) ? 1UL : 0UL);
 }
-# 6851 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6851 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_EnableInternalRegulator(ADC_TypeDef *ADCx)
 {
 
@@ -6157,7 +6140,7 @@ static __inline void LL_ADC_EnableInternalRegulator(ADC_TypeDef *ADCx)
 
 
 }
-# 6870 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6870 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_DisableInternalRegulator(ADC_TypeDef *ADCx)
 {
   ((ADCx->CR) &= ~(((0x1UL << (28U)) | ((0x1UL << (31U)) | (0x1UL << (5U)) | (0x1UL << (4U)) | (0x1UL << (3U)) | (0x1UL << (2U)) | (0x1UL << (1U)) | (0x1UL << (0U))))));
@@ -6173,7 +6156,7 @@ static __inline uint32_t LL_ADC_IsInternalRegulatorEnabled(const ADC_TypeDef *AD
 {
   return ((((ADCx->CR) & ((0x1UL << (28U)))) == ((0x1UL << (28U)))) ? 1UL : 0UL);
 }
-# 6902 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6902 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_Enable(ADC_TypeDef *ADCx)
 {
 
@@ -6183,7 +6166,7 @@ static __inline void LL_ADC_Enable(ADC_TypeDef *ADCx)
 
 
 }
-# 6922 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6922 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_Disable(ADC_TypeDef *ADCx)
 {
 
@@ -6193,7 +6176,7 @@ static __inline void LL_ADC_Disable(ADC_TypeDef *ADCx)
 
 
 }
-# 6941 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6941 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabled(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
@@ -6209,7 +6192,7 @@ static __inline uint32_t LL_ADC_IsDisableOngoing(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 6990 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 6990 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_StartCalibration(ADC_TypeDef *ADCx, uint32_t CalibrationMode, uint32_t SingleDiff)
 {
 
@@ -6230,7 +6213,7 @@ static __inline uint32_t LL_ADC_IsCalibrationOnGoing(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (31U)))) == ((0x1UL << (31U)))) ? 1UL : 0UL);
 }
-# 7037 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7037 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
 {
 
@@ -6240,7 +6223,7 @@ static __inline void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
 
 
 }
-# 7057 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7057 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_REG_StopConversion(ADC_TypeDef *ADCx)
 {
 
@@ -6272,37 +6255,37 @@ static __inline uint32_t LL_ADC_REG_IsStopConversionOngoing(const ADC_TypeDef *A
 {
   return ((((ADCx->CR) & ((0x1UL << (4U)))) == ((0x1UL << (4U)))) ? 1UL : 0UL);
 }
-# 7098 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7098 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_ReadConversionData32(const ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->DR) & ((0xFFFFFFFFUL << (0U)))));
 }
-# 7113 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7113 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_REG_ReadConversionData16(const ADC_TypeDef *ADCx)
 {
   return (uint16_t)(((ADCx->DR) & ((0xFFFFFFFFUL << (0U)))));
 }
-# 7128 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7128 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_REG_ReadConversionData14(const ADC_TypeDef *ADCx)
 {
   return (uint16_t)(((ADCx->DR) & ((0xFFFFFFFFUL << (0U)))));
 }
-# 7143 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7143 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_REG_ReadConversionData12(const ADC_TypeDef *ADCx)
 {
   return (uint16_t)(((ADCx->DR) & ((0xFFFFFFFFUL << (0U)))));
 }
-# 7158 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7158 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_REG_ReadConversionData10(const ADC_TypeDef *ADCx)
 {
   return (uint16_t)(((ADCx->DR) & ((0xFFFFFFFFUL << (0U)))));
 }
-# 7173 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7173 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint8_t LL_ADC_REG_ReadConversionData8(const ADC_TypeDef *ADCx)
 {
   return (uint8_t)(((ADCx->DR) & ((0xFFFFFFFFUL << (0U)))));
 }
-# 7198 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7198 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_REG_ReadMultiConversionData32(const ADC_Common_TypeDef *ADCxy_COMMON, uint32_t ConversionData)
 {
   return (uint32_t)(((ADCxy_COMMON->CDR) & (ConversionData))
@@ -6310,7 +6293,7 @@ static __inline uint32_t LL_ADC_REG_ReadMultiConversionData32(const ADC_Common_T
                     >> ((__CLZ(__builtin_arm_rbit(ConversionData))) & 0x1FUL)
                    );
 }
-# 7232 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7232 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_StartConversion(ADC_TypeDef *ADCx)
 {
 
@@ -6320,7 +6303,7 @@ static __inline void LL_ADC_INJ_StartConversion(ADC_TypeDef *ADCx)
 
 
 }
-# 7252 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7252 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_INJ_StopConversion(ADC_TypeDef *ADCx)
 {
 
@@ -6352,7 +6335,7 @@ static __inline uint32_t LL_ADC_INJ_IsStopConversionOngoing(const ADC_TypeDef *A
 {
   return ((((ADCx->CR) & ((0x1UL << (5U)))) == ((0x1UL << (5U)))) ? 1UL : 0UL);
 }
-# 7301 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7301 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_INJ_ReadConversionData32(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->JDR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -6361,7 +6344,7 @@ static __inline uint32_t LL_ADC_INJ_ReadConversionData32(const ADC_TypeDef *ADCx
 
                    );
 }
-# 7328 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7328 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_INJ_ReadConversionData16(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->JDR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -6370,7 +6353,7 @@ static __inline uint16_t LL_ADC_INJ_ReadConversionData16(const ADC_TypeDef *ADCx
 
                    );
 }
-# 7355 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7355 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_INJ_ReadConversionData14(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->JDR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -6379,7 +6362,7 @@ static __inline uint16_t LL_ADC_INJ_ReadConversionData14(const ADC_TypeDef *ADCx
 
                    );
 }
-# 7382 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7382 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_INJ_ReadConversionData12(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->JDR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -6388,7 +6371,7 @@ static __inline uint16_t LL_ADC_INJ_ReadConversionData12(const ADC_TypeDef *ADCx
 
                    );
 }
-# 7409 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7409 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint16_t LL_ADC_INJ_ReadConversionData10(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->JDR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -6397,7 +6380,7 @@ static __inline uint16_t LL_ADC_INJ_ReadConversionData10(const ADC_TypeDef *ADCx
 
                    );
 }
-# 7436 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7436 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint8_t LL_ADC_INJ_ReadConversionData8(const ADC_TypeDef *ADCx, uint32_t Rank)
 {
   const volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->JDR1)) + ((((Rank & ((0x00000000UL) | (0x00000100UL) | (0x00000200UL) | (0x00000300UL))) >> (8UL))) << 2UL))));
@@ -6406,7 +6389,7 @@ static __inline uint8_t LL_ADC_INJ_ReadConversionData8(const ADC_TypeDef *ADCx, 
 
                   );
 }
-# 7462 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7462 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_ADRDY(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->ISR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
@@ -6532,7 +6515,7 @@ static __inline uint32_t LL_ADC_IsActiveFlag_AWD3(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->ISR) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 7597 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7597 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_ClearFlag_ADRDY(ADC_TypeDef *ADCx)
 {
   ((ADCx->ISR) = ((0x1UL << (0U))));
@@ -6647,117 +6630,117 @@ static __inline void LL_ADC_ClearFlag_AWD3(ADC_TypeDef *ADCx)
 {
   ((ADCx->ISR) = ((0x1UL << (9U))));
 }
-# 7719 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7719 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_ADRDY(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
 }
-# 7731 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7731 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_ADRDY(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
 }
-# 7743 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7743 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_EOC(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (18U)))) == ((0x1UL << (18U)))) ? 1UL : 0UL);
 }
-# 7755 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7755 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_EOC(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (18U)))) == ((0x1UL << (18U)))) ? 1UL : 0UL);
 }
-# 7767 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7767 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_EOS(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (3U)))) == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 7779 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7779 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_EOS(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (19U)))) == ((0x1UL << (19U)))) ? 1UL : 0UL);
 }
-# 7791 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7791 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_OVR(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (4U)))) == ((0x1UL << (4U)))) ? 1UL : 0UL);
 }
-# 7803 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7803 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_OVR(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (20U)))) == ((0x1UL << (20U)))) ? 1UL : 0UL);
 }
-# 7815 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7815 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_EOSMP(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 7827 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7827 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_EOSMP(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (17U)))) == ((0x1UL << (17U)))) ? 1UL : 0UL);
 }
-# 7839 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7839 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_JEOC(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (5U)))) == ((0x1UL << (5U)))) ? 1UL : 0UL);
 }
-# 7851 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7851 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_JEOC(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (21U)))) == ((0x1UL << (21U)))) ? 1UL : 0UL);
 }
-# 7863 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7863 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_JEOS(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (6U)))) == ((0x1UL << (6U)))) ? 1UL : 0UL);
 }
-# 7875 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7875 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_JEOS(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (22U)))) == ((0x1UL << (22U)))) ? 1UL : 0UL);
 }
-# 7887 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7887 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_JQOVF(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
 }
-# 7899 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7899 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_JQOVF(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (26U)))) == ((0x1UL << (26U)))) ? 1UL : 0UL);
 }
-# 7911 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7911 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_AWD1(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
 }
-# 7923 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7923 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_AWD1(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (23U)))) == ((0x1UL << (23U)))) ? 1UL : 0UL);
 }
-# 7935 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7935 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_AWD2(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 7947 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7947 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_AWD2(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (24U)))) == ((0x1UL << (24U)))) ? 1UL : 0UL);
 }
-# 7959 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7959 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_MST_AWD3(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 7971 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7971 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsActiveFlag_SLV_AWD3(const ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return ((((ADCxy_COMMON->CSR) & ((0x1UL << (25U)))) == ((0x1UL << (25U)))) ? 1UL : 0UL);
 }
-# 7990 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 7990 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline void LL_ADC_EnableIT_ADRDY(ADC_TypeDef *ADCx)
 {
   ((ADCx->IER) |= ((0x1UL << (0U))));
@@ -6993,57 +6976,57 @@ static __inline void LL_ADC_DisableIT_AWD3(ADC_TypeDef *ADCx)
 {
   ((ADCx->IER) &= ~((0x1UL << (9U))));
 }
-# 8233 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8233 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_ADRDY(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
 }
-# 8245 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8245 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_EOC(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (2U)))) == ((0x1UL << (2U)))) ? 1UL : 0UL);
 }
-# 8257 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8257 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_EOS(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (3U)))) == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 8269 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8269 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_OVR(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (4U)))) == ((0x1UL << (4U)))) ? 1UL : 0UL);
 }
-# 8281 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8281 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_EOSMP(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 8293 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8293 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_JEOC(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (5U)))) == ((0x1UL << (5U)))) ? 1UL : 0UL);
 }
-# 8305 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8305 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_JEOS(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (6U)))) == ((0x1UL << (6U)))) ? 1UL : 0UL);
 }
-# 8317 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8317 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_JQOVF(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
 }
-# 8329 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8329 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_AWD1(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
 }
-# 8341 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8341 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_AWD2(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 8353 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_ll_adc.h"
+# 8353 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h"
 static __inline uint32_t LL_ADC_IsEnabledIT_AWD3(const ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
@@ -7230,8 +7213,8 @@ typedef struct
 # 431 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h"
 } ADC_HandleTypeDef;
 # 1917 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h" 1
-# 46 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h" 1
+# 46 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
 typedef struct
 {
   uint32_t Ratio;
@@ -7244,7 +7227,7 @@ typedef struct
   uint32_t RightBitShift;
 
 } ADC_InjOversamplingTypeDef;
-# 75 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 75 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
 typedef struct
 {
   uint32_t InjectedChannel;
@@ -7257,9 +7240,9 @@ typedef struct
 
 
   uint32_t InjectedSamplingTime;
-# 97 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 97 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
   uint32_t InjectedSingleDiff;
-# 109 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 109 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
   uint32_t InjectedOffsetNumber;
 
 
@@ -7272,7 +7255,7 @@ typedef struct
 
 
   uint32_t InjectedOffsetRightShift;
-# 137 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 137 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
   FunctionalState InjectedOffsetSignedSaturation;
 
 
@@ -7284,11 +7267,11 @@ typedef struct
 
 
   FunctionalState InjectedDiscontinuousConvMode;
-# 157 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 157 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
   FunctionalState AutoInjectedConv;
-# 166 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 166 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
   FunctionalState QueueInjectedContext;
-# 177 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 177 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
   uint32_t ExternalTrigInjecConv;
 
 
@@ -7332,7 +7315,7 @@ typedef struct
 
 
 } ADC_MultiModeTypeDef;
-# 1387 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 1387 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
 HAL_StatusTypeDef HAL_ADCEx_Calibration_Start(ADC_HandleTypeDef *hadc, uint32_t CalibrationMode, uint32_t SingleDiff);
 uint32_t HAL_ADCEx_Calibration_GetValue(const ADC_HandleTypeDef *hadc, uint32_t SingleDiff);
 HAL_StatusTypeDef HAL_ADCEx_LinearCalibration_GetValue(ADC_HandleTypeDef *hadc, uint32_t *LinearCalib_Buffer);
@@ -7370,7 +7353,7 @@ HAL_StatusTypeDef HAL_ADCEx_RegularStop(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_RegularStop_IT(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_RegularStop_DMA(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_RegularMultiModeStop_DMA(ADC_HandleTypeDef *hadc);
-# 1433 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_adc_ex.h"
+# 1433 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h"
 HAL_StatusTypeDef HAL_ADCEx_InjectedConfigChannel(ADC_HandleTypeDef *hadc, ADC_InjectionConfTypeDef *sConfigInjected);
 HAL_StatusTypeDef HAL_ADCEx_MultiModeConfigChannel(ADC_HandleTypeDef *hadc, ADC_MultiModeTypeDef *multimode);
 HAL_StatusTypeDef HAL_ADCEx_EnableInjectedQueue(ADC_HandleTypeDef *hadc);
@@ -7420,7 +7403,7 @@ void ADC_DMAConvCplt(DMA_HandleTypeDef *hdma);
 void ADC_DMAHalfConvCplt(DMA_HandleTypeDef *hdma);
 void ADC_DMAError(DMA_HandleTypeDef *hdma);
 void ADC_ConfigureBoostMode(ADC_HandleTypeDef *hadc);
-# 303 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 302 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 334 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h" 1
 # 45 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h"
@@ -7458,8 +7441,8 @@ typedef struct
 
 }FLASH_ProcessTypeDef;
 # 707 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash_ex.h" 1
-# 45 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h" 1
+# 45 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h"
 typedef struct
 {
   uint32_t TypeErase;
@@ -7526,7 +7509,7 @@ typedef struct
 
 
   uint32_t BootAddr1;
-# 124 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash_ex.h"
+# 124 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h"
   uint32_t SecureAreaConfig;
 
 
@@ -7535,7 +7518,7 @@ typedef struct
 
 
   uint32_t SecureAreaEndAddr;
-# 149 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash_ex.h"
+# 149 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h"
 } FLASH_OBProgramInitTypeDef;
 
 
@@ -7565,7 +7548,7 @@ typedef struct
 
 
 } FLASH_CRCInitTypeDef;
-# 848 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash_ex.h"
+# 848 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h"
 HAL_StatusTypeDef HAL_FLASHEx_Erase(FLASH_EraseInitTypeDef *pEraseInit, uint32_t *SectorError);
 HAL_StatusTypeDef HAL_FLASHEx_Erase_IT(FLASH_EraseInitTypeDef *pEraseInit);
 HAL_StatusTypeDef HAL_FLASHEx_OBProgram(FLASH_OBProgramInitTypeDef *pOBInit);
@@ -7579,7 +7562,7 @@ HAL_StatusTypeDef HAL_FLASHEx_Lock_Bank2(void);
 
 
 HAL_StatusTypeDef HAL_FLASHEx_ComputeCRC(FLASH_CRCInitTypeDef *pCRCInit, uint32_t *CRC_Result);
-# 1053 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash_ex.h"
+# 1053 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h"
 void FLASH_Erase_Sector(uint32_t Sector, uint32_t Banks, uint32_t VoltageRange);
 # 708 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h" 2
 # 717 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h"
@@ -7605,7 +7588,7 @@ extern FLASH_ProcessTypeDef pFlash;
 HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout, uint32_t Bank);
 HAL_StatusTypeDef FLASH_OB_WaitForLastOperation(uint32_t Timeout);
 HAL_StatusTypeDef FLASH_CRC_WaitForLastOperation(uint32_t Timeout, uint32_t Bank);
-# 335 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 334 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 350 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_hsem.h" 1
 # 129 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_hsem.h"
@@ -7630,7 +7613,7 @@ void HAL_HSEM_DeactivateNotification(uint32_t SemMask);
 void HAL_HSEM_FreeCallback(uint32_t SemMask);
 
 void HAL_HSEM_IRQHandler(void);
-# 351 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 350 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 366 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h" 1
 # 47 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h"
@@ -7730,8 +7713,8 @@ typedef struct __I2C_HandleTypeDef
 # 252 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h"
 } I2C_HandleTypeDef;
 # 590 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c_ex.h" 1
-# 96 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h" 1
+# 96 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h"
 HAL_StatusTypeDef HAL_I2CEx_ConfigAnalogFilter(I2C_HandleTypeDef *hi2c, uint32_t AnalogFilter);
 HAL_StatusTypeDef HAL_I2CEx_ConfigDigitalFilter(I2C_HandleTypeDef *hi2c, uint32_t DigitalFilter);
 
@@ -7835,7 +7818,7 @@ void HAL_I2C_AbortCpltCallback(I2C_HandleTypeDef *hi2c);
 HAL_I2C_StateTypeDef HAL_I2C_GetState(const I2C_HandleTypeDef *hi2c);
 HAL_I2C_ModeTypeDef HAL_I2C_GetMode(const I2C_HandleTypeDef *hi2c);
 uint32_t HAL_I2C_GetError(const I2C_HandleTypeDef *hi2c);
-# 367 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 366 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 414 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h" 1
 # 47 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h"
@@ -7852,8 +7835,8 @@ typedef struct
 
 }PWR_PVDTypeDef;
 # 672 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h" 1
-# 45 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h" 1
+# 45 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
 typedef struct
 {
   uint32_t AVDLevel;
@@ -7887,20 +7870,20 @@ typedef struct
 
 
 }PWREx_WakeupPinTypeDef;
-# 509 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h"
+# 509 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
 HAL_StatusTypeDef HAL_PWREx_ConfigSupply (uint32_t SupplySource);
 uint32_t HAL_PWREx_GetSupplyConfig (void);
 HAL_StatusTypeDef HAL_PWREx_ControlVoltageScaling (uint32_t VoltageScaling);
 uint32_t HAL_PWREx_GetVoltageRange (void);
 HAL_StatusTypeDef HAL_PWREx_ControlStopModeVoltageScaling (uint32_t VoltageScaling);
 uint32_t HAL_PWREx_GetStopModeVoltageRange (void);
-# 526 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h"
+# 526 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
 void HAL_PWREx_EnterSTOPMode (uint32_t Regulator, uint8_t STOPEntry, uint32_t Domain);
 void HAL_PWREx_EnterSTANDBYMode (uint32_t Domain);
 void HAL_PWREx_ConfigD3Domain (uint32_t D3State);
 
 void HAL_PWREx_ClearPendingEvent (void);
-# 539 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h"
+# 539 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
 void HAL_PWREx_EnableFlashPowerDown (void);
 void HAL_PWREx_DisableFlashPowerDown (void);
 
@@ -7925,7 +7908,7 @@ void HAL_PWREx_WKUP4_Callback (void);
 void HAL_PWREx_WKUP5_Callback (void);
 
 void HAL_PWREx_WKUP6_Callback (void);
-# 571 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h"
+# 571 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
 HAL_StatusTypeDef HAL_PWREx_EnableBkUpReg (void);
 HAL_StatusTypeDef HAL_PWREx_DisableBkUpReg (void);
 
@@ -7936,7 +7919,7 @@ void HAL_PWREx_DisableUSBVoltageDetector (void);
 
 void HAL_PWREx_EnableBatteryCharging (uint32_t ResistorValue);
 void HAL_PWREx_DisableBatteryCharging (void);
-# 594 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr_ex.h"
+# 594 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h"
 void HAL_PWREx_EnableMonitoring (void);
 void HAL_PWREx_DisableMonitoring (void);
 uint32_t HAL_PWREx_GetTemperatureLevel (void);
@@ -7979,7 +7962,7 @@ void HAL_PWR_EnableSleepOnExit (void);
 void HAL_PWR_DisableSleepOnExit (void);
 void HAL_PWR_EnableSEVOnPend (void);
 void HAL_PWR_DisableSEVOnPend (void);
-# 415 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 414 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 458 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 1
 # 46 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
@@ -8301,8 +8284,8 @@ typedef struct
 # 401 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 } TIM_HandleTypeDef;
 # 2189 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h" 1
-# 47 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h" 1
+# 47 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 typedef struct
 {
   uint32_t IC1Polarity;
@@ -8332,7 +8315,7 @@ typedef struct
 
 
 } TIMEx_BreakInputConfigTypeDef;
-# 373 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 373 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, const TIM_HallSensor_InitTypeDef *sConfig);
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_DeInit(TIM_HandleTypeDef *htim);
 
@@ -8348,7 +8331,7 @@ HAL_StatusTypeDef HAL_TIMEx_HallSensor_Stop_IT(TIM_HandleTypeDef *htim);
 
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_Start_DMA(TIM_HandleTypeDef *htim, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_Stop_DMA(TIM_HandleTypeDef *htim);
-# 398 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 398 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_OCN_Start(TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIMEx_OCN_Stop(TIM_HandleTypeDef *htim, uint32_t Channel);
 
@@ -8360,7 +8343,7 @@ HAL_StatusTypeDef HAL_TIMEx_OCN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channe
 HAL_StatusTypeDef HAL_TIMEx_OCN_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData,
                                           uint16_t Length);
 HAL_StatusTypeDef HAL_TIMEx_OCN_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 419 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 419 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Start(TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop(TIM_HandleTypeDef *htim, uint32_t Channel);
 
@@ -8371,14 +8354,14 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Chann
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData,
                                            uint16_t Length);
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 439 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 439 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 
 
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
-# 454 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 454 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent(TIM_HandleTypeDef *htim, uint32_t InputTrigger,
                                               uint32_t CommutationSource);
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_IT(TIM_HandleTypeDef *htim, uint32_t InputTrigger,
@@ -8396,15 +8379,15 @@ HAL_StatusTypeDef HAL_TIMEx_ConfigBreakInput(TIM_HandleTypeDef *htim, uint32_t B
 HAL_StatusTypeDef HAL_TIMEx_GroupChannel5(TIM_HandleTypeDef *htim, uint32_t Channels);
 HAL_StatusTypeDef HAL_TIMEx_RemapConfig(TIM_HandleTypeDef *htim, uint32_t Remap);
 HAL_StatusTypeDef HAL_TIMEx_TISelection(TIM_HandleTypeDef *htim, uint32_t TISelection, uint32_t Channel);
-# 485 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 485 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 void HAL_TIMEx_CommutCallback(TIM_HandleTypeDef *htim);
 void HAL_TIMEx_CommutHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIMEx_BreakCallback(TIM_HandleTypeDef *htim);
 void HAL_TIMEx_Break2Callback(TIM_HandleTypeDef *htim);
-# 498 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 498 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 HAL_TIM_StateTypeDef HAL_TIMEx_HallSensor_GetState(const TIM_HandleTypeDef *htim);
 HAL_TIM_ChannelStateTypeDef HAL_TIMEx_GetChannelNState(const TIM_HandleTypeDef *htim, uint32_t ChannelN);
-# 513 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim_ex.h"
+# 513 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 void TIMEx_DMACommutationCplt(DMA_HandleTypeDef *hdma);
 void TIMEx_DMACommutationHalfCplt(DMA_HandleTypeDef *hdma);
 # 2190 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 2
@@ -8560,7 +8543,8 @@ void TIM_DMAError(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureCplt(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureHalfCplt(DMA_HandleTypeDef *hdma);
 void TIM_CCxChannelCmd(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t ChannelState);
-# 459 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 458 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+
 
 
 
@@ -8722,8 +8706,8 @@ typedef struct __UART_HandleTypeDef
 # 292 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 } UART_HandleTypeDef;
 # 1597 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
-# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart_ex.h" 1
-# 46 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart_ex.h"
+# 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h" 1
+# 46 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h"
 typedef struct
 {
   uint32_t WakeUpEvent;
@@ -8736,15 +8720,15 @@ typedef struct
 
   uint8_t Address;
 } UART_WakeUpTypeDef;
-# 140 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart_ex.h"
+# 140 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h"
 HAL_StatusTypeDef HAL_RS485Ex_Init(UART_HandleTypeDef *huart, uint32_t Polarity, uint32_t AssertionTime,
                                    uint32_t DeassertionTime);
-# 151 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart_ex.h"
+# 151 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h"
 void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart);
 
 void HAL_UARTEx_RxFifoFullCallback(UART_HandleTypeDef *huart);
 void HAL_UARTEx_TxFifoEmptyCallback(UART_HandleTypeDef *huart);
-# 165 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart_ex.h"
+# 165 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h"
 HAL_StatusTypeDef HAL_UARTEx_StopModeWakeUpSourceConfig(UART_HandleTypeDef *huart, UART_WakeUpTypeDef WakeUpSelection);
 HAL_StatusTypeDef HAL_UARTEx_EnableStopMode(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UARTEx_DisableStopMode(UART_HandleTypeDef *huart);
@@ -8824,7 +8808,7 @@ HAL_StatusTypeDef UART_Start_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pDat
 HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 # 1730 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 extern const uint16_t UARTPrescTable[12];
-# 463 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 462 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 30 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 2
 # 43 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h"
 typedef enum
@@ -8905,15 +8889,16 @@ void HAL_SYSCFG_VREFBUF_HighImpedanceConfig(uint32_t Mode);
 void HAL_SYSCFG_VREFBUF_TrimmingConfig(uint32_t TrimmingValue);
 HAL_StatusTypeDef HAL_SYSCFG_EnableVREFBUF(void);
 void HAL_SYSCFG_DisableVREFBUF(void);
-# 31 "../Core/Inc\\main.h" 2
+# 30 "../Core/Inc/main.h" 2
+
 
 
 
 # 1 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 1
 # 321 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 1 3
-# 58 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) void *memcpy(void * __restrict ,
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 1 3
+# 58 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) void *memcpy(void * __restrict ,
                     const void * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
 
 
@@ -8921,45 +8906,28 @@ extern __attribute__((__nothrow__)) void *memcpy(void * __restrict ,
 
 
 
-extern __attribute__((__nothrow__)) void *memmove(void * ,
+extern __attribute__((nothrow)) void *memmove(void * ,
                     const void * , size_t ) __attribute__((__nonnull__(1,2)));
-# 77 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strcpy(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
+# 77 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strcpy(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
 
-extern __attribute__((__nothrow__)) char *strncpy(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
-# 93 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strcat(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) char *strncpy(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
+# 93 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strcat(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
 
-extern __attribute__((__nothrow__)) char *strncat(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
-# 117 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) int memcmp(const void * , const void * , size_t ) __attribute__((__nonnull__(1,2)));
-
-
-
-
-
-
-
-extern __attribute__((__nothrow__)) int strcmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
-
-
-
-
-
-
-extern __attribute__((__nothrow__)) int strncmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
-# 141 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) int strcasecmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) char *strncat(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
+# 117 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) int memcmp(const void * , const void * , size_t ) __attribute__((__nonnull__(1,2)));
 
 
 
@@ -8967,36 +8935,16 @@ extern __attribute__((__nothrow__)) int strcasecmp(const char * , const char * )
 
 
 
-extern __attribute__((__nothrow__)) int strncasecmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
-# 158 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) int strcoll(const char * , const char * ) __attribute__((__nonnull__(1,2)));
-# 169 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) size_t strxfrm(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(2)));
-# 193 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) void *memchr(const void * , int , size_t ) __attribute__((__nonnull__(1)));
-# 209 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strchr(const char * , int ) __attribute__((__nonnull__(1)));
-# 218 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) size_t strcspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
-# 232 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strpbrk(const char * , const char * ) __attribute__((__nonnull__(1,2)));
-# 247 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strrchr(const char * , int ) __attribute__((__nonnull__(1)));
-# 257 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) size_t strspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
-# 270 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strstr(const char * , const char * ) __attribute__((__nonnull__(1,2)));
-# 280 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) char *strtok(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(2)));
-extern __attribute__((__nothrow__)) char *_strtok_r(char * , const char * , char ** ) __attribute__((__nonnull__(2,3)));
-# 321 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) void *memset(void * , int , size_t ) __attribute__((__nonnull__(1)));
+extern __attribute__((nothrow)) int strcmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
-extern __attribute__((__nothrow__)) char *strerror(int );
+
+extern __attribute__((nothrow)) int strncmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+# 141 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) int strcasecmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 
 
 
@@ -9004,13 +8952,36 @@ extern __attribute__((__nothrow__)) char *strerror(int );
 
 
 
-extern __attribute__((__nothrow__)) size_t strlen(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((nothrow)) int strncasecmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+# 158 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) int strcoll(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+# 169 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) size_t strxfrm(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(2)));
+# 193 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) void *memchr(const void * , int , size_t ) __attribute__((__nonnull__(1)));
+# 209 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strchr(const char * , int ) __attribute__((__nonnull__(1)));
+# 218 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) size_t strcspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+# 232 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strpbrk(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+# 247 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strrchr(const char * , int ) __attribute__((__nonnull__(1)));
+# 257 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) size_t strspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+# 270 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strstr(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+# 280 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) char *strtok(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(2)));
+extern __attribute__((nothrow)) char *_strtok_r(char * , const char * , char ** ) __attribute__((__nonnull__(2,3)));
+# 321 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) void *memset(void * , int , size_t ) __attribute__((__nonnull__(1)));
 
 
 
 
 
-extern __attribute__((__nothrow__)) size_t strnlen(const char * , size_t ) __attribute__((__nonnull__(1)));
+extern __attribute__((nothrow)) char *strerror(int );
 
 
 
@@ -9018,30 +8989,38 @@ extern __attribute__((__nothrow__)) size_t strnlen(const char * , size_t ) __att
 
 
 
-extern __attribute__((__nothrow__)) size_t strlcpy(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
-# 369 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) size_t strlcat(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
-# 395 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\string.h" 3
-extern __attribute__((__nothrow__)) void _membitcpybl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitcpybb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitcpyhl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitcpyhb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitcpywl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitcpywb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitmovebl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitmovebb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitmovehl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitmovehb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitmovewl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((__nothrow__)) void _membitmovewb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-# 322 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
+extern __attribute__((nothrow)) size_t strlen(const char * ) __attribute__((__nonnull__(1)));
 
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\float.h" 1 3
-# 197 "D:\\Keil_v5\\ARM\\ARMCLANG\\bin\\..\\include\\float.h" 3
+
+
+
+
+
+extern __attribute__((nothrow)) size_t strlcpy(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+# 362 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) size_t strlcat(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+# 388 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
+extern __attribute__((nothrow)) void _membitcpybl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitcpybb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitcpyhl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitcpyhb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitcpywl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitcpywb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitmovebl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitmovebb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitmovehl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitmovehb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitmovewl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((nothrow)) void _membitmovewb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+# 321 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
+
+
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\float.h" 1 3
+# 130 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\float.h" 3
 unsigned _controlfp(unsigned, unsigned);
 unsigned _clearfp(void);
 unsigned _statusfp(void);
-# 324 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
+# 323 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
 # 375 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   typedef enum
   {
@@ -11532,10 +11511,10 @@ __attribute__((always_inline)) static __inline q15_t arm_pid_q15(
 
 
 
-    acc = (q31_t) __builtin_arm_smuad((uint32_t)S->A0, (uint32_t)in);
+    acc = (q31_t) __SMUAD((uint32_t)S->A0, (uint32_t)in);
 
 
-    acc = (q63_t)__builtin_arm_smlald((uint32_t)S->A1, (uint32_t)read_q15x2 (S->state), (uint64_t)acc);
+    acc = (q63_t)__SMLALD((uint32_t)S->A1, (uint32_t)read_q15x2 (S->state), (uint64_t)acc);
 # 5048 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
     acc += (q31_t) S->state[2] << 15;
 
@@ -11590,7 +11569,7 @@ __attribute__((always_inline)) static __inline void arm_clarke_q31(
     product2 = (q31_t) (((q63_t) Ib * 0x49E69D16) >> 30);
 
 
-    *pIbeta = __builtin_arm_qadd(product1, product2);
+    *pIbeta = __QADD(product1, product2);
   }
 # 5218 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline void arm_inv_clarke_f32(
@@ -11624,7 +11603,7 @@ __attribute__((always_inline)) static __inline void arm_inv_clarke_q31(
     product2 = (q31_t) (((q63_t) (Ibeta) * (0x6ED9EBA1)) >> 31);
 
 
-    *pIb = __builtin_arm_qsub(product2, product1);
+    *pIb = __QSUB(product2, product1);
   }
 # 5318 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline void arm_park_f32(
@@ -11667,10 +11646,10 @@ __attribute__((always_inline)) static __inline void arm_park_q31(
     product4 = (q31_t) (((q63_t) (Ibeta) * (cosVal)) >> 31);
 
 
-    *pId = __builtin_arm_qadd(product1, product2);
+    *pId = __QADD(product1, product2);
 
 
-    *pIq = __builtin_arm_qsub(product4, product3);
+    *pIq = __QSUB(product4, product3);
   }
 # 5421 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline void arm_inv_park_f32(
@@ -11713,10 +11692,10 @@ __attribute__((always_inline)) static __inline void arm_inv_park_q31(
     product4 = (q31_t) (((q63_t) (Iq) * (cosVal)) >> 31);
 
 
-    *pIalpha = __builtin_arm_qsub(product1, product2);
+    *pIalpha = __QSUB(product1, product2);
 
 
-    *pIbeta = __builtin_arm_qadd(product4, product3);
+    *pIbeta = __QADD(product4, product3);
   }
 # 5536 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline float32_t arm_linear_interp_f32(
@@ -12806,29 +12785,27 @@ arm_status arm_sqrt_q15(
 
     return ((q7_t)(acc >> 40));
   }
-# 35 "../Core/Inc\\main.h" 2
-# 53 "../Core/Inc\\main.h"
+# 34 "../Core/Inc/main.h" 2
+# 53 "../Core/Inc/main.h"
 void Error_Handler(void);
-# 30 "../Core/Inc\\dma.h" 2
+# 29 "../Core/Inc\\dma.h" 2
 # 41 "../Core/Inc\\dma.h"
 void MX_DMA_Init(void);
-# 23 "../Core/Src/dma.c" 2
+# 22 "../Core/Src/dma.c" 2
 # 39 "../Core/Src/dma.c"
 void MX_DMA_Init(void)
 {
 
 
   do { volatile uint32_t tmpreg; ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->AHB1ENR) |= ((0x1UL << (0U)))); tmpreg = ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->AHB1ENR) & ((0x1UL << (0U)))); ((void)(tmpreg)); } while(0);
+  do { volatile uint32_t tmpreg; ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->AHB1ENR) |= ((0x1UL << (1U)))); tmpreg = ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->AHB1ENR) & ((0x1UL << (1U)))); ((void)(tmpreg)); } while(0);
 
 
-
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
 
   HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
 
-  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
 
 }

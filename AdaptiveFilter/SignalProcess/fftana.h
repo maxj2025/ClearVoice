@@ -23,7 +23,7 @@
 #define FREQ_LIMIT_LOW 5000//频率下限5000hz
 
 typedef struct __attribute__((packed)) {
-    float32_t cmp[FFT_N];
+    float32_t cmp[FFT_2N];
 } fftin;
 
 typedef struct {//定义几个函数的输出结构体
