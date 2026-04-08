@@ -219,72 +219,81 @@ void Phase_atan(float32_t* FFT_In_Complex, uint32_t Index, float32_t* Phase) {
 
 float32_t Find_Vpp(fftin *input)
 {
-    float32_t Vpp = 0.0f;
-    uint32_t Max_count = 0;
-    uint32_t Min_count = 0;
+    // 根据项目规范使用 FFT_N，此处按你原逻辑取一半的数据进行时域分析
+    int num_samples = FFT_N / 2; 
     
+    if (num_samples <= 0) return 0.0f;
+
+    // 1. 计算信号的 DC 直流偏置 (平均值)
+    float32_t dc_offset = 0.0f;
+    for(int i = 0; i < num_samples; i++) {
+        dc_offset += input->cmp[2 * i];
+    }
+    dc_offset /= (float32_t)num_samples;
+
+    // 2. 过零检测与周期极值抓取
     float32_t AD_sum_max = 0.0f;
     float32_t AD_sum_min = 0.0f;
+    uint32_t Max_count = 0;
+    uint32_t Min_count = 0;
+
+    float32_t current_cycle_max = dc_offset;
+    float32_t current_cycle_min = dc_offset;
     
+    // 状态机：0=寻找起始点, 1=处于正半周, -1=处于负半周
+    int state = 0; 
 
-    int num_samples = FFT_N_2;
+    for(int i = 0; i < num_samples; i++) {
+        float32_t val = input->cmp[2 * i];
 
-    const float32_t VOLT_THRESHOLD = 0.05f; 
-    const float32_t MIN_DIFF_THRESHOLD = 0.02f;
-
-    for(int i = 10; i < num_samples - 10; i++)
-    {
-        uint8_t num_count_max = 0;
-        float32_t current_R = input->cmp[2 * i]; 
-
-        for(int j = 1; j < 6; j++)
-        {
-            if((current_R >= input->cmp[2 * (i - j)]) && 
-               (current_R >= input->cmp[2 * (i + j)]) && 
-               (current_R >= VOLT_THRESHOLD))
-            {
-                num_count_max++;
+        if (val > dc_offset) {
+            // 从负半周跨越到正半周：结算上一个负半周的最小值
+            if (state == -1) {
+                AD_sum_min += current_cycle_min;
+                Min_count++;
+                current_cycle_max = val; // 重置最大值记录器
+            } 
+            else {
+                // 持续在正半周：不断刷新当前周期的最大值
+                if (val > current_cycle_max) {
+                    current_cycle_max = val;
+                }
             }
+            state = 1;
         }
-        
-        if(num_count_max >= 4)
-        {
-            AD_sum_max += current_R;
-            Max_count++;    
-        }   
+        else if (val < dc_offset) {
+            // 从正半周跨越到负半周：结算上一个正半周的最大值
+            if (state == 1) {
+                AD_sum_max += current_cycle_max;
+                Max_count++;
+                current_cycle_min = val; // 重置最小值记录器
+            } 
+            else {
+                // 持续在负半周：不断刷新当前周期的最小值
+                if (val < current_cycle_min) {
+                    current_cycle_min = val;
+                }
+            }
+            state = -1;
+        }
     }
 
-    if(Max_count == 0) return 0.0f;
+    // 容错：处理最后一段未闭合的半周期
+    if (state == 1 && current_cycle_max > dc_offset + 0.05f) {
+        AD_sum_max += current_cycle_max; 
+        Max_count++;
+    } else if (state == -1 && current_cycle_min < dc_offset - 0.05f) {
+        AD_sum_min += current_cycle_min; 
+        Min_count++;
+    }
+
+    // 3. 计算最终平均峰峰值
+    if(Max_count == 0 || Min_count == 0) return 0.0f;
+    
     float32_t Vpp_AD_Max = AD_sum_max / (float32_t)Max_count;
-
-    for(int i = 5; i < num_samples - 5; i++)
-    {
-        uint8_t num_count_min = 0;
-        float32_t current_R = input->cmp[2 * i];
-
-        for(int j = 1; j < 6; j++)
-        {
-            if((current_R <= input->cmp[2 * (i - j)]) && 
-               (current_R <= input->cmp[2 * (i + j)]) && 
-               (current_R + MIN_DIFF_THRESHOLD < Vpp_AD_Max))
-            {
-                num_count_min++;
-            }
-        }
-        
-        if(num_count_min >= 4)
-        {
-            AD_sum_min += current_R;
-            Min_count++;    
-        }   
-    }
-
-    if(Min_count == 0) return 0.0f;
     float32_t Vpp_AD_Min = AD_sum_min / (float32_t)Min_count;
 
-    Vpp = Vpp_AD_Max - Vpp_AD_Min; 
-    
-    return Vpp;
+    return (Vpp_AD_Max - Vpp_AD_Min);
 }
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) {

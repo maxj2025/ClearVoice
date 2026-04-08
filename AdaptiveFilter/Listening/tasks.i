@@ -15268,14 +15268,7 @@ void FFT_Task(Analysis_Result_t *output)
 
     process_data_ad9220(adc1_buffer, &FFTIN_Mix);
     process_data(adc2_buffer, &FFTIN_Inter);
-
-
-
-
-
-
-    output->Interfere.Vpp = Find_Vpp(&FFTIN_Inter);
-
+# 19 "../Tasks/Tasks.c"
     fft_process(&FFTIN_Mix, &FFTOUT_Mix);
     fft_process(&FFTIN_Inter, &FFTOUT_Inter);
 
@@ -15322,7 +15315,7 @@ void USART_Task(Analysis_Result_t *output)
     if (output->Original.Freq < 1000) {
         sprintf(Char_temp, "%.3f Hz", (float64_t)output->Original.Freq);
     } else if (output->Original.Freq < 1000000) {
-        sprintf(Char_temp, "%.4f KHz", (float64_t)output->Original.Freq / 1000.0f);
+        sprintf(Char_temp, "%.2f KHz", (float64_t)output->Original.Freq / 1000.0f);
     } else {
         sprintf(Char_temp, "%.2f MHz", (float64_t)output->Original.Freq / 1000000.0f);
     }
@@ -15332,7 +15325,7 @@ void USART_Task(Analysis_Result_t *output)
     if (output->Interfere.Freq < 1000) {
         sprintf(Char_temp, "%.3f Hz", (float64_t)output->Interfere.Freq);
     } else if (output->Interfere.Freq < 1000000) {
-        sprintf(Char_temp, "%.4f KHz", (float64_t)output->Interfere.Freq / 1000.0f);
+        sprintf(Char_temp, "%.2f KHz", (float64_t)output->Interfere.Freq / 1000.0f);
     } else {
         sprintf(Char_temp, "%.2f MHz", (float64_t)output->Interfere.Freq / 1000000.0f);
     }
@@ -15345,7 +15338,7 @@ void USART_Task(Analysis_Result_t *output)
     HMI_send_string("t10.txt", wave_str);
 
 
-    sprintf(Char_temp, "%d Hz", (int)(output->Original.Freq - output->Interfere.Freq));
+    sprintf(Char_temp, "%d Hz", abs((int)(output->Original.Freq - output->Interfere.Freq)));
     HMI_send_string("t13.txt", Char_temp);
     memset(Char_temp, 0, 64);
 
