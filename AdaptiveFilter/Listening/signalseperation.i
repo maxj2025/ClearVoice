@@ -1,7 +1,7 @@
 # 1 "../SignalProcess/SignalSeperation.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 344 "<built-in>" 3
+# 373 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../SignalProcess/SignalSeperation.c" 2
@@ -70,13 +70,13 @@ typedef unsigned int uintptr_t;
 
 typedef signed long long intmax_t;
 typedef unsigned long long uintmax_t;
-# 5 "../MyDrive/global_types.h" 2
-
+# 6 "../MyDrive/global_types.h" 2
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdarg.h" 1 3
 # 40 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdarg.h" 3
   typedef __builtin_va_list va_list;
-# 6 "../MyDrive/global_types.h" 2
-
+# 134 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdarg.h" 3
+     typedef va_list __gnuc_va_list;
+# 7 "../MyDrive/global_types.h" 2
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 1 3
 # 53 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
     typedef unsigned int size_t;
@@ -111,7 +111,7 @@ struct __FILE {
 extern FILE __stdin, __stdout, __stderr;
 extern FILE *__aeabi_stdin, *__aeabi_stdout, *__aeabi_stderr;
 # 224 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int remove(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int remove(const char * ) __attribute__((__nonnull__(1)));
 
 
 
@@ -119,29 +119,29 @@ extern __attribute__((nothrow)) int remove(const char * ) __attribute__((__nonnu
 
 
 
-extern __attribute__((nothrow)) int rename(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int rename(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 # 243 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) FILE *tmpfile(void);
+extern __attribute__((__nothrow__)) FILE *tmpfile(void);
 
 
 
 
 
 
-extern __attribute__((nothrow)) char *tmpnam(char * );
+extern __attribute__((__nothrow__)) char *tmpnam(char * );
 # 265 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fclose(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int fclose(FILE * ) __attribute__((__nonnull__(1)));
 # 275 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fflush(FILE * );
+extern __attribute__((__nothrow__)) int fflush(FILE * );
 # 285 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) FILE *fopen(const char * __restrict ,
+extern __attribute__((__nothrow__)) FILE *fopen(const char * __restrict ,
                            const char * __restrict ) __attribute__((__nonnull__(1,2)));
 # 329 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) FILE *freopen(const char * __restrict ,
+extern __attribute__((__nothrow__)) FILE *freopen(const char * __restrict ,
                     const char * __restrict ,
                     FILE * __restrict ) __attribute__((__nonnull__(2,3)));
 # 342 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) void setbuf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) void setbuf(FILE * __restrict ,
                     char * __restrict ) __attribute__((__nonnull__(1)));
 
 
@@ -149,16 +149,16 @@ extern __attribute__((nothrow)) void setbuf(FILE * __restrict ,
 
 
 
-extern __attribute__((nothrow)) int setvbuf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int setvbuf(FILE * __restrict ,
                    char * __restrict ,
                    int , size_t ) __attribute__((__nonnull__(1)));
 # 370 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
 #pragma __printf_args
-extern __attribute__((nothrow)) int fprintf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int fprintf(FILE * __restrict ,
                     const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 # 393 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
 #pragma __printf_args
-extern __attribute__((nothrow)) int _fprintf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int _fprintf(FILE * __restrict ,
                      const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 
 
@@ -166,7 +166,7 @@ extern __attribute__((nothrow)) int _fprintf(FILE * __restrict ,
 
 
 #pragma __printf_args
-extern __attribute__((nothrow)) int printf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int printf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
 
 
 
@@ -174,24 +174,16 @@ extern __attribute__((nothrow)) int printf(const char * __restrict , ...) __attr
 
 
 #pragma __printf_args
-extern __attribute__((nothrow)) int _printf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int _printf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
 
 
 
 
 
 #pragma __printf_args
-extern __attribute__((nothrow)) int sprintf(char * __restrict , const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int sprintf(char * __restrict , const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 
 
-
-
-
-
-
-
-#pragma __printf_args
-extern __attribute__((nothrow)) int _sprintf(char * __restrict , const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 
 
 
@@ -199,16 +191,24 @@ extern __attribute__((nothrow)) int _sprintf(char * __restrict , const char * __
 
 
 #pragma __printf_args
-extern __attribute__((nothrow)) int __ARM_snprintf(char * __restrict , size_t ,
+extern __attribute__((__nothrow__)) int _sprintf(char * __restrict , const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
+
+
+
+
+
+
+#pragma __printf_args
+extern __attribute__((__nothrow__)) int __ARM_snprintf(char * __restrict , size_t ,
                      const char * __restrict , ...) __attribute__((__nonnull__(3)));
 
 
 #pragma __printf_args
-extern __attribute__((nothrow)) int snprintf(char * __restrict , size_t ,
+extern __attribute__((__nothrow__)) int snprintf(char * __restrict , size_t ,
                      const char * __restrict , ...) __attribute__((__nonnull__(3)));
 # 460 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
 #pragma __printf_args
-extern __attribute__((nothrow)) int _snprintf(char * __restrict , size_t ,
+extern __attribute__((__nothrow__)) int _snprintf(char * __restrict , size_t ,
                       const char * __restrict , ...) __attribute__((__nonnull__(3)));
 
 
@@ -216,11 +216,11 @@ extern __attribute__((nothrow)) int _snprintf(char * __restrict , size_t ,
 
 
 #pragma __scanf_args
-extern __attribute__((nothrow)) int fscanf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int fscanf(FILE * __restrict ,
                     const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 # 503 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
 #pragma __scanf_args
-extern __attribute__((nothrow)) int _fscanf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int _fscanf(FILE * __restrict ,
                      const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 
 
@@ -228,7 +228,7 @@ extern __attribute__((nothrow)) int _fscanf(FILE * __restrict ,
 
 
 #pragma __scanf_args
-extern __attribute__((nothrow)) int scanf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int scanf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
 
 
 
@@ -238,18 +238,18 @@ extern __attribute__((nothrow)) int scanf(const char * __restrict , ...) __attri
 
 
 #pragma __scanf_args
-extern __attribute__((nothrow)) int _scanf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int _scanf(const char * __restrict , ...) __attribute__((__nonnull__(1)));
 
 
 
 
 
 #pragma __scanf_args
-extern __attribute__((nothrow)) int sscanf(const char * __restrict ,
+extern __attribute__((__nothrow__)) int sscanf(const char * __restrict ,
                     const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 # 541 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
 #pragma __scanf_args
-extern __attribute__((nothrow)) int _sscanf(const char * __restrict ,
+extern __attribute__((__nothrow__)) int _sscanf(const char * __restrict ,
                      const char * __restrict , ...) __attribute__((__nonnull__(1,2)));
 
 
@@ -258,92 +258,92 @@ extern __attribute__((nothrow)) int _sscanf(const char * __restrict ,
 
 
 
-extern __attribute__((nothrow)) int vfscanf(FILE * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) int vscanf(const char * __restrict , __va_list) __attribute__((__nonnull__(1)));
-extern __attribute__((nothrow)) int vsscanf(const char * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int vfscanf(FILE * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int vscanf(const char * __restrict , __va_list) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int vsscanf(const char * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
 
-extern __attribute__((nothrow)) int _vfscanf(FILE * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) int _vscanf(const char * __restrict , __va_list) __attribute__((__nonnull__(1)));
-extern __attribute__((nothrow)) int _vsscanf(const char * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) int __ARM_vsscanf(const char * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int _vfscanf(FILE * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int _vscanf(const char * __restrict , __va_list) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int _vsscanf(const char * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int __ARM_vsscanf(const char * __restrict , const char * __restrict , __va_list) __attribute__((__nonnull__(1,2)));
 
-extern __attribute__((nothrow)) int vprintf(const char * __restrict , __va_list ) __attribute__((__nonnull__(1)));
-
-
+extern __attribute__((__nothrow__)) int vprintf(const char * __restrict , __va_list ) __attribute__((__nonnull__(1)));
 
 
 
 
 
-extern __attribute__((nothrow)) int _vprintf(const char * __restrict , __va_list ) __attribute__((__nonnull__(1)));
+
+
+extern __attribute__((__nothrow__)) int _vprintf(const char * __restrict , __va_list ) __attribute__((__nonnull__(1)));
 
 
 
 
 
-extern __attribute__((nothrow)) int vfprintf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int vfprintf(FILE * __restrict ,
                     const char * __restrict , __va_list ) __attribute__((__nonnull__(1,2)));
 # 584 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int vsprintf(char * __restrict ,
+extern __attribute__((__nothrow__)) int vsprintf(char * __restrict ,
                      const char * __restrict , __va_list ) __attribute__((__nonnull__(1,2)));
 # 594 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int __ARM_vsnprintf(char * __restrict , size_t ,
+extern __attribute__((__nothrow__)) int __ARM_vsnprintf(char * __restrict , size_t ,
                      const char * __restrict , __va_list ) __attribute__((__nonnull__(3)));
 
-extern __attribute__((nothrow)) int vsnprintf(char * __restrict , size_t ,
+extern __attribute__((__nothrow__)) int vsnprintf(char * __restrict , size_t ,
                      const char * __restrict , __va_list ) __attribute__((__nonnull__(3)));
 # 609 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int _vsprintf(char * __restrict ,
+extern __attribute__((__nothrow__)) int _vsprintf(char * __restrict ,
                       const char * __restrict , __va_list ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
-extern __attribute__((nothrow)) int _vfprintf(FILE * __restrict ,
+extern __attribute__((__nothrow__)) int _vfprintf(FILE * __restrict ,
                      const char * __restrict , __va_list ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
-extern __attribute__((nothrow)) int _vsnprintf(char * __restrict , size_t ,
+extern __attribute__((__nothrow__)) int _vsnprintf(char * __restrict , size_t ,
                       const char * __restrict , __va_list ) __attribute__((__nonnull__(3)));
 # 635 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
 #pragma __printf_args
-extern __attribute__((nothrow)) int __ARM_asprintf(char ** , const char * __restrict , ...) __attribute__((__nonnull__(2)));
-extern __attribute__((nothrow)) int __ARM_vasprintf(char ** , const char * __restrict , __va_list ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) int __ARM_asprintf(char ** , const char * __restrict , ...) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) int __ARM_vasprintf(char ** , const char * __restrict , __va_list ) __attribute__((__nonnull__(2)));
 # 649 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fgetc(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int fgetc(FILE * ) __attribute__((__nonnull__(1)));
 # 659 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) char *fgets(char * __restrict , int ,
+extern __attribute__((__nothrow__)) char *fgets(char * __restrict , int ,
                     FILE * __restrict ) __attribute__((__nonnull__(1,3)));
 # 673 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fputc(int , FILE * ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) int fputc(int , FILE * ) __attribute__((__nonnull__(2)));
 # 683 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fputs(const char * __restrict , FILE * __restrict ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int fputs(const char * __restrict , FILE * __restrict ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
 
-extern __attribute__((nothrow)) int getc(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int getc(FILE * ) __attribute__((__nonnull__(1)));
 # 704 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-    extern __attribute__((nothrow)) int (getchar)(void);
+    extern __attribute__((__nothrow__)) int (getchar)(void);
 # 713 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) char *gets(char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) char *gets(char * ) __attribute__((__nonnull__(1)));
 # 725 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int putc(int , FILE * ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) int putc(int , FILE * ) __attribute__((__nonnull__(2)));
 # 737 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-    extern __attribute__((nothrow)) int (putchar)(int );
+    extern __attribute__((__nothrow__)) int (putchar)(int );
 
 
 
 
 
 
-extern __attribute__((nothrow)) int puts(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int puts(const char * ) __attribute__((__nonnull__(1)));
 
 
 
@@ -351,28 +351,28 @@ extern __attribute__((nothrow)) int puts(const char * ) __attribute__((__nonnull
 
 
 
-extern __attribute__((nothrow)) int ungetc(int , FILE * ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) int ungetc(int , FILE * ) __attribute__((__nonnull__(2)));
 # 778 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) size_t fread(void * __restrict ,
+extern __attribute__((__nothrow__)) size_t fread(void * __restrict ,
                     size_t , size_t , FILE * __restrict ) __attribute__((__nonnull__(1,4)));
 # 794 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) size_t __fread_bytes_avail(void * __restrict ,
+extern __attribute__((__nothrow__)) size_t __fread_bytes_avail(void * __restrict ,
                     size_t , FILE * __restrict ) __attribute__((__nonnull__(1,3)));
 # 810 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) size_t fwrite(const void * __restrict ,
+extern __attribute__((__nothrow__)) size_t fwrite(const void * __restrict ,
                     size_t , size_t , FILE * __restrict ) __attribute__((__nonnull__(1,4)));
 # 822 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fgetpos(FILE * __restrict , fpos_t * __restrict ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int fgetpos(FILE * __restrict , fpos_t * __restrict ) __attribute__((__nonnull__(1,2)));
 # 833 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fseek(FILE * , long int , int ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int fseek(FILE * , long int , int ) __attribute__((__nonnull__(1)));
 # 850 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int fsetpos(FILE * __restrict , const fpos_t * __restrict ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int fsetpos(FILE * __restrict , const fpos_t * __restrict ) __attribute__((__nonnull__(1,2)));
 # 863 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) long int ftell(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) long int ftell(FILE * ) __attribute__((__nonnull__(1)));
 # 877 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) void rewind(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) void rewind(FILE * ) __attribute__((__nonnull__(1)));
 # 886 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) void clearerr(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) void clearerr(FILE * ) __attribute__((__nonnull__(1)));
 
 
 
@@ -380,36 +380,545 @@ extern __attribute__((nothrow)) void clearerr(FILE * ) __attribute__((__nonnull_
 
 
 
-extern __attribute__((nothrow)) int feof(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int feof(FILE * ) __attribute__((__nonnull__(1)));
 
 
 
 
-extern __attribute__((nothrow)) int ferror(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int ferror(FILE * ) __attribute__((__nonnull__(1)));
 
 
 
 
-extern __attribute__((nothrow)) void perror(const char * );
+extern __attribute__((__nothrow__)) void perror(const char * );
 # 917 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdio.h" 3
-extern __attribute__((nothrow)) int _fisatty(FILE * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int _fisatty(FILE * ) __attribute__((__nonnull__(1)));
 
 
 
-extern __attribute__((nothrow)) void __use_no_semihosting_swi(void);
-extern __attribute__((nothrow)) void __use_no_semihosting(void);
-# 7 "../MyDrive/global_types.h" 2
-
+extern __attribute__((__nothrow__)) void __use_no_semihosting_swi(void);
+extern __attribute__((__nothrow__)) void __use_no_semihosting(void);
+# 8 "../MyDrive/global_types.h" 2
 # 1 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 1
 # 310 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
 # 1 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 1
-# 41 "../Drivers/CMSIS/Include\\cmsis_compiler.h"
-# 1 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 1
-# 31 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 47 "../Drivers/CMSIS/Include\\cmsis_compiler.h"
+# 1 "../Drivers/CMSIS/Include/cmsis_armclang.h" 1
+# 31 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 
 
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 1 3
-# 42 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
+
+
+
+
+
+
+# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 1 3
+# 39 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
+static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfi(void) {
+  __builtin_arm_wfi();
+}
+
+
+
+static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfe(void) {
+  __builtin_arm_wfe();
+}
+
+
+
+static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sev(void) {
+  __builtin_arm_sev();
+}
+
+
+
+static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sevl(void) {
+  __builtin_arm_sevl();
+}
+
+
+
+static __inline__ void __attribute__((__always_inline__, __nodebug__)) __yield(void) {
+  __builtin_arm_yield();
+}
+
+
+
+
+
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__swp(uint32_t __x, volatile uint32_t *__p) {
+  uint32_t v;
+  do
+    v = __builtin_arm_ldrex(__p);
+  while (__builtin_arm_strex(__x, __p));
+  return v;
+}
+# 107 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
+static __inline__ void __attribute__((__always_inline__, __nodebug__)) __nop(void) {
+  __builtin_arm_nop();
+}
+
+
+
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__ror(uint32_t __x, uint32_t __y) {
+  __y %= 32;
+  if (__y == 0)
+    return __x;
+  return (__x >> __y) | (__x << (32 - __y));
+}
+
+static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
+__rorll(uint64_t __x, uint32_t __y) {
+  __y %= 64;
+  if (__y == 0)
+    return __x;
+  return (__x >> __y) | (__x << (64 - __y));
+}
+
+static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
+__rorl(unsigned long __x, uint32_t __y) {
+
+  return __ror(__x, __y);
+
+
+
+}
+
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__clz(uint32_t __t) {
+  return __builtin_clz(__t);
+}
+
+static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
+__clzl(unsigned long __t) {
+  return __builtin_clzl(__t);
+}
+
+static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
+__clzll(uint64_t __t) {
+  return __builtin_clzll(__t);
+}
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__cls(uint32_t __t) {
+  return __builtin_arm_cls(__t);
+}
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__clsl(unsigned long __t) {
+
+  return __builtin_arm_cls(__t);
+
+
+
+}
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__clsll(uint64_t __t) {
+  return __builtin_arm_cls64(__t);
+}
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__rev(uint32_t __t) {
+  return __builtin_bswap32(__t);
+}
+
+static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
+__revl(unsigned long __t) {
+
+  return __builtin_bswap32(__t);
+
+
+
+}
+
+static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
+__revll(uint64_t __t) {
+  return __builtin_bswap64(__t);
+}
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__rev16(uint32_t __t) {
+  return __ror(__rev(__t), 16);
+}
+
+static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
+__rev16ll(uint64_t __t) {
+  return (((uint64_t)__rev16(__t >> 32)) << 32) | __rev16(__t);
+}
+
+static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
+__rev16l(unsigned long __t) {
+
+    return __rev16(__t);
+
+
+
+}
+
+
+static __inline__ int16_t __attribute__((__always_inline__, __nodebug__))
+__revsh(int16_t __t) {
+  return __builtin_bswap16(__t);
+}
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__rbit(uint32_t __t) {
+  return __builtin_arm_rbit(__t);
+}
+
+static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
+__rbitll(uint64_t __t) {
+
+  return (((uint64_t)__builtin_arm_rbit(__t)) << 32) |
+         __builtin_arm_rbit(__t >> 32);
+
+
+
+}
+
+static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
+__rbitl(unsigned long __t) {
+
+  return __rbit(__t);
+
+
+
+}
+
+
+
+
+
+static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
+__smulbb(int32_t __a, int32_t __b) {
+  return __builtin_arm_smulbb(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
+__smulbt(int32_t __a, int32_t __b) {
+  return __builtin_arm_smulbt(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
+__smultb(int32_t __a, int32_t __b) {
+  return __builtin_arm_smultb(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
+__smultt(int32_t __a, int32_t __b) {
+  return __builtin_arm_smultt(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
+__smulwb(int32_t __a, int32_t __b) {
+  return __builtin_arm_smulwb(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
+__smulwt(int32_t __a, int32_t __b) {
+  return __builtin_arm_smulwt(__a, __b);
+}
+# 292 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__qadd(int32_t __t, int32_t __v) {
+  return __builtin_arm_qadd(__t, __v);
+}
+
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__qsub(int32_t __t, int32_t __v) {
+  return __builtin_arm_qsub(__t, __v);
+}
+
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__qdbl(int32_t __t) {
+  return __builtin_arm_qadd(__t, __t);
+}
+
+
+
+
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlabb(int32_t __a, int32_t __b, int32_t __c) {
+  return __builtin_arm_smlabb(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlabt(int32_t __a, int32_t __b, int32_t __c) {
+  return __builtin_arm_smlabt(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlatb(int32_t __a, int32_t __b, int32_t __c) {
+  return __builtin_arm_smlatb(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlatt(int32_t __a, int32_t __b, int32_t __c) {
+  return __builtin_arm_smlatt(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlawb(int32_t __a, int32_t __b, int32_t __c) {
+  return __builtin_arm_smlawb(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlawt(int32_t __a, int32_t __b, int32_t __c) {
+  return __builtin_arm_smlawt(__a, __b, __c);
+}
+# 345 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
+typedef int32_t int8x4_t;
+typedef int32_t int16x2_t;
+typedef uint32_t uint8x4_t;
+typedef uint32_t uint16x2_t;
+
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__sxtab16(int16x2_t __a, int8x4_t __b) {
+  return __builtin_arm_sxtab16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__sxtb16(int8x4_t __a) {
+  return __builtin_arm_sxtb16(__a);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__uxtab16(int16x2_t __a, int8x4_t __b) {
+  return __builtin_arm_uxtab16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__uxtb16(int8x4_t __a) {
+  return __builtin_arm_uxtb16(__a);
+}
+
+
+
+
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__sel(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_sel(__a, __b);
+}
+
+
+
+
+static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
+__qadd8(int8x4_t __a, int8x4_t __b) {
+  return __builtin_arm_qadd8(__a, __b);
+}
+static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
+__qsub8(int8x4_t __a, int8x4_t __b) {
+  return __builtin_arm_qsub8(__a, __b);
+}
+static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
+__sadd8(int8x4_t __a, int8x4_t __b) {
+  return __builtin_arm_sadd8(__a, __b);
+}
+static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
+__shadd8(int8x4_t __a, int8x4_t __b) {
+  return __builtin_arm_shadd8(__a, __b);
+}
+static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
+__shsub8(int8x4_t __a, int8x4_t __b) {
+  return __builtin_arm_shsub8(__a, __b);
+}
+static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
+__ssub8(int8x4_t __a, int8x4_t __b) {
+  return __builtin_arm_ssub8(__a, __b);
+}
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__uadd8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_uadd8(__a, __b);
+}
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__uhadd8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_uhadd8(__a, __b);
+}
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__uhsub8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_uhsub8(__a, __b);
+}
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__uqadd8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_uqadd8(__a, __b);
+}
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__uqsub8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_uqsub8(__a, __b);
+}
+static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
+__usub8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_usub8(__a, __b);
+}
+
+
+
+
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__usad8(uint8x4_t __a, uint8x4_t __b) {
+  return __builtin_arm_usad8(__a, __b);
+}
+static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
+__usada8(uint8x4_t __a, uint8x4_t __b, uint32_t __c) {
+  return __builtin_arm_usada8(__a, __b, __c);
+}
+
+
+
+
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__qadd16(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_qadd16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__qasx(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_qasx(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__qsax(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_qsax(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__qsub16(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_qsub16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__sadd16(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_sadd16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__sasx(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_sasx(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__shadd16(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_shadd16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__shasx(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_shasx(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__shsax(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_shsax(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__shsub16(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_shsub16(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__ssax(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_ssax(__a, __b);
+}
+static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
+__ssub16(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_ssub16(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uadd16(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uadd16(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uasx(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uasx(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uhadd16(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uhadd16(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uhasx(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uhasx(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uhsax(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uhsax(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uhsub16(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uhsub16(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uqadd16(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uqadd16(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uqasx(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uqasx(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uqsax(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uqsax(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__uqsub16(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_uqsub16(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__usax(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_usax(__a, __b);
+}
+static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
+__usub16(uint16x2_t __a, uint16x2_t __b) {
+  return __builtin_arm_usub16(__a, __b);
+}
+
+
+
+
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlad(int16x2_t __a, int16x2_t __b, int32_t __c) {
+  return __builtin_arm_smlad(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smladx(int16x2_t __a, int16x2_t __b, int32_t __c) {
+  return __builtin_arm_smladx(__a, __b, __c);
+}
+static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
+__smlald(int16x2_t __a, int16x2_t __b, int64_t __c) {
+  return __builtin_arm_smlald(__a, __b, __c);
+}
+static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
+__smlaldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
+  return __builtin_arm_smlaldx(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlsd(int16x2_t __a, int16x2_t __b, int32_t __c) {
+  return __builtin_arm_smlsd(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smlsdx(int16x2_t __a, int16x2_t __b, int32_t __c) {
+  return __builtin_arm_smlsdx(__a, __b, __c);
+}
+static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
+__smlsld(int16x2_t __a, int16x2_t __b, int64_t __c) {
+  return __builtin_arm_smlsld(__a, __b, __c);
+}
+static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
+__smlsldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
+  return __builtin_arm_smlsldx(__a, __b, __c);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smuad(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_smuad(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smuadx(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_smuadx(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smusd(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_smusd(__a, __b);
+}
+static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
+__smusdx(int16x2_t __a, int16x2_t __b) {
+  return __builtin_arm_smusdx(__a, __b);
+}
+# 8 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 2 3
+# 40 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
 __disable_fiq(void) {
   unsigned int cpsr;
@@ -418,7 +927,7 @@ __disable_fiq(void) {
                        "cpsid f\n"
                        : [cpsr] "=r"(cpsr));
   return cpsr & 0x1;
-# 64 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
+# 62 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 
@@ -431,7 +940,7 @@ __disable_irq(void) {
                        "cpsid i\n"
                        : [cpsr] "=r"(cpsr));
   return cpsr & 0x1;
-# 91 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
+# 89 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 
@@ -444,7 +953,7 @@ static __inline__ void __attribute__((__always_inline__, __nodebug__))
 __enable_fiq(void) {
 
   __asm__ __volatile__("cpsie f");
-# 111 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
+# 109 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 
@@ -452,7 +961,7 @@ static __inline__ void __attribute__((__always_inline__, __nodebug__))
 __enable_irq(void) {
 
   __asm__ __volatile__("cpsie i");
-# 126 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
+# 124 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
 }
 
 static __inline__ void __attribute__((__always_inline__, __nodebug__)) __force_stores(void) {
@@ -475,7 +984,7 @@ __semihost(int val, const void *ptr) {
 
 
       "bkpt 0xab"
-# 162 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
+# 160 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
       : "+r"(v), "+r"(p)
       :
       : "memory", "cc");
@@ -496,8 +1005,8 @@ __vfp_status(unsigned int mask, unsigned int flags) {
   __asm__ __volatile__("vmsr fpscr, %[fpscr]" : : [fpscr] "r"(fpscr));
   return fpscr;
 }
-# 34 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 2 3
-# 68 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 34 "../Drivers/CMSIS/Include/cmsis_armclang.h" 2 3
+# 68 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
@@ -535,7 +1044,7 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 
  struct __attribute__((packed, aligned(1))) T_UINT32_READ { uint32_t v; };
 #pragma clang diagnostic pop
-# 167 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 166 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
 {
   uint32_t result;
@@ -543,12 +1052,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
   __asm volatile ("MRS %0, control" : "=r" (result) );
   return(result);
 }
-# 197 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 196 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_CONTROL(uint32_t control)
 {
   __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
 }
-# 221 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 220 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_IPSR(void)
 {
   uint32_t result;
@@ -598,12 +1107,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_PSP(void)
   __asm volatile ("MRS %0, psp" : "=r" (result) );
   return(result);
 }
-# 293 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 292 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_PSP(uint32_t topOfProcStack)
 {
   __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
-# 317 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 316 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
 {
   uint32_t result;
@@ -611,12 +1120,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
   __asm volatile ("MRS %0, msp" : "=r" (result) );
   return(result);
 }
-# 347 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 346 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_MSP(uint32_t topOfMainStack)
 {
   __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
-# 398 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 397 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
 {
   uint32_t result;
@@ -624,12 +1133,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
   __asm volatile ("MRS %0, primask" : "=r" (result) );
   return(result);
 }
-# 428 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 427 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_PRIMASK(uint32_t priMask)
 {
   __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
-# 471 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 470 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
 {
   uint32_t result;
@@ -637,12 +1146,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
   __asm volatile ("MRS %0, basepri" : "=r" (result) );
   return(result);
 }
-# 501 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 500 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI(uint32_t basePri)
 {
   __asm volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
-# 526 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 525 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI_MAX(uint32_t basePri)
 {
   __asm volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
@@ -661,12 +1170,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_FAULTMASK(void)
   __asm volatile ("MRS %0, faultmask" : "=r" (result) );
   return(result);
 }
-# 567 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 566 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_FAULTMASK(uint32_t faultMask)
 {
   __asm volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
-# 901 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 902 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint32_t op2)
 {
   op2 %= 32U;
@@ -676,17 +1185,17 @@ __attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint
   }
   return (op1 >> op2) | (op1 << (32U - op2));
 }
-# 936 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 937 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint8_t __CLZ(uint32_t value)
 {
-# 947 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 948 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
   if (value == 0U)
   {
     return 32U;
   }
   return __builtin_clz(value);
 }
-# 1062 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1063 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
 {
   uint32_t result;
@@ -694,7 +1203,7 @@ __attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
   __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
   return(result);
 }
-# 1077 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1078 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t *ptr)
 {
   uint32_t result;
@@ -702,7 +1211,7 @@ __attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t 
   __asm volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
   return ((uint8_t) result);
 }
-# 1092 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1093 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_t *ptr)
 {
   uint32_t result;
@@ -710,7 +1219,7 @@ __attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_
   __asm volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
   return ((uint16_t) result);
 }
-# 1107 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1108 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t *ptr)
 {
   uint32_t result;
@@ -718,522 +1227,22 @@ __attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t
   __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
   return(result);
 }
-# 1122 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1123 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
 {
   __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1134 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1135 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
 {
   __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1146 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
+# 1147 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __STRT(uint32_t value, volatile uint32_t *ptr)
 {
   __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
 }
-# 1365 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
-__attribute__((always_inline)) static __inline uint32_t __SADD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("sadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __QADD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("qadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SHADD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("shadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UADD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UQADD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uqadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UHADD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uhadd8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-
-__attribute__((always_inline)) static __inline uint32_t __SSUB8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("ssub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __QSUB8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("qsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SHSUB8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("shsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __USUB8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("usub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UQSUB8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uqsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UHSUB8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uhsub8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-
-__attribute__((always_inline)) static __inline uint32_t __SADD16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("sadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __QADD16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("qadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SHADD16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("shadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UADD16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UQADD16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uqadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UHADD16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uhadd16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SSUB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("ssub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __QSUB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("qsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SHSUB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("shsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __USUB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("usub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UQSUB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uqsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UHSUB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uhsub16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SASX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("sasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __QASX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("qasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SHASX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("shasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UASX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UQASX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uqasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UHASX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uhasx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SSAX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("ssax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __QSAX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("qsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SHSAX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("shsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __USAX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("usax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UQSAX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uqsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UHSAX(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uhsax %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __USAD8(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("usad8 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __USADA8(uint32_t op1, uint32_t op2, uint32_t op3)
-{
-  uint32_t result;
-
-  __asm volatile ("usada8 %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
-  return(result);
-}
-# 1685 "../Drivers/CMSIS/Include/cmsis_armclang_ltm.h" 3
-__attribute__((always_inline)) static __inline uint32_t __UXTB16(uint32_t op1)
-{
-  uint32_t result;
-
-  __asm volatile ("uxtb16 %0, %1" : "=r" (result) : "r" (op1));
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __UXTAB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("uxtab16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SXTB16(uint32_t op1)
-{
-  uint32_t result;
-
-  __asm volatile ("sxtb16 %0, %1" : "=r" (result) : "r" (op1));
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SXTAB16(uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("sxtab16 %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMUAD (uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("smuad %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMUADX (uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("smuadx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMLAD (uint32_t op1, uint32_t op2, uint32_t op3)
-{
-  uint32_t result;
-
-  __asm volatile ("smlad %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMLADX (uint32_t op1, uint32_t op2, uint32_t op3)
-{
-  uint32_t result;
-
-  __asm volatile ("smladx %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint64_t __SMLALD (uint32_t op1, uint32_t op2, uint64_t acc)
-{
-  union llreg_u{
-    uint32_t w32[2];
-    uint64_t w64;
-  } llr;
-  llr.w64 = acc;
-
-
-  __asm volatile ("smlald %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
-
-
-
-
-  return(llr.w64);
-}
-
-__attribute__((always_inline)) static __inline uint64_t __SMLALDX (uint32_t op1, uint32_t op2, uint64_t acc)
-{
-  union llreg_u{
-    uint32_t w32[2];
-    uint64_t w64;
-  } llr;
-  llr.w64 = acc;
-
-
-  __asm volatile ("smlaldx %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
-
-
-
-
-  return(llr.w64);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMUSD (uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("smusd %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMUSDX (uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("smusdx %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMLSD (uint32_t op1, uint32_t op2, uint32_t op3)
-{
-  uint32_t result;
-
-  __asm volatile ("smlsd %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SMLSDX (uint32_t op1, uint32_t op2, uint32_t op3)
-{
-  uint32_t result;
-
-  __asm volatile ("smlsdx %0, %1, %2, %3" : "=r" (result) : "r" (op1), "r" (op2), "r" (op3) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline uint64_t __SMLSLD (uint32_t op1, uint32_t op2, uint64_t acc)
-{
-  union llreg_u{
-    uint32_t w32[2];
-    uint64_t w64;
-  } llr;
-  llr.w64 = acc;
-
-
-  __asm volatile ("smlsld %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
-
-
-
-
-  return(llr.w64);
-}
-
-__attribute__((always_inline)) static __inline uint64_t __SMLSLDX (uint32_t op1, uint32_t op2, uint64_t acc)
-{
-  union llreg_u{
-    uint32_t w32[2];
-    uint64_t w64;
-  } llr;
-  llr.w64 = acc;
-
-
-  __asm volatile ("smlsldx %0, %1, %2, %3" : "=r" (llr.w32[0]), "=r" (llr.w32[1]): "r" (op1), "r" (op2) , "0" (llr.w32[0]), "1" (llr.w32[1]) );
-
-
-
-
-  return(llr.w64);
-}
-
-__attribute__((always_inline)) static __inline uint32_t __SEL (uint32_t op1, uint32_t op2)
-{
-  uint32_t result;
-
-  __asm volatile ("sel %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline int32_t __QADD( int32_t op1, int32_t op2)
-{
-  int32_t result;
-
-  __asm volatile ("qadd %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-__attribute__((always_inline)) static __inline int32_t __QSUB( int32_t op1, int32_t op2)
-{
-  int32_t result;
-
-  __asm volatile ("qsub %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
-  return(result);
-}
-
-
-
-
-
-
-
+# 1432 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int32_t op2, int32_t op3)
 {
   int32_t result;
@@ -1241,12 +1250,12 @@ __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int
   __asm volatile ("smmla %0, %1, %2, %3" : "=r" (result): "r" (op1), "r" (op2), "r" (op3) );
   return(result);
 }
-# 42 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2
-# 310 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
+# 48 "../Drivers/CMSIS/Include\\cmsis_compiler.h" 2
+# 311 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
 # 321 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 1 3
 # 58 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) void *memcpy(void * __restrict ,
+extern __attribute__((__nothrow__)) void *memcpy(void * __restrict ,
                     const void * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
 
 
@@ -1254,28 +1263,28 @@ extern __attribute__((nothrow)) void *memcpy(void * __restrict ,
 
 
 
-extern __attribute__((nothrow)) void *memmove(void * ,
+extern __attribute__((__nothrow__)) void *memmove(void * ,
                     const void * , size_t ) __attribute__((__nonnull__(1,2)));
 # 77 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strcpy(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) char *strcpy(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
 
-extern __attribute__((nothrow)) char *strncpy(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) char *strncpy(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
 # 93 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strcat(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) char *strcat(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
 
-extern __attribute__((nothrow)) char *strncat(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) char *strncat(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(1,2)));
 # 117 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) int memcmp(const void * , const void * , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int memcmp(const void * , const void * , size_t ) __attribute__((__nonnull__(1,2)));
 
 
 
@@ -1283,16 +1292,16 @@ extern __attribute__((nothrow)) int memcmp(const void * , const void * , size_t 
 
 
 
-extern __attribute__((nothrow)) int strcmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int strcmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 
 
 
 
 
 
-extern __attribute__((nothrow)) int strncmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int strncmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
 # 141 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) int strcasecmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int strcasecmp(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 
 
 
@@ -1300,70 +1309,69 @@ extern __attribute__((nothrow)) int strcasecmp(const char * , const char * ) __a
 
 
 
-extern __attribute__((nothrow)) int strncasecmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int strncasecmp(const char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
 # 158 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) int strcoll(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) int strcoll(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 # 169 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) size_t strxfrm(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) size_t strxfrm(char * __restrict , const char * __restrict , size_t ) __attribute__((__nonnull__(2)));
 # 193 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) void *memchr(const void * , int , size_t ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) void *memchr(const void * , int , size_t ) __attribute__((__nonnull__(1)));
 # 209 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strchr(const char * , int ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) char *strchr(const char * , int ) __attribute__((__nonnull__(1)));
 # 218 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) size_t strcspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) size_t strcspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 # 232 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strpbrk(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) char *strpbrk(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 # 247 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strrchr(const char * , int ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) char *strrchr(const char * , int ) __attribute__((__nonnull__(1)));
 # 257 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) size_t strspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) size_t strspn(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 # 270 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strstr(const char * , const char * ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) char *strstr(const char * , const char * ) __attribute__((__nonnull__(1,2)));
 # 280 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) char *strtok(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(2)));
-extern __attribute__((nothrow)) char *_strtok_r(char * , const char * , char ** ) __attribute__((__nonnull__(2,3)));
+extern __attribute__((__nothrow__)) char *strtok(char * __restrict , const char * __restrict ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) char *_strtok_r(char * , const char * , char ** ) __attribute__((__nonnull__(2,3)));
 # 321 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) void *memset(void * , int , size_t ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) void *memset(void * , int , size_t ) __attribute__((__nonnull__(1)));
 
 
 
 
 
-extern __attribute__((nothrow)) char *strerror(int );
-
-
-
-
-
-
-
-extern __attribute__((nothrow)) size_t strlen(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) char *strerror(int );
 
 
 
 
 
 
-extern __attribute__((nothrow)) size_t strlcpy(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+
+extern __attribute__((__nothrow__)) size_t strlen(const char * ) __attribute__((__nonnull__(1)));
+
+
+
+
+
+
+extern __attribute__((__nothrow__)) size_t strlcpy(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
 # 362 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) size_t strlcat(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) size_t strlcat(char * , const char * , size_t ) __attribute__((__nonnull__(1,2)));
 # 388 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\string.h" 3
-extern __attribute__((nothrow)) void _membitcpybl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitcpybb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitcpyhl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitcpyhb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitcpywl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitcpywb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitmovebl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitmovebb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitmovehl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitmovehb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitmovewl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-extern __attribute__((nothrow)) void _membitmovewb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
-# 321 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
-
+extern __attribute__((__nothrow__)) void _membitcpybl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitcpybb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitcpyhl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitcpyhb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitcpywl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitcpywb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitmovebl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitmovebb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitmovehl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitmovehb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitmovewl(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+extern __attribute__((__nothrow__)) void _membitmovewb(void * , const void * , int , int , size_t ) __attribute__((__nonnull__(1,2)));
+# 322 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 1 3
-# 139 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+# 157 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
 extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_dcmp4(double , double );
 extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_fcmp4(float , float );
 
@@ -1373,39 +1381,39 @@ extern __attribute__((__pcs__("aapcs"))) unsigned __ARM_fcmp4(float , float );
 
 
 
-extern __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassifyf(float );
-extern __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassify(double );
+extern __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassifyf(float );
+extern __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_fpclassify(double );
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinitef(float __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinitef(float __x)
 {
     return (((*(unsigned *)&(__x)) >> 23) & 0xff) != 0xff;
 }
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinite(double __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isfinite(double __x)
 {
     return (((*(1 + (unsigned *)&(__x))) >> 20) & 0x7ff) != 0x7ff;
 }
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isinff(float __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isinff(float __x)
 {
     return ((*(unsigned *)&(__x)) << 1) == 0xff000000;
 }
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isinf(double __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isinf(double __x)
 {
     return (((*(1 + (unsigned *)&(__x))) << 1) == 0xffe00000) && ((*(unsigned *)&(__x)) == 0);
 }
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreaterf(float __x, float __y)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreaterf(float __x, float __y)
 {
     unsigned __f = __ARM_fcmp4(__x, __y) >> 28;
     return (__f == 8) || (__f == 2);
 }
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreater(double __x, double __y)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_islessgreater(double __x, double __y)
 {
     unsigned __f = __ARM_dcmp4(__x, __y) >> 28;
     return (__f == 8) || (__f == 2);
@@ -1415,11 +1423,11 @@ static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int _
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnanf(float __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnanf(float __x)
 {
     return (0x7f800000 - ((*(unsigned *)&(__x)) & 0x7fffffff)) >> 31;
 }
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnan(double __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnan(double __x)
 {
     unsigned __xf = (*(1 + (unsigned *)&(__x))) | (((*(unsigned *)&(__x)) == 0) ? 0 : 1);
     return (0x7ff00000 - (__xf & 0x7fffffff)) >> 31;
@@ -1427,12 +1435,12 @@ static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int _
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormalf(float __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormalf(float __x)
 {
     unsigned __xe = ((*(unsigned *)&(__x)) >> 23) & 0xff;
     return (__xe != 0xff) && (__xe != 0);
 }
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormal(double __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_isnormal(double __x)
 {
     unsigned __xe = ((*(1 + (unsigned *)&(__x))) >> 20) & 0x7ff;
     return (__xe != 0x7ff) && (__xe != 0);
@@ -1440,18 +1448,18 @@ static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int _
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_signbitf(float __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_signbitf(float __x)
 {
     return (*(unsigned *)&(__x)) >> 31;
 }
-static __inline __attribute__((nothrow)) __attribute__((__pcs__("aapcs"))) int __ARM_signbit(double __x)
+static __inline __attribute__((__nothrow__)) __attribute__((__pcs__("aapcs"))) int __ARM_signbit(double __x)
 {
     return (*(1 + (unsigned *)&(__x))) >> 31;
 }
-# 248 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+# 266 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
   typedef float float_t;
   typedef double double_t;
-# 264 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+# 282 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
 extern const int math_errhandling;
 
 
@@ -1460,32 +1468,32 @@ extern const int math_errhandling;
 
 
 
-extern __attribute__((nothrow)) double acos(double );
+extern __attribute__((__nothrow__)) double acos(double );
 
 
 
-extern __attribute__((nothrow)) double asin(double );
-
-
-
-
-
-extern __attribute__((nothrow)) __attribute__((const)) double atan(double );
-
-
-
-extern __attribute__((nothrow)) double atan2(double , double );
+extern __attribute__((__nothrow__)) double asin(double );
 
 
 
 
 
-extern __attribute__((nothrow)) double cos(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double atan(double );
+
+
+
+extern __attribute__((__nothrow__)) double atan2(double , double );
 
 
 
 
-extern __attribute__((nothrow)) double sin(double );
+
+extern __attribute__((__nothrow__)) double cos(double );
+
+
+
+
+extern __attribute__((__nothrow__)) double sin(double );
 
 
 
@@ -1495,36 +1503,36 @@ extern void __use_accurate_range_reduction(void);
 
 
 
-extern __attribute__((nothrow)) double tan(double );
+extern __attribute__((__nothrow__)) double tan(double );
 
 
 
 
 
-extern __attribute__((nothrow)) double cosh(double );
+extern __attribute__((__nothrow__)) double cosh(double );
 
 
 
 
-extern __attribute__((nothrow)) double sinh(double );
+extern __attribute__((__nothrow__)) double sinh(double );
 
 
 
 
 
 
-extern __attribute__((nothrow)) __attribute__((const)) double tanh(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double tanh(double );
 
 
 
-extern __attribute__((nothrow)) double exp(double );
+extern __attribute__((__nothrow__)) double exp(double );
 
 
 
 
 
 
-extern __attribute__((nothrow)) double frexp(double , int * ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) double frexp(double , int * ) __attribute__((__nonnull__(2)));
 
 
 
@@ -1532,85 +1540,101 @@ extern __attribute__((nothrow)) double frexp(double , int * ) __attribute__((__n
 
 
 
-extern __attribute__((nothrow)) double ldexp(double , int );
+extern __attribute__((__nothrow__)) double ldexp(double , int );
 
 
 
 
-extern __attribute__((nothrow)) double log(double );
+extern __attribute__((__nothrow__)) double log(double );
 
 
 
 
 
-extern __attribute__((nothrow)) double log10(double );
+extern __attribute__((__nothrow__)) double log10(double );
 
 
 
-extern __attribute__((nothrow)) double modf(double , double * ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) double modf(double , double * ) __attribute__((__nonnull__(2)));
 
 
 
 
 
-extern __attribute__((nothrow)) double pow(double , double );
+extern __attribute__((__nothrow__)) double pow(double , double );
 
 
 
 
 
 
-extern __attribute__((nothrow)) double sqrt(double );
+extern __attribute__((__nothrow__)) double sqrt(double );
 
 
 
 
 
 
+    __attribute__((__always_inline__)) static double __sqrt(double d) {
+      __asm__ __volatile__(
 
-    static __inline double _sqrt(double __x) { return sqrt(__x); }
 
 
+      "vsqrt.f64 %0, %0"
 
+      : "+w"(d));
+      return d;
+    }
 
-    static __inline float _sqrtf(float __x) { return (float)sqrt(__x); }
+    static __inline double _sqrt(double __x) { return __sqrt(__x); }
 
 
 
 
 
+    __attribute__((__always_inline__)) static float __sqrtf(float f) {
+      __asm__ __volatile__(
 
 
-extern __attribute__((nothrow)) __attribute__((const)) double ceil(double );
 
+      "vsqrt.f32 %0, %0"
 
-extern __attribute__((nothrow)) __attribute__((const)) double fabs(double );
+      : "+w"(f));
+      return f;
+    }
 
+    static __inline float _sqrtf(float __x) { return __sqrtf(__x); }
+# 435 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double ceil(double );
 
 
-extern __attribute__((nothrow)) __attribute__((const)) double floor(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double fabs(double );
 
 
 
-extern __attribute__((nothrow)) double fmod(double , double );
-# 425 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-extern __attribute__((nothrow)) double acosh(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double floor(double );
 
 
 
-extern __attribute__((nothrow)) double asinh(double );
+extern __attribute__((__nothrow__)) double fmod(double , double );
+# 467 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) double acosh(double );
 
 
 
-extern __attribute__((nothrow)) double atanh(double );
+extern __attribute__((__nothrow__)) double asinh(double );
 
 
 
-extern __attribute__((nothrow)) double cbrt(double );
+extern __attribute__((__nothrow__)) double atanh(double );
 
 
 
-static __inline __attribute__((nothrow)) __attribute__((const)) double copysign(double __x, double __y)
+extern __attribute__((__nothrow__)) double cbrt(double );
+
+
+
+static __inline __attribute__((__nothrow__)) __attribute__((__const__)) double copysign(double __x, double __y)
 
 
 
@@ -1618,7 +1642,7 @@ static __inline __attribute__((nothrow)) __attribute__((const)) double copysign(
     (*(1 + (unsigned *)&(__x))) = ((*(1 + (unsigned *)&(__x))) & 0x7fffffff) | ((*(1 + (unsigned *)&(__y))) & 0x80000000);
     return __x;
 }
-static __inline __attribute__((nothrow)) __attribute__((const)) float copysignf(float __x, float __y)
+static __inline __attribute__((__nothrow__)) __attribute__((__const__)) float copysignf(float __x, float __y)
 
 
 
@@ -1626,275 +1650,274 @@ static __inline __attribute__((nothrow)) __attribute__((const)) float copysignf(
     (*(unsigned *)&(__x)) = ((*(unsigned *)&(__x)) & 0x7fffffff) | ((*(unsigned *)&(__y)) & 0x80000000);
     return __x;
 }
-extern __attribute__((nothrow)) double erf(double );
+extern __attribute__((__nothrow__)) double erf(double );
 
 
 
-extern __attribute__((nothrow)) double erfc(double );
+extern __attribute__((__nothrow__)) double erfc(double );
 
 
 
-extern __attribute__((nothrow)) double expm1(double );
-# 491 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-extern __attribute__((nothrow)) double hypot(double , double );
+extern __attribute__((__nothrow__)) double expm1(double );
+# 533 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) double hypot(double , double );
 
 
 
 
 
 
-extern __attribute__((nothrow)) int ilogb(double );
+extern __attribute__((__nothrow__)) int ilogb(double );
 
 
 
-extern __attribute__((nothrow)) int ilogbf(float );
+extern __attribute__((__nothrow__)) int ilogbf(float );
 
 
 
-extern __attribute__((nothrow)) int ilogbl(long double );
-# 604 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-extern __attribute__((nothrow)) double lgamma (double );
+extern __attribute__((__nothrow__)) int ilogbl(long double );
+# 646 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) double lgamma (double );
 
 
 
 
-extern __attribute__((nothrow)) double log1p(double );
+extern __attribute__((__nothrow__)) double log1p(double );
 
 
 
-extern __attribute__((nothrow)) double logb(double );
+extern __attribute__((__nothrow__)) double logb(double );
 
 
 
-extern __attribute__((nothrow)) float logbf(float );
+extern __attribute__((__nothrow__)) float logbf(float );
 
 
 
-extern __attribute__((nothrow)) long double logbl(long double );
+extern __attribute__((__nothrow__)) long double logbl(long double );
 
 
 
-extern __attribute__((nothrow)) double nextafter(double , double );
+extern __attribute__((__nothrow__)) double nextafter(double , double );
 
 
 
 
-extern __attribute__((nothrow)) float nextafterf(float , float );
+extern __attribute__((__nothrow__)) float nextafterf(float , float );
 
 
 
 
-extern __attribute__((nothrow)) long double nextafterl(long double , long double );
+extern __attribute__((__nothrow__)) long double nextafterl(long double , long double );
 
 
 
 
-extern __attribute__((nothrow)) double nexttoward(double , long double );
+extern __attribute__((__nothrow__)) double nexttoward(double , long double );
 
 
 
 
-extern __attribute__((nothrow)) float nexttowardf(float , long double );
+extern __attribute__((__nothrow__)) float nexttowardf(float , long double );
 
 
 
 
-extern __attribute__((nothrow)) long double nexttowardl(long double , long double );
+extern __attribute__((__nothrow__)) long double nexttowardl(long double , long double );
 
 
 
 
-extern __attribute__((nothrow)) double remainder(double , double );
+extern __attribute__((__nothrow__)) double remainder(double , double );
 
 
 
-extern __attribute__((nothrow)) __attribute__((const)) double rint(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double rint(double );
 
 
 
-extern __attribute__((nothrow)) double scalbln(double , long int );
+extern __attribute__((__nothrow__)) double scalbln(double , long int );
 
 
 
-extern __attribute__((nothrow)) float scalblnf(float , long int );
+extern __attribute__((__nothrow__)) float scalblnf(float , long int );
 
 
 
-extern __attribute__((nothrow)) long double scalblnl(long double , long int );
+extern __attribute__((__nothrow__)) long double scalblnl(long double , long int );
 
 
 
-extern __attribute__((nothrow)) double scalbn(double , int );
+extern __attribute__((__nothrow__)) double scalbn(double , int );
 
 
 
-extern __attribute__((nothrow)) float scalbnf(float , int );
-
-
-
-extern __attribute__((nothrow)) long double scalbnl(long double , int );
-# 698 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) float _fabsf(float);
-static __inline __attribute__((nothrow)) __attribute__((const)) float fabsf(float __f) { return _fabsf(__f); }
-extern __attribute__((nothrow)) float sinf(float );
-extern __attribute__((nothrow)) float cosf(float );
-extern __attribute__((nothrow)) float tanf(float );
-extern __attribute__((nothrow)) float acosf(float );
-extern __attribute__((nothrow)) float asinf(float );
-extern __attribute__((nothrow)) float atanf(float );
-extern __attribute__((nothrow)) float atan2f(float , float );
-extern __attribute__((nothrow)) float sinhf(float );
-extern __attribute__((nothrow)) float coshf(float );
-extern __attribute__((nothrow)) float tanhf(float );
-extern __attribute__((nothrow)) float expf(float );
-extern __attribute__((nothrow)) float logf(float );
-extern __attribute__((nothrow)) float log10f(float );
-extern __attribute__((nothrow)) float powf(float , float );
-extern __attribute__((nothrow)) float sqrtf(float );
-extern __attribute__((nothrow)) float ldexpf(float , int );
-extern __attribute__((nothrow)) float frexpf(float , int * ) __attribute__((__nonnull__(2)));
-extern __attribute__((nothrow)) __attribute__((const)) float ceilf(float );
-extern __attribute__((nothrow)) __attribute__((const)) float floorf(float );
-extern __attribute__((nothrow)) float fmodf(float , float );
-extern __attribute__((nothrow)) float modff(float , float * ) __attribute__((__nonnull__(2)));
-# 738 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-__attribute__((nothrow)) long double acosl(long double );
-__attribute__((nothrow)) long double asinl(long double );
-__attribute__((nothrow)) long double atanl(long double );
-__attribute__((nothrow)) long double atan2l(long double , long double );
-__attribute__((nothrow)) long double ceill(long double );
-__attribute__((nothrow)) long double cosl(long double );
-__attribute__((nothrow)) long double coshl(long double );
-__attribute__((nothrow)) long double expl(long double );
-__attribute__((nothrow)) long double fabsl(long double );
-__attribute__((nothrow)) long double floorl(long double );
-__attribute__((nothrow)) long double fmodl(long double , long double );
-__attribute__((nothrow)) long double frexpl(long double , int* ) __attribute__((__nonnull__(2)));
-__attribute__((nothrow)) long double ldexpl(long double , int );
-__attribute__((nothrow)) long double logl(long double );
-__attribute__((nothrow)) long double log10l(long double );
-__attribute__((nothrow)) long double modfl(long double , long double * ) __attribute__((__nonnull__(2)));
-__attribute__((nothrow)) long double powl(long double , long double );
-__attribute__((nothrow)) long double sinl(long double );
-__attribute__((nothrow)) long double sinhl(long double );
-__attribute__((nothrow)) long double sqrtl(long double );
-__attribute__((nothrow)) long double tanl(long double );
-__attribute__((nothrow)) long double tanhl(long double );
-
-
-
-
-
-
-extern __attribute__((nothrow)) float acoshf(float );
-__attribute__((nothrow)) long double acoshl(long double );
-extern __attribute__((nothrow)) float asinhf(float );
-__attribute__((nothrow)) long double asinhl(long double );
-extern __attribute__((nothrow)) float atanhf(float );
-__attribute__((nothrow)) long double atanhl(long double );
-__attribute__((nothrow)) long double copysignl(long double , long double );
-extern __attribute__((nothrow)) float cbrtf(float );
-__attribute__((nothrow)) long double cbrtl(long double );
-extern __attribute__((nothrow)) float erff(float );
-__attribute__((nothrow)) long double erfl(long double );
-extern __attribute__((nothrow)) float erfcf(float );
-__attribute__((nothrow)) long double erfcl(long double );
-extern __attribute__((nothrow)) float expm1f(float );
-__attribute__((nothrow)) long double expm1l(long double );
-extern __attribute__((nothrow)) float log1pf(float );
-__attribute__((nothrow)) long double log1pl(long double );
-extern __attribute__((nothrow)) float hypotf(float , float );
-__attribute__((nothrow)) long double hypotl(long double , long double );
-extern __attribute__((nothrow)) float lgammaf(float );
-__attribute__((nothrow)) long double lgammal(long double );
-extern __attribute__((nothrow)) float remainderf(float , float );
-__attribute__((nothrow)) long double remainderl(long double , long double );
-extern __attribute__((nothrow)) float rintf(float );
-__attribute__((nothrow)) long double rintl(long double );
-
-
-
-
-
-
-
-extern __attribute__((nothrow)) double exp2(double );
-extern __attribute__((nothrow)) float exp2f(float );
-__attribute__((nothrow)) long double exp2l(long double );
-extern __attribute__((nothrow)) double fdim(double , double );
-extern __attribute__((nothrow)) float fdimf(float , float );
-__attribute__((nothrow)) long double fdiml(long double , long double );
-# 813 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-extern __attribute__((nothrow)) double fma(double , double , double );
-extern __attribute__((nothrow)) float fmaf(float , float , float );
-
-static __inline __attribute__((nothrow)) long double fmal(long double __x, long double __y, long double __z) { return (long double)fma((double)__x, (double)__y, (double)__z); }
-
-
-extern __attribute__((nothrow)) __attribute__((const)) double fmax(double , double );
-extern __attribute__((nothrow)) __attribute__((const)) float fmaxf(float , float );
-__attribute__((nothrow)) long double fmaxl(long double , long double );
-extern __attribute__((nothrow)) __attribute__((const)) double fmin(double , double );
-extern __attribute__((nothrow)) __attribute__((const)) float fminf(float , float );
-__attribute__((nothrow)) long double fminl(long double , long double );
-extern __attribute__((nothrow)) double log2(double );
-extern __attribute__((nothrow)) float log2f(float );
-__attribute__((nothrow)) long double log2l(long double );
-extern __attribute__((nothrow)) long lrint(double );
-extern __attribute__((nothrow)) long lrintf(float );
-
-static __inline __attribute__((nothrow)) long lrintl(long double __x) { return lrint((double)__x); }
-
-
-extern __attribute__((nothrow)) long long llrint(double );
-extern __attribute__((nothrow)) long long llrintf(float );
-
-static __inline __attribute__((nothrow)) long long llrintl(long double __x) { return llrint((double)__x); }
-
-
-extern __attribute__((nothrow)) long lround(double );
-extern __attribute__((nothrow)) long lroundf(float );
-
-static __inline __attribute__((nothrow)) long lroundl(long double __x) { return lround((double)__x); }
-
-
-extern __attribute__((nothrow)) long long llround(double );
-extern __attribute__((nothrow)) long long llroundf(float );
-
-static __inline __attribute__((nothrow)) long long llroundl(long double __x) { return llround((double)__x); }
-
-
-extern __attribute__((nothrow)) __attribute__((const)) double nan(const char * );
-extern __attribute__((nothrow)) __attribute__((const)) float nanf(const char * );
-
-static __inline __attribute__((nothrow)) __attribute__((const)) long double nanl(const char *__t) { return (long double)nan(__t); }
-# 866 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) double nearbyint(double );
-extern __attribute__((nothrow)) __attribute__((const)) float nearbyintf(float );
-__attribute__((nothrow)) long double nearbyintl(long double );
-extern __attribute__((nothrow)) double remquo(double , double , int * );
-extern __attribute__((nothrow)) float remquof(float , float , int * );
+extern __attribute__((__nothrow__)) float scalbnf(float , int );
+
+
+
+extern __attribute__((__nothrow__)) long double scalbnl(long double , int );
+# 740 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float fabsf(float);
+static __inline __attribute__((__nothrow__)) __attribute__((__const__)) float _fabsf(float __f) { return fabsf(__f); }
+extern __attribute__((__nothrow__)) float sinf(float );
+extern __attribute__((__nothrow__)) float cosf(float );
+extern __attribute__((__nothrow__)) float tanf(float );
+extern __attribute__((__nothrow__)) float acosf(float );
+extern __attribute__((__nothrow__)) float asinf(float );
+extern __attribute__((__nothrow__)) float atanf(float );
+extern __attribute__((__nothrow__)) float atan2f(float , float );
+extern __attribute__((__nothrow__)) float sinhf(float );
+extern __attribute__((__nothrow__)) float coshf(float );
+extern __attribute__((__nothrow__)) float tanhf(float );
+extern __attribute__((__nothrow__)) float expf(float );
+extern __attribute__((__nothrow__)) float logf(float );
+extern __attribute__((__nothrow__)) float log10f(float );
+extern __attribute__((__nothrow__)) float powf(float , float );
+extern __attribute__((__nothrow__)) float sqrtf(float );
+extern __attribute__((__nothrow__)) float ldexpf(float , int );
+extern __attribute__((__nothrow__)) float frexpf(float , int * ) __attribute__((__nonnull__(2)));
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float ceilf(float );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float floorf(float );
+extern __attribute__((__nothrow__)) float fmodf(float , float );
+extern __attribute__((__nothrow__)) float modff(float , float * ) __attribute__((__nonnull__(2)));
+# 780 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+__attribute__((__nothrow__)) long double acosl(long double );
+__attribute__((__nothrow__)) long double asinl(long double );
+__attribute__((__nothrow__)) long double atanl(long double );
+__attribute__((__nothrow__)) long double atan2l(long double , long double );
+__attribute__((__nothrow__)) long double ceill(long double );
+__attribute__((__nothrow__)) long double cosl(long double );
+__attribute__((__nothrow__)) long double coshl(long double );
+__attribute__((__nothrow__)) long double expl(long double );
+__attribute__((__nothrow__)) long double fabsl(long double );
+__attribute__((__nothrow__)) long double floorl(long double );
+__attribute__((__nothrow__)) long double fmodl(long double , long double );
+__attribute__((__nothrow__)) long double frexpl(long double , int* ) __attribute__((__nonnull__(2)));
+__attribute__((__nothrow__)) long double ldexpl(long double , int );
+__attribute__((__nothrow__)) long double logl(long double );
+__attribute__((__nothrow__)) long double log10l(long double );
+__attribute__((__nothrow__)) long double modfl(long double , long double * ) __attribute__((__nonnull__(2)));
+__attribute__((__nothrow__)) long double powl(long double , long double );
+__attribute__((__nothrow__)) long double sinl(long double );
+__attribute__((__nothrow__)) long double sinhl(long double );
+__attribute__((__nothrow__)) long double sqrtl(long double );
+__attribute__((__nothrow__)) long double tanl(long double );
+__attribute__((__nothrow__)) long double tanhl(long double );
+
+
+
+
+
+
+extern __attribute__((__nothrow__)) float acoshf(float );
+__attribute__((__nothrow__)) long double acoshl(long double );
+extern __attribute__((__nothrow__)) float asinhf(float );
+__attribute__((__nothrow__)) long double asinhl(long double );
+extern __attribute__((__nothrow__)) float atanhf(float );
+__attribute__((__nothrow__)) long double atanhl(long double );
+__attribute__((__nothrow__)) long double copysignl(long double , long double );
+extern __attribute__((__nothrow__)) float cbrtf(float );
+__attribute__((__nothrow__)) long double cbrtl(long double );
+extern __attribute__((__nothrow__)) float erff(float );
+__attribute__((__nothrow__)) long double erfl(long double );
+extern __attribute__((__nothrow__)) float erfcf(float );
+__attribute__((__nothrow__)) long double erfcl(long double );
+extern __attribute__((__nothrow__)) float expm1f(float );
+__attribute__((__nothrow__)) long double expm1l(long double );
+extern __attribute__((__nothrow__)) float log1pf(float );
+__attribute__((__nothrow__)) long double log1pl(long double );
+extern __attribute__((__nothrow__)) float hypotf(float , float );
+__attribute__((__nothrow__)) long double hypotl(long double , long double );
+extern __attribute__((__nothrow__)) float lgammaf(float );
+__attribute__((__nothrow__)) long double lgammal(long double );
+extern __attribute__((__nothrow__)) float remainderf(float , float );
+__attribute__((__nothrow__)) long double remainderl(long double , long double );
+extern __attribute__((__nothrow__)) float rintf(float );
+__attribute__((__nothrow__)) long double rintl(long double );
+
+
+
+
+
+
+
+extern __attribute__((__nothrow__)) double exp2(double );
+extern __attribute__((__nothrow__)) float exp2f(float );
+__attribute__((__nothrow__)) long double exp2l(long double );
+extern __attribute__((__nothrow__)) double fdim(double , double );
+extern __attribute__((__nothrow__)) float fdimf(float , float );
+__attribute__((__nothrow__)) long double fdiml(long double , long double );
+# 855 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) double fma(double , double , double );
+extern __attribute__((__nothrow__)) float fmaf(float , float , float );
+
+static __inline __attribute__((__nothrow__)) long double fmal(long double __x, long double __y, long double __z) { return (long double)fma((double)__x, (double)__y, (double)__z); }
+
+
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double fmax(double , double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float fmaxf(float , float );
+__attribute__((__nothrow__)) long double fmaxl(long double , long double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double fmin(double , double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float fminf(float , float );
+__attribute__((__nothrow__)) long double fminl(long double , long double );
+extern __attribute__((__nothrow__)) double log2(double );
+extern __attribute__((__nothrow__)) float log2f(float );
+__attribute__((__nothrow__)) long double log2l(long double );
+extern __attribute__((__nothrow__)) long lrint(double );
+extern __attribute__((__nothrow__)) long lrintf(float );
+
+static __inline __attribute__((__nothrow__)) long lrintl(long double __x) { return lrint((double)__x); }
+
+
+extern __attribute__((__nothrow__)) long long llrint(double );
+extern __attribute__((__nothrow__)) long long llrintf(float );
+
+static __inline __attribute__((__nothrow__)) long long llrintl(long double __x) { return llrint((double)__x); }
+
+
+extern __attribute__((__nothrow__)) long lround(double );
+extern __attribute__((__nothrow__)) long lroundf(float );
+
+static __inline __attribute__((__nothrow__)) long lroundl(long double __x) { return lround((double)__x); }
+
+
+extern __attribute__((__nothrow__)) long long llround(double );
+extern __attribute__((__nothrow__)) long long llroundf(float );
+
+static __inline __attribute__((__nothrow__)) long long llroundl(long double __x) { return llround((double)__x); }
+
+
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double nan(const char * );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float nanf(const char * );
+
+static __inline __attribute__((__nothrow__)) __attribute__((__const__)) long double nanl(const char *__t) { return (long double)nan(__t); }
+# 908 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\math.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double nearbyint(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float nearbyintf(float );
+__attribute__((__nothrow__)) long double nearbyintl(long double );
+extern __attribute__((__nothrow__)) double remquo(double , double , int * );
+extern __attribute__((__nothrow__)) float remquof(float , float , int * );
 
 static __inline long double remquol(long double __x, long double __y, int *__q) { return (long double)remquo((double)__x, (double)__y, __q); }
 
 
-extern __attribute__((nothrow)) __attribute__((const)) double round(double );
-extern __attribute__((nothrow)) __attribute__((const)) float roundf(float );
-__attribute__((nothrow)) long double roundl(long double );
-extern __attribute__((nothrow)) double tgamma(double );
-extern __attribute__((nothrow)) float tgammaf(float );
-__attribute__((nothrow)) long double tgammal(long double );
-extern __attribute__((nothrow)) __attribute__((const)) double trunc(double );
-extern __attribute__((nothrow)) __attribute__((const)) float truncf(float );
-__attribute__((nothrow)) long double truncl(long double );
-# 322 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
-
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double round(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float roundf(float );
+__attribute__((__nothrow__)) long double roundl(long double );
+extern __attribute__((__nothrow__)) double tgamma(double );
+extern __attribute__((__nothrow__)) float tgammaf(float );
+__attribute__((__nothrow__)) long double tgammal(long double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) double trunc(double );
+extern __attribute__((__nothrow__)) __attribute__((__const__)) float truncf(float );
+__attribute__((__nothrow__)) long double truncl(long double );
+# 323 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
 # 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\float.h" 1 3
-# 130 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\float.h" 3
+# 153 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\float.h" 3
 unsigned _controlfp(unsigned, unsigned);
 unsigned _clearfp(void);
 unsigned _statusfp(void);
-# 323 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
+# 324 "../Drivers/CMSIS/DSP/Include\\arm_math.h" 2
 # 375 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   typedef enum
   {
@@ -4385,10 +4408,10 @@ __attribute__((always_inline)) static __inline q15_t arm_pid_q15(
 
 
 
-    acc = (q31_t) __SMUAD((uint32_t)S->A0, (uint32_t)in);
+    acc = (q31_t) __builtin_arm_smuad((uint32_t)S->A0, (uint32_t)in);
 
 
-    acc = (q63_t)__SMLALD((uint32_t)S->A1, (uint32_t)read_q15x2 (S->state), (uint64_t)acc);
+    acc = (q63_t)__builtin_arm_smlald((uint32_t)S->A1, (uint32_t)read_q15x2 (S->state), (uint64_t)acc);
 # 5048 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
     acc += (q31_t) S->state[2] << 15;
 
@@ -4443,7 +4466,7 @@ __attribute__((always_inline)) static __inline void arm_clarke_q31(
     product2 = (q31_t) (((q63_t) Ib * 0x49E69D16) >> 30);
 
 
-    *pIbeta = __QADD(product1, product2);
+    *pIbeta = __builtin_arm_qadd(product1, product2);
   }
 # 5218 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline void arm_inv_clarke_f32(
@@ -4477,7 +4500,7 @@ __attribute__((always_inline)) static __inline void arm_inv_clarke_q31(
     product2 = (q31_t) (((q63_t) (Ibeta) * (0x6ED9EBA1)) >> 31);
 
 
-    *pIb = __QSUB(product2, product1);
+    *pIb = __builtin_arm_qsub(product2, product1);
   }
 # 5318 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline void arm_park_f32(
@@ -4520,10 +4543,10 @@ __attribute__((always_inline)) static __inline void arm_park_q31(
     product4 = (q31_t) (((q63_t) (Ibeta) * (cosVal)) >> 31);
 
 
-    *pId = __QADD(product1, product2);
+    *pId = __builtin_arm_qadd(product1, product2);
 
 
-    *pIq = __QSUB(product4, product3);
+    *pIq = __builtin_arm_qsub(product4, product3);
   }
 # 5421 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline void arm_inv_park_f32(
@@ -4566,10 +4589,10 @@ __attribute__((always_inline)) static __inline void arm_inv_park_q31(
     product4 = (q31_t) (((q63_t) (Iq) * (cosVal)) >> 31);
 
 
-    *pIalpha = __QSUB(product1, product2);
+    *pIalpha = __builtin_arm_qsub(product1, product2);
 
 
-    *pIbeta = __QADD(product4, product3);
+    *pIbeta = __builtin_arm_qadd(product4, product3);
   }
 # 5536 "../Drivers/CMSIS/DSP/Include\\arm_math.h"
   __attribute__((always_inline)) static __inline float32_t arm_linear_interp_f32(
@@ -5659,8 +5682,7 @@ arm_status arm_sqrt_q15(
 
     return ((q7_t)(acc >> 40));
   }
-# 8 "../MyDrive/global_types.h" 2
-
+# 9 "../MyDrive/global_types.h" 2
 
 
 
@@ -5701,8 +5723,7 @@ typedef struct {
     uint32_t gate_start;
     uint8_t is_measuring;
 } FreqControl_t;
-# 6 "../MyDrive\\bsp_system.h" 2
-
+# 7 "../MyDrive\\bsp_system.h" 2
 
 
 # 1 "../Core/Inc\\main.h" 1
@@ -9090,8 +9111,7 @@ void HAL_RCC_GetClockConfig(RCC_ClkInitTypeDef *RCC_ClkInitStruct, uint32_t *pFL
 void HAL_RCC_NMI_IRQHandler(void);
 
 void HAL_RCC_CSSCallback(void);
-# 246 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-
+# 247 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 
 
 
@@ -9136,8 +9156,7 @@ void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
-# 250 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-
+# 251 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 
 
 
@@ -9350,8 +9369,7 @@ HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_Ca
 # 1214 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_dma.h"
 HAL_DMA_StateTypeDef HAL_DMA_GetState(const DMA_HandleTypeDef *hdma);
 uint32_t HAL_DMA_GetError(const DMA_HandleTypeDef *hdma);
-# 254 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-
+# 255 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 
 
 
@@ -9568,7 +9586,7 @@ void HAL_MDMA_IRQHandler(MDMA_HandleTypeDef *hmdma);
 # 690 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_mdma.h"
 HAL_MDMA_StateTypeDef HAL_MDMA_GetState(const MDMA_HandleTypeDef *hmdma);
 uint32_t HAL_MDMA_GetError(const MDMA_HandleTypeDef *hmdma);
-# 258 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 259 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 294 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_exti.h" 1
 # 44 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_exti.h"
@@ -9618,8 +9636,7 @@ void HAL_EXTI_IRQHandler(const EXTI_HandleTypeDef *hexti);
 uint32_t HAL_EXTI_GetPending(const EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_ClearPending(const EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_GenerateSWI(const EXTI_HandleTypeDef *hexti);
-# 294 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-
+# 295 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 
 
 
@@ -9673,8 +9690,7 @@ void HAL_SYSTICK_CLKSourceConfig(uint32_t CLKSource);
 void HAL_SYSTICK_IRQHandler(void);
 void HAL_SYSTICK_Callback(void);
 uint32_t HAL_GetCurrentCPUID(void);
-# 298 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-
+# 299 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 
 
 
@@ -11671,7 +11687,7 @@ void ADC_DMAConvCplt(DMA_HandleTypeDef *hdma);
 void ADC_DMAHalfConvCplt(DMA_HandleTypeDef *hdma);
 void ADC_DMAError(DMA_HandleTypeDef *hdma);
 void ADC_ConfigureBoostMode(ADC_HandleTypeDef *hadc);
-# 302 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 303 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 334 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h" 1
 # 45 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_flash.h"
@@ -11856,7 +11872,7 @@ extern FLASH_ProcessTypeDef pFlash;
 HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout, uint32_t Bank);
 HAL_StatusTypeDef FLASH_OB_WaitForLastOperation(uint32_t Timeout);
 HAL_StatusTypeDef FLASH_CRC_WaitForLastOperation(uint32_t Timeout, uint32_t Bank);
-# 334 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 335 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 350 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_hsem.h" 1
 # 129 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_hsem.h"
@@ -11881,7 +11897,7 @@ void HAL_HSEM_DeactivateNotification(uint32_t SemMask);
 void HAL_HSEM_FreeCallback(uint32_t SemMask);
 
 void HAL_HSEM_IRQHandler(void);
-# 350 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 351 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 366 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h" 1
 # 47 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_i2c.h"
@@ -12086,7 +12102,7 @@ void HAL_I2C_AbortCpltCallback(I2C_HandleTypeDef *hi2c);
 HAL_I2C_StateTypeDef HAL_I2C_GetState(const I2C_HandleTypeDef *hi2c);
 HAL_I2C_ModeTypeDef HAL_I2C_GetMode(const I2C_HandleTypeDef *hi2c);
 uint32_t HAL_I2C_GetError(const I2C_HandleTypeDef *hi2c);
-# 366 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 367 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 414 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h" 1
 # 47 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_pwr.h"
@@ -12230,7 +12246,7 @@ void HAL_PWR_EnableSleepOnExit (void);
 void HAL_PWR_DisableSleepOnExit (void);
 void HAL_PWR_EnableSEVOnPend (void);
 void HAL_PWR_DisableSEVOnPend (void);
-# 414 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 415 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 458 "../Core/Inc\\stm32h7xx_hal_conf.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 1
 # 46 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
@@ -12811,8 +12827,7 @@ void TIM_DMAError(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureCplt(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureHalfCplt(DMA_HandleTypeDef *hdma);
 void TIM_CCxChannelCmd(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t ChannelState);
-# 458 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
-
+# 459 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 
 
 
@@ -13076,7 +13091,7 @@ HAL_StatusTypeDef UART_Start_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pDat
 HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 # 1730 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 extern const uint16_t UARTPrescTable[12];
-# 462 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
+# 463 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 30 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 2
 # 43 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h"
 typedef enum
@@ -13157,11 +13172,10 @@ void HAL_SYSCFG_VREFBUF_HighImpedanceConfig(uint32_t Mode);
 void HAL_SYSCFG_VREFBUF_TrimmingConfig(uint32_t TrimmingValue);
 HAL_StatusTypeDef HAL_SYSCFG_EnableVREFBUF(void);
 void HAL_SYSCFG_DisableVREFBUF(void);
-# 30 "../Core/Inc\\main.h" 2
+# 31 "../Core/Inc\\main.h" 2
 # 53 "../Core/Inc\\main.h"
 void Error_Handler(void);
-# 9 "../MyDrive\\bsp_system.h" 2
-
+# 10 "../MyDrive\\bsp_system.h" 2
 
 
 
@@ -13507,8 +13521,7 @@ void Error_Handler(void);
 
 
     extern const q15_t sinTable_q15[512 + 1];
-# 34 "../Drivers/CMSIS/DSP/Include\\arm_const_structs.h" 2
-
+# 35 "../Drivers/CMSIS/DSP/Include\\arm_const_structs.h" 2
 
    extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len16;
    extern const arm_cfft_instance_f32 arm_cfft_sR_f32_len32;
@@ -13539,8 +13552,7 @@ void Error_Handler(void);
    extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len1024;
    extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len2048;
    extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len4096;
-# 14 "../MyDrive\\bsp_system.h" 2
-
+# 15 "../MyDrive\\bsp_system.h" 2
 
 
 
@@ -13554,50 +13566,50 @@ typedef struct ldiv_t { long int quot, rem; } ldiv_t;
 
 typedef struct lldiv_t { long long quot, rem; } lldiv_t;
 # 139 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int __aeabi_MB_CUR_MAX(void);
+extern __attribute__((__nothrow__)) int __aeabi_MB_CUR_MAX(void);
 # 158 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) double atof(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) double atof(const char * ) __attribute__((__nonnull__(1)));
 
 
 
 
 
-extern __attribute__((nothrow)) int atoi(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) int atoi(const char * ) __attribute__((__nonnull__(1)));
 
 
 
 
 
-extern __attribute__((nothrow)) long int atol(const char * ) __attribute__((__nonnull__(1)));
-
-
-
-
-
-
-extern __attribute__((nothrow)) long long atoll(const char * ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) long int atol(const char * ) __attribute__((__nonnull__(1)));
 
 
 
 
 
 
+extern __attribute__((__nothrow__)) long long atoll(const char * ) __attribute__((__nonnull__(1)));
 
-extern __attribute__((nothrow)) double strtod(const char * __restrict , char ** __restrict ) __attribute__((__nonnull__(1)));
+
+
+
+
+
+
+extern __attribute__((__nothrow__)) double strtod(const char * __restrict , char ** __restrict ) __attribute__((__nonnull__(1)));
 # 206 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) float strtof(const char * __restrict , char ** __restrict ) __attribute__((__nonnull__(1)));
-extern __attribute__((nothrow)) long double strtold(const char * __restrict , char ** __restrict ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) float strtof(const char * __restrict , char ** __restrict ) __attribute__((__nonnull__(1)));
+extern __attribute__((__nothrow__)) long double strtold(const char * __restrict , char ** __restrict ) __attribute__((__nonnull__(1)));
 
 
 
 
-extern __attribute__((nothrow)) long int strtol(const char * __restrict ,
+extern __attribute__((__nothrow__)) long int strtol(const char * __restrict ,
                         char ** __restrict , int ) __attribute__((__nonnull__(1)));
 # 243 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) unsigned long int strtoul(const char * __restrict ,
+extern __attribute__((__nothrow__)) unsigned long int strtoul(const char * __restrict ,
                                        char ** __restrict , int ) __attribute__((__nonnull__(1)));
 # 275 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) long long strtoll(const char * __restrict ,
+extern __attribute__((__nothrow__)) long long strtoll(const char * __restrict ,
                                   char ** __restrict , int )
                           __attribute__((__nonnull__(1)));
 
@@ -13606,7 +13618,7 @@ extern __attribute__((nothrow)) long long strtoll(const char * __restrict ,
 
 
 
-extern __attribute__((nothrow)) unsigned long long strtoull(const char * __restrict ,
+extern __attribute__((__nothrow__)) unsigned long long strtoull(const char * __restrict ,
                                             char ** __restrict , int )
                                    __attribute__((__nonnull__(1)));
 
@@ -13615,28 +13627,28 @@ extern __attribute__((nothrow)) unsigned long long strtoull(const char * __restr
 
 
 
-extern __attribute__((nothrow)) int rand(void);
+extern __attribute__((__nothrow__)) int rand(void);
 # 303 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) void srand(unsigned int );
+extern __attribute__((__nothrow__)) void srand(unsigned int );
 # 313 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
 struct _rand_state { int __x[57]; };
-extern __attribute__((nothrow)) int _rand_r(struct _rand_state *);
-extern __attribute__((nothrow)) void _srand_r(struct _rand_state *, unsigned int);
+extern __attribute__((__nothrow__)) int _rand_r(struct _rand_state *);
+extern __attribute__((__nothrow__)) void _srand_r(struct _rand_state *, unsigned int);
 struct _ANSI_rand_state { int __x[1]; };
-extern __attribute__((nothrow)) int _ANSI_rand_r(struct _ANSI_rand_state *);
-extern __attribute__((nothrow)) void _ANSI_srand_r(struct _ANSI_rand_state *, unsigned int);
+extern __attribute__((__nothrow__)) int _ANSI_rand_r(struct _ANSI_rand_state *);
+extern __attribute__((__nothrow__)) void _ANSI_srand_r(struct _ANSI_rand_state *, unsigned int);
 
 
 
 
 
-extern __attribute__((nothrow)) void *calloc(size_t , size_t );
+extern __attribute__((__nothrow__)) void *calloc(size_t , size_t );
 
 
 
 
 
-extern __attribute__((nothrow)) void free(void * );
+extern __attribute__((__nothrow__)) void free(void * );
 
 
 
@@ -13644,77 +13656,77 @@ extern __attribute__((nothrow)) void free(void * );
 
 
 
-extern __attribute__((nothrow)) void *malloc(size_t );
+extern __attribute__((__nothrow__)) void *malloc(size_t );
 
 
 
 
 
-extern __attribute__((nothrow)) void *realloc(void * , size_t );
+extern __attribute__((__nothrow__)) void *realloc(void * , size_t );
 # 374 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
 typedef int (*__heapprt)(void *, char const *, ...);
-extern __attribute__((nothrow)) void __heapstats(int (* )(void * ,
+extern __attribute__((__nothrow__)) void __heapstats(int (* )(void * ,
                                            char const * , ...),
                         void * ) __attribute__((__nonnull__(1)));
 # 390 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int __heapvalid(int (* )(void * ,
+extern __attribute__((__nothrow__)) int __heapvalid(int (* )(void * ,
                                            char const * , ...),
                        void * , int ) __attribute__((__nonnull__(1)));
-# 409 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((noreturn)) void abort(void);
-# 420 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int atexit(void (* )(void)) __attribute__((__nonnull__(1)));
-# 442 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((noreturn)) void exit(int );
-# 458 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((noreturn)) void _Exit(int );
-# 469 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) char *getenv(const char * ) __attribute__((__nonnull__(1)));
-# 482 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int system(const char * );
-# 495 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+# 411 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__noreturn__)) void abort(void);
+# 422 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) int atexit(void (* )(void)) __attribute__((__nonnull__(1)));
+# 444 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__noreturn__)) void exit(int );
+# 460 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__noreturn__)) void _Exit(int );
+# 471 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) char *getenv(const char * ) __attribute__((__nonnull__(1)));
+# 484 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) int system(const char * );
+# 497 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
 extern void *bsearch(const void * , const void * ,
               size_t , size_t ,
               int (* )(const void *, const void *)) __attribute__((__nonnull__(1,2,5)));
-# 530 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+# 532 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
 extern void qsort(void * , size_t , size_t ,
            int (* )(const void *, const void *)) __attribute__((__nonnull__(1,4)));
-# 558 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) int abs(int );
+# 560 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) int abs(int );
 
 
 
 
 
 
-extern __attribute__((nothrow)) __attribute__((const)) div_t div(int , int );
-# 577 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) long int labs(long int );
-# 587 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) ldiv_t ldiv(long int , long int );
-# 608 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) long long llabs(long long );
-# 618 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) __attribute__((const)) lldiv_t lldiv(long long , long long );
-# 642 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) div_t div(int , int );
+# 579 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) long int labs(long int );
+# 589 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) ldiv_t ldiv(long int , long int );
+# 610 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) long long llabs(long long );
+# 620 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) __attribute__((__const__)) lldiv_t lldiv(long long , long long );
+# 644 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
 typedef struct __sdiv32by16 { long quot, rem; } __sdiv32by16;
 typedef struct __udiv32by16 { unsigned long quot, rem; } __udiv32by16;
 
 typedef struct __sdiv64by32 { long rem, quot; } __sdiv64by32;
 
-__attribute__((value_in_regs)) extern __attribute__((nothrow)) __attribute__((const)) __sdiv32by16 __rt_sdiv32by16(
+__attribute__((__value_in_regs__)) extern __attribute__((__nothrow__)) __attribute__((__const__)) __sdiv32by16 __rt_sdiv32by16(
      int ,
      short int );
 
 
 
-__attribute__((value_in_regs)) extern __attribute__((nothrow)) __attribute__((const)) __udiv32by16 __rt_udiv32by16(
+__attribute__((__value_in_regs__)) extern __attribute__((__nothrow__)) __attribute__((__const__)) __udiv32by16 __rt_udiv32by16(
      unsigned int ,
      unsigned short );
 
 
 
-__attribute__((value_in_regs)) extern __attribute__((nothrow)) __attribute__((const)) __sdiv64by32 __rt_sdiv64by32(
+__attribute__((__value_in_regs__)) extern __attribute__((__nothrow__)) __attribute__((__const__)) __sdiv64by32 __rt_sdiv64by32(
      int , unsigned int ,
      int );
 
@@ -13724,31 +13736,30 @@ __attribute__((value_in_regs)) extern __attribute__((nothrow)) __attribute__((co
 
 
 
-extern __attribute__((nothrow)) unsigned int __fp_status(unsigned int , unsigned int );
-# 703 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int mblen(const char * , size_t );
-# 718 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int mbtowc(wchar_t * __restrict ,
+extern __attribute__((__nothrow__)) unsigned int __fp_status(unsigned int , unsigned int );
+# 705 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) int mblen(const char * , size_t );
+# 720 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) int mbtowc(wchar_t * __restrict ,
                    const char * __restrict , size_t );
-# 737 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) int wctomb(char * , wchar_t );
-# 759 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) size_t mbstowcs(wchar_t * __restrict ,
+# 739 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) int wctomb(char * , wchar_t );
+# 761 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) size_t mbstowcs(wchar_t * __restrict ,
                       const char * __restrict , size_t ) __attribute__((__nonnull__(2)));
-# 777 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) size_t wcstombs(char * __restrict ,
+# 779 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) size_t wcstombs(char * __restrict ,
                       const wchar_t * __restrict , size_t ) __attribute__((__nonnull__(2)));
-# 796 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
-extern __attribute__((nothrow)) void __use_realtime_heap(void);
-extern __attribute__((nothrow)) void __use_realtime_division(void);
-extern __attribute__((nothrow)) void __use_two_region_memory(void);
-extern __attribute__((nothrow)) void __use_no_heap(void);
-extern __attribute__((nothrow)) void __use_no_heap_region(void);
+# 798 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\stdlib.h" 3
+extern __attribute__((__nothrow__)) void __use_realtime_heap(void);
+extern __attribute__((__nothrow__)) void __use_realtime_division(void);
+extern __attribute__((__nothrow__)) void __use_two_region_memory(void);
+extern __attribute__((__nothrow__)) void __use_no_heap(void);
+extern __attribute__((__nothrow__)) void __use_no_heap_region(void);
 
-extern __attribute__((nothrow)) char const *__C_library_version_string(void);
-extern __attribute__((nothrow)) int __C_library_version_number(void);
-# 19 "../MyDrive\\bsp_system.h" 2
-
+extern __attribute__((__nothrow__)) char const *__C_library_version_string(void);
+extern __attribute__((__nothrow__)) int __C_library_version_number(void);
+# 20 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess/long_fft\\extra_ffts.h" 1
 # 15 "../SignalProcess/long_fft\\extra_ffts.h"
 typedef struct
@@ -13791,8 +13802,7 @@ void arm_cfft_f32_extra(
         float32_t * p1,
         uint8_t ifftFlag,
         uint8_t bitReverseFlag);
-# 20 "../MyDrive\\bsp_system.h" 2
-
+# 21 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess/long_fft\\arm_const_structs_extra.h" 1
 
 
@@ -13941,8 +13951,7 @@ void arm_cfft_f32_extra(
 
 
     extern const float32_t twiddleCoefExtra_rfft_16384[16384];
-# 6 "../SignalProcess/long_fft\\arm_const_structs_extra.h" 2
-
+# 7 "../SignalProcess/long_fft\\arm_const_structs_extra.h" 2
 
 
 
@@ -13960,16 +13969,14 @@ void arm_cfft_f32_extra(
    extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len4096_extra;
    extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len8192_extra;
    extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len16384_extra;
-# 21 "../MyDrive\\bsp_system.h" 2
-
+# 22 "../MyDrive\\bsp_system.h" 2
 
 
 
 # 1 "../Core/Inc\\gpio.h" 1
 # 39 "../Core/Inc\\gpio.h"
 void MX_GPIO_Init(void);
-# 25 "../MyDrive\\bsp_system.h" 2
-
+# 26 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\usart.h" 1
 # 35 "../Core/Inc\\usart.h"
 extern UART_HandleTypeDef huart3;
@@ -13979,8 +13986,7 @@ extern UART_HandleTypeDef huart3;
 
 
 void MX_USART3_UART_Init(void);
-# 26 "../MyDrive\\bsp_system.h" 2
-
+# 27 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
 extern ADC_HandleTypeDef hadc2;
@@ -13990,8 +13996,7 @@ extern ADC_HandleTypeDef hadc2;
 
 
 void MX_ADC2_Init(void);
-# 27 "../MyDrive\\bsp_system.h" 2
-
+# 28 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\tim.h" 1
 # 35 "../Core/Inc\\tim.h"
 extern TIM_HandleTypeDef htim2;
@@ -14006,13 +14011,11 @@ void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-# 28 "../MyDrive\\bsp_system.h" 2
-
+# 29 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\dma.h" 1
 # 41 "../Core/Inc\\dma.h"
 void MX_DMA_Init(void);
-# 29 "../MyDrive\\bsp_system.h" 2
-
+# 30 "../MyDrive\\bsp_system.h" 2
 
 
 # 1 "../MyDrive/delay.h" 1
@@ -14021,8 +14024,7 @@ void MX_DMA_Init(void);
 
 void delay_us(uint32_t udelay);
 void delay_ms(uint32_t t);
-# 32 "../MyDrive\\bsp_system.h" 2
-
+# 33 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/AD9910.h" 1
 
 
@@ -14057,8 +14059,7 @@ void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
 void AD9910_DRG_AMP_Init(void);
 void AD9910_DRG_FreInit_AutoSet(FunctionalState autoSweepEn);
 void AD9910_DRG_FrePara_Set(u32 lowFre, u32 upFre, u32 posStep, u32 negStep, u16 posRate, u16 negRate);
-# 33 "../MyDrive\\bsp_system.h" 2
-
+# 34 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/HMI.h" 1
 
 
@@ -14073,8 +14074,7 @@ void HMI_Wave_fast(char* name, int ch, int count, int* show_data);
 void HMI_Wave_clear(char* name, int ch);
 void UART3_Printf(const char *format,...);
 void HMI_Init(void);
-# 34 "../MyDrive\\bsp_system.h" 2
-
+# 35 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/sys.h" 1
 # 104 "../MyDrive/sys.h"
 void STM32_Flash_Capacity(uint8_t *STMCapa);
@@ -14106,8 +14106,7 @@ uint8_t HEX_to_BCD(uint8_t HEX_Data);
 uint16_t DX_to_HX(uint16_t DX_Data);
 
 uint16_t HX_to_DX(uint16_t HX_Data);
-# 35 "../MyDrive\\bsp_system.h" 2
-
+# 36 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/Get_Freq.h" 1
 
 
@@ -14122,8 +14121,7 @@ void FreqMeasure_Init(void);
 void FreqMeasure_Process(float *pFreq);
 
 void FreqMeasure_Count_Handler(uint16_t GPIO_Pin);
-# 36 "../MyDrive\\bsp_system.h" 2
-
+# 37 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess\\fftana.h" 1
 # 25 "../SignalProcess\\fftana.h"
 typedef struct __attribute__((packed)) {
@@ -14166,8 +14164,7 @@ WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
 float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) ;
-# 37 "../MyDrive\\bsp_system.h" 2
-
+# 38 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess\\SignalSeperation.h" 1
 
 
@@ -14182,8 +14179,7 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 
 float32_t Get_Total_RMS(uint16_t *pData, uint16_t len);
-# 38 "../MyDrive\\bsp_system.h" 2
-
+# 39 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/ad9220.h" 1
 
 
@@ -14196,8 +14192,7 @@ void AD9220_Stop_DMA(void);
 void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed);
 float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len);
 void AD9220_ConvCpltCallback(void);
-# 39 "../MyDrive\\bsp_system.h" 2
-
+# 40 "../MyDrive\\bsp_system.h" 2
 # 1 "../Tasks\\Tasks.h" 1
 
 
@@ -14227,29 +14222,39 @@ extern Analysis_Result_t output;
 void FFT_Task(Analysis_Result_t *output);
 void Send_Wave(Analysis_Result_t *output);
 void USART_Task(Analysis_Result_t *output);
-# 40 "../MyDrive\\bsp_system.h" 2
-# 1 "../SignalProcess/SignalSeperation.c" 2
+# 41 "../MyDrive\\bsp_system.h" 2
+# 2 "../SignalProcess/SignalSeperation.c" 2
 
 
 
 
 
 
-float32_t Round_To_005(float32_t value) {
-    return roundf(value / 0.05f) * 0.05f;
+
+
+float32_t Round_To_01(float32_t value) {
+    return roundf(value / 0.1f) * 0.1f;
 }
 
 
 
 
-float32_t Get_Integrated_Mag(float32_t *mag, uint16_t center_idx) {
+float32_t Get_Integrated_Mag_3P(float32_t *mag, uint16_t center_idx) {
+    if (center_idx < 1 || center_idx > 4095) return mag[center_idx];
+
+    float32_t m_l1 = mag[center_idx - 1];
     float32_t m0 = mag[center_idx];
-    float32_t m_left = mag[center_idx - 1];
-    float32_t m_right = mag[center_idx + 1];
-    return sqrtf(m_left * m_left + m0 * m0 + m_right * m_right);
+    float32_t m_r1 = mag[center_idx + 1];
+
+
+    return sqrtf(m_l1 * m_l1 + m0 * m0 + m_r1 * m_r1);
 }
 
 void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inter, max_3_index *max_3_inter, Analysis_Result_t *result) {
+
+
+    static float32_t filtered_vpp_a = 0;
+    static float32_t filtered_vpp_b = 0;
 
 
     uint16_t pure_idx_B = max_3_inter->index[0];
@@ -14264,59 +14269,58 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
     }
 
 
-    float32_t Mag_Mix_A_Sum = Get_Integrated_Mag(freqin->mag, idx_A);
-    float32_t Mag_Inter_at_A_Sum = Get_Integrated_Mag(wave_inter->mag, idx_A);
+
+
+    float32_t Mag_Mix_A_Sum = Get_Integrated_Mag_3P(freqin->mag, idx_A);
+
+    float32_t Mag_Inter_at_A_Sum = Get_Integrated_Mag_3P(wave_inter->mag, idx_A) * 0.8f;
 
     float32_t Mag_A_Final = 0;
     if (Mag_Mix_A_Sum > Mag_Inter_at_A_Sum) {
         Mag_A_Final = sqrtf(Mag_Mix_A_Sum * Mag_Mix_A_Sum - Mag_Inter_at_A_Sum * Mag_Inter_at_A_Sum);
     } else {
-        Mag_A_Final = Mag_Mix_A_Sum * 0.5f;
+        Mag_A_Final = Mag_Mix_A_Sum * 0.2f;
     }
 
 
-    float32_t vpp_a_raw = (Mag_A_Final / 2048.0f) * 2.12f;
-    result->Original.Vpp = Round_To_005(vpp_a_raw);
+    float32_t vpp_a_instant = (Mag_A_Final / 2048.0f) * 2.32f;
 
 
-    if (result->Original.Vpp < 0.8f) {
+    filtered_vpp_a = (vpp_a_instant * 0.2f) + (filtered_vpp_a * (1.0f - 0.2f));
+    result->Original.Vpp = Round_To_01(filtered_vpp_a);
+
+    if (result->Original.Vpp < 0.9f) {
         result->Original.Vpp = 0.0f;
         result->Original.Freq = 0;
-        result->Original.Wave_type = WAVE_SINE;
     } else {
         result->Original.Freq = idx_A * 5;
-        result->Original.Wave_type = WAVE_SINE;
     }
+    result->Original.Wave_type = WAVE_SINE;
 
 
-    float32_t Mag_B_Sum = Get_Integrated_Mag(wave_inter->mag, pure_idx_B);
+
+
+    float32_t Mag_B_Sum = Get_Integrated_Mag_3P(wave_inter->mag, pure_idx_B);
     float32_t Vpp_basis_B = Mag_B_Sum / 2048.0f;
-    float32_t vpp_b_calc = 0;
-
+    float32_t vpp_b_instant = 0;
 
     WaveType_t identified_type = Rec_wavetype(wave_inter, pure_idx_B);
 
     switch (identified_type) {
-        case WAVE_SINE:
-            vpp_b_calc = Vpp_basis_B;
-            break;
-        case WAVE_SQUARE:
-            vpp_b_calc = Vpp_basis_B * 1.5708f / 2.0f;
-            break;
-        case WAVE_TRIANGLE:
-            vpp_b_calc = Vpp_basis_B * 2.4674f / 2.0f;
-            break;
-        default:
-            vpp_b_calc = Vpp_basis_B;
-            break;
+        case WAVE_SINE: vpp_b_instant = Vpp_basis_B; break;
+        case WAVE_SQUARE: vpp_b_instant = Vpp_basis_B * 1.5708f / 1.98f; break;
+        case WAVE_TRIANGLE: vpp_b_instant = Vpp_basis_B * 2.4674f / 1.98f; break;
+        default: vpp_b_instant = Vpp_basis_B; break;
     }
 
 
-    vpp_b_calc *= 1.32f;
-    result->Interfere.Vpp = Round_To_005(vpp_b_calc);
+    vpp_b_instant *= 1.3f;
 
 
-    if (result->Interfere.Vpp < 0.8f) {
+    filtered_vpp_b = (vpp_b_instant * 0.2f) + (filtered_vpp_b * (1.0f - 0.2f));
+    result->Interfere.Vpp = Round_To_01(filtered_vpp_b);
+
+    if (result->Interfere.Vpp < 0.9f) {
         result->Interfere.Vpp = 0.0f;
         result->Interfere.Freq = 0;
         result->Interfere.Wave_type = WAVE_UNKNOWN;
