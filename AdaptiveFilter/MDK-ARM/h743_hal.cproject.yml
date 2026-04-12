@@ -120,6 +120,8 @@ project:
       files:
         - file: ../Tasks/Tasks.c
         - file: ../Tasks/Tasks.h
+        - file: ../Tasks/PID.c
+        - file: ../Tasks/PID.h
     - group: SignalProsess
       files:
         - file: ../SignalProcess/fftana.c

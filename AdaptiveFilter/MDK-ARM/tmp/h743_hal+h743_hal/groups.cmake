@@ -127,6 +127,7 @@ target_link_libraries(Group_Drivers_CMSIS PUBLIC
 # group Tasks
 add_library(Group_Tasks OBJECT
   "${SOLUTION_ROOT}/../Tasks/Tasks.c"
+  "${SOLUTION_ROOT}/../Tasks/PID.c"
 )
 target_include_directories(Group_Tasks PUBLIC
   $<TARGET_PROPERTY:${CONTEXT},INTERFACE_INCLUDE_DIRECTORIES>

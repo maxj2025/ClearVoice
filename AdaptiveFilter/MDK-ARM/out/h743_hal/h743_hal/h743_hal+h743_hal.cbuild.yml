@@ -236,6 +236,10 @@ build:
           category: sourceC
         - file: ../../../../Tasks/Tasks.h
           category: header
+        - file: ../../../../Tasks/PID.c
+          category: sourceC
+        - file: ../../../../Tasks/PID.h
+          category: header
     - group: SignalProsess
       files:
         - file: ../../../../SignalProcess/fftana.c

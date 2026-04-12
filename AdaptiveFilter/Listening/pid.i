@@ -1,11 +1,11 @@
-# 1 "../MyDrive/HMI.c"
+# 1 "../Tasks/PID.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 373 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "../MyDrive/HMI.c" 2
-# 1 "../MyDrive/bsp_system.h" 1
+# 1 "../Tasks/PID.c" 2
+# 1 "../MyDrive\\bsp_system.h" 1
 
 
 
@@ -5723,7 +5723,7 @@ typedef struct {
     uint32_t gate_start;
     uint8_t is_measuring;
 } FreqControl_t;
-# 7 "../MyDrive/bsp_system.h" 2
+# 7 "../MyDrive\\bsp_system.h" 2
 
 
 # 1 "../Core/Inc\\main.h" 1
@@ -13175,7 +13175,7 @@ void HAL_SYSCFG_DisableVREFBUF(void);
 # 31 "../Core/Inc\\main.h" 2
 # 53 "../Core/Inc\\main.h"
 void Error_Handler(void);
-# 10 "../MyDrive/bsp_system.h" 2
+# 10 "../MyDrive\\bsp_system.h" 2
 
 
 
@@ -13552,7 +13552,7 @@ void Error_Handler(void);
    extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len1024;
    extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len2048;
    extern const arm_cfft_instance_q15 arm_cfft_sR_q15_len4096;
-# 15 "../MyDrive/bsp_system.h" 2
+# 15 "../MyDrive\\bsp_system.h" 2
 
 
 
@@ -13759,7 +13759,7 @@ extern __attribute__((__nothrow__)) void __use_no_heap_region(void);
 
 extern __attribute__((__nothrow__)) char const *__C_library_version_string(void);
 extern __attribute__((__nothrow__)) int __C_library_version_number(void);
-# 20 "../MyDrive/bsp_system.h" 2
+# 20 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess/long_fft\\extra_ffts.h" 1
 # 15 "../SignalProcess/long_fft\\extra_ffts.h"
 typedef struct
@@ -13802,7 +13802,7 @@ void arm_cfft_f32_extra(
         float32_t * p1,
         uint8_t ifftFlag,
         uint8_t bitReverseFlag);
-# 21 "../MyDrive/bsp_system.h" 2
+# 21 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess/long_fft\\arm_const_structs_extra.h" 1
 
 
@@ -13969,14 +13969,14 @@ void arm_cfft_f32_extra(
    extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len4096_extra;
    extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len8192_extra;
    extern const arm_cfft_instance_f32_extra arm_cfft_sR_f32_len16384_extra;
-# 22 "../MyDrive/bsp_system.h" 2
+# 22 "../MyDrive\\bsp_system.h" 2
 
 
 
 # 1 "../Core/Inc\\gpio.h" 1
 # 39 "../Core/Inc\\gpio.h"
 void MX_GPIO_Init(void);
-# 26 "../MyDrive/bsp_system.h" 2
+# 26 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\usart.h" 1
 # 35 "../Core/Inc\\usart.h"
 extern UART_HandleTypeDef huart3;
@@ -13986,7 +13986,7 @@ extern UART_HandleTypeDef huart3;
 
 
 void MX_USART3_UART_Init(void);
-# 27 "../MyDrive/bsp_system.h" 2
+# 27 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
 extern ADC_HandleTypeDef hadc2;
@@ -13996,7 +13996,7 @@ extern ADC_HandleTypeDef hadc2;
 
 
 void MX_ADC2_Init(void);
-# 28 "../MyDrive/bsp_system.h" 2
+# 28 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\tim.h" 1
 # 35 "../Core/Inc\\tim.h"
 extern TIM_HandleTypeDef htim2;
@@ -14011,11 +14011,11 @@ void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-# 29 "../MyDrive/bsp_system.h" 2
+# 29 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\dma.h" 1
 # 41 "../Core/Inc\\dma.h"
 void MX_DMA_Init(void);
-# 30 "../MyDrive/bsp_system.h" 2
+# 30 "../MyDrive\\bsp_system.h" 2
 
 
 # 1 "../MyDrive/delay.h" 1
@@ -14024,7 +14024,7 @@ void MX_DMA_Init(void);
 
 void delay_us(uint32_t udelay);
 void delay_ms(uint32_t t);
-# 33 "../MyDrive/bsp_system.h" 2
+# 33 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/AD9910.h" 1
 
 
@@ -14061,7 +14061,7 @@ void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
 void AD9910_DRG_AMP_Init(void);
 void AD9910_DRG_FreInit_AutoSet(FunctionalState autoSweepEn);
 void AD9910_DRG_FrePara_Set(u32 lowFre, u32 upFre, u32 posStep, u32 negStep, u16 posRate, u16 negRate);
-# 34 "../MyDrive/bsp_system.h" 2
+# 34 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/HMI.h" 1
 
 
@@ -14076,7 +14076,7 @@ void HMI_Wave_fast(char* name, int ch, int count, int* show_data);
 void HMI_Wave_clear(char* name, int ch);
 void UART3_Printf(const char *format,...);
 void HMI_Init(void);
-# 35 "../MyDrive/bsp_system.h" 2
+# 35 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/sys.h" 1
 # 104 "../MyDrive/sys.h"
 void STM32_Flash_Capacity(uint8_t *STMCapa);
@@ -14108,7 +14108,7 @@ uint8_t HEX_to_BCD(uint8_t HEX_Data);
 uint16_t DX_to_HX(uint16_t DX_Data);
 
 uint16_t HX_to_DX(uint16_t HX_Data);
-# 36 "../MyDrive/bsp_system.h" 2
+# 36 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/Get_Freq.h" 1
 
 
@@ -14123,7 +14123,7 @@ void FreqMeasure_Init(void);
 void FreqMeasure_Process(float *pFreq);
 
 void FreqMeasure_Count_Handler(uint16_t GPIO_Pin);
-# 37 "../MyDrive/bsp_system.h" 2
+# 37 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess\\fftana.h" 1
 # 25 "../SignalProcess\\fftana.h"
 typedef struct __attribute__((packed)) {
@@ -14166,7 +14166,7 @@ WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
 float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) ;
-# 38 "../MyDrive/bsp_system.h" 2
+# 38 "../MyDrive\\bsp_system.h" 2
 # 1 "../SignalProcess\\SignalSeperation.h" 1
 
 
@@ -14181,7 +14181,7 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 
 float32_t Get_Total_RMS(uint16_t *pData, uint16_t len);
-# 39 "../MyDrive/bsp_system.h" 2
+# 39 "../MyDrive\\bsp_system.h" 2
 # 1 "../MyDrive/ad9220.h" 1
 
 
@@ -14194,7 +14194,7 @@ void AD9220_Stop_DMA(void);
 void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed);
 float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len);
 void AD9220_ConvCpltCallback(void);
-# 40 "../MyDrive/bsp_system.h" 2
+# 40 "../MyDrive\\bsp_system.h" 2
 # 1 "../Tasks\\PID.h" 1
 
 
@@ -14227,7 +14227,7 @@ void PhaseLock_Init(PhaseLocker* locker, float target_v, float Kp, float Ki, flo
 void PhaseLock_Process(PhaseLocker* locker, float measured_voltage);
 
 void PhaseLock_Reset(PhaseLocker* locker);
-# 41 "../MyDrive/bsp_system.h" 2
+# 41 "../MyDrive\\bsp_system.h" 2
 # 1 "../Tasks\\Tasks.h" 1
 
 
@@ -14257,76 +14257,52 @@ extern Analysis_Result_t output;
 void FFT_Task(Analysis_Result_t *output);
 void Send_Wave(Analysis_Result_t *output);
 void USART_Task(Analysis_Result_t *output);
-# 42 "../MyDrive/bsp_system.h" 2
-# 2 "../MyDrive/HMI.c" 2
+# 42 "../MyDrive\\bsp_system.h" 2
+# 2 "../Tasks/PID.c" 2
 
-void HMI_send_string(char* name,char* showdata)
-{
- UART3_Printf("%s=\"%s\"\xff\xff\xff",name,showdata);
+
+
+void PhaseLock_Init(PhaseLocker* locker, float target_v, float kp, float ki, float kd, float max_adj) {
+    locker->target_voltage = target_v;
+    locker->pid.Kp = kp;
+    locker->pid.Ki = ki;
+    locker->pid.Kd = kd;
+    locker->pid.out_max = max_adj;
+    locker->pid.last_error = 0;
+    locker->pid.prev_error = 0;
+    locker->current_phase = 0;
 }
 
-void HMI_send_number(char* name,int num)
-{
- UART3_Printf("%s=%d\xff\xff\xff",name,num);
+void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
 
+    float error = locker->target_voltage - measured_voltage;
+
+
+    float phase_inc = locker->pid.Kp * (error - locker->pid.last_error)
+                    + locker->pid.Ki * error
+                    + locker->pid.Kd * (error - 2.0f * locker->pid.last_error + locker->pid.prev_error);
+
+    locker->pid.prev_error = locker->pid.last_error;
+    locker->pid.last_error = error;
+
+
+    if (phase_inc > locker->pid.out_max) phase_inc = locker->pid.out_max;
+    if (phase_inc < -locker->pid.out_max) phase_inc = -locker->pid.out_max;
+
+
+    locker->current_phase += phase_inc;
+
+
+    if (locker->current_phase >= 360.0) locker->current_phase -= 360.0;
+    if (locker->current_phase < 0.0) locker->current_phase += 360.0;
+
+
+    AD9910_PhaWrite((float)locker->current_phase);
 }
 
-void HMI_send_float(char* name,float num)
-{
- UART3_Printf("%s=%d\xff\xff\xff",name,(int)(num*100));
-}
-
-void HMI_send_wave(char* name,int ch,int val)
-{
- UART3_Printf("add %s,%d,%d\xff\xff\xff",name,ch,val);
-}
-
-void HMI_Wave_fast(char* name,int ch,int count,int* show_data)
-{
- int i = 0;
- UART3_Printf("addt %s,%d,%d\xff\xff\xff",name,ch,count);
- HAL_Delay(100);
- for(i=0;i<count;i++)
- {
-  UART3_Printf("%c",show_data[i]);
-  UART3_Printf("\xff\xff\xff");
- }
-}
-
-void HMI_Wave_clear(char* name,int ch)
-{
- UART3_Printf("cle %s,%d\xff\xff\xff",name,ch);
-}
-
-
-void UART3_Printf(const char *format,...)
-{
- char tmp[128] = {0};
- va_list argptr;
- __builtin_va_start(argptr, format);
-
- int len = vsnprintf(tmp, 128 - 1, format, argptr);
- __builtin_va_end(argptr);
- if(len <= 0) return;
- if(len >= 128) len = 128 - 1;
-
- if(__get_PRIMASK())
- {
-  HAL_UART_Transmit(&huart3, (uint8_t *)tmp, len, 1);
- }
- else
- {
-  HAL_UART_Transmit(&huart3, (uint8_t *)tmp, len, 0xFFFFFFFFU);
- }
-
-}
-
-void HMI_Init(void)
-{
- HMI_send_string("t7.txt", "Unknown");
- HMI_send_string("t8.txt", "Unknown");
- HMI_send_string("t11.txt", "Unknown");
- HMI_send_string("t12.txt", "Unknown");
- HMI_send_string("t10.txt", "Unknown");
- HMI_send_string("t13.txt", "Unknown");
+void PhaseLock_Reset(PhaseLocker* locker) {
+    locker->pid.last_error = 0;
+    locker->pid.prev_error = 0;
+    locker->current_phase = 0;
+    AD9910_PhaWrite(0);
 }
