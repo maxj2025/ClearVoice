@@ -13989,12 +13989,15 @@ void MX_USART3_UART_Init(void);
 # 27 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
+extern ADC_HandleTypeDef hadc1;
+
 extern ADC_HandleTypeDef hadc2;
 
 
 
 
 
+void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
 # 28 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\tim.h" 1
@@ -14003,12 +14006,15 @@ extern TIM_HandleTypeDef htim2;
 
 extern TIM_HandleTypeDef htim3;
 
+extern TIM_HandleTypeDef htim4;
+
 
 
 
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 # 29 "../MyDrive\\bsp_system.h" 2
@@ -14051,7 +14057,7 @@ typedef enum
 } AD9910_WAVE_ENUM;
 # 99 "../MyDrive/AD9910.h"
 void Init_AD9910(void);
-void AD9910_FreWrite(ulong Freq);
+void AD9910_FreWrite(double Freq);
 void AD9910_AmpWrite(uint16_t Amp);
 void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
@@ -14301,11 +14307,40 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
     static float32_t filtered_vpp_a = 0;
     static float32_t filtered_vpp_b = 0;
 
-
     uint16_t pure_idx_B = max_3_inter->index[0];
+    float32_t Mag_B_Sum = Get_Integrated_Mag(wave_inter->mag, pure_idx_B);
+    float32_t Vpp_basis_B = Mag_B_Sum / 2048.0f;
+    float32_t vpp_b_instant = 0;
+
+    WaveType_t identified_type = Rec_wavetype(wave_inter, pure_idx_B);
+
+    switch (identified_type) {
+        case WAVE_SINE: vpp_b_instant = Vpp_basis_B; break;
+        case WAVE_SQUARE: vpp_b_instant = Vpp_basis_B * 1.5708f / 2.0f; break;
+        case WAVE_TRIANGLE: vpp_b_instant = Vpp_basis_B * 2.4674f / 2.0f; break;
+        default: vpp_b_instant = Vpp_basis_B; break;
+    }
+
+    vpp_b_instant *= 1.32f;
+    filtered_vpp_b = (vpp_b_instant * 0.2f) + (filtered_vpp_b * (1.0f - 0.2f));
+    result->Interfere.Vpp = Round_To_005(filtered_vpp_b);
+
+    if (result->Interfere.Vpp < 0.85f) {
+        result->Interfere.Vpp = 0.0f;
+        result->Interfere.Freq = 0;
+        result->Interfere.Wave_type = WAVE_UNKNOWN;
+    } else {
+        result->Interfere.Freq = pure_idx_B * 5;
+        result->Interfere.Wave_type = identified_type;
+    }
+
+
+
+
     uint16_t idx1 = max_3->index[0];
     uint16_t idx2 = max_3->index[1];
     uint16_t idx_A, idx_B;
+
 
     if (abs((int32_t)idx1 - (int32_t)pure_idx_B) <= 1) {
         idx_B = idx1; idx_A = idx2;
@@ -14313,31 +14348,42 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
         idx_B = idx2; idx_A = idx1;
     }
 
+    uint8_t is_overlap = 0;
 
+    if (abs((int32_t)idx_A - 3 * (int32_t)pure_idx_B) <= 2) {
 
+        if (identified_type == WAVE_TRIANGLE || identified_type == WAVE_SQUARE) {
+            is_overlap = 1;
+        }
+    }
 
     float32_t Mag_Mix_A_Sum = Get_Integrated_Mag(freqin->mag, idx_A);
 
 
-    float32_t Mag_Inter_at_A_Sum = Get_Integrated_Mag(wave_inter->mag, idx_A) * 0.85f;
+    float32_t inter_weight = (is_overlap) ? 1.0f : 0.85f;
+    float32_t Mag_Inter_at_A_Sum = Get_Integrated_Mag(wave_inter->mag, idx_A) * inter_weight;
 
     float32_t Mag_A_Final = 0;
-
-
-
 
     if (Mag_Mix_A_Sum > Mag_Inter_at_A_Sum) {
         float32_t diff_sq = sqrtf(Mag_Mix_A_Sum * Mag_Mix_A_Sum - Mag_Inter_at_A_Sum * Mag_Inter_at_A_Sum);
         float32_t diff_lin = Mag_Mix_A_Sum - Mag_Inter_at_A_Sum;
-        Mag_A_Final = (diff_sq + diff_lin) * 0.5f;
+
+        if (is_overlap) {
+
+
+            Mag_A_Final = diff_sq;
+        } else {
+
+            Mag_A_Final = (diff_sq + diff_lin) * 0.5f;
+        }
     } else {
-        Mag_A_Final = Mag_Mix_A_Sum * 0.2f;
+
+        Mag_A_Final = Mag_Mix_A_Sum * 0.1f;
     }
 
 
     float32_t vpp_a_instant = (Mag_A_Final / 2048.0f) * 2.12f;
-
-
     filtered_vpp_a = (vpp_a_instant * 0.2f) + (filtered_vpp_a * (1.0f - 0.2f));
     result->Original.Vpp = Round_To_005(filtered_vpp_a);
 
@@ -14349,46 +14395,5 @@ void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inte
     } else {
         result->Original.Freq = idx_A * 5;
         result->Original.Wave_type = WAVE_SINE;
-    }
-
-
-
-
-    float32_t Mag_B_Sum = Get_Integrated_Mag(wave_inter->mag, pure_idx_B);
-    float32_t Vpp_basis_B = Mag_B_Sum / 2048.0f;
-    float32_t vpp_b_instant = 0;
-
-    WaveType_t identified_type = Rec_wavetype(wave_inter, pure_idx_B);
-
-    switch (identified_type) {
-        case WAVE_SINE:
-            vpp_b_instant = Vpp_basis_B;
-            break;
-        case WAVE_SQUARE:
-            vpp_b_instant = Vpp_basis_B * 1.5708f / 2.0f;
-            break;
-        case WAVE_TRIANGLE:
-            vpp_b_instant = Vpp_basis_B * 2.4674f / 2.0f;
-            break;
-        default:
-            vpp_b_instant = Vpp_basis_B;
-            break;
-    }
-
-
-    vpp_b_instant *= 1.32f;
-
-
-    filtered_vpp_b = (vpp_b_instant * 0.2f) + (filtered_vpp_b * (1.0f - 0.2f));
-    result->Interfere.Vpp = Round_To_005(filtered_vpp_b);
-
-
-    if (result->Interfere.Vpp < 0.85f) {
-        result->Interfere.Vpp = 0.0f;
-        result->Interfere.Freq = 0;
-        result->Interfere.Wave_type = WAVE_UNKNOWN;
-    } else {
-        result->Interfere.Freq = idx_B * 5;
-        result->Interfere.Wave_type = identified_type;
     }
 }

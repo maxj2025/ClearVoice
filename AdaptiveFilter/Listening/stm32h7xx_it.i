@@ -12816,15 +12816,17 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void DMA1_Stream0_IRQHandler(void);
 void DMA1_Stream1_IRQHandler(void);
 void USART3_IRQHandler(void);
 void DMA2_Stream0_IRQHandler(void);
 # 23 "../Core/Src/stm32h7xx_it.c" 2
 # 58 "../Core/Src/stm32h7xx_it.c"
+extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_adc2;
-extern DMA_HandleTypeDef hdma_tim2_up;
+extern DMA_HandleTypeDef hdma_tim2_ch2;
 extern UART_HandleTypeDef huart3;
-# 71 "../Core/Src/stm32h7xx_it.c"
+# 72 "../Core/Src/stm32h7xx_it.c"
 void NMI_Handler(void)
 {
 
@@ -12949,13 +12951,27 @@ void SysTick_Handler(void)
 
 
 }
-# 206 "../Core/Src/stm32h7xx_it.c"
+# 207 "../Core/Src/stm32h7xx_it.c"
+void DMA1_Stream0_IRQHandler(void)
+{
+
+
+
+  HAL_DMA_IRQHandler(&hdma_adc1);
+
+
+
+}
+
+
+
+
 void DMA1_Stream1_IRQHandler(void)
 {
 
 
 
-  HAL_DMA_IRQHandler(&hdma_tim2_up);
+  HAL_DMA_IRQHandler(&hdma_tim2_ch2);
 
 
 

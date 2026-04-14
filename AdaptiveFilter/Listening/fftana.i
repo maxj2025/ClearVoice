@@ -13990,12 +13990,15 @@ void MX_USART3_UART_Init(void);
 # 27 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
+extern ADC_HandleTypeDef hadc1;
+
 extern ADC_HandleTypeDef hadc2;
 
 
 
 
 
+void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
 # 28 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\tim.h" 1
@@ -14004,12 +14007,15 @@ extern TIM_HandleTypeDef htim2;
 
 extern TIM_HandleTypeDef htim3;
 
+extern TIM_HandleTypeDef htim4;
+
 
 
 
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 # 29 "../MyDrive\\bsp_system.h" 2
@@ -14052,7 +14058,7 @@ typedef enum
 } AD9910_WAVE_ENUM;
 # 99 "../MyDrive/AD9910.h"
 void Init_AD9910(void);
-void AD9910_FreWrite(ulong Freq);
+void AD9910_FreWrite(double Freq);
 void AD9910_AmpWrite(uint16_t Amp);
 void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);

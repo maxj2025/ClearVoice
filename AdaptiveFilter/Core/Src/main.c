@@ -53,14 +53,18 @@ uint16_t RX_len;
 
 volatile uint8_t dma_finish_ad9220 = 0; 
 volatile uint8_t dma_finish_adc2   = 0;
+
 __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
 
-__attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;//干扰信号（前级已过AD637处理）
+__attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;
 
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;//
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;//
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;//
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;//
+
+__attribute__((section (".AXI_SRAM")))  uint16_t phase_adc_buffer[2048] ;//混频信号采集
+
 max_3_index Top3_Mix;//
 max_3_index Top3_Inter;//
 Analysis_Result_t output;//频率分析结果
@@ -72,6 +76,7 @@ float current_target_freq = 0.0f;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
 static void MPU_Config(void);
 /* USER CODE BEGIN PFP */
 
@@ -79,6 +84,17 @@ static void MPU_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+float Get_Phase_ADC_Voltage(void)
+{
+    uint32_t sum = 0;
+    for(int i = 0; i < 4096; i++) 
+    {
+        sum += phase_adc_buffer[i];
+    }
+    return (float)(sum >> 12); // 右移 4 位等效于除以 16，求得均值
+}
+
 void App_process(void)
 {   
     if (dma_finish_ad9220 == 0 || dma_finish_adc2 == 0) return;
@@ -91,29 +107,22 @@ void App_process(void)
     
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
-
+//for(int i =4;i<8196;i++)
+//	{
+//	UART3_Printf("%d\n",adc1_buffer[i]);}
     // --- 1. FFT 频率分析 ---
     FFT_Task(&output); 
-
     // --- 2. 频率突变检测与 AD9910 更新 ---
-    // 设置一个死区（比如 1.0Hz），防止 FFT 运算由于量化误差导致的微小底噪波动频繁打断锁相
     if (fabs(output.Original.Freq - current_target_freq) > 1.0f) {
         current_target_freq = output.Original.Freq;
-        
-        Send_Wave(&output);           // 只有在频率或幅值发生有效改变时，才重写 AD9910 频率/幅值
+        		Send_Wave(&output);    
+        // 只有在频率或幅值发生有效改变时，才重写 AD9910 频率/幅值
         PhaseLock_Reset(&my_locker);  // 频率改变了，立即重置 PID 进入重新寻零状态
-    }
+    }      
 
-    // --- 3. 采集 AD831 鉴相器电压 ---
-    float phase_voltage = Get_Phase_ADC_Voltage(); // <--- 需替换为你的实际获取函数
-
-    // --- 4. 步进执行锁相逻辑 ---
+    float phase_voltage = Get_Phase_ADC_Voltage(); 
     PhaseLock_Process(&my_locker, phase_voltage);
-
-    // --- 5. 屏幕 UI 更新 ---
     USART_Task(&output);
-
-    // --- 6. 重启下一轮 DMA ---
     AD9220_Start_DMA(adc1_buffer, FFT_N + 4);
     HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&adc2_buffer, FFT_N);
 }
@@ -154,6 +163,9 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
+  /* Configure the peripherals common clocks */
+  PeriphCommonClock_Config();
+
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -165,17 +177,24 @@ int main(void)
   MX_TIM2_Init();
   MX_USART3_UART_Init();
   MX_ADC2_Init();
+  MX_ADC1_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   //  HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
 	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 	 HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, FFT_N+4);
+	 HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 4096);
+	 HAL_TIM_Base_Start(&htim4);
+	 
 	 Init_AD9910();
 	 AD9910_FreWrite(300);//原始信号300hz
 	 AD9910_AmpWrite(15000);
+	 
 	 HMI_Init();	 
+	 
 	 // 参数含义：&控制块, 目标中点电压(ADC值), Kp, Ki, Kd, 单次最大相位步进(度)
-	 PhaseLock_Init(&my_locker, 2048.0f, 0.05f, 0.005f, 0.0f, 5.0f);
+	 PhaseLock_Init(&my_locker, 1600.0f, 0.05f, 0.005f, 0.0f, 5.0f);
 
   /* USER CODE END 2 */
 
@@ -244,6 +263,32 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief Peripherals Common Clock Configuration
+  * @retval None
+  */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+  */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+  PeriphClkInitStruct.PLL2.PLL2M = 2;
+  PeriphClkInitStruct.PLL2.PLL2N = 12;
+  PeriphClkInitStruct.PLL2.PLL2P = 2;
+  PeriphClkInitStruct.PLL2.PLL2Q = 2;
+  PeriphClkInitStruct.PLL2.PLL2R = 2;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
+  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOMEDIUM;
+  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
+  PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }

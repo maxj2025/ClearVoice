@@ -228,20 +228,25 @@ void Txfrc(void)
     AD9910_UP_DAT_0;
 }
 /************************************************************
-** 函数名称 ：void AD9910_FreWrite(void))
-** 函数功能 ：将需要的频率转换为对应的控制数据，保存进profile11并发送到芯片
-** 入口参数 ：目标频率，单位Hz，范围0~420000000
+** 函数名称 ：void AD9910_FreWrite_Float(double Freq)
+** 函数功能 ：将需要的频率转换为对应的控制数据，支持小数频率微调
+** 入口参数 ：目标频率，单位Hz (支持小数，如 1000.45)
 ** 出口参数 ：无
-** 函数说明 ：无
 **************************************************************/
-void AD9910_FreWrite(ulong Freq)
+void AD9910_FreWrite(double Freq) // <--- 注意这里改成了 double
 {
-    ulong Temp;
-    Temp = (ulong)Freq * 4.294967296; //将输入频率因子分为四个字节  主频1GHz，32位相位累加器，故每Hz在的控制字增量 delta =  4.294967296 = (2^32)/1000000000
-    profile11[7] = (uchar)Temp;
-    profile11[6] = (uchar)(Temp >> 8);
-    profile11[5] = (uchar)(Temp >> 16);
-    profile11[4] = (uchar)(Temp >> 24);
+    uint32_t Temp; // 使用标准库的 uint32_t 更严谨，对应 32 位频率控制字
+    
+    // 先用 double 保持极高精度进行乘法运算，算出带小数的控制字，然后再强制转换为 32 位整数
+    Temp = (uint32_t)(Freq * 4.294967296); 
+
+    // 将 32 位控制字拆分成 4 个字节，写入寄存器缓存
+    profile11[7] = (unsigned char)Temp;
+    profile11[6] = (unsigned char)(Temp >> 8);
+    profile11[5] = (unsigned char)(Temp >> 16);
+    profile11[4] = (unsigned char)(Temp >> 24);
+    
+    // 发送数据更新
     Txfrc();
 }
 
@@ -500,15 +505,12 @@ void AD9910_PhaWrite(float phase)
 {
     uint16_t phase_offset_word;
     
-    // 参考上传源码的换算方法
     // POW = (Phase / 360.0) * 65535
     phase_offset_word = (uint16_t)(phase / 360.0f * 65535.0f); 
 
-    // 对应 profile11 数组中的相位槽位（字节 2 和 3）
     profile11[2] = (uchar)(phase_offset_word >> 8);   // 相位高 8 位
     profile11[3] = (uchar)(phase_offset_word & 0xFF); // 相位低 8 位
 
-    // 发送数据到芯片
     Txfrc();
 }
 

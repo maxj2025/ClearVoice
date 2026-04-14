@@ -13989,12 +13989,15 @@ void MX_USART3_UART_Init(void);
 # 27 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
+extern ADC_HandleTypeDef hadc1;
+
 extern ADC_HandleTypeDef hadc2;
 
 
 
 
 
+void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
 # 28 "../MyDrive\\bsp_system.h" 2
 # 1 "../Core/Inc\\tim.h" 1
@@ -14003,12 +14006,15 @@ extern TIM_HandleTypeDef htim2;
 
 extern TIM_HandleTypeDef htim3;
 
+extern TIM_HandleTypeDef htim4;
+
 
 
 
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 # 29 "../MyDrive\\bsp_system.h" 2
@@ -14051,7 +14057,7 @@ typedef enum
 } AD9910_WAVE_ENUM;
 # 99 "../MyDrive/AD9910.h"
 void Init_AD9910(void);
-void AD9910_FreWrite(ulong Freq);
+void AD9910_FreWrite(double Freq);
 void AD9910_AmpWrite(uint16_t Amp);
 void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
@@ -14272,21 +14278,6 @@ void USART_Task(Analysis_Result_t *output);
 # 2 "../Tasks/PID.c" 2
 
 
-void PhaseLock_Init(PhaseLocker* locker, float target_v, float kp, float ki, float kd, float max_adj) {
-    locker->target_voltage = target_v;
-    locker->pid.Kp = kp;
-    locker->pid.Ki = ki;
-    locker->pid.Kd = kd;
-    locker->pid.out_max = max_adj;
-    locker->pid.last_error = 0;
-    locker->pid.prev_error = 0;
-    locker->current_phase = 0;
-
-
-    locker->state = STATE_UNLOCK;
-    locker->last_measured_voltage = 0;
-}
-
 void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
 
     if (locker->state == STATE_UNLOCK) {
@@ -14294,6 +14285,7 @@ void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
         locker->last_measured_voltage = measured_voltage;
         return;
     }
+
 
 
     if (locker->state == STATE_WAIT_ZERO_CROSS) {
@@ -14325,6 +14317,7 @@ void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
         if (phase_inc < -locker->pid.out_max) phase_inc = -locker->pid.out_max;
 
 
+
         locker->current_phase += phase_inc;
 
 
@@ -14334,12 +14327,4 @@ void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
 
         AD9910_PhaWrite((float)locker->current_phase);
     }
-}
-
-void PhaseLock_Reset(PhaseLocker* locker) {
-    locker->pid.last_error = 0;
-    locker->pid.prev_error = 0;
-    locker->current_phase = 0;
-    locker->state = STATE_UNLOCK;
-    AD9910_PhaWrite(0);
 }

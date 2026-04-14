@@ -12810,7 +12810,7 @@ void Error_Handler(void);
 # 39 "../Core/Inc\\gpio.h"
 void MX_GPIO_Init(void);
 # 23 "../Core/Src/gpio.c" 2
-# 42 "../Core/Src/gpio.c"
+# 41 "../Core/Src/gpio.c"
 void MX_GPIO_Init(void)
 {
 
@@ -12869,12 +12869,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = (0x0uL << 0u);
   GPIO_InitStruct.Pull = (0x00000000U);
   HAL_GPIO_Init(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0800UL)), &GPIO_InitStruct);
-
-
-  GPIO_InitStruct.Pin = ((uint16_t)0x0040);
-  GPIO_InitStruct.Mode = (0x3uL << 0u);
-  GPIO_InitStruct.Pull = (0x00000000U);
-  HAL_GPIO_Init(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0000UL)), &GPIO_InitStruct);
 
 
   GPIO_InitStruct.Pin = ((uint16_t)0x0002)|((uint16_t)0x0020)|((uint16_t)0x0080);

@@ -5,7 +5,6 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "../MyDrive/ad9220.c" 2
-
 # 1 "../MyDrive/bsp_system.h" 1
 
 
@@ -13990,12 +13989,15 @@ void MX_USART3_UART_Init(void);
 # 27 "../MyDrive/bsp_system.h" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
+extern ADC_HandleTypeDef hadc1;
+
 extern ADC_HandleTypeDef hadc2;
 
 
 
 
 
+void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
 # 28 "../MyDrive/bsp_system.h" 2
 # 1 "../Core/Inc\\tim.h" 1
@@ -14004,12 +14006,15 @@ extern TIM_HandleTypeDef htim2;
 
 extern TIM_HandleTypeDef htim3;
 
+extern TIM_HandleTypeDef htim4;
+
 
 
 
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 # 29 "../MyDrive/bsp_system.h" 2
@@ -14052,7 +14057,7 @@ typedef enum
 } AD9910_WAVE_ENUM;
 # 99 "../MyDrive/AD9910.h"
 void Init_AD9910(void);
-void AD9910_FreWrite(ulong Freq);
+void AD9910_FreWrite(double Freq);
 void AD9910_AmpWrite(uint16_t Amp);
 void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
@@ -14270,15 +14275,19 @@ void FFT_Task(Analysis_Result_t *output);
 void Send_Wave(Analysis_Result_t *output);
 void USART_Task(Analysis_Result_t *output);
 # 42 "../MyDrive/bsp_system.h" 2
-# 3 "../MyDrive/ad9220.c" 2
+# 2 "../MyDrive/ad9220.c" 2
 
-extern DMA_HandleTypeDef hdma_tim2_up;
+
+
+extern DMA_HandleTypeDef hdma_tim2_ch2;
 extern TIM_HandleTypeDef htim2;
+
+
 
 
 static void AD9220_DMA_CpltCallback(DMA_HandleTypeDef *hdma)
 {
-    if (hdma->Instance == hdma_tim2_up.Instance)
+    if (hdma->Instance == hdma_tim2_ch2.Instance)
     {
         AD9220_Stop_DMA();
 
@@ -14291,41 +14300,54 @@ static void AD9220_DMA_CpltCallback(DMA_HandleTypeDef *hdma)
 
 
 
-
 __attribute__((weak)) void AD9220_ConvCpltCallback(void)
 {
 
 }
 
 
+
+
+
+
 void AD9220_Start_DMA(uint16_t *adc_buffer, uint32_t buffer_length)
 {
 
     HAL_TIM_Base_Stop(&htim2);
-    HAL_DMA_Abort(&hdma_tim2_up);
+    HAL_DMA_Abort(&hdma_tim2_ch2);
 
 
-    hdma_tim2_up.XferCpltCallback = AD9220_DMA_CpltCallback;
+    hdma_tim2_ch2.XferCpltCallback = AD9220_DMA_CpltCallback;
+
+
+    HAL_DMA_Start_IT(&hdma_tim2_ch2, (uint32_t)&((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0800UL))->IDR, (uint32_t)adc_buffer, buffer_length);
 
 
 
-    HAL_DMA_Start_IT(&hdma_tim2_up, (uint32_t)&((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0800UL))->IDR, (uint32_t)adc_buffer, buffer_length);
-
-
-    ((&htim2)->Instance->DIER |= ((0x1UL << (8U))));
-
+    ((&htim2)->Instance->DIER |= ((0x1UL << (10U))));
 
 
     HAL_TIM_PWM_Start(&htim2, 0x00000000U);
+    HAL_TIM_OC_Start(&htim2, 0x00000004U);
 }
+
+
 
 
 void AD9220_Stop_DMA(void)
 {
+
+    HAL_TIM_PWM_Stop(&htim2, 0x00000000U);
+    HAL_TIM_OC_Stop(&htim2, 0x00000004U);
+
     do { if (((&htim2)->Instance->CCER & ((uint32_t)((0x1UL << (0U)) | (0x1UL << (4U)) | (0x1UL << (8U)) | (0x1UL << (12U))))) == 0UL) { if(((&htim2)->Instance->CCER & ((uint32_t)((0x1UL << (2U)) | (0x1UL << (6U)) | (0x1UL << (10U))))) == 0UL) { (&htim2)->Instance->CR1 &= ~((0x1UL << (0U))); } } } while(0);
-    ((&htim2)->Instance->DIER &= ~((0x1UL << (8U))));
-    HAL_DMA_Abort(&hdma_tim2_up);
+
+
+    ((&htim2)->Instance->DIER &= ~((0x1UL << (10U))));
+    HAL_DMA_Abort(&hdma_tim2_ch2);
 }
+
+
 
 
 void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed)
@@ -14335,16 +14357,15 @@ void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed)
     float32_t sum = 0.0f;
     float32_t dc_offset_raw = 0.0f;
 
-    for (uint32_t i = 0; i < 8192; i++) {
 
+    for (uint32_t i = 0; i < 8192; i++) {
         sum += (float32_t)(data_ori[i + 4] & 0x0FFF);
     }
     dc_offset_raw = sum / (float32_t)8192;
 
+
     for (uint32_t i = 0; i < 8192; i++) {
-
         float32_t raw_centered = (float32_t)(data_ori[i + 4] & 0x0FFF) - dc_offset_raw;
-
         data_processed->cmp[2 * i] = raw_centered * voltage_scale;
         data_processed->cmp[2 * i + 1] = 0.0f;
     }
@@ -14352,18 +14373,20 @@ void process_data_ad9220(const uint16_t *data_ori, fftin *data_processed)
 
 
 
-float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len) {
+
+float32_t Get_Total_RMS_AD9220(uint16_t *pData, uint16_t len)
+{
     if (len == 0) return 0.0f;
 
     float32_t sum_sq = 0.0f;
     float32_t voltage_scale = 10.0f / 4096.0f;
     float32_t voltage_scale_sq = voltage_scale * voltage_scale;
 
+
     for (uint16_t i = 0; i < len; i++) {
-
         float32_t centered_code = (float32_t)(pData[i + 4] & 0x0FFF) - 2048.0f;
-
         sum_sq += centered_code * centered_code;
     }
+
     return sqrtf((sum_sq * voltage_scale_sq) / (float32_t)len);
 }

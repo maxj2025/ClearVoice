@@ -12807,12 +12807,15 @@ void Error_Handler(void);
 # 21 "../Core/Src/main.c" 2
 # 1 "../Core/Inc\\adc.h" 1
 # 35 "../Core/Inc\\adc.h"
+extern ADC_HandleTypeDef hadc1;
+
 extern ADC_HandleTypeDef hadc2;
 
 
 
 
 
+void MX_ADC1_Init(void);
 void MX_ADC2_Init(void);
 # 22 "../Core/Src/main.c" 2
 # 1 "../Core/Inc\\dma.h" 1
@@ -12825,12 +12828,15 @@ extern TIM_HandleTypeDef htim2;
 
 extern TIM_HandleTypeDef htim3;
 
+extern TIM_HandleTypeDef htim4;
+
 
 
 
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 # 24 "../Core/Src/main.c" 2
@@ -14062,7 +14068,7 @@ typedef enum
 } AD9910_WAVE_ENUM;
 # 99 "../MyDrive/AD9910.h"
 void Init_AD9910(void);
-void AD9910_FreWrite(ulong Freq);
+void AD9910_FreWrite(double Freq);
 void AD9910_AmpWrite(uint16_t Amp);
 void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave);
@@ -14287,6 +14293,7 @@ uint16_t RX_len;
 
 volatile uint8_t dma_finish_ad9220 = 0;
 volatile uint8_t dma_finish_adc2 = 0;
+
 __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
 
 __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[8192] ;
@@ -14295,6 +14302,9 @@ __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
+
+__attribute__((section (".AXI_SRAM"))) uint16_t phase_adc_buffer[2048] ;
+
 max_3_index Top3_Mix;
 max_3_index Top3_Inter;
 Analysis_Result_t output;
@@ -14306,12 +14316,24 @@ float current_target_freq = 0.0f;
 
 
 void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
 static void MPU_Config(void);
 
 
 
 
 
+
+
+float Get_Phase_ADC_Voltage(void)
+{
+    uint32_t sum = 0;
+    for(int i = 0; i < 4096; i++)
+    {
+        sum += phase_adc_buffer[i];
+    }
+    return (float)(sum >> 12);
+}
 
 void App_process(void)
 {
@@ -14327,29 +14349,20 @@ void App_process(void)
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
 
 
+
+
     FFT_Task(&output);
-
-
 
     if (fabs(output.Original.Freq - current_target_freq) > 1.0f) {
         current_target_freq = output.Original.Freq;
+          Send_Wave(&output);
 
-        Send_Wave(&output);
         PhaseLock_Reset(&my_locker);
     }
 
-
-
-
     float phase_voltage = Get_Phase_ADC_Voltage();
-
-
     PhaseLock_Process(&my_locker, phase_voltage);
-
-
     USART_Task(&output);
-
-
     AD9220_Start_DMA(adc1_buffer, 8192 + 4);
     HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&adc2_buffer, 8192);
 }
@@ -14391,6 +14404,9 @@ int main(void)
   SystemClock_Config();
 
 
+  PeriphCommonClock_Config();
+
+
 
 
 
@@ -14401,17 +14417,24 @@ int main(void)
   MX_TIM2_Init();
   MX_USART3_UART_Init();
   MX_ADC2_Init();
+  MX_ADC1_Init();
+  MX_TIM4_Init();
 
 
   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,8192);
   HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, 8192 +4);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 4096);
+  HAL_TIM_Base_Start(&htim4);
+
   Init_AD9910();
   AD9910_FreWrite(300);
   AD9910_AmpWrite(15000);
+
   HMI_Init();
 
-  PhaseLock_Init(&my_locker, 2048.0f, 0.05f, 0.005f, 0.0f, 5.0f);
+
+  PhaseLock_Init(&my_locker, 1600.0f, 0.05f, 0.005f, 0.0f, 5.0f);
 
 
 
@@ -14480,6 +14503,32 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB4CLKDivider = (0x1UL << (6U));
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, (0x00000004UL)) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+
+
+
+
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+
+
+  PeriphClkInitStruct.PeriphClockSelection = ((uint64_t)(0x00080000U));
+  PeriphClkInitStruct.PLL2.PLL2M = 2;
+  PeriphClkInitStruct.PLL2.PLL2N = 12;
+  PeriphClkInitStruct.PLL2.PLL2P = 2;
+  PeriphClkInitStruct.PLL2.PLL2Q = 2;
+  PeriphClkInitStruct.PLL2.PLL2R = 2;
+  PeriphClkInitStruct.PLL2.PLL2RGE = (0x3UL << (6U));
+  PeriphClkInitStruct.PLL2.PLL2VCOSEL = (0x1UL << (5U));
+  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
+  PeriphClkInitStruct.AdcClockSelection = (0x00000000U);
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }

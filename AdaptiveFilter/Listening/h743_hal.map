@@ -15,12 +15,15 @@ Section Cross References
     startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.DebugMon_Handler) for DebugMon_Handler
     startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.PendSV_Handler) for PendSV_Handler
     startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.SysTick_Handler) for SysTick_Handler
+    startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.DMA1_Stream0_IRQHandler) for DMA1_Stream0_IRQHandler
     startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.DMA1_Stream1_IRQHandler) for DMA1_Stream1_IRQHandler
     startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.USART3_IRQHandler) for USART3_IRQHandler
     startup_stm32h743xx.o(RESET) refers to stm32h7xx_it.o(.text.DMA2_Stream0_IRQHandler) for DMA2_Stream0_IRQHandler
     startup_stm32h743xx.o(.text) refers to system_stm32h7xx.o(.text.ExitRun0Mode) for ExitRun0Mode
     startup_stm32h743xx.o(.text) refers to system_stm32h7xx.o(.text.SystemInit) for SystemInit
     startup_stm32h743xx.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    main.o(.text.Get_Phase_ADC_Voltage) refers to main.o(.AXI_SRAM) for phase_adc_buffer
+    main.o(.ARM.exidx.text.Get_Phase_ADC_Voltage) refers to main.o(.text.Get_Phase_ADC_Voltage) for [Anonymous Symbol]
     main.o(.text.App_process) refers to main.o(.bss.dma_finish_ad9220) for dma_finish_ad9220
     main.o(.text.App_process) refers to main.o(.bss.dma_finish_adc2) for dma_finish_adc2
     main.o(.text.App_process) refers to ad9220.o(.text.AD9220_Stop_DMA) for AD9220_Stop_DMA
@@ -32,7 +35,7 @@ Section Cross References
     main.o(.text.App_process) refers to main.o(.bss.current_target_freq) for current_target_freq
     main.o(.text.App_process) refers to tasks.o(.text.Send_Wave) for Send_Wave
     main.o(.text.App_process) refers to main.o(.bss.my_locker) for my_locker
-    main.o(.text.App_process) refers to pid.o(.text.PhaseLock_Reset) for PhaseLock_Reset
+    main.o(.text.App_process) refers to main.o(.text.Get_Phase_ADC_Voltage) for Get_Phase_ADC_Voltage
     main.o(.text.App_process) refers to pid.o(.text.PhaseLock_Process) for PhaseLock_Process
     main.o(.text.App_process) refers to tasks.o(.text.USART_Task) for USART_Task
     main.o(.text.App_process) refers to ad9220.o(.text.AD9220_Start_DMA) for AD9220_Start_DMA
@@ -41,24 +44,28 @@ Section Cross References
     main.o(.text.main) refers to main.o(.text.MPU_Config) for MPU_Config
     main.o(.text.main) refers to stm32h7xx_hal.o(.text.HAL_Init) for HAL_Init
     main.o(.text.main) refers to main.o(.text.SystemClock_Config) for SystemClock_Config
+    main.o(.text.main) refers to main.o(.text.PeriphCommonClock_Config) for PeriphCommonClock_Config
     main.o(.text.main) refers to gpio.o(.text.MX_GPIO_Init) for MX_GPIO_Init
     main.o(.text.main) refers to dma.o(.text.MX_DMA_Init) for MX_DMA_Init
     main.o(.text.main) refers to tim.o(.text.MX_TIM3_Init) for MX_TIM3_Init
     main.o(.text.main) refers to tim.o(.text.MX_TIM2_Init) for MX_TIM2_Init
     main.o(.text.main) refers to usart.o(.text.MX_USART3_UART_Init) for MX_USART3_UART_Init
     main.o(.text.main) refers to adc.o(.text.MX_ADC2_Init) for MX_ADC2_Init
+    main.o(.text.main) refers to adc.o(.text.MX_ADC1_Init) for MX_ADC1_Init
+    main.o(.text.main) refers to tim.o(.text.MX_TIM4_Init) for MX_TIM4_Init
     main.o(.text.main) refers to adc.o(.bss.hadc2) for hadc2
     main.o(.text.main) refers to main.o(.AXI_SRAM) for adc2_buffer
     main.o(.text.main) refers to stm32h7xx_hal_adc.o(.text.HAL_ADC_Start_DMA) for HAL_ADC_Start_DMA
     main.o(.text.main) refers to tim.o(.bss.htim3) for htim3
     main.o(.text.main) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Start) for HAL_TIM_Base_Start
     main.o(.text.main) refers to ad9220.o(.text.AD9220_Start_DMA) for AD9220_Start_DMA
+    main.o(.text.main) refers to adc.o(.bss.hadc1) for hadc1
+    main.o(.text.main) refers to tim.o(.bss.htim4) for htim4
     main.o(.text.main) refers to ad9910.o(.text.Init_AD9910) for Init_AD9910
     main.o(.text.main) refers to ad9910.o(.text.AD9910_FreWrite) for AD9910_FreWrite
     main.o(.text.main) refers to ad9910.o(.text.AD9910_AmpWrite) for AD9910_AmpWrite
     main.o(.text.main) refers to hmi.o(.text.HMI_Init) for HMI_Init
     main.o(.text.main) refers to main.o(.bss.my_locker) for my_locker
-    main.o(.text.main) refers to pid.o(.text.PhaseLock_Init) for PhaseLock_Init
     main.o(.text.main) refers to main.o(.text.App_process) for App_process
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     main.o(.text.MPU_Config) refers to stm32h7xx_hal_cortex.o(.text.HAL_MPU_Disable) for HAL_MPU_Disable
@@ -71,6 +78,10 @@ Section Cross References
     main.o(.text.SystemClock_Config) refers to main.o(.text.Error_Handler) for Error_Handler
     main.o(.text.SystemClock_Config) refers to stm32h7xx_hal_rcc.o(.text.HAL_RCC_ClockConfig) for HAL_RCC_ClockConfig
     main.o(.ARM.exidx.text.SystemClock_Config) refers to main.o(.text.SystemClock_Config) for [Anonymous Symbol]
+    main.o(.text.PeriphCommonClock_Config) refers to memseta.o(.text) for __aeabi_memclr8
+    main.o(.text.PeriphCommonClock_Config) refers to stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_PeriphCLKConfig) for HAL_RCCEx_PeriphCLKConfig
+    main.o(.text.PeriphCommonClock_Config) refers to main.o(.text.Error_Handler) for Error_Handler
+    main.o(.ARM.exidx.text.PeriphCommonClock_Config) refers to main.o(.text.PeriphCommonClock_Config) for [Anonymous Symbol]
     main.o(.text.Error_Handler) refers to main.o(.rodata.str1.1) for .L.str
     main.o(.text.Error_Handler) refers to hmi.o(.text.HMI_send_string) for HMI_send_string
     main.o(.ARM.exidx.text.Error_Handler) refers to main.o(.text.Error_Handler) for [Anonymous Symbol]
@@ -81,18 +92,25 @@ Section Cross References
     gpio.o(.text.MX_GPIO_Init) refers to stm32h7xx_hal_gpio.o(.text.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
     gpio.o(.text.MX_GPIO_Init) refers to stm32h7xx_hal_gpio.o(.text.HAL_GPIO_Init) for HAL_GPIO_Init
     gpio.o(.ARM.exidx.text.MX_GPIO_Init) refers to gpio.o(.text.MX_GPIO_Init) for [Anonymous Symbol]
+    adc.o(.text.MX_ADC1_Init) refers to adc.o(.bss.hadc1) for hadc1
+    adc.o(.text.MX_ADC1_Init) refers to stm32h7xx_hal_adc.o(.text.HAL_ADC_Init) for HAL_ADC_Init
+    adc.o(.text.MX_ADC1_Init) refers to main.o(.text.Error_Handler) for Error_Handler
+    adc.o(.text.MX_ADC1_Init) refers to stm32h7xx_hal_adc_ex.o(.text.HAL_ADCEx_MultiModeConfigChannel) for HAL_ADCEx_MultiModeConfigChannel
+    adc.o(.text.MX_ADC1_Init) refers to stm32h7xx_hal_adc.o(.text.HAL_ADC_ConfigChannel) for HAL_ADC_ConfigChannel
+    adc.o(.ARM.exidx.text.MX_ADC1_Init) refers to adc.o(.text.MX_ADC1_Init) for [Anonymous Symbol]
     adc.o(.text.MX_ADC2_Init) refers to adc.o(.bss.hadc2) for hadc2
     adc.o(.text.MX_ADC2_Init) refers to stm32h7xx_hal_adc.o(.text.HAL_ADC_Init) for HAL_ADC_Init
     adc.o(.text.MX_ADC2_Init) refers to main.o(.text.Error_Handler) for Error_Handler
     adc.o(.text.MX_ADC2_Init) refers to stm32h7xx_hal_adc.o(.text.HAL_ADC_ConfigChannel) for HAL_ADC_ConfigChannel
     adc.o(.ARM.exidx.text.MX_ADC2_Init) refers to adc.o(.text.MX_ADC2_Init) for [Anonymous Symbol]
-    adc.o(.text.HAL_ADC_MspInit) refers to memseta.o(.text) for __aeabi_memclr8
-    adc.o(.text.HAL_ADC_MspInit) refers to stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_PeriphCLKConfig) for HAL_RCCEx_PeriphCLKConfig
-    adc.o(.text.HAL_ADC_MspInit) refers to main.o(.text.Error_Handler) for Error_Handler
+    adc.o(.text.HAL_ADC_MspInit) refers to adc.o(.bss.HAL_RCC_ADC12_CLK_ENABLED) for HAL_RCC_ADC12_CLK_ENABLED
     adc.o(.text.HAL_ADC_MspInit) refers to stm32h7xx_hal_gpio.o(.text.HAL_GPIO_Init) for HAL_GPIO_Init
-    adc.o(.text.HAL_ADC_MspInit) refers to adc.o(.bss.hdma_adc2) for hdma_adc2
+    adc.o(.text.HAL_ADC_MspInit) refers to adc.o(.bss.hdma_adc1) for hdma_adc1
     adc.o(.text.HAL_ADC_MspInit) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_Init) for HAL_DMA_Init
+    adc.o(.text.HAL_ADC_MspInit) refers to main.o(.text.Error_Handler) for Error_Handler
+    adc.o(.text.HAL_ADC_MspInit) refers to adc.o(.bss.hdma_adc2) for hdma_adc2
     adc.o(.ARM.exidx.text.HAL_ADC_MspInit) refers to adc.o(.text.HAL_ADC_MspInit) for [Anonymous Symbol]
+    adc.o(.text.HAL_ADC_MspDeInit) refers to adc.o(.bss.HAL_RCC_ADC12_CLK_ENABLED) for HAL_RCC_ADC12_CLK_ENABLED
     adc.o(.text.HAL_ADC_MspDeInit) refers to stm32h7xx_hal_gpio.o(.text.HAL_GPIO_DeInit) for HAL_GPIO_DeInit
     adc.o(.text.HAL_ADC_MspDeInit) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_DeInit) for HAL_DMA_DeInit
     adc.o(.ARM.exidx.text.HAL_ADC_MspDeInit) refers to adc.o(.text.HAL_ADC_MspDeInit) for [Anonymous Symbol]
@@ -104,8 +122,10 @@ Section Cross References
     tim.o(.text.MX_TIM2_Init) refers to main.o(.text.Error_Handler) for Error_Handler
     tim.o(.text.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_ConfigClockSource) for HAL_TIM_ConfigClockSource
     tim.o(.text.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_Init) for HAL_TIM_PWM_Init
+    tim.o(.text.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Init) for HAL_TIM_OC_Init
     tim.o(.text.MX_TIM2_Init) refers to stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_MasterConfigSynchronization) for HAL_TIMEx_MasterConfigSynchronization
     tim.o(.text.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_ConfigChannel) for HAL_TIM_PWM_ConfigChannel
+    tim.o(.text.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_ConfigChannel) for HAL_TIM_OC_ConfigChannel
     tim.o(.text.MX_TIM2_Init) refers to tim.o(.text.HAL_TIM_MspPostInit) for HAL_TIM_MspPostInit
     tim.o(.ARM.exidx.text.MX_TIM2_Init) refers to tim.o(.text.MX_TIM2_Init) for [Anonymous Symbol]
     tim.o(.text.HAL_TIM_MspPostInit) refers to stm32h7xx_hal_gpio.o(.text.HAL_GPIO_Init) for HAL_GPIO_Init
@@ -116,7 +136,13 @@ Section Cross References
     tim.o(.text.MX_TIM3_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_ConfigClockSource) for HAL_TIM_ConfigClockSource
     tim.o(.text.MX_TIM3_Init) refers to stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_MasterConfigSynchronization) for HAL_TIMEx_MasterConfigSynchronization
     tim.o(.ARM.exidx.text.MX_TIM3_Init) refers to tim.o(.text.MX_TIM3_Init) for [Anonymous Symbol]
-    tim.o(.text.HAL_TIM_Base_MspInit) refers to tim.o(.bss.hdma_tim2_up) for hdma_tim2_up
+    tim.o(.text.MX_TIM4_Init) refers to tim.o(.bss.htim4) for htim4
+    tim.o(.text.MX_TIM4_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Init) for HAL_TIM_Base_Init
+    tim.o(.text.MX_TIM4_Init) refers to main.o(.text.Error_Handler) for Error_Handler
+    tim.o(.text.MX_TIM4_Init) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_ConfigClockSource) for HAL_TIM_ConfigClockSource
+    tim.o(.text.MX_TIM4_Init) refers to stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_MasterConfigSynchronization) for HAL_TIMEx_MasterConfigSynchronization
+    tim.o(.ARM.exidx.text.MX_TIM4_Init) refers to tim.o(.text.MX_TIM4_Init) for [Anonymous Symbol]
+    tim.o(.text.HAL_TIM_Base_MspInit) refers to tim.o(.bss.hdma_tim2_ch2) for hdma_tim2_ch2
     tim.o(.text.HAL_TIM_Base_MspInit) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_Init) for HAL_DMA_Init
     tim.o(.text.HAL_TIM_Base_MspInit) refers to main.o(.text.Error_Handler) for Error_Handler
     tim.o(.ARM.exidx.text.HAL_TIM_Base_MspInit) refers to tim.o(.text.HAL_TIM_Base_MspInit) for [Anonymous Symbol]
@@ -149,7 +175,10 @@ Section Cross References
     stm32h7xx_it.o(.ARM.exidx.text.PendSV_Handler) refers to stm32h7xx_it.o(.text.PendSV_Handler) for [Anonymous Symbol]
     stm32h7xx_it.o(.text.SysTick_Handler) refers to stm32h7xx_hal.o(.text.HAL_IncTick) for HAL_IncTick
     stm32h7xx_it.o(.ARM.exidx.text.SysTick_Handler) refers to stm32h7xx_it.o(.text.SysTick_Handler) for [Anonymous Symbol]
-    stm32h7xx_it.o(.text.DMA1_Stream1_IRQHandler) refers to tim.o(.bss.hdma_tim2_up) for hdma_tim2_up
+    stm32h7xx_it.o(.text.DMA1_Stream0_IRQHandler) refers to adc.o(.bss.hdma_adc1) for hdma_adc1
+    stm32h7xx_it.o(.text.DMA1_Stream0_IRQHandler) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_IRQHandler) for HAL_DMA_IRQHandler
+    stm32h7xx_it.o(.ARM.exidx.text.DMA1_Stream0_IRQHandler) refers to stm32h7xx_it.o(.text.DMA1_Stream0_IRQHandler) for [Anonymous Symbol]
+    stm32h7xx_it.o(.text.DMA1_Stream1_IRQHandler) refers to tim.o(.bss.hdma_tim2_ch2) for hdma_tim2_ch2
     stm32h7xx_it.o(.text.DMA1_Stream1_IRQHandler) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_IRQHandler) for HAL_DMA_IRQHandler
     stm32h7xx_it.o(.ARM.exidx.text.DMA1_Stream1_IRQHandler) refers to stm32h7xx_it.o(.text.DMA1_Stream1_IRQHandler) for [Anonymous Symbol]
     stm32h7xx_it.o(.text.USART3_IRQHandler) refers to usart.o(.bss.huart3) for huart3
@@ -1882,7 +1911,6 @@ Section Cross References
     tasks.o(.text.FFT_Task) refers to memseta.o(.text) for __aeabi_memclr
     tasks.o(.ARM.exidx.text.FFT_Task) refers to tasks.o(.text.FFT_Task) for [Anonymous Symbol]
     tasks.o(.text.Send_Wave) refers to ad9910.o(.text.AD9910_FreWrite) for AD9910_FreWrite
-    tasks.o(.text.Send_Wave) refers to ad9910.o(.text.AD9910_AmpWrite) for AD9910_AmpWrite
     tasks.o(.ARM.exidx.text.Send_Wave) refers to tasks.o(.text.Send_Wave) for [Anonymous Symbol]
     tasks.o(.text.USART_Task) refers to malloc.o(i.malloc) for malloc
     tasks.o(.text.USART_Task) refers to tasks.o(.rodata.str1.1) for .L.str
@@ -1892,11 +1920,8 @@ Section Cross References
     tasks.o(.text.USART_Task) refers to siabs.o(.text) for abs
     tasks.o(.text.USART_Task) refers to malloc.o(i.free) for free
     tasks.o(.ARM.exidx.text.USART_Task) refers to tasks.o(.text.USART_Task) for [Anonymous Symbol]
-    pid.o(.ARM.exidx.text.PhaseLock_Init) refers to pid.o(.text.PhaseLock_Init) for [Anonymous Symbol]
     pid.o(.text.PhaseLock_Process) refers to ad9910.o(.text.AD9910_PhaWrite) for AD9910_PhaWrite
     pid.o(.ARM.exidx.text.PhaseLock_Process) refers to pid.o(.text.PhaseLock_Process) for [Anonymous Symbol]
-    pid.o(.text.PhaseLock_Reset) refers to ad9910.o(.text.AD9910_PhaWrite) for AD9910_PhaWrite
-    pid.o(.ARM.exidx.text.PhaseLock_Reset) refers to pid.o(.text.PhaseLock_Reset) for [Anonymous Symbol]
     fftana.o(.ARM.exidx.text.process_data) refers to fftana.o(.text.process_data) for [Anonymous Symbol]
     fftana.o(.ARM.exidx.text.add_window) refers to fftana.o(.text.add_window) for [Anonymous Symbol]
     fftana.o(.text.get_fft_num) refers to arm_const_structs_extra.o(.rodata.arm_cfft_sR_f32_len16_extra) for arm_cfft_sR_f32_len16_extra
@@ -1935,13 +1960,13 @@ Section Cross References
     signalseperation.o(.ARM.exidx.text.Round_To_005) refers to signalseperation.o(.text.Round_To_005) for [Anonymous Symbol]
     signalseperation.o(.text.Get_Integrated_Mag) refers to sqrtf.o(i.__hardfp_sqrtf) for __hardfp_sqrtf
     signalseperation.o(.ARM.exidx.text.Get_Integrated_Mag) refers to signalseperation.o(.text.Get_Integrated_Mag) for [Anonymous Symbol]
-    signalseperation.o(.text.Freq_Analysis_Split) refers to siabs.o(.text) for abs
     signalseperation.o(.text.Freq_Analysis_Split) refers to signalseperation.o(.text.Get_Integrated_Mag) for Get_Integrated_Mag
-    signalseperation.o(.text.Freq_Analysis_Split) refers to sqrtf.o(i.__hardfp_sqrtf) for __hardfp_sqrtf
-    signalseperation.o(.text.Freq_Analysis_Split) refers to signalseperation.o(.bss.Freq_Analysis_Split.filtered_vpp_a) for Freq_Analysis_Split.filtered_vpp_a
-    signalseperation.o(.text.Freq_Analysis_Split) refers to signalseperation.o(.text.Round_To_005) for Round_To_005
     signalseperation.o(.text.Freq_Analysis_Split) refers to fftana.o(.text.Rec_wavetype) for Rec_wavetype
     signalseperation.o(.text.Freq_Analysis_Split) refers to signalseperation.o(.bss.Freq_Analysis_Split.filtered_vpp_b) for Freq_Analysis_Split.filtered_vpp_b
+    signalseperation.o(.text.Freq_Analysis_Split) refers to signalseperation.o(.text.Round_To_005) for Round_To_005
+    signalseperation.o(.text.Freq_Analysis_Split) refers to siabs.o(.text) for abs
+    signalseperation.o(.text.Freq_Analysis_Split) refers to sqrtf.o(i.__hardfp_sqrtf) for __hardfp_sqrtf
+    signalseperation.o(.text.Freq_Analysis_Split) refers to signalseperation.o(.bss.Freq_Analysis_Split.filtered_vpp_a) for Freq_Analysis_Split.filtered_vpp_a
     signalseperation.o(.ARM.exidx.text.Freq_Analysis_Split) refers to signalseperation.o(.text.Freq_Analysis_Split) for [Anonymous Symbol]
     ad9910.o(.text.Write_32bit) refers to stm32h7xx_hal_gpio.o(.text.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
     ad9910.o(.ARM.exidx.text.Write_32bit) refers to ad9910.o(.text.Write_32bit) for [Anonymous Symbol]
@@ -2041,18 +2066,21 @@ Section Cross References
     ad9220.o(.ARM.exidx.text.AD9220_ConvCpltCallback) refers to ad9220.o(.text.AD9220_ConvCpltCallback) for [Anonymous Symbol]
     ad9220.o(.text.AD9220_Start_DMA) refers to tim.o(.bss.htim2) for htim2
     ad9220.o(.text.AD9220_Start_DMA) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Stop) for HAL_TIM_Base_Stop
-    ad9220.o(.text.AD9220_Start_DMA) refers to tim.o(.bss.hdma_tim2_up) for hdma_tim2_up
+    ad9220.o(.text.AD9220_Start_DMA) refers to tim.o(.bss.hdma_tim2_ch2) for hdma_tim2_ch2
     ad9220.o(.text.AD9220_Start_DMA) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_Abort) for HAL_DMA_Abort
     ad9220.o(.text.AD9220_Start_DMA) refers to ad9220.o(.text.AD9220_DMA_CpltCallback) for AD9220_DMA_CpltCallback
     ad9220.o(.text.AD9220_Start_DMA) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
     ad9220.o(.text.AD9220_Start_DMA) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_Start) for HAL_TIM_PWM_Start
+    ad9220.o(.text.AD9220_Start_DMA) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Start) for HAL_TIM_OC_Start
     ad9220.o(.ARM.exidx.text.AD9220_Start_DMA) refers to ad9220.o(.text.AD9220_Start_DMA) for [Anonymous Symbol]
-    ad9220.o(.text.AD9220_DMA_CpltCallback) refers to tim.o(.bss.hdma_tim2_up) for hdma_tim2_up
+    ad9220.o(.text.AD9220_DMA_CpltCallback) refers to tim.o(.bss.hdma_tim2_ch2) for hdma_tim2_ch2
     ad9220.o(.text.AD9220_DMA_CpltCallback) refers to ad9220.o(.text.AD9220_Stop_DMA) for AD9220_Stop_DMA
     ad9220.o(.text.AD9220_DMA_CpltCallback) refers to main.o(.text.AD9220_ConvCpltCallback) for AD9220_ConvCpltCallback
     ad9220.o(.ARM.exidx.text.AD9220_DMA_CpltCallback) refers to ad9220.o(.text.AD9220_DMA_CpltCallback) for [Anonymous Symbol]
     ad9220.o(.text.AD9220_Stop_DMA) refers to tim.o(.bss.htim2) for htim2
-    ad9220.o(.text.AD9220_Stop_DMA) refers to tim.o(.bss.hdma_tim2_up) for hdma_tim2_up
+    ad9220.o(.text.AD9220_Stop_DMA) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_Stop) for HAL_TIM_PWM_Stop
+    ad9220.o(.text.AD9220_Stop_DMA) refers to stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Stop) for HAL_TIM_OC_Stop
+    ad9220.o(.text.AD9220_Stop_DMA) refers to tim.o(.bss.hdma_tim2_ch2) for hdma_tim2_ch2
     ad9220.o(.text.AD9220_Stop_DMA) refers to stm32h7xx_hal_dma.o(.text.HAL_DMA_Abort) for HAL_DMA_Abort
     ad9220.o(.ARM.exidx.text.AD9220_Stop_DMA) refers to ad9220.o(.text.AD9220_Stop_DMA) for [Anonymous Symbol]
     ad9220.o(.ARM.exidx.text.process_data_ad9220) refers to ad9220.o(.text.process_data_ad9220) for [Anonymous Symbol]
@@ -2318,10 +2346,12 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.Get_Phase_ADC_Voltage), (8 bytes).
     Removing main.o(.ARM.exidx.text.App_process), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.exidx.text.MPU_Config), (8 bytes).
     Removing main.o(.ARM.exidx.text.SystemClock_Config), (8 bytes).
+    Removing main.o(.ARM.exidx.text.PeriphCommonClock_Config), (8 bytes).
     Removing main.o(.ARM.exidx.text.Error_Handler), (8 bytes).
     Removing main.o(.ARM.exidx.text.AD9220_ConvCpltCallback), (8 bytes).
     Removing main.o(.ARM.exidx.text.HAL_ADC_ConvCpltCallback), (8 bytes).
@@ -2331,9 +2361,10 @@ Removing Unused input sections from the image.
     Removing gpio.o(.text), (0 bytes).
     Removing gpio.o(.ARM.exidx.text.MX_GPIO_Init), (8 bytes).
     Removing adc.o(.text), (0 bytes).
+    Removing adc.o(.ARM.exidx.text.MX_ADC1_Init), (8 bytes).
     Removing adc.o(.ARM.exidx.text.MX_ADC2_Init), (8 bytes).
     Removing adc.o(.ARM.exidx.text.HAL_ADC_MspInit), (8 bytes).
-    Removing adc.o(.text.HAL_ADC_MspDeInit), (66 bytes).
+    Removing adc.o(.text.HAL_ADC_MspDeInit), (168 bytes).
     Removing adc.o(.ARM.exidx.text.HAL_ADC_MspDeInit), (8 bytes).
     Removing dma.o(.text), (0 bytes).
     Removing dma.o(.ARM.exidx.text.MX_DMA_Init), (8 bytes).
@@ -2341,8 +2372,9 @@ Removing Unused input sections from the image.
     Removing tim.o(.ARM.exidx.text.MX_TIM2_Init), (8 bytes).
     Removing tim.o(.ARM.exidx.text.HAL_TIM_MspPostInit), (8 bytes).
     Removing tim.o(.ARM.exidx.text.MX_TIM3_Init), (8 bytes).
+    Removing tim.o(.ARM.exidx.text.MX_TIM4_Init), (8 bytes).
     Removing tim.o(.ARM.exidx.text.HAL_TIM_Base_MspInit), (8 bytes).
-    Removing tim.o(.text.HAL_TIM_Base_MspDeInit), (86 bytes).
+    Removing tim.o(.text.HAL_TIM_Base_MspDeInit), (124 bytes).
     Removing tim.o(.ARM.exidx.text.HAL_TIM_Base_MspDeInit), (8 bytes).
     Removing usart.o(.text), (0 bytes).
     Removing usart.o(.ARM.exidx.text.MX_USART3_UART_Init), (8 bytes).
@@ -2359,6 +2391,7 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_it.o(.ARM.exidx.text.DebugMon_Handler), (8 bytes).
     Removing stm32h7xx_it.o(.ARM.exidx.text.PendSV_Handler), (8 bytes).
     Removing stm32h7xx_it.o(.ARM.exidx.text.SysTick_Handler), (8 bytes).
+    Removing stm32h7xx_it.o(.ARM.exidx.text.DMA1_Stream0_IRQHandler), (8 bytes).
     Removing stm32h7xx_it.o(.ARM.exidx.text.DMA1_Stream1_IRQHandler), (8 bytes).
     Removing stm32h7xx_it.o(.ARM.exidx.text.USART3_IRQHandler), (8 bytes).
     Removing stm32h7xx_it.o(.ARM.exidx.text.DMA2_Stream0_IRQHandler), (8 bytes).
@@ -2473,9 +2506,7 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.LL_ADC_GetCalibrationOffsetFactor), (8 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.text.HAL_ADCEx_LinearCalibration_GetValue), (154 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.HAL_ADCEx_LinearCalibration_GetValue), (8 bytes).
-    Removing stm32h7xx_hal_adc_ex.o(.text.LL_ADC_IsEnabled), (16 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.LL_ADC_IsEnabled), (8 bytes).
-    Removing stm32h7xx_hal_adc_ex.o(.text.LL_ADC_REG_IsConversionOngoing), (16 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.LL_ADC_REG_IsConversionOngoing), (8 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.text.LL_ADC_REG_StopConversion), (28 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.LL_ADC_REG_StopConversion), (8 bytes).
@@ -2559,7 +2590,6 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.LL_ADC_GetCommonPathInternalCh), (8 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.text.LL_ADC_SetCommonPathInternalCh), (26 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.LL_ADC_SetCommonPathInternalCh), (8 bytes).
-    Removing stm32h7xx_hal_adc_ex.o(.text.HAL_ADCEx_MultiModeConfigChannel), (658 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.HAL_ADCEx_MultiModeConfigChannel), (8 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.text.HAL_ADCEx_EnableInjectedQueue), (84 bytes).
     Removing stm32h7xx_hal_adc_ex.o(.ARM.exidx.text.HAL_ADCEx_EnableInjectedQueue), (8 bytes).
@@ -3342,18 +3372,14 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.TIM_DMAError), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_Base_Stop_DMA), (92 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_Base_Stop_DMA), (8 bytes).
-    Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Init), (168 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_Init), (8 bytes).
-    Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_MspInit), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_MspInit), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_DeInit), (178 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_DeInit), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_MspDeInit), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_MspDeInit), (8 bytes).
-    Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Start), (638 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_Start), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.TIM_CCxChannelCmd), (8 bytes).
-    Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Stop), (380 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_Stop), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_Start_IT), (752 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_Start_IT), (8 bytes).
@@ -3374,7 +3400,6 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_MspDeInit), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_PWM_MspDeInit), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_PWM_Start), (8 bytes).
-    Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_Stop), (380 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_PWM_Stop), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_Start_IT), (752 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_PWM_Start_IT), (8 bytes).
@@ -3456,7 +3481,6 @@ Removing Unused input sections from the image.
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_TriggerCallback), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_TriggerCallback), (8 bytes).
-    Removing stm32h7xx_hal_tim.o(.text.HAL_TIM_OC_ConfigChannel), (196 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.HAL_TIM_OC_ConfigChannel), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.TIM_OC1_SetConfig), (8 bytes).
     Removing stm32h7xx_hal_tim.o(.ARM.exidx.text.TIM_OC2_SetConfig), (8 bytes).
@@ -3801,9 +3825,7 @@ Removing Unused input sections from the image.
     Removing tasks.o(.ARM.exidx.text.USART_Task), (8 bytes).
     Removing tasks.o(.rodata.Hanning_Window_8192), (32768 bytes).
     Removing pid.o(.text), (0 bytes).
-    Removing pid.o(.ARM.exidx.text.PhaseLock_Init), (8 bytes).
     Removing pid.o(.ARM.exidx.text.PhaseLock_Process), (8 bytes).
-    Removing pid.o(.ARM.exidx.text.PhaseLock_Reset), (8 bytes).
     Removing fftana.o(.text), (0 bytes).
     Removing fftana.o(.ARM.exidx.text.process_data), (8 bytes).
     Removing fftana.o(.text.add_window), (94 bytes).
@@ -3945,4 +3967,4 @@ Removing Unused input sections from the image.
     Removing arm_cfft_radix8_f32.o(.rrx_text), (6 bytes).
     Removing ffltul.o(.text), (28 bytes).
 
-1627 unused section(s) (total 326900 bytes) removed from the image.
+1621 unused section(s) (total 324604 bytes) removed from the image.

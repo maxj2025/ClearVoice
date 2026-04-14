@@ -12816,12 +12816,15 @@ extern TIM_HandleTypeDef htim2;
 
 extern TIM_HandleTypeDef htim3;
 
+extern TIM_HandleTypeDef htim4;
+
 
 
 
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 # 22 "../Core/Src/tim.c" 2
@@ -12832,7 +12835,8 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
-DMA_HandleTypeDef hdma_tim2_up;
+TIM_HandleTypeDef htim4;
+DMA_HandleTypeDef hdma_tim2_ch2;
 
 
 void MX_TIM2_Init(void)
@@ -12868,6 +12872,10 @@ void MX_TIM2_Init(void)
   {
     Error_Handler();
   }
+  if (HAL_TIM_OC_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
   sMasterConfig.MasterOutputTrigger = (0x2UL << (4U));
   sMasterConfig.MasterSlaveMode = 0x00000000U;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
@@ -12879,6 +12887,12 @@ void MX_TIM2_Init(void)
   sConfigOC.OCPolarity = 0x00000000U;
   sConfigOC.OCFastMode = 0x00000000U;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, 0x00000000U) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = 0x00000000U;
+  sConfigOC.Pulse = 2000;
+  if (HAL_TIM_OC_ConfigChannel(&htim2, &sConfigOC, 0x00000004U) != HAL_OK)
   {
     Error_Handler();
   }
@@ -12929,6 +12943,46 @@ void MX_TIM3_Init(void)
 
 }
 
+void MX_TIM4_Init(void)
+{
+
+
+
+
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+
+
+
+  htim4.Instance = ((TIM_TypeDef *) ((0x40000000UL) + 0x0800UL));
+  htim4.Init.Prescaler = 240-1;
+  htim4.Init.CounterMode = 0x00000000U;
+  htim4.Init.Period = 100-1;
+  htim4.Init.ClockDivision = 0x00000000U;
+  htim4.Init.AutoReloadPreload = (0x1UL << (7U));
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = (0x1UL << (12U));
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = (0x2UL << (4U));
+  sMasterConfig.MasterSlaveMode = 0x00000000U;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+
+
+
+}
+
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
 {
 
@@ -12942,22 +12996,22 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
 
 
 
-    hdma_tim2_up.Instance = ((DMA_Stream_TypeDef *) ((((0x40000000UL) + 0x00020000UL) + 0x0000UL) + 0x028UL));
-    hdma_tim2_up.Init.Request = 22U;
-    hdma_tim2_up.Init.Direction = ((uint32_t)0x00000000U);
-    hdma_tim2_up.Init.PeriphInc = ((uint32_t)0x00000000U);
-    hdma_tim2_up.Init.MemInc = ((uint32_t)(0x1UL << (10U)));
-    hdma_tim2_up.Init.PeriphDataAlignment = ((uint32_t)(0x1UL << (11U)));
-    hdma_tim2_up.Init.MemDataAlignment = ((uint32_t)(0x1UL << (13U)));
-    hdma_tim2_up.Init.Mode = ((uint32_t)0x00000000U);
-    hdma_tim2_up.Init.Priority = ((uint32_t)0x00000000U);
-    hdma_tim2_up.Init.FIFOMode = ((uint32_t)0x00000000U);
-    if (HAL_DMA_Init(&hdma_tim2_up) != HAL_OK)
+    hdma_tim2_ch2.Instance = ((DMA_Stream_TypeDef *) ((((0x40000000UL) + 0x00020000UL) + 0x0000UL) + 0x028UL));
+    hdma_tim2_ch2.Init.Request = 19U;
+    hdma_tim2_ch2.Init.Direction = ((uint32_t)0x00000000U);
+    hdma_tim2_ch2.Init.PeriphInc = ((uint32_t)0x00000000U);
+    hdma_tim2_ch2.Init.MemInc = ((uint32_t)(0x1UL << (10U)));
+    hdma_tim2_ch2.Init.PeriphDataAlignment = ((uint32_t)(0x1UL << (11U)));
+    hdma_tim2_ch2.Init.MemDataAlignment = ((uint32_t)(0x1UL << (13U)));
+    hdma_tim2_ch2.Init.Mode = ((uint32_t)0x00000000U);
+    hdma_tim2_ch2.Init.Priority = ((uint32_t)0x00000000U);
+    hdma_tim2_ch2.Init.FIFOMode = ((uint32_t)0x00000000U);
+    if (HAL_DMA_Init(&hdma_tim2_ch2) != HAL_OK)
     {
       Error_Handler();
     }
 
-    do{ (tim_baseHandle)->hdma[((uint16_t) 0x0000)] = &(hdma_tim2_up); (hdma_tim2_up).Parent = (tim_baseHandle); } while(0);
+    do{ (tim_baseHandle)->hdma[((uint16_t) 0x0002)] = &(hdma_tim2_ch2); (hdma_tim2_ch2).Parent = (tim_baseHandle); } while(0);
 
 
 
@@ -12970,6 +13024,17 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
 
 
     do { volatile uint32_t tmpreg; ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) |= ((0x1UL << (1U)))); tmpreg = ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) & ((0x1UL << (1U)))); ((void)(tmpreg)); } while(0);
+
+
+
+  }
+  else if(tim_baseHandle->Instance==((TIM_TypeDef *) ((0x40000000UL) + 0x0800UL)))
+  {
+
+
+
+
+    do { volatile uint32_t tmpreg; ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) |= ((0x1UL << (2U)))); tmpreg = ((((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) & ((0x1UL << (2U)))); ((void)(tmpreg)); } while(0);
 
 
 
@@ -13015,7 +13080,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
     (((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) &= ~ ((0x1UL << (0U)));
 
 
-    HAL_DMA_DeInit(tim_baseHandle->hdma[((uint16_t) 0x0000)]);
+    HAL_DMA_DeInit(tim_baseHandle->hdma[((uint16_t) 0x0002)]);
 
 
 
@@ -13027,6 +13092,17 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 
 
     (((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) &= ~ ((0x1UL << (1U)));
+
+
+
+  }
+  else if(tim_baseHandle->Instance==((TIM_TypeDef *) ((0x40000000UL) + 0x0800UL)))
+  {
+
+
+
+
+    (((RCC_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x4400UL))->APB1LENR) &= ~ ((0x1UL << (2U)));
 
 
 

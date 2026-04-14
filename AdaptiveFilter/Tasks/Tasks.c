@@ -35,13 +35,12 @@ void FFT_Task(Analysis_Result_t *output)
 void Send_Wave(Analysis_Result_t *output) 
 {
    AD9910_FreWrite(output->Original.Freq);
-   AD9910_AmpWrite(output->Original.Vpp*4650);
+//   AD9910_AmpWrite(output->Original.Vpp*4650);
 }
 
 
 void USART_Task(Analysis_Result_t *output) 
 { 
-    // 使用动态分配内存，确保与 USART_Task_One 风格一致
     char* Char_temp = malloc(sizeof(char) * 64); 
     if (Char_temp == NULL) {
         return;

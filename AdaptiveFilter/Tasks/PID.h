@@ -11,7 +11,7 @@ typedef struct {
     float out_max;         // 输出限幅：单次相位调整的最大角度 (度)
 } SimplePID;
 
-// 定义锁相环的工作状态 (必须放在 PhaseLocker 之前声明)
+// 定义锁相环的工作状态
 typedef enum {
     STATE_UNLOCK = 0,       // 失锁/频率刚改变
     STATE_WAIT_ZERO_CROSS,  // 等待鉴相电压越过中点
