@@ -14210,10 +14210,21 @@ typedef struct {
 } SimplePID;
 
 
+typedef enum {
+    STATE_UNLOCK = 0,
+    STATE_WAIT_ZERO_CROSS,
+    STATE_LOCKED
+} PLL_State;
+
+
 typedef struct {
     SimplePID pid;
     float target_voltage;
     float current_phase;
+
+
+    PLL_State state;
+    float last_measured_voltage;
 } PhaseLocker;
 
 
@@ -14261,7 +14272,6 @@ void USART_Task(Analysis_Result_t *output);
 # 2 "../Tasks/PID.c" 2
 
 
-
 void PhaseLock_Init(PhaseLocker* locker, float target_v, float kp, float ki, float kd, float max_adj) {
     locker->target_voltage = target_v;
     locker->pid.Kp = kp;
@@ -14271,38 +14281,65 @@ void PhaseLock_Init(PhaseLocker* locker, float target_v, float kp, float ki, flo
     locker->pid.last_error = 0;
     locker->pid.prev_error = 0;
     locker->current_phase = 0;
+
+
+    locker->state = STATE_UNLOCK;
+    locker->last_measured_voltage = 0;
 }
 
 void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
 
-    float error = locker->target_voltage - measured_voltage;
+    if (locker->state == STATE_UNLOCK) {
+        locker->state = STATE_WAIT_ZERO_CROSS;
+        locker->last_measured_voltage = measured_voltage;
+        return;
+    }
 
 
-    float phase_inc = locker->pid.Kp * (error - locker->pid.last_error)
-                    + locker->pid.Ki * error
-                    + locker->pid.Kd * (error - 2.0f * locker->pid.last_error + locker->pid.prev_error);
+    if (locker->state == STATE_WAIT_ZERO_CROSS) {
 
-    locker->pid.prev_error = locker->pid.last_error;
-    locker->pid.last_error = error;
-
-
-    if (phase_inc > locker->pid.out_max) phase_inc = locker->pid.out_max;
-    if (phase_inc < -locker->pid.out_max) phase_inc = -locker->pid.out_max;
-
-
-    locker->current_phase += phase_inc;
+        if (locker->last_measured_voltage > locker->target_voltage && measured_voltage <= locker->target_voltage) {
+            locker->state = STATE_LOCKED;
+            locker->pid.last_error = 0;
+            locker->pid.prev_error = 0;
+        }
+        locker->last_measured_voltage = measured_voltage;
+        return;
+    }
 
 
-    if (locker->current_phase >= 360.0) locker->current_phase -= 360.0;
-    if (locker->current_phase < 0.0) locker->current_phase += 360.0;
+    if (locker->state == STATE_LOCKED) {
+
+        float error = locker->target_voltage - measured_voltage;
 
 
-    AD9910_PhaWrite((float)locker->current_phase);
+        float phase_inc = locker->pid.Kp * (error - locker->pid.last_error)
+                        + locker->pid.Ki * error
+                        + locker->pid.Kd * (error - 2.0f * locker->pid.last_error + locker->pid.prev_error);
+
+        locker->pid.prev_error = locker->pid.last_error;
+        locker->pid.last_error = error;
+
+
+        if (phase_inc > locker->pid.out_max) phase_inc = locker->pid.out_max;
+        if (phase_inc < -locker->pid.out_max) phase_inc = -locker->pid.out_max;
+
+
+        locker->current_phase += phase_inc;
+
+
+        if (locker->current_phase >= 360.0f) locker->current_phase -= 360.0f;
+        if (locker->current_phase < 0.0f) locker->current_phase += 360.0f;
+
+
+        AD9910_PhaWrite((float)locker->current_phase);
+    }
 }
 
 void PhaseLock_Reset(PhaseLocker* locker) {
     locker->pid.last_error = 0;
     locker->pid.prev_error = 0;
     locker->current_phase = 0;
+    locker->state = STATE_UNLOCK;
     AD9910_PhaWrite(0);
 }

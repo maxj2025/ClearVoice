@@ -14221,10 +14221,21 @@ typedef struct {
 } SimplePID;
 
 
+typedef enum {
+    STATE_UNLOCK = 0,
+    STATE_WAIT_ZERO_CROSS,
+    STATE_LOCKED
+} PLL_State;
+
+
 typedef struct {
     SimplePID pid;
     float target_voltage;
     float current_phase;
+
+
+    PLL_State state;
+    float last_measured_voltage;
 } PhaseLocker;
 
 
@@ -14288,6 +14299,8 @@ max_3_index Top3_Mix;
 max_3_index Top3_Inter;
 Analysis_Result_t output;
 
+PhaseLocker my_locker;
+float current_target_freq = 0.0f;
 
 
 
@@ -14302,23 +14315,43 @@ static void MPU_Config(void);
 
 void App_process(void)
 {
-    if (dma_finish_ad9220 == 0||dma_finish_adc2==0)return;
+    if (dma_finish_ad9220 == 0 || dma_finish_adc2 == 0) return;
+
     dma_finish_ad9220 = 0;
-    dma_finish_adc2=0;
+    dma_finish_adc2 = 0;
+
     AD9220_Stop_DMA();
     HAL_ADC_Stop_DMA(&hadc2);
-   SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
-   SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
 
-
+    SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
+    SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
 
 
     FFT_Task(&output);
-    Send_Wave(&output);
-    USART_Task(&output);
-    AD9220_Start_DMA(adc1_buffer, 8192 +4);
-   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,8192);
 
+
+
+    if (fabs(output.Original.Freq - current_target_freq) > 1.0f) {
+        current_target_freq = output.Original.Freq;
+
+        Send_Wave(&output);
+        PhaseLock_Reset(&my_locker);
+    }
+
+
+
+
+    float phase_voltage = Get_Phase_ADC_Voltage();
+
+
+    PhaseLock_Process(&my_locker, phase_voltage);
+
+
+    USART_Task(&output);
+
+
+    AD9220_Start_DMA(adc1_buffer, 8192 + 4);
+    HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&adc2_buffer, 8192);
 }
 
 
@@ -14377,6 +14410,9 @@ int main(void)
   AD9910_FreWrite(300);
   AD9910_AmpWrite(15000);
   HMI_Init();
+
+  PhaseLock_Init(&my_locker, 2048.0f, 0.05f, 0.005f, 0.0f, 5.0f);
+
 
 
 

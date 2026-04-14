@@ -14210,10 +14210,21 @@ typedef struct {
 } SimplePID;
 
 
+typedef enum {
+    STATE_UNLOCK = 0,
+    STATE_WAIT_ZERO_CROSS,
+    STATE_LOCKED
+} PLL_State;
+
+
 typedef struct {
     SimplePID pid;
     float target_voltage;
     float current_phase;
+
+
+    PLL_State state;
+    float last_measured_voltage;
 } PhaseLocker;
 
 
