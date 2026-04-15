@@ -21,7 +21,7 @@ typedef enum {
 // 相位补偿锁定器
 typedef struct {
     SimplePID pid;
-    float target_voltage;          // 目标电压值 (你希望乘法器输出固定的那个中点电压)
+    float target_voltage;          // 目标电压值
     float current_phase;           // 当前 AD9910 的相位偏移量 (0.0 - 360.0)
     
     // --- 新增的状态机变量 ---

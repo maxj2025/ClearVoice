@@ -55,15 +55,12 @@ volatile uint8_t dma_finish_ad9220 = 0;
 volatile uint8_t dma_finish_adc2   = 0;
 
 __attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
-
 __attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;
-
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;//
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;//
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;//
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;//
-
-__attribute__((section (".AXI_SRAM")))  uint16_t phase_adc_buffer[2048] ;//混频信号采集
+__attribute__((section (".AXI_SRAM")))  uint16_t phase_adc_buffer[16] ;//混频信号采集
 
 max_3_index Top3_Mix;//
 max_3_index Top3_Inter;//
@@ -88,12 +85,13 @@ static void MPU_Config(void);
 float Get_Phase_ADC_Voltage(void)
 {
     uint32_t sum = 0;
-    for(int i = 0; i < 4096; i++) 
+    for(int i = 0; i < 16; i++) 
     {
         sum += phase_adc_buffer[i];
     }
-    return (float)(sum >> 12); // 右移 4 位等效于除以 16，求得均值
+    return (float)(sum >> 4); 
 }
+
 
 void App_process(void)
 {   
@@ -101,32 +99,28 @@ void App_process(void)
 
     dma_finish_ad9220 = 0;
     dma_finish_adc2 = 0;
-    
+	
     AD9220_Stop_DMA(); 
     HAL_ADC_Stop_DMA(&hadc2);
-    
+	
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
-//for(int i =4;i<8196;i++)
-//	{
-//	UART3_Printf("%d\n",adc1_buffer[i]);}
-    // --- 1. FFT 频率分析 ---
-    FFT_Task(&output); 
-    // --- 2. 频率突变检测与 AD9910 更新 ---
+	
+    FFT_Task(&output);
+	
     if (fabs(output.Original.Freq - current_target_freq) > 1.0f) {
         current_target_freq = output.Original.Freq;
-        		Send_Wave(&output);    
-        // 只有在频率或幅值发生有效改变时，才重写 AD9910 频率/幅值
-        PhaseLock_Reset(&my_locker);  // 频率改变了，立即重置 PID 进入重新寻零状态
+        Send_Wave(&output);    
+        __disable_irq();
+        PhaseLock_Reset(&my_locker);  
+        __enable_irq();
     }      
-
-    float phase_voltage = Get_Phase_ADC_Voltage(); 
-    PhaseLock_Process(&my_locker, phase_voltage);
+		
     USART_Task(&output);
+		
     AD9220_Start_DMA(adc1_buffer, FFT_N + 4);
     HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&adc2_buffer, FFT_N);
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -184,7 +178,7 @@ int main(void)
 	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
 	 HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, FFT_N+4);
-	 HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 4096);
+	 HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 16);
 	 HAL_TIM_Base_Start(&htim4);
 	 
 	 Init_AD9910();
@@ -306,7 +300,14 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     {
         dma_finish_adc2 = 1; 
     }
+		
+			if(hadc->Instance == ADC1)
+	{
+		float phase_voltage = Get_Phase_ADC_Voltage();
+		PhaseLock_Process(&my_locker,phase_voltage);
+	}
 }
+
 /* USER CODE END 4 */
 
  /* MPU Configuration */

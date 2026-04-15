@@ -14295,15 +14295,12 @@ volatile uint8_t dma_finish_ad9220 = 0;
 volatile uint8_t dma_finish_adc2 = 0;
 
 __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[8192 +4] ;
-
 __attribute__((section (".AXI_SRAM"))) uint16_t adc2_buffer[8192] ;
-
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
 __attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
 __attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
-
-__attribute__((section (".AXI_SRAM"))) uint16_t phase_adc_buffer[2048] ;
+__attribute__((section (".AXI_SRAM"))) uint16_t phase_adc_buffer[16] ;
 
 max_3_index Top3_Mix;
 max_3_index Top3_Inter;
@@ -14328,12 +14325,13 @@ static void MPU_Config(void);
 float Get_Phase_ADC_Voltage(void)
 {
     uint32_t sum = 0;
-    for(int i = 0; i < 4096; i++)
+    for(int i = 0; i < 16; i++)
     {
         sum += phase_adc_buffer[i];
     }
-    return (float)(sum >> 12);
+    return (float)(sum >> 4);
 }
+
 
 void App_process(void)
 {
@@ -14348,25 +14346,21 @@ void App_process(void)
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
 
-
-
-
     FFT_Task(&output);
 
     if (fabs(output.Original.Freq - current_target_freq) > 1.0f) {
         current_target_freq = output.Original.Freq;
-          Send_Wave(&output);
-
+        Send_Wave(&output);
+        __disable_irq();
         PhaseLock_Reset(&my_locker);
+        __enable_irq();
     }
 
-    float phase_voltage = Get_Phase_ADC_Voltage();
-    PhaseLock_Process(&my_locker, phase_voltage);
     USART_Task(&output);
+
     AD9220_Start_DMA(adc1_buffer, 8192 + 4);
     HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&adc2_buffer, 8192);
 }
-
 
 
 
@@ -14424,7 +14418,7 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,8192);
   HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, 8192 +4);
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 4096);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 16);
   HAL_TIM_Base_Start(&htim4);
 
   Init_AD9910();
@@ -14546,7 +14540,14 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     {
         dma_finish_adc2 = 1;
     }
+
+   if(hadc->Instance == ((ADC_TypeDef *) (((0x40000000UL) + 0x00020000UL) + 0x2000UL)))
+ {
+  float phase_voltage = Get_Phase_ADC_Voltage();
+  PhaseLock_Process(&my_locker,phase_voltage);
+ }
 }
+
 
 
 

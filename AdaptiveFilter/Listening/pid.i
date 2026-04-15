@@ -14278,6 +14278,50 @@ void USART_Task(Analysis_Result_t *output);
 # 2 "../Tasks/PID.c" 2
 
 
+
+
+void PID_Init(SimplePID* pid, float Kp, float Ki, float Kd, float out_max) {
+    pid->Kp = Kp;
+    pid->Ki = Ki;
+    pid->Kd = Kd;
+    pid->out_max = out_max;
+
+
+    pid->last_error = 0.0f;
+    pid->prev_error = 0.0f;
+}
+
+
+
+
+void PhaseLock_Init(PhaseLocker* locker, float target_v, float Kp, float Ki, float Kd, float max_deg) {
+
+    PID_Init(&locker->pid, Kp, Ki, Kd, max_deg);
+
+
+    locker->target_voltage = target_v;
+    locker->current_phase = 0.0f;
+
+
+    locker->state = STATE_UNLOCK;
+    locker->last_measured_voltage = 0.0f;
+}
+
+void PhaseLock_Reset(PhaseLocker* locker) {
+
+    locker->pid.last_error = 0.0f;
+    locker->pid.prev_error = 0.0f;
+
+
+    locker->current_phase = 0.0f;
+
+
+    locker->state = STATE_UNLOCK;
+
+
+    AD9910_PhaWrite(0);
+}
+
 void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
 
     if (locker->state == STATE_UNLOCK) {
