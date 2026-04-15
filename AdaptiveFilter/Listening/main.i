@@ -14428,7 +14428,7 @@ int main(void)
   HMI_Init();
 
 
-  PhaseLock_Init(&my_locker, 1600.0f, 0.05f, 0.005f, 0.0f, 5.0f);
+  PhaseLock_Init(&my_locker, 1600.0f, 0.05f, 0.01f, 0.0f, 5.0f);
 
 
 

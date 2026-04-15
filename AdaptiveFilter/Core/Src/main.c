@@ -188,7 +188,7 @@ int main(void)
 	 HMI_Init();	 
 	 
 	 // 参数含义：&控制块, 目标中点电压(ADC值), Kp, Ki, Kd, 单次最大相位步进(度)
-	 PhaseLock_Init(&my_locker, 1600.0f, 0.05f, 0.005f, 0.0f, 5.0f);
+	 PhaseLock_Init(&my_locker, 1600.0f, 0.05f, 0.01f, 0.0f, 5.0f);
 
   /* USER CODE END 2 */
 

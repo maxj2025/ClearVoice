@@ -13303,22 +13303,19 @@ void txd_8bit(uchar txdat)
     uchar i, sbt;
     sbt = 0x80;
 
-
     for (i = 0; i < 8; i++)
     {
         if ((txdat & sbt) == 0)
             HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x1000UL)), ((uint16_t)0x0020), GPIO_PIN_RESET);
         else
             HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x1000UL)), ((uint16_t)0x0020), GPIO_PIN_SET);
-
         HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x1000UL)), ((uint16_t)0x0004), GPIO_PIN_SET);
-
         sbt = sbt >> 1;
 
         HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x1000UL)), ((uint16_t)0x0004), GPIO_PIN_RESET);
     }
 }
-# 151 "../MyDrive/AD9910.c"
+# 148 "../MyDrive/AD9910.c"
 void Init_AD9910(void)
 {
     uchar k, m;
@@ -13407,27 +13404,21 @@ void Txfrc(void)
 void AD9910_FreWrite(double Freq)
 {
     uint32_t Temp;
-
-
     Temp = (uint32_t)(Freq * 4.294967296);
-
-
     profile11[7] = (unsigned char)Temp;
     profile11[6] = (unsigned char)(Temp >> 8);
     profile11[5] = (unsigned char)(Temp >> 16);
     profile11[4] = (unsigned char)(Temp >> 24);
-
-
     Txfrc();
 }
-# 260 "../MyDrive/AD9910.c"
+# 251 "../MyDrive/AD9910.c"
 void AD9910_AmpWrite(uint16_t Amp)
 {
     profile11[0] = (Amp % 16384) >> 8;
     profile11[1] = (Amp % 16384) & 0xff;
     Txfrc();
 }
-# 276 "../MyDrive/AD9910.c"
+# 267 "../MyDrive/AD9910.c"
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave)
 {
     int i;
@@ -13505,7 +13496,7 @@ void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave)
     HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0C00UL)), ((uint16_t)0x0020), GPIO_PIN_SET);
     HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0C00UL)), ((uint16_t)0x0020), GPIO_PIN_RESET);
 }
-# 368 "../MyDrive/AD9910.c"
+# 359 "../MyDrive/AD9910.c"
 void AD9910_DRG_FreInit_AutoSet(FunctionalState autoSweepEn)
 {
 
@@ -13555,7 +13546,7 @@ void AD9910_DRG_FreInit_AutoSet(FunctionalState autoSweepEn)
     HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0C00UL)), ((uint16_t)0x0020), GPIO_PIN_SET);
     HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0C00UL)), ((uint16_t)0x0020), GPIO_PIN_RESET);
 }
-# 428 "../MyDrive/AD9910.c"
+# 419 "../MyDrive/AD9910.c"
 void AD9910_DRG_FrePara_Set(uint32_t lowFre, uint32_t upFre, uint32_t posStep, uint32_t negStep, uint16_t posRate, uint16_t negRate)
 {
     uint32_t upper, lower, dec, inc;
@@ -13624,7 +13615,7 @@ void AD9910_DRG_FrePara_Set(uint32_t lowFre, uint32_t upFre, uint32_t posStep, u
     HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0C00UL)), ((uint16_t)0x0020), GPIO_PIN_SET);
     HAL_GPIO_WritePin(((GPIO_TypeDef *) (((0x40000000UL) + 0x18020000UL) + 0x0C00UL)), ((uint16_t)0x0020), GPIO_PIN_RESET);
 }
-# 504 "../MyDrive/AD9910.c"
+# 495 "../MyDrive/AD9910.c"
 void AD9910_PhaWrite(float phase)
 {
     uint16_t phase_offset_word;

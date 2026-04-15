@@ -124,19 +124,16 @@ void txd_8bit(uchar txdat)
 {
     uchar i, sbt;
     sbt = 0x80;
-    // while (HAL_GPIO_ReadPin(AD9910_SCLK_GPIO_Port, AD9910_SCLK_Pin) != GPIO_PIN_RESET)
-    //     AD9910_SCLK_0;
+
     for (i = 0; i < 8; i++)
     {
         if ((txdat & sbt) == 0)
             AD9910_SDIO_0;
         else
             AD9910_SDIO_1;
-        // while (HAL_GPIO_ReadPin(AD9910_SCLK_GPIO_Port, AD9910_SCLK_Pin) != GPIO_PIN_SET)
         AD9910_SCLK_1;
-
         sbt = sbt >> 1;
-        // while (HAL_GPIO_ReadPin(AD9910_SCLK_GPIO_Port, AD9910_SCLK_Pin) != GPIO_PIN_RESET)
+    
         AD9910_SCLK_0;
     }
 }
@@ -233,20 +230,14 @@ void Txfrc(void)
 ** 入口参数 ：目标频率，单位Hz (支持小数，如 1000.45)
 ** 出口参数 ：无
 **************************************************************/
-void AD9910_FreWrite(double Freq) // <--- 注意这里改成了 double
+void AD9910_FreWrite(double Freq) 
 {
-    uint32_t Temp; // 使用标准库的 uint32_t 更严谨，对应 32 位频率控制字
-    
-    // 先用 double 保持极高精度进行乘法运算，算出带小数的控制字，然后再强制转换为 32 位整数
+    uint32_t Temp; 
     Temp = (uint32_t)(Freq * 4.294967296); 
-
-    // 将 32 位控制字拆分成 4 个字节，写入寄存器缓存
     profile11[7] = (unsigned char)Temp;
     profile11[6] = (unsigned char)(Temp >> 8);
     profile11[5] = (unsigned char)(Temp >> 16);
     profile11[4] = (unsigned char)(Temp >> 24);
-    
-    // 发送数据更新
     Txfrc();
 }
 

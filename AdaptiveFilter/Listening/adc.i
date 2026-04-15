@@ -12883,7 +12883,7 @@ void MX_ADC1_Init(void)
 
   sConfig.Channel = ((( (0x02UL << (26U)) | (0x01UL << (26U))) | ((0x00000000UL) | (( 9UL) << (20UL))) | ((0x00008UL << (0U))) ));
   sConfig.Rank = (((0x00000000UL) | ( 6UL)));
-  sConfig.SamplingTime = ((0x00000000UL));
+  sConfig.SamplingTime = (((0x4UL << (0U)) | (0x2UL << (0U)) | (0x1UL << (0U))));
   sConfig.SingleDiff = (( (0x7FFUL << (0U))));
   sConfig.OffsetNumber = (((0x00000003UL)) + 1U);
   sConfig.Offset = 0;
@@ -13032,7 +13032,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     hdma_adc2.Init.PeriphDataAlignment = ((uint32_t)(0x1UL << (11U)));
     hdma_adc2.Init.MemDataAlignment = ((uint32_t)(0x1UL << (13U)));
     hdma_adc2.Init.Mode = ((uint32_t)0x00000000U);
-    hdma_adc2.Init.Priority = ((uint32_t)0x00000000U);
+    hdma_adc2.Init.Priority = ((uint32_t)(0x2UL << (16U)));
     hdma_adc2.Init.FIFOMode = ((uint32_t)0x00000000U);
     if (HAL_DMA_Init(&hdma_adc2) != HAL_OK)
     {

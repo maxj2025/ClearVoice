@@ -13004,7 +13004,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
     hdma_tim2_ch2.Init.PeriphDataAlignment = ((uint32_t)(0x1UL << (11U)));
     hdma_tim2_ch2.Init.MemDataAlignment = ((uint32_t)(0x1UL << (13U)));
     hdma_tim2_ch2.Init.Mode = ((uint32_t)0x00000000U);
-    hdma_tim2_ch2.Init.Priority = ((uint32_t)0x00000000U);
+    hdma_tim2_ch2.Init.Priority = ((uint32_t)(0x3UL << (16U)));
     hdma_tim2_ch2.Init.FIFOMode = ((uint32_t)0x00000000U);
     if (HAL_DMA_Init(&hdma_tim2_ch2) != HAL_OK)
     {
