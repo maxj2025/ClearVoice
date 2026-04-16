@@ -4784,7 +4784,7 @@ Image Symbol Table
     HMI_send_string                          0x0800d151   Thumb Code    28  hmi.o(.text.HMI_send_string)
     HardFault_Handler                        0x0800d171   Thumb Code     4  stm32h7xx_it.o(.text.HardFault_Handler)
     Init_AD9910                              0x0800d179   Thumb Code   654  ad9910.o(.text.Init_AD9910)
-    MX_ADC1_Init                             0x0800d7f1   Thumb Code   200  adc.o(.text.MX_ADC1_Init)
+    MX_ADC1_Init                             0x0800d7f1   Thumb Code   198  adc.o(.text.MX_ADC1_Init)
     MX_ADC2_Init                             0x0800d8b9   Thumb Code   164  adc.o(.text.MX_ADC2_Init)
     MX_DMA_Init                              0x0800d961   Thumb Code   124  dma.o(.text.MX_DMA_Init)
     MX_GPIO_Init                             0x0800d9e1   Thumb Code   434  gpio.o(.text.MX_GPIO_Init)
@@ -5203,7 +5203,8 @@ Memory Map of the image
     0x0800d768   0x0800d768   0x00000028   Code   RO          248    .text.LL_ADC_SetOffsetSignedSaturation  stm32h7xx_hal_adc.o
     0x0800d790   0x0800d790   0x0000005a   Code   RO           17    .text.MPU_Config    main.o
     0x0800d7ea   0x0800d7ea   0x00000006   PAD
-    0x0800d7f0   0x0800d7f0   0x000000c8   Code   RO           56    .text.MX_ADC1_Init  adc.o
+    0x0800d7f0   0x0800d7f0   0x000000c6   Code   RO           56    .text.MX_ADC1_Init  adc.o
+    0x0800d8b6   0x0800d8b6   0x00000002   PAD
     0x0800d8b8   0x0800d8b8   0x000000a4   Code   RO           58    .text.MX_ADC2_Init  adc.o
     0x0800d95c   0x0800d95c   0x00000004   PAD
     0x0800d960   0x0800d960   0x0000007c   Code   RO           76    .text.MX_DMA_Init   dma.o
@@ -5469,7 +5470,7 @@ Image component sizes
 
        474          8          0          0          0       4193   ad9220.o
       1124         16         12          8          0       4827   ad9910.o
-       830          0          0          0        444       7887   adc.o
+       828          0          0          0        444       7887   adc.o
        142          0          0          0          0        964   arm_bitreversal2_extra.o
       4040          0          0          0          0       5803   arm_cfft_f32_extra.o
          0          0     488080          0          0       2400   arm_common_tables_extra.o
@@ -5505,7 +5506,7 @@ Image component sizes
     ----------------------------------------------------------------------
      69120        698     489184     344128       2580     318657   Object Totals
          0          0         48          0          0          0   (incl. Generated)
-       534         32          3          3          6          0   (incl. Padding)
+       536         32          3          3          6          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 

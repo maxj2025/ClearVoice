@@ -12852,7 +12852,7 @@ void MX_ADC1_Init(void)
 
   hadc1.Instance = ((ADC_TypeDef *) (((0x40000000UL) + 0x00020000UL) + 0x2000UL));
   hadc1.Init.ClockPrescaler = ((0x00000000UL));
-  hadc1.Init.Resolution = (( (0x2UL << (2U)) ));
+  hadc1.Init.Resolution = ((0x00000000UL));
   hadc1.Init.ScanConvMode = (0x00000000UL);
   hadc1.Init.EOCSelection = ((0x1UL << (2U)));
   hadc1.Init.LowPowerAutoWait = DISABLE;
