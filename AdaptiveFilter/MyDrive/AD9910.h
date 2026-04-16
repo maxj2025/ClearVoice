@@ -1,8 +1,8 @@
 #ifndef __AD9910_H__
 #define __AD9910_H__
 
-#include "global_types.h"
-#include "stm32h7xx.h"
+#include "main.h"
+#include <stdint.h>
 
 /* 类型定义简化 */
 typedef uint8_t  u8;
@@ -97,9 +97,11 @@ typedef enum
 /* ---------------- 函数声明 ---------------- */
 
 void Init_AD9910(void);                        // AD9910 寄存器初始化配置
-void AD9910_FreWrite(ulong Freq);              // 写入单点频率 (FTW)
+void AD9910_FreWrite(double Freq);          // 写入单点频率 (FTW)
 void AD9910_AmpWrite(uint16_t Amp);            // 写入单点振幅 (ASF)
+void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave); // 配置并启动 RAM 波形输出
+
 
 // DRG（数字扫描发生器）相关
 void AD9910_DRG_AMP_Init(void);

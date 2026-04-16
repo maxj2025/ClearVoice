@@ -6,7 +6,7 @@
 #include "global_types.h"
 #include "fftana.h"
 
-void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, float32_t rms_b, Analysis_Result_t *result) ;
+void Freq_Analysis_Split(fftdata *freqin, max_3_index *max_3, fftdata *wave_inter, max_3_index *max_3_inter, Analysis_Result_t *result) ;
 
 float32_t Signal_A_Amplitude(float32_t rms_mix, float32_t rms_B);
 

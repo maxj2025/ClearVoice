@@ -23,7 +23,7 @@
 #define FREQ_LIMIT_LOW 5000//频率下限5000hz
 
 typedef struct __attribute__((packed)) {
-    float32_t cmp[FFT_N];
+    float32_t cmp[FFT_2N];
 } fftin;
 
 typedef struct {//定义几个函数的输出结构体
@@ -61,6 +61,7 @@ float32_t Find_Vpp(fftin *input);//时域vpp提取（滑动窗口法）
 WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx);//波形识别
 
 float32_t Get_AC_RMS(uint16_t *pData, uint16_t len) ;
+float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) ;
 
 float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N);
 
