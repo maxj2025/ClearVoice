@@ -13685,7 +13685,6 @@ typedef struct {
 
 typedef enum {
     STATE_UNLOCK = 0,
-    STATE_CALIBRATING,
     STATE_WAIT_ZERO_CROSS,
     STATE_LOCKED
 } PLL_State;
@@ -13700,11 +13699,7 @@ typedef struct {
     float last_measured_voltage;
 
 
-    float v_max;
-    float v_min;
-    uint32_t calib_counter;
-
-
+    uint32_t timeout_counter;
     uint32_t saturation_counter;
 } PhaseLocker;
 
@@ -13713,6 +13708,9 @@ void PID_Init(SimplePID* pid, float Kp, float Ki, float Kd, float out_max);
 void PhaseLock_Init(PhaseLocker* locker, float target_v, float Kp, float Ki, float Kd, float max_deg);
 void PhaseLock_Process(PhaseLocker* locker, float measured_voltage);
 void PhaseLock_Reset(PhaseLocker* locker);
+
+
+void PhaseLock_SetTargetVoltage(PhaseLocker* locker, float new_target_v);
 # 41 "../MyDrive\\bsp_system.h" 2
 # 1 "../Tasks\\Tasks.h" 1
 
@@ -13899,7 +13897,7 @@ int main(void)
      HMI_Init();
 
 
-     PhaseLock_Init(&my_locker, 20480.0f, 0.05f, 0.2f, 0.0f, 5.0f);
+   PhaseLock_Init(&my_locker, 30000.0f, 1.0f, 0.4f, 0.0f, 5.0f);
 
 
 
@@ -14018,6 +14016,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
         SCB_InvalidateDCache_by_Addr((uint32_t *)phase_adc_buffer, sizeof(phase_adc_buffer));
         float phase_voltage = Get_Phase_ADC_Voltage();
         PhaseLock_Process(&my_locker,phase_voltage);
+
     }
 }
 

@@ -201,7 +201,7 @@ int main(void)
      HMI_Init();    
     
      // 参数含义：&控制块, 初始占位靶心, Kp, Ki, Kd, 单次最大相位步进(度)
-     PhaseLock_Init(&my_locker, 20480.0f, 0.05f, 0.2f, 0.0f, 5.0f);
+   PhaseLock_Init(&my_locker, 30000.0f, 1.0f, 0.4f, 0.0f, 5.0f);
 
   /* USER CODE END 2 */
 
@@ -320,6 +320,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
         SCB_InvalidateDCache_by_Addr((uint32_t *)phase_adc_buffer, sizeof(phase_adc_buffer));
         float phase_voltage = Get_Phase_ADC_Voltage();
         PhaseLock_Process(&my_locker,phase_voltage);
+	   
     }
 }
 

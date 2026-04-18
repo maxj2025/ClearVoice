@@ -13674,7 +13674,6 @@ typedef struct {
 
 typedef enum {
     STATE_UNLOCK = 0,
-    STATE_CALIBRATING,
     STATE_WAIT_ZERO_CROSS,
     STATE_LOCKED
 } PLL_State;
@@ -13689,11 +13688,7 @@ typedef struct {
     float last_measured_voltage;
 
 
-    float v_max;
-    float v_min;
-    uint32_t calib_counter;
-
-
+    uint32_t timeout_counter;
     uint32_t saturation_counter;
 } PhaseLocker;
 
@@ -13702,6 +13697,9 @@ void PID_Init(SimplePID* pid, float Kp, float Ki, float Kd, float out_max);
 void PhaseLock_Init(PhaseLocker* locker, float target_v, float Kp, float Ki, float Kd, float max_deg);
 void PhaseLock_Process(PhaseLocker* locker, float measured_voltage);
 void PhaseLock_Reset(PhaseLocker* locker);
+
+
+void PhaseLock_SetTargetVoltage(PhaseLocker* locker, float new_target_v);
 # 41 "../MyDrive\\bsp_system.h" 2
 # 1 "../Tasks\\Tasks.h" 1
 
