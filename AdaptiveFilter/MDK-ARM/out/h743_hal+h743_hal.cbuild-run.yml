@@ -47,9 +47,9 @@ cbuild-run:
     - file: ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/CMSIS/SVD/STM32H743.svd
       type: svd
   debugger:
-    name: CMSIS-DAP@pyOCD
+    name: ST-Link@pyOCD
     protocol: swd
-    clock: 10000000
+    clock: 4000000
     dbgconf: ../.cmsis/h743_hal+h743_hal.dbgconf
     gdbserver:
       - port: 3333

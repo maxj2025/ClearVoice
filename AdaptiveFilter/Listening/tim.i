@@ -12413,7 +12413,7 @@ void MX_TIM4_Init(void)
   htim4.Instance = ((TIM_TypeDef *) ((0x40000000UL) + 0x0800UL));
   htim4.Init.Prescaler = 240-1;
   htim4.Init.CounterMode = 0x00000000U;
-  htim4.Init.Period = 100-1;
+  htim4.Init.Period = 10-1;
   htim4.Init.ClockDivision = 0x00000000U;
   htim4.Init.AutoReloadPreload = (0x1UL << (7U));
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)

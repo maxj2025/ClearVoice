@@ -18,7 +18,7 @@
             "args": [
                 "erase",
                 "--probe",
-                "cmsisdap:",
+                "stlink:",
                 "--chip",
                 "--cbuild-run",
                 "${command:cmsis-csolution.getCbuildRunFile}"
@@ -42,7 +42,7 @@
             "args": [
                 "load",
                 "--probe",
-                "cmsisdap:",
+                "stlink:",
                 "--cbuild-run",
                 "${command:cmsis-csolution.getCbuildRunFile}"
             ],
@@ -65,7 +65,7 @@
             "args": [
                 "gdbserver",
                 "--probe",
-                "cmsisdap:",
+                "stlink:",
                 "--connect",
                 "attach",
                 "--persist",

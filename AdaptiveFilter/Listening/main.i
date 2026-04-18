@@ -13782,11 +13782,11 @@ static void MPU_Config(void);
 float Get_Phase_ADC_Voltage(void)
 {
     uint32_t sum = 0;
-    for(int i = 0; i < 16; i++)
+    for(int i = 0; i < 128; i++)
     {
         sum += phase_adc_buffer[i];
     }
-    return (float)(sum >> 4);
+    return (float)(sum >> 7);
 }
 
 
@@ -13887,17 +13887,12 @@ int main(void)
      HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,8192);
      HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, 8192 +4);
-     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 16);
+     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 128);
      HAL_TIM_Base_Start(&htim4);
-
      Init_AD9910();
-     AD9910_FreWrite(300);
-     AD9910_AmpWrite(15000);
-
      HMI_Init();
 
-
-   PhaseLock_Init(&my_locker, 30000.0f, 1.0f, 0.4f, 0.0f, 5.0f);
+   PhaseLock_Init(&my_locker, 33760.0f, 0.003f, 0.0001f, 0.0f, 2.0f);
 
 
 
@@ -14016,7 +14011,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
         SCB_InvalidateDCache_by_Addr((uint32_t *)phase_adc_buffer, sizeof(phase_adc_buffer));
         float phase_voltage = Get_Phase_ADC_Voltage();
         PhaseLock_Process(&my_locker,phase_voltage);
-
     }
 }
 
