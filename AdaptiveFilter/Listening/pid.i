@@ -13802,11 +13802,9 @@ void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
         return;
     }
 
-
     if (locker->state == STATE_CALIBRATING) {
         if (measured_voltage > locker->v_max) locker->v_max = measured_voltage;
         if (measured_voltage < locker->v_min) locker->v_min = measured_voltage;
-
 
         locker->current_phase += 3.0f;
         if (locker->current_phase >= 360.0f) locker->current_phase -= 360.0f;
@@ -13858,6 +13856,7 @@ void PhaseLock_Process(PhaseLocker* locker, float measured_voltage) {
 
 
             if (locker->saturation_counter > 50) {
+
                 PhaseLock_Reset(locker);
                 return;
             }
