@@ -15,7 +15,7 @@
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h" 1
 # 29 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h"
 # 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 1
-# 126 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
+# 122 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
 # 1 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 1
 # 48 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef enum
@@ -243,608 +243,7 @@ typedef unsigned long long uintmax_t;
 # 47 "../Drivers/CMSIS/Include/cmsis_compiler.h" 3
 # 1 "../Drivers/CMSIS/Include/cmsis_armclang.h" 1 3
 # 31 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-
-
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 1 3
-
-
-
-
-
-
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 1 3
-# 39 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfi(void) {
-  __builtin_arm_wfi();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfe(void) {
-  __builtin_arm_wfe();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sev(void) {
-  __builtin_arm_sev();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sevl(void) {
-  __builtin_arm_sevl();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __yield(void) {
-  __builtin_arm_yield();
-}
-
-
-
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__swp(uint32_t __x, volatile uint32_t *__p) {
-  uint32_t v;
-  do
-    v = __builtin_arm_ldrex(__p);
-  while (__builtin_arm_strex(__x, __p));
-  return v;
-}
-# 107 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __nop(void) {
-  __builtin_arm_nop();
-}
-
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__ror(uint32_t __x, uint32_t __y) {
-  __y %= 32;
-  if (__y == 0)
-    return __x;
-  return (__x >> __y) | (__x << (32 - __y));
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rorll(uint64_t __x, uint32_t __y) {
-  __y %= 64;
-  if (__y == 0)
-    return __x;
-  return (__x >> __y) | (__x << (64 - __y));
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rorl(unsigned long __x, uint32_t __y) {
-
-  return __ror(__x, __y);
-
-
-
-}
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__clz(uint32_t __t) {
-  return __builtin_clz(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__clzl(unsigned long __t) {
-  return __builtin_clzl(__t);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__clzll(uint64_t __t) {
-  return __builtin_clzll(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__cls(uint32_t __t) {
-  return __builtin_arm_cls(__t);
-}
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__clsl(unsigned long __t) {
-
-  return __builtin_arm_cls(__t);
-
-
-
-}
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__clsll(uint64_t __t) {
-  return __builtin_arm_cls64(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rev(uint32_t __t) {
-  return __builtin_bswap32(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__revl(unsigned long __t) {
-
-  return __builtin_bswap32(__t);
-
-
-
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__revll(uint64_t __t) {
-  return __builtin_bswap64(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rev16(uint32_t __t) {
-  return __ror(__rev(__t), 16);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rev16ll(uint64_t __t) {
-  return (((uint64_t)__rev16(__t >> 32)) << 32) | __rev16(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rev16l(unsigned long __t) {
-
-    return __rev16(__t);
-
-
-
-}
-
-
-static __inline__ int16_t __attribute__((__always_inline__, __nodebug__))
-__revsh(int16_t __t) {
-  return __builtin_bswap16(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rbit(uint32_t __t) {
-  return __builtin_arm_rbit(__t);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rbitll(uint64_t __t) {
-
-  return (((uint64_t)__builtin_arm_rbit(__t)) << 32) |
-         __builtin_arm_rbit(__t >> 32);
-
-
-
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rbitl(unsigned long __t) {
-
-  return __rbit(__t);
-
-
-
-}
-
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulbb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulbb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulbt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulbt(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smultb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smultb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smultt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smultt(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulwb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulwb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulwt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulwt(__a, __b);
-}
-# 292 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qadd(int32_t __t, int32_t __v) {
-  return __builtin_arm_qadd(__t, __v);
-}
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qsub(int32_t __t, int32_t __v) {
-  return __builtin_arm_qsub(__t, __v);
-}
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qdbl(int32_t __t) {
-  return __builtin_arm_qadd(__t, __t);
-}
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlabb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlabb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlabt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlabt(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlatb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlatb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlatt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlatt(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlawb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlawb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlawt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlawt(__a, __b, __c);
-}
-# 345 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-typedef int32_t int8x4_t;
-typedef int32_t int16x2_t;
-typedef uint32_t uint8x4_t;
-typedef uint32_t uint16x2_t;
-
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sxtab16(int16x2_t __a, int8x4_t __b) {
-  return __builtin_arm_sxtab16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sxtb16(int8x4_t __a) {
-  return __builtin_arm_sxtb16(__a);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__uxtab16(int16x2_t __a, int8x4_t __b) {
-  return __builtin_arm_uxtab16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__uxtb16(int8x4_t __a) {
-  return __builtin_arm_uxtb16(__a);
-}
-
-
-
-
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__sel(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_sel(__a, __b);
-}
-
-
-
-
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__qadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_qadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__qsub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_qsub8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__sadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_sadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__shadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_shadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__shsub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_shsub8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__ssub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_ssub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uhadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uhadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uhsub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uhsub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uqadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uqadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uqsub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uqsub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__usub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_usub8(__a, __b);
-}
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__usad8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_usad8(__a, __b);
-}
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__usada8(uint8x4_t __a, uint8x4_t __b, uint32_t __c) {
-  return __builtin_arm_usada8(__a, __b, __c);
-}
-
-
-
-
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qsax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qsax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qsub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qsub16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_sadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_sasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shsax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shsax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shsub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shsub16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__ssax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_ssax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__ssub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_ssub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhsax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhsax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhsub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhsub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqsax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqsax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqsub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqsub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__usax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_usax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__usub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_usub16(__a, __b);
-}
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlad(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlad(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smladx(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smladx(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlald(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlald(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlaldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlaldx(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlsd(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlsd(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlsdx(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlsdx(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlsld(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlsld(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlsldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlsldx(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smuad(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smuad(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smuadx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smuadx(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smusd(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smusd(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smusdx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smusdx(__a, __b);
-}
-# 8 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 2 3
-# 40 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__disable_fiq(void) {
-  unsigned int cpsr;
-
-  __asm__ __volatile__("mrs %[cpsr], faultmask\n"
-                       "cpsid f\n"
-                       : [cpsr] "=r"(cpsr));
-  return cpsr & 0x1;
-# 62 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__disable_irq(void) {
-  unsigned int cpsr;
-
-
-  __asm__ __volatile__("mrs %[cpsr], primask\n"
-                       "cpsid i\n"
-                       : [cpsr] "=r"(cpsr));
-  return cpsr & 0x1;
-# 89 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-
-
-
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__))
-__enable_fiq(void) {
-
-  __asm__ __volatile__("cpsie f");
-# 109 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__))
-__enable_irq(void) {
-
-  __asm__ __volatile__("cpsie i");
-# 124 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __force_stores(void) {
-    __asm__ __volatile__ ("" : : : "memory", "cc");
-}
-
-static void __attribute__((__always_inline__, __nodebug__)) __memory_changed(void) {
-    __asm__ __volatile__ ("" : : : "memory", "cc");
-}
-
-static void __attribute__((__always_inline__, __nodebug__)) __schedule_barrier(void) {
-    __asm__ __volatile__ ("" : : : "memory", "cc");
-}
-
-static __inline__ int __attribute__((__always_inline__, __nodebug__))
-__semihost(int val, const void *ptr) {
-  register int v __asm__("r0") = val;
-  register const void *p __asm__("r1") = ptr;
-  __asm__ __volatile__(
-
-
-      "bkpt 0xab"
-# 160 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-      : "+r"(v), "+r"(p)
-      :
-      : "memory", "cc");
-  return v;
-}
-
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__vfp_status(unsigned int mask, unsigned int flags) {
-  unsigned int fpscr;
-  __asm__ __volatile__("vmrs %[fpscr], fpscr" : [fpscr] "=r"(fpscr));
-  unsigned int set = mask & flags;
-  unsigned int clear = mask & ~flags;
-  unsigned int toggle = ~mask & flags;
-  fpscr |= set;
-  fpscr &= ~clear;
-  fpscr ^= toggle;
-  __asm__ __volatile__("vmsr fpscr, %[fpscr]" : : [fpscr] "r"(fpscr));
-  return fpscr;
-}
-# 34 "../Drivers/CMSIS/Include/cmsis_armclang.h" 2 3
-# 68 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 64 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
@@ -882,7 +281,84 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 
  struct __attribute__((packed, aligned(1))) T_UINT32_READ { uint32_t v; };
 #pragma clang diagnostic pop
-# 166 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 260 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint32_t op2)
+{
+  op2 %= 32U;
+  if (op2 == 0U)
+  {
+    return op1;
+  }
+  return (op1 >> op2) | (op1 << (32U - op2));
+}
+# 295 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint8_t __CLZ(uint32_t value)
+{
+# 306 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+  if (value == 0U)
+  {
+    return 32U;
+  }
+  return __builtin_clz(value);
+}
+# 425 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
+{
+  uint32_t result;
+
+  __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
+  return(result);
+}
+# 440 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t *ptr)
+{
+  uint32_t result;
+
+  __asm volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
+  return ((uint8_t) result);
+}
+# 455 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_t *ptr)
+{
+  uint32_t result;
+
+  __asm volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
+  return ((uint16_t) result);
+}
+# 470 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t *ptr)
+{
+  uint32_t result;
+
+  __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
+  return(result);
+}
+# 485 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
+{
+  __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
+}
+# 497 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
+{
+  __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
+}
+# 509 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __STRT(uint32_t value, volatile uint32_t *ptr)
+{
+  __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
+}
+# 737 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __enable_irq(void)
+{
+  __asm volatile ("cpsie i" : : : "memory");
+}
+# 750 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __disable_irq(void)
+{
+  __asm volatile ("cpsid i" : : : "memory");
+}
+# 762 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
 {
   uint32_t result;
@@ -890,12 +366,13 @@ __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
   __asm volatile ("MRS %0, control" : "=r" (result) );
   return(result);
 }
-# 196 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 792 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_CONTROL(uint32_t control)
 {
   __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
+  __builtin_arm_isb(0xF);
 }
-# 220 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 818 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_IPSR(void)
 {
   uint32_t result;
@@ -945,12 +422,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_PSP(void)
   __asm volatile ("MRS %0, psp" : "=r" (result) );
   return(result);
 }
-# 292 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 890 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_PSP(uint32_t topOfProcStack)
 {
   __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
-# 316 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 914 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
 {
   uint32_t result;
@@ -958,12 +435,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
   __asm volatile ("MRS %0, msp" : "=r" (result) );
   return(result);
 }
-# 346 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 944 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_MSP(uint32_t topOfMainStack)
 {
   __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
-# 397 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 995 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
 {
   uint32_t result;
@@ -971,12 +448,34 @@ __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
   __asm volatile ("MRS %0, primask" : "=r" (result) );
   return(result);
 }
-# 427 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1025 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_PRIMASK(uint32_t priMask)
 {
   __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
-# 470 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1053 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __enable_fault_irq(void)
+{
+  __asm volatile ("cpsie f" : : : "memory");
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static __inline void __disable_fault_irq(void)
+{
+  __asm volatile ("cpsid f" : : : "memory");
+}
+
+
+
+
+
+
+
 __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
 {
   uint32_t result;
@@ -984,12 +483,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
   __asm volatile ("MRS %0, basepri" : "=r" (result) );
   return(result);
 }
-# 500 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1105 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI(uint32_t basePri)
 {
   __asm volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
-# 525 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1130 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI_MAX(uint32_t basePri)
 {
   __asm volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
@@ -1008,79 +507,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_FAULTMASK(void)
   __asm volatile ("MRS %0, faultmask" : "=r" (result) );
   return(result);
 }
-# 566 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1171 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_FAULTMASK(uint32_t faultMask)
 {
   __asm volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
-# 902 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint32_t op2)
-{
-  op2 %= 32U;
-  if (op2 == 0U)
-  {
-    return op1;
-  }
-  return (op1 >> op2) | (op1 << (32U - op2));
-}
-# 937 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint8_t __CLZ(uint32_t value)
-{
-# 948 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-  if (value == 0U)
-  {
-    return 32U;
-  }
-  return __builtin_clz(value);
-}
-# 1063 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
-{
-  uint32_t result;
-
-  __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
-  return(result);
-}
-# 1078 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t *ptr)
-{
-  uint32_t result;
-
-  __asm volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return ((uint8_t) result);
-}
-# 1093 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_t *ptr)
-{
-  uint32_t result;
-
-  __asm volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return ((uint16_t) result);
-}
-# 1108 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t *ptr)
-{
-  uint32_t result;
-
-  __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return(result);
-}
-# 1123 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
-{
-  __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
-}
-# 1135 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
-{
-  __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
-}
-# 1147 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline void __STRT(uint32_t value, volatile uint32_t *ptr)
-{
-  __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
-}
-# 1432 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1491 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int32_t op2, int32_t op3)
 {
   int32_t result;
@@ -1090,7 +522,7 @@ __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int
 }
 # 48 "../Drivers/CMSIS/Include/cmsis_compiler.h" 2 3
 # 163 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
-# 274 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 279 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef union
 {
   struct
@@ -1106,7 +538,7 @@ typedef union
   } b;
   uint32_t w;
 } APSR_Type;
-# 313 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 318 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef union
 {
   struct
@@ -1116,7 +548,7 @@ typedef union
   } b;
   uint32_t w;
 } IPSR_Type;
-# 331 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 336 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef union
 {
   struct
@@ -1136,7 +568,7 @@ typedef union
   } b;
   uint32_t w;
 } xPSR_Type;
-# 386 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 391 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef union
 {
   struct
@@ -1148,7 +580,7 @@ typedef union
   } b;
   uint32_t w;
 } CONTROL_Type;
-# 421 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 426 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile uint32_t ISER[8U];
@@ -1165,7 +597,7 @@ typedef struct
         uint32_t RESERVED5[644U];
   volatile uint32_t STIR;
 } NVIC_Type;
-# 455 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 460 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile const uint32_t CPUID;
@@ -1210,7 +642,8 @@ typedef struct
   volatile uint32_t DCCSW;
   volatile uint32_t DCCIMVAC;
   volatile uint32_t DCCISW;
-        uint32_t RESERVED7[6U];
+  volatile uint32_t BPIALL;
+        uint32_t RESERVED7[5U];
   volatile uint32_t ITCMCR;
   volatile uint32_t DTCMCR;
   volatile uint32_t AHBPCR;
@@ -1219,14 +652,14 @@ typedef struct
         uint32_t RESERVED8[1U];
   volatile uint32_t ABFSR;
 } SCB_Type;
-# 921 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 930 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
         uint32_t RESERVED0[1U];
   volatile const uint32_t ICTR;
   volatile uint32_t ACTLR;
 } SCnSCB_Type;
-# 979 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 988 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile uint32_t CTRL;
@@ -1234,7 +667,7 @@ typedef struct
   volatile uint32_t VAL;
   volatile const uint32_t CALIB;
 } SysTick_Type;
-# 1031 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1040 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile union
@@ -1267,7 +700,7 @@ typedef struct
   volatile const uint32_t CID2;
   volatile const uint32_t CID3;
 } ITM_Type;
-# 1119 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1128 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile uint32_t CTRL;
@@ -1297,7 +730,7 @@ typedef struct
   volatile uint32_t LAR;
   volatile const uint32_t LSR;
 } DWT_Type;
-# 1269 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1278 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile const uint32_t SSPSR;
@@ -1325,7 +758,7 @@ typedef struct
   volatile const uint32_t DEVID;
   volatile const uint32_t DEVTYPE;
 } TPI_Type;
-# 1431 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1440 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile const uint32_t TYPE;
@@ -1340,7 +773,7 @@ typedef struct
   volatile uint32_t RBAR_A3;
   volatile uint32_t RASR_A3;
 } MPU_Type;
-# 1527 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1536 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
         uint32_t RESERVED0[1U];
@@ -1351,7 +784,7 @@ typedef struct
   volatile const uint32_t MVFR1;
   volatile const uint32_t MVFR2;
 } FPU_Type;
-# 1639 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1648 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 typedef struct
 {
   volatile uint32_t DHCSR;
@@ -1359,7 +792,7 @@ typedef struct
   volatile uint32_t DCRDR;
   volatile uint32_t DEMCR;
 } CoreDebug_Type;
-# 1871 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1880 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_SetPriorityGrouping(uint32_t PriorityGroup)
 {
   uint32_t reg_value;
@@ -1383,7 +816,7 @@ static __inline uint32_t __NVIC_GetPriorityGrouping(void)
 {
   return ((uint32_t)((((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->AIRCR & (7UL << 8U)) >> 8U));
 }
-# 1902 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1911 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_EnableIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1393,7 +826,7 @@ static __inline void __NVIC_EnableIRQ(IRQn_Type IRQn)
     __asm volatile("":::"memory");
   }
 }
-# 1921 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1930 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1405,7 +838,7 @@ static __inline uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
     return(0U);
   }
 }
-# 1940 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1949 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_DisableIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1415,7 +848,7 @@ static __inline void __NVIC_DisableIRQ(IRQn_Type IRQn)
     __builtin_arm_isb(0xF);
   }
 }
-# 1959 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1968 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1427,7 +860,7 @@ static __inline uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
     return(0U);
   }
 }
-# 1978 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1987 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1435,7 +868,7 @@ static __inline void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
     ((NVIC_Type *) ((0xE000E000UL) + 0x0100UL) )->ISPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
   }
 }
-# 1993 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2002 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1443,7 +876,7 @@ static __inline void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
     ((NVIC_Type *) ((0xE000E000UL) + 0x0100UL) )->ICPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
   }
 }
-# 2010 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2019 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t __NVIC_GetActive(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1455,7 +888,7 @@ static __inline uint32_t __NVIC_GetActive(IRQn_Type IRQn)
     return(0U);
   }
 }
-# 2032 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2041 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -1467,7 +900,7 @@ static __inline void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
     ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHPR[(((uint32_t)IRQn) & 0xFUL)-4UL] = (uint8_t)((priority << (8U - 4U)) & (uint32_t)0xFFUL);
   }
 }
-# 2054 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2063 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
 {
 
@@ -1480,7 +913,7 @@ static __inline uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
     return(((uint32_t)((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHPR[(((uint32_t)IRQn) & 0xFUL)-4UL] >> (8U - 4U)));
   }
 }
-# 2079 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2088 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t PreemptPriority, uint32_t SubPriority)
 {
   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);
@@ -1495,7 +928,7 @@ static __inline uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t P
            ((SubPriority & (uint32_t)((1UL << (SubPriorityBits )) - 1UL)))
          );
 }
-# 2106 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2115 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void NVIC_DecodePriority (uint32_t Priority, uint32_t PriorityGroup, uint32_t* const pPreemptPriority, uint32_t* const pSubPriority)
 {
   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);
@@ -1508,18 +941,18 @@ static __inline void NVIC_DecodePriority (uint32_t Priority, uint32_t PriorityGr
   *pPreemptPriority = (Priority >> SubPriorityBits) & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL);
   *pSubPriority = (Priority ) & (uint32_t)((1UL << (SubPriorityBits )) - 1UL);
 }
-# 2129 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2138 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
 {
-  uint32_t vectors = (uint32_t )((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->VTOR;
-  (* (int *) (vectors + ((int32_t)IRQn + 16) * 4)) = vector;
+  uint32_t *vectors = (uint32_t *)((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->VTOR;
+  vectors[(int32_t)IRQn + 16] = vector;
   __builtin_arm_dsb(0xF);
 }
-# 2145 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2154 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t __NVIC_GetVector(IRQn_Type IRQn)
 {
-  uint32_t vectors = (uint32_t )((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->VTOR;
-  return (uint32_t)(* (int *) (vectors + ((int32_t)IRQn + 16) * 4));
+  uint32_t *vectors = (uint32_t *)((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->VTOR;
+  return vectors[(int32_t)IRQn + 16];
 }
 
 
@@ -1541,7 +974,7 @@ __attribute__((__noreturn__)) static __inline void __NVIC_SystemReset(void)
     __builtin_arm_nop();
   }
 }
-# 2178 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2187 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 # 1 "../Drivers/CMSIS/Include/mpu_armv7.h" 1 3
 # 29 "../Drivers/CMSIS/Include/mpu_armv7.h" 3
 # 183 "../Drivers/CMSIS/Include/mpu_armv7.h" 3
@@ -1555,6 +988,7 @@ typedef struct {
 
 static __inline void ARM_MPU_Enable(uint32_t MPU_Control)
 {
+  __builtin_arm_dmb(0xF);
   ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->CTRL = MPU_Control | (1UL );
 
   ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHCSR |= (1UL << 16U);
@@ -1572,6 +1006,8 @@ static __inline void ARM_MPU_Disable(void)
   ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHCSR &= ~(1UL << 16U);
 
   ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->CTRL &= ~(1UL );
+  __builtin_arm_dsb(0xF);
+  __builtin_arm_isb(0xF);
 }
 
 
@@ -1633,8 +1069,8 @@ static __inline void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt)
   }
   ARM_MPU_OrderedMemcpy(&(((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR), &(table->RBAR), cnt*rowWordSize);
 }
-# 2179 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
-# 2199 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2188 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
+# 2208 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t SCB_GetFPUType(void)
 {
   uint32_t mvfr0;
@@ -1653,7 +1089,10 @@ static __inline uint32_t SCB_GetFPUType(void)
     return 0U;
   }
 }
-# 2241 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2234 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 1 "../Drivers/CMSIS/Include/cachel1_armv7.h" 1 3
+# 29 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
+# 57 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
 __attribute__((always_inline)) static __inline void SCB_EnableICache (void)
 {
 
@@ -1702,8 +1141,8 @@ __attribute__((always_inline)) static __inline void SCB_InvalidateICache (void)
     __builtin_arm_isb(0xF);
 
 }
-# 2299 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-__attribute__((always_inline)) static __inline void SCB_InvalidateICache_by_Addr (void *addr, int32_t isize)
+# 115 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
+__attribute__((always_inline)) static __inline void SCB_InvalidateICache_by_Addr (volatile void *addr, int32_t isize)
 {
 
     if ( isize > 0 ) {
@@ -1772,30 +1211,41 @@ __attribute__((always_inline)) static __inline void SCB_EnableDCache (void)
 __attribute__((always_inline)) static __inline void SCB_DisableDCache (void)
 {
 
+    struct {
     uint32_t ccsidr;
     uint32_t sets;
     uint32_t ways;
+    } locals
+
+       __attribute__((aligned(32U)))
+
+    ;
 
     ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->CSSELR = 0U;
     __builtin_arm_dsb(0xF);
 
     ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->CCR &= ~(uint32_t)(1UL << 16U);
     __builtin_arm_dsb(0xF);
+# 219 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
+      ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->DCCIMVAC = (uint32_t)&locals;
 
-    ccsidr = ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->CCSIDR;
+      __builtin_arm_dsb(0xF);
+      __builtin_arm_isb(0xF);
 
 
-    sets = (uint32_t)((((ccsidr) & (0x7FFFUL << 13U) ) >> 13U ));
+    locals.ccsidr = ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->CCSIDR;
+
+    locals.sets = (uint32_t)((((locals.ccsidr) & (0x7FFFUL << 13U) ) >> 13U ));
     do {
-      ways = (uint32_t)((((ccsidr) & (0x3FFUL << 3U)) >> 3U));
+      locals.ways = (uint32_t)((((locals.ccsidr) & (0x3FFUL << 3U)) >> 3U));
       do {
-        ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->DCCISW = (((sets << 5U) & (0x1FFUL << 5U)) |
-                       ((ways << 30U) & (3UL << 30U)) );
+        ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->DCCISW = (((locals.sets << 5U) & (0x1FFUL << 5U)) |
+                       ((locals.ways << 30U) & (3UL << 30U)) );
 
 
 
-      } while (ways-- != 0U);
-    } while(sets-- != 0U);
+      } while (locals.ways-- != 0U);
+    } while(locals.sets-- != 0U);
 
     __builtin_arm_dsb(0xF);
     __builtin_arm_isb(0xF);
@@ -1906,8 +1356,8 @@ __attribute__((always_inline)) static __inline void SCB_CleanInvalidateDCache (v
     __builtin_arm_isb(0xF);
 
 }
-# 2512 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-__attribute__((always_inline)) static __inline void SCB_InvalidateDCache_by_Addr (void *addr, int32_t dsize)
+# 358 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
+__attribute__((always_inline)) static __inline void SCB_InvalidateDCache_by_Addr (volatile void *addr, int32_t dsize)
 {
 
     if ( dsize > 0 ) {
@@ -1927,8 +1377,8 @@ __attribute__((always_inline)) static __inline void SCB_InvalidateDCache_by_Addr
     }
 
 }
-# 2542 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-__attribute__((always_inline)) static __inline void SCB_CleanDCache_by_Addr (uint32_t *addr, int32_t dsize)
+# 388 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
+__attribute__((always_inline)) static __inline void SCB_CleanDCache_by_Addr (volatile void *addr, int32_t dsize)
 {
 
     if ( dsize > 0 ) {
@@ -1948,8 +1398,8 @@ __attribute__((always_inline)) static __inline void SCB_CleanDCache_by_Addr (uin
     }
 
 }
-# 2572 "../Drivers/CMSIS/Include\\core_cm7.h" 3
-__attribute__((always_inline)) static __inline void SCB_CleanInvalidateDCache_by_Addr (uint32_t *addr, int32_t dsize)
+# 418 "../Drivers/CMSIS/Include/cachel1_armv7.h" 3
+__attribute__((always_inline)) static __inline void SCB_CleanInvalidateDCache_by_Addr (volatile void *addr, int32_t dsize)
 {
 
     if ( dsize > 0 ) {
@@ -1969,7 +1419,8 @@ __attribute__((always_inline)) static __inline void SCB_CleanInvalidateDCache_by
     }
 
 }
-# 2618 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2235 "../Drivers/CMSIS/Include\\core_cm7.h" 2 3
+# 2259 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t SysTick_Config(uint32_t ticks)
 {
   if ((ticks - 1UL) > (0xFFFFFFUL ))
@@ -1985,9 +1436,9 @@ static __inline uint32_t SysTick_Config(uint32_t ticks)
                    (1UL );
   return (0UL);
 }
-# 2648 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2289 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 extern volatile int32_t ITM_RxBuffer;
-# 2660 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2301 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline uint32_t ITM_SendChar (uint32_t ch)
 {
   if (((((ITM_Type *) (0xE0000000UL) )->TCR & (1UL )) != 0UL) &&
@@ -2001,7 +1452,7 @@ static __inline uint32_t ITM_SendChar (uint32_t ch)
   }
   return (ch);
 }
-# 2681 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2322 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline int32_t ITM_ReceiveChar (void)
 {
   int32_t ch = -1;
@@ -2014,7 +1465,7 @@ static __inline int32_t ITM_ReceiveChar (void)
 
   return (ch);
 }
-# 2701 "../Drivers/CMSIS/Include\\core_cm7.h" 3
+# 2342 "../Drivers/CMSIS/Include\\core_cm7.h" 3
 static __inline int32_t ITM_CheckChar (void)
 {
 
@@ -2043,7 +1494,10 @@ extern const uint8_t D1CorePrescTable[16] ;
 # 85 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h"
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
-extern void ExitRun0Mode(void);
+
+
+
+  extern void ExitRun0Mode(void);
 # 232 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h" 2
 # 242 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h743xx.h"
 typedef struct
@@ -3834,7 +3288,7 @@ typedef struct
   volatile uint32_t AXI_INI6_FN_MOD;
 
 } GPV_TypeDef;
-# 127 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
+# 123 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h" 2
 # 180 "../Drivers/CMSIS/Device/ST/STM32H7xx/Include\\stm32h7xx.h"
 typedef enum
 {
@@ -4828,7 +4282,7 @@ void HAL_RCCEx_CRS_ErrorCallback(uint32_t Error);
 # 7959 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h" 2
 # 7969 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h"
 HAL_StatusTypeDef HAL_RCC_DeInit(void);
-HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef *RCC_OscInitStruct);
+HAL_StatusTypeDef HAL_RCC_OscConfig(const RCC_OscInitTypeDef *RCC_OscInitStruct);
 HAL_StatusTypeDef HAL_RCC_ClockConfig(const RCC_ClkInitTypeDef *RCC_ClkInitStruct, uint32_t FLatency);
 # 7981 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_rcc.h"
 void HAL_RCC_MCOConfig(uint32_t RCC_MCOx, uint32_t RCC_MCOSource, uint32_t RCC_MCODiv);
@@ -8300,7 +7754,7 @@ typedef struct
   volatile HAL_TIM_DMABurstStateTypeDef DMABurstState;
 # 401 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 } TIM_HandleTypeDef;
-# 2189 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2182 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h" 1
 # 47 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 typedef struct
@@ -8407,8 +7861,8 @@ HAL_TIM_ChannelStateTypeDef HAL_TIMEx_GetChannelNState(const TIM_HandleTypeDef *
 # 513 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h"
 void TIMEx_DMACommutationCplt(DMA_HandleTypeDef *hdma);
 void TIMEx_DMACommutationHalfCplt(DMA_HandleTypeDef *hdma);
-# 2190 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 2
-# 2201 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2183 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h" 2
+# 2194 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_Base_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_Base_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim);
@@ -8422,7 +7876,7 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop_IT(TIM_HandleTypeDef *htim);
 
 HAL_StatusTypeDef HAL_TIM_Base_Start_DMA(TIM_HandleTypeDef *htim, const uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_Base_Stop_DMA(TIM_HandleTypeDef *htim);
-# 2223 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2216 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_OC_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_OC_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim);
@@ -8437,7 +7891,7 @@ HAL_StatusTypeDef HAL_TIM_OC_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIM_OC_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData,
                                        uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_OC_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2246 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2239 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_PWM_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_PWM_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim);
@@ -8452,7 +7906,7 @@ HAL_StatusTypeDef HAL_TIM_PWM_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channel)
 HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData,
                                         uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2269 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2262 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_IC_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_IC_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim);
@@ -8466,7 +7920,7 @@ HAL_StatusTypeDef HAL_TIM_IC_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channel);
 
 HAL_StatusTypeDef HAL_TIM_IC_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_IC_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2291 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2284 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_OnePulse_Init(TIM_HandleTypeDef *htim, uint32_t OnePulseMode);
 HAL_StatusTypeDef HAL_TIM_OnePulse_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_OnePulse_MspInit(TIM_HandleTypeDef *htim);
@@ -8477,7 +7931,7 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop(TIM_HandleTypeDef *htim, uint32_t Output
 
 HAL_StatusTypeDef HAL_TIM_OnePulse_Start_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 HAL_StatusTypeDef HAL_TIM_OnePulse_Stop_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
-# 2310 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2303 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_Encoder_Init(TIM_HandleTypeDef *htim, const TIM_Encoder_InitTypeDef *sConfig);
 HAL_StatusTypeDef HAL_TIM_Encoder_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef *htim);
@@ -8492,9 +7946,9 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Chan
 HAL_StatusTypeDef HAL_TIM_Encoder_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData1,
                                             uint32_t *pData2, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_Encoder_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2333 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2326 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 void HAL_TIM_IRQHandler(TIM_HandleTypeDef *htim);
-# 2343 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2336 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_OC_ConfigChannel(TIM_HandleTypeDef *htim, const TIM_OC_InitTypeDef *sConfig,
                                            uint32_t Channel);
 HAL_StatusTypeDef HAL_TIM_PWM_ConfigChannel(TIM_HandleTypeDef *htim, const TIM_OC_InitTypeDef *sConfig,
@@ -8525,7 +7979,7 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_MultiReadStart(TIM_HandleTypeDef *htim, uint3
 HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStop(TIM_HandleTypeDef *htim, uint32_t BurstRequestSrc);
 HAL_StatusTypeDef HAL_TIM_GenerateEvent(TIM_HandleTypeDef *htim, uint32_t EventSource);
 uint32_t HAL_TIM_ReadCapturedValue(const TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2382 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2375 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_PeriodElapsedHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim);
@@ -8536,7 +7990,7 @@ void HAL_TIM_PWM_PulseFinishedHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_TriggerCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_TriggerHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
-# 2409 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2402 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 HAL_TIM_StateTypeDef HAL_TIM_Base_GetState(const TIM_HandleTypeDef *htim);
 HAL_TIM_StateTypeDef HAL_TIM_OC_GetState(const TIM_HandleTypeDef *htim);
 HAL_TIM_StateTypeDef HAL_TIM_PWM_GetState(const TIM_HandleTypeDef *htim);
@@ -8548,7 +8002,7 @@ HAL_TIM_StateTypeDef HAL_TIM_Encoder_GetState(const TIM_HandleTypeDef *htim);
 HAL_TIM_ActiveChannel HAL_TIM_GetActiveChannel(const TIM_HandleTypeDef *htim);
 HAL_TIM_ChannelStateTypeDef HAL_TIM_GetChannelState(const TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_TIM_DMABurstStateTypeDef HAL_TIM_DMABurstState(const TIM_HandleTypeDef *htim);
-# 2433 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
+# 2426 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_tim.h"
 void TIM_Base_SetConfig(TIM_TypeDef *TIMx, const TIM_Base_InitTypeDef *Structure);
 void TIM_TI1_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection, uint32_t TIM_ICFilter);
 void TIM_OC2_SetConfig(TIM_TypeDef *TIMx, const TIM_OC_InitTypeDef *OC_Config);
@@ -8569,7 +8023,7 @@ void TIM_CCxChannelCmd(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t ChannelStat
 typedef struct
 {
   uint32_t BaudRate;
-# 66 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 64 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
   uint32_t WordLength;
 
 
@@ -8642,7 +8096,7 @@ typedef struct
   uint32_t MSBFirst;
 
 } UART_AdvFeatureInitTypeDef;
-# 179 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 177 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 typedef uint32_t HAL_UART_StateTypeDef;
 
 
@@ -8660,9 +8114,9 @@ typedef enum
   UART_CLOCKSOURCE_LSE = 0x40U,
   UART_CLOCKSOURCE_UNDEFINED = 0x80U
 } UART_ClockSourceTypeDef;
-# 206 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 204 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 typedef uint32_t HAL_UART_RxTypeTypeDef;
-# 217 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 215 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 typedef uint32_t HAL_UART_RxEventTypeTypeDef;
 
 
@@ -8719,9 +8173,9 @@ typedef struct __UART_HandleTypeDef
 
 
   volatile uint32_t ErrorCode;
-# 292 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 290 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 } UART_HandleTypeDef;
-# 1597 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1595 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 # 1 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h" 1
 # 46 "../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h"
 typedef struct
@@ -8762,8 +8216,8 @@ HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_IT(UART_HandleTypeDef *huart, uint8_t
 HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 
 HAL_UART_RxEventTypeTypeDef HAL_UARTEx_GetRxEventType(const UART_HandleTypeDef *huart);
-# 1598 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h" 2
-# 1609 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1596 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h" 2
+# 1607 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_Init(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_LIN_Init(UART_HandleTypeDef *huart, uint32_t BreakDetectLength);
@@ -8771,7 +8225,7 @@ HAL_StatusTypeDef HAL_MultiProcessor_Init(UART_HandleTypeDef *huart, uint8_t Add
 HAL_StatusTypeDef HAL_UART_DeInit(UART_HandleTypeDef *huart);
 void HAL_UART_MspInit(UART_HandleTypeDef *huart);
 void HAL_UART_MspDeInit(UART_HandleTypeDef *huart);
-# 1636 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1634 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
@@ -8800,7 +8254,7 @@ void HAL_UART_AbortTransmitCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_AbortReceiveCpltCallback(UART_HandleTypeDef *huart);
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size);
-# 1674 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1672 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 void HAL_UART_ReceiverTimeout_Config(UART_HandleTypeDef *huart, uint32_t TimeoutValue);
 HAL_StatusTypeDef HAL_UART_EnableReceiverTimeout(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_DisableReceiverTimeout(UART_HandleTypeDef *huart);
@@ -8811,10 +8265,10 @@ HAL_StatusTypeDef HAL_MultiProcessor_DisableMuteMode(UART_HandleTypeDef *huart);
 void HAL_MultiProcessor_EnterMuteMode(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_EnableTransmitter(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_EnableReceiver(UART_HandleTypeDef *huart);
-# 1694 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1692 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 HAL_UART_StateTypeDef HAL_UART_GetState(const UART_HandleTypeDef *huart);
 uint32_t HAL_UART_GetError(const UART_HandleTypeDef *huart);
-# 1712 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1710 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 HAL_StatusTypeDef UART_SetConfig(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_CheckIdleState(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_t Flag, FlagStatus Status,
@@ -8822,7 +8276,7 @@ HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_
 void UART_AdvFeatureConfig(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_Start_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-# 1730 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
+# 1728 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal_uart.h"
 extern const uint16_t UARTPrescTable[12];
 # 463 "../Core/Inc\\stm32h7xx_hal_conf.h" 2
 # 30 "../Drivers/STM32H7xx_HAL_Driver/Inc\\stm32h7xx_hal.h" 2

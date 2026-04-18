@@ -54,16 +54,17 @@ uint16_t RX_len;
 volatile uint8_t dma_finish_ad9220 = 0; 
 volatile uint8_t dma_finish_adc2   = 0;
 
-__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
-__attribute__((section (".AXI_SRAM")))  uint16_t adc2_buffer[FFT_N] ;
-__attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;//
-__attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;//
-__attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;//
-__attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;//
-__attribute__((section (".AXI_SRAM")))  uint16_t phase_adc_buffer[16] ;//混频信号采集
 
-max_3_index Top3_Mix;//
-max_3_index Top3_Inter;//
+__attribute__((section (".AXI_SRAM"), aligned(32)))  uint16_t adc1_buffer[FFT_N+4] ;//混合信号，由AD9220采集，前四个数据舍弃
+__attribute__((section (".AXI_SRAM"), aligned(32)))  uint16_t adc2_buffer[FFT_N] ;
+__attribute__((section (".AXI_SRAM"))) fftin FFTIN_Mix;
+__attribute__((section (".AXI_SRAM"))) fftin FFTIN_Inter;
+__attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Mix;
+__attribute__((section (".AXI_SRAM"))) fftdata FFTOUT_Inter;
+__attribute__((section (".AXI_SRAM"), aligned(32)))  uint16_t phase_adc_buffer[16] ;//混频信号采集
+
+max_3_index Top3_Mix;
+max_3_index Top3_Inter;
 Analysis_Result_t output;//频率分析结果
 
 PhaseLocker my_locker;
@@ -99,25 +100,37 @@ void App_process(void)
 
     dma_finish_ad9220 = 0;
     dma_finish_adc2 = 0;
-	
+    
     AD9220_Stop_DMA(); 
     HAL_ADC_Stop_DMA(&hadc2);
-	
+    
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
     SCB_InvalidateDCache_by_Addr((uint32_t *)adc2_buffer, sizeof(adc2_buffer));
-	
+    
     FFT_Task(&output);
-	
-    if (fabs(output.Original.Freq - current_target_freq) > 1.0f) {
-        current_target_freq = output.Original.Freq;
-        Send_Wave(&output);    
-        __disable_irq();
-        PhaseLock_Reset(&my_locker);  
-        __enable_irq();
+    
+
+    float freq_diff = fabs(output.Original.Freq - current_target_freq);
+    
+    if (my_locker.state == STATE_LOCKED) {
+
+        if (freq_diff > 5.0f) {
+            current_target_freq = output.Original.Freq;
+            Send_Wave(&output);    
+            __disable_irq();
+            PhaseLock_Reset(&my_locker);  
+            __enable_irq();
+        }
+    } else {
+        if (freq_diff > 1.0f) {
+            current_target_freq = output.Original.Freq;
+            Send_Wave(&output);    
+            __disable_irq();
+            PhaseLock_Reset(&my_locker);  
+            __enable_irq();
+        }
     }      
-		
     USART_Task(&output);
-		
     AD9220_Start_DMA(adc1_buffer, FFT_N + 4);
     HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&adc2_buffer, FFT_N);
 }
@@ -175,20 +188,20 @@ int main(void)
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   //  HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
-	 HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
-	 HAL_TIM_Base_Start(&htim3);
+     HAL_ADC_Start_DMA(&hadc2,(uint32_t*)&adc2_buffer,FFT_N);
+     HAL_TIM_Base_Start(&htim3);
    AD9220_Start_DMA(adc1_buffer, FFT_N+4);
-	 HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 16);
-	 HAL_TIM_Base_Start(&htim4);
-	 
-	 Init_AD9910();
-	 AD9910_FreWrite(300);//原始信号300hz
-	 AD9910_AmpWrite(15000);
-	 
-	 HMI_Init();	 
-	 
-	 // 参数含义：&控制块, 目标中点电压(ADC值), Kp, Ki, Kd, 单次最大相位步进(度)
-	 PhaseLock_Init(&my_locker, 25810.0f, 0.05f, 0.01f, 0.0f, 5.0f);
+     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)phase_adc_buffer, 16);
+     HAL_TIM_Base_Start(&htim4);
+    
+     Init_AD9910();
+     AD9910_FreWrite(300);//原始信号300hz
+     AD9910_AmpWrite(15000);
+    
+     HMI_Init();    
+    
+     // 参数含义：&控制块, 初始占位靶心, Kp, Ki, Kd, 单次最大相位步进(度)
+     PhaseLock_Init(&my_locker, 20480.0f, 0.05f, 0.2f, 0.0f, 5.0f);
 
   /* USER CODE END 2 */
 
@@ -196,7 +209,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	App_process();
+    App_process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -300,13 +313,16 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     {
         dma_finish_adc2 = 1; 
     }
-		
-			if(hadc->Instance == ADC1)
-	{
-		float phase_voltage = Get_Phase_ADC_Voltage();
-		PhaseLock_Process(&my_locker,phase_voltage);
-	}
+        
+            if(hadc->Instance == ADC1)
+    {
+
+        SCB_InvalidateDCache_by_Addr((uint32_t *)phase_adc_buffer, sizeof(phase_adc_buffer));
+        float phase_voltage = Get_Phase_ADC_Voltage();
+        PhaseLock_Process(&my_locker,phase_voltage);
+    }
 }
+
 
 /* USER CODE END 4 */
 

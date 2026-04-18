@@ -67,608 +67,7 @@ typedef unsigned long long uintmax_t;
 # 47 "../Drivers/CMSIS/Include\\cmsis_compiler.h"
 # 1 "../Drivers/CMSIS/Include/cmsis_armclang.h" 1
 # 31 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-
-
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 1 3
-
-
-
-
-
-
-# 1 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 1 3
-# 39 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfi(void) {
-  __builtin_arm_wfi();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __wfe(void) {
-  __builtin_arm_wfe();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sev(void) {
-  __builtin_arm_sev();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __sevl(void) {
-  __builtin_arm_sevl();
-}
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __yield(void) {
-  __builtin_arm_yield();
-}
-
-
-
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__swp(uint32_t __x, volatile uint32_t *__p) {
-  uint32_t v;
-  do
-    v = __builtin_arm_ldrex(__p);
-  while (__builtin_arm_strex(__x, __p));
-  return v;
-}
-# 107 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __nop(void) {
-  __builtin_arm_nop();
-}
-
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__ror(uint32_t __x, uint32_t __y) {
-  __y %= 32;
-  if (__y == 0)
-    return __x;
-  return (__x >> __y) | (__x << (32 - __y));
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rorll(uint64_t __x, uint32_t __y) {
-  __y %= 64;
-  if (__y == 0)
-    return __x;
-  return (__x >> __y) | (__x << (64 - __y));
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rorl(unsigned long __x, uint32_t __y) {
-
-  return __ror(__x, __y);
-
-
-
-}
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__clz(uint32_t __t) {
-  return __builtin_clz(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__clzl(unsigned long __t) {
-  return __builtin_clzl(__t);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__clzll(uint64_t __t) {
-  return __builtin_clzll(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__cls(uint32_t __t) {
-  return __builtin_arm_cls(__t);
-}
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__clsl(unsigned long __t) {
-
-  return __builtin_arm_cls(__t);
-
-
-
-}
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__clsll(uint64_t __t) {
-  return __builtin_arm_cls64(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rev(uint32_t __t) {
-  return __builtin_bswap32(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__revl(unsigned long __t) {
-
-  return __builtin_bswap32(__t);
-
-
-
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__revll(uint64_t __t) {
-  return __builtin_bswap64(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rev16(uint32_t __t) {
-  return __ror(__rev(__t), 16);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rev16ll(uint64_t __t) {
-  return (((uint64_t)__rev16(__t >> 32)) << 32) | __rev16(__t);
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rev16l(unsigned long __t) {
-
-    return __rev16(__t);
-
-
-
-}
-
-
-static __inline__ int16_t __attribute__((__always_inline__, __nodebug__))
-__revsh(int16_t __t) {
-  return __builtin_bswap16(__t);
-}
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__rbit(uint32_t __t) {
-  return __builtin_arm_rbit(__t);
-}
-
-static __inline__ uint64_t __attribute__((__always_inline__, __nodebug__))
-__rbitll(uint64_t __t) {
-
-  return (((uint64_t)__builtin_arm_rbit(__t)) << 32) |
-         __builtin_arm_rbit(__t >> 32);
-
-
-
-}
-
-static __inline__ unsigned long __attribute__((__always_inline__, __nodebug__))
-__rbitl(unsigned long __t) {
-
-  return __rbit(__t);
-
-
-
-}
-
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulbb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulbb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulbt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulbt(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smultb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smultb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smultt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smultt(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulwb(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulwb(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__,__nodebug__))
-__smulwt(int32_t __a, int32_t __b) {
-  return __builtin_arm_smulwt(__a, __b);
-}
-# 292 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qadd(int32_t __t, int32_t __v) {
-  return __builtin_arm_qadd(__t, __v);
-}
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qsub(int32_t __t, int32_t __v) {
-  return __builtin_arm_qsub(__t, __v);
-}
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__qdbl(int32_t __t) {
-  return __builtin_arm_qadd(__t, __t);
-}
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlabb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlabb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlabt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlabt(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlatb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlatb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlatt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlatt(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlawb(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlawb(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlawt(int32_t __a, int32_t __b, int32_t __c) {
-  return __builtin_arm_smlawt(__a, __b, __c);
-}
-# 345 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_acle.h" 3
-typedef int32_t int8x4_t;
-typedef int32_t int16x2_t;
-typedef uint32_t uint8x4_t;
-typedef uint32_t uint16x2_t;
-
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sxtab16(int16x2_t __a, int8x4_t __b) {
-  return __builtin_arm_sxtab16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sxtb16(int8x4_t __a) {
-  return __builtin_arm_sxtb16(__a);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__uxtab16(int16x2_t __a, int8x4_t __b) {
-  return __builtin_arm_uxtab16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__uxtb16(int8x4_t __a) {
-  return __builtin_arm_uxtb16(__a);
-}
-
-
-
-
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__sel(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_sel(__a, __b);
-}
-
-
-
-
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__qadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_qadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__qsub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_qsub8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__sadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_sadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__shadd8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_shadd8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__shsub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_shsub8(__a, __b);
-}
-static __inline__ int8x4_t __attribute__((__always_inline__, __nodebug__))
-__ssub8(int8x4_t __a, int8x4_t __b) {
-  return __builtin_arm_ssub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uhadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uhadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uhsub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uhsub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uqadd8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uqadd8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__uqsub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_uqsub8(__a, __b);
-}
-static __inline__ uint8x4_t __attribute__((__always_inline__, __nodebug__))
-__usub8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_usub8(__a, __b);
-}
-
-
-
-
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__usad8(uint8x4_t __a, uint8x4_t __b) {
-  return __builtin_arm_usad8(__a, __b);
-}
-static __inline__ uint32_t __attribute__((__always_inline__, __nodebug__))
-__usada8(uint8x4_t __a, uint8x4_t __b, uint32_t __c) {
-  return __builtin_arm_usada8(__a, __b, __c);
-}
-
-
-
-
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qsax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qsax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__qsub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_qsub16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_sadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__sasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_sasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shadd16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shadd16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shasx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shasx(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shsax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shsax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__shsub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_shsub16(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__ssax(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_ssax(__a, __b);
-}
-static __inline__ int16x2_t __attribute__((__always_inline__, __nodebug__))
-__ssub16(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_ssub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhsax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhsax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uhsub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uhsub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqadd16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqadd16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqasx(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqasx(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqsax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqsax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__uqsub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_uqsub16(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__usax(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_usax(__a, __b);
-}
-static __inline__ uint16x2_t __attribute__((__always_inline__, __nodebug__))
-__usub16(uint16x2_t __a, uint16x2_t __b) {
-  return __builtin_arm_usub16(__a, __b);
-}
-
-
-
-
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlad(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlad(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smladx(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smladx(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlald(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlald(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlaldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlaldx(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlsd(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlsd(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smlsdx(int16x2_t __a, int16x2_t __b, int32_t __c) {
-  return __builtin_arm_smlsdx(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlsld(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlsld(__a, __b, __c);
-}
-static __inline__ int64_t __attribute__((__always_inline__, __nodebug__))
-__smlsldx(int16x2_t __a, int16x2_t __b, int64_t __c) {
-  return __builtin_arm_smlsldx(__a, __b, __c);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smuad(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smuad(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smuadx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smuadx(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smusd(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smusd(__a, __b);
-}
-static __inline__ int32_t __attribute__((__always_inline__, __nodebug__))
-__smusdx(int16x2_t __a, int16x2_t __b) {
-  return __builtin_arm_smusdx(__a, __b);
-}
-# 8 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 2 3
-# 40 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__disable_fiq(void) {
-  unsigned int cpsr;
-
-  __asm__ __volatile__("mrs %[cpsr], faultmask\n"
-                       "cpsid f\n"
-                       : [cpsr] "=r"(cpsr));
-  return cpsr & 0x1;
-# 62 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__disable_irq(void) {
-  unsigned int cpsr;
-
-
-  __asm__ __volatile__("mrs %[cpsr], primask\n"
-                       "cpsid i\n"
-                       : [cpsr] "=r"(cpsr));
-  return cpsr & 0x1;
-# 89 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-
-
-
-
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__))
-__enable_fiq(void) {
-
-  __asm__ __volatile__("cpsie f");
-# 109 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__))
-__enable_irq(void) {
-
-  __asm__ __volatile__("cpsie i");
-# 124 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-}
-
-static __inline__ void __attribute__((__always_inline__, __nodebug__)) __force_stores(void) {
-    __asm__ __volatile__ ("" : : : "memory", "cc");
-}
-
-static void __attribute__((__always_inline__, __nodebug__)) __memory_changed(void) {
-    __asm__ __volatile__ ("" : : : "memory", "cc");
-}
-
-static void __attribute__((__always_inline__, __nodebug__)) __schedule_barrier(void) {
-    __asm__ __volatile__ ("" : : : "memory", "cc");
-}
-
-static __inline__ int __attribute__((__always_inline__, __nodebug__))
-__semihost(int val, const void *ptr) {
-  register int v __asm__("r0") = val;
-  register const void *p __asm__("r1") = ptr;
-  __asm__ __volatile__(
-
-
-      "bkpt 0xab"
-# 160 "D:\\Keil_v5\\ARM\\ARMCLANG\\Bin\\..\\include\\arm_compat.h" 3
-      : "+r"(v), "+r"(p)
-      :
-      : "memory", "cc");
-  return v;
-}
-
-
-static __inline__ unsigned int __attribute__((__always_inline__, __nodebug__))
-__vfp_status(unsigned int mask, unsigned int flags) {
-  unsigned int fpscr;
-  __asm__ __volatile__("vmrs %[fpscr], fpscr" : [fpscr] "=r"(fpscr));
-  unsigned int set = mask & flags;
-  unsigned int clear = mask & ~flags;
-  unsigned int toggle = ~mask & flags;
-  fpscr |= set;
-  fpscr &= ~clear;
-  fpscr ^= toggle;
-  __asm__ __volatile__("vmsr fpscr, %[fpscr]" : : [fpscr] "r"(fpscr));
-  return fpscr;
-}
-# 34 "../Drivers/CMSIS/Include/cmsis_armclang.h" 2 3
-# 68 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 64 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpacked"
 
@@ -706,7 +105,84 @@ __vfp_status(unsigned int mask, unsigned int flags) {
 
  struct __attribute__((packed, aligned(1))) T_UINT32_READ { uint32_t v; };
 #pragma clang diagnostic pop
-# 166 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 260 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint32_t op2)
+{
+  op2 %= 32U;
+  if (op2 == 0U)
+  {
+    return op1;
+  }
+  return (op1 >> op2) | (op1 << (32U - op2));
+}
+# 295 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint8_t __CLZ(uint32_t value)
+{
+# 306 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+  if (value == 0U)
+  {
+    return 32U;
+  }
+  return __builtin_clz(value);
+}
+# 425 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
+{
+  uint32_t result;
+
+  __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
+  return(result);
+}
+# 440 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t *ptr)
+{
+  uint32_t result;
+
+  __asm volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
+  return ((uint8_t) result);
+}
+# 455 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_t *ptr)
+{
+  uint32_t result;
+
+  __asm volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
+  return ((uint16_t) result);
+}
+# 470 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t *ptr)
+{
+  uint32_t result;
+
+  __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
+  return(result);
+}
+# 485 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
+{
+  __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
+}
+# 497 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
+{
+  __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
+}
+# 509 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __STRT(uint32_t value, volatile uint32_t *ptr)
+{
+  __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
+}
+# 737 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __enable_irq(void)
+{
+  __asm volatile ("cpsie i" : : : "memory");
+}
+# 750 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __disable_irq(void)
+{
+  __asm volatile ("cpsid i" : : : "memory");
+}
+# 762 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
 {
   uint32_t result;
@@ -714,12 +190,13 @@ __attribute__((always_inline)) static __inline uint32_t __get_CONTROL(void)
   __asm volatile ("MRS %0, control" : "=r" (result) );
   return(result);
 }
-# 196 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 792 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_CONTROL(uint32_t control)
 {
   __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
+  __builtin_arm_isb(0xF);
 }
-# 220 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 818 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_IPSR(void)
 {
   uint32_t result;
@@ -769,12 +246,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_PSP(void)
   __asm volatile ("MRS %0, psp" : "=r" (result) );
   return(result);
 }
-# 292 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 890 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_PSP(uint32_t topOfProcStack)
 {
   __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
-# 316 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 914 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
 {
   uint32_t result;
@@ -782,12 +259,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_MSP(void)
   __asm volatile ("MRS %0, msp" : "=r" (result) );
   return(result);
 }
-# 346 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 944 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_MSP(uint32_t topOfMainStack)
 {
   __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
-# 397 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 995 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
 {
   uint32_t result;
@@ -795,12 +272,34 @@ __attribute__((always_inline)) static __inline uint32_t __get_PRIMASK(void)
   __asm volatile ("MRS %0, primask" : "=r" (result) );
   return(result);
 }
-# 427 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1025 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_PRIMASK(uint32_t priMask)
 {
   __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
-# 470 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1053 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+__attribute__((always_inline)) static __inline void __enable_fault_irq(void)
+{
+  __asm volatile ("cpsie f" : : : "memory");
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static __inline void __disable_fault_irq(void)
+{
+  __asm volatile ("cpsid f" : : : "memory");
+}
+
+
+
+
+
+
+
 __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
 {
   uint32_t result;
@@ -808,12 +307,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_BASEPRI(void)
   __asm volatile ("MRS %0, basepri" : "=r" (result) );
   return(result);
 }
-# 500 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1105 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI(uint32_t basePri)
 {
   __asm volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
-# 525 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1130 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_BASEPRI_MAX(uint32_t basePri)
 {
   __asm volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
@@ -832,79 +331,12 @@ __attribute__((always_inline)) static __inline uint32_t __get_FAULTMASK(void)
   __asm volatile ("MRS %0, faultmask" : "=r" (result) );
   return(result);
 }
-# 566 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1171 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline void __set_FAULTMASK(uint32_t faultMask)
 {
   __asm volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
-# 902 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint32_t __ROR(uint32_t op1, uint32_t op2)
-{
-  op2 %= 32U;
-  if (op2 == 0U)
-  {
-    return op1;
-  }
-  return (op1 >> op2) | (op1 << (32U - op2));
-}
-# 937 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint8_t __CLZ(uint32_t value)
-{
-# 948 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-  if (value == 0U)
-  {
-    return 32U;
-  }
-  return __builtin_clz(value);
-}
-# 1063 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint32_t __RRX(uint32_t value)
-{
-  uint32_t result;
-
-  __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
-  return(result);
-}
-# 1078 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint8_t __LDRBT(volatile uint8_t *ptr)
-{
-  uint32_t result;
-
-  __asm volatile ("ldrbt %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return ((uint8_t) result);
-}
-# 1093 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint16_t __LDRHT(volatile uint16_t *ptr)
-{
-  uint32_t result;
-
-  __asm volatile ("ldrht %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return ((uint16_t) result);
-}
-# 1108 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline uint32_t __LDRT(volatile uint32_t *ptr)
-{
-  uint32_t result;
-
-  __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
-  return(result);
-}
-# 1123 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
-{
-  __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
-}
-# 1135 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
-{
-  __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
-}
-# 1147 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
-__attribute__((always_inline)) static __inline void __STRT(uint32_t value, volatile uint32_t *ptr)
-{
-  __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
-}
-# 1432 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
+# 1491 "../Drivers/CMSIS/Include/cmsis_armclang.h" 3
 __attribute__((always_inline)) static __inline int32_t __SMMLA (int32_t op1, int32_t op2, int32_t op3)
 {
   int32_t result;
